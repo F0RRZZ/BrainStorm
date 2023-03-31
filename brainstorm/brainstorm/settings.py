@@ -10,33 +10,62 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-from pathlib import Path
+import pathlib
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = pathlib.Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-_f@x@i!mb+u^38l4ev)cfk6wkc0$a6vgt!*wu(p#j$a*1e24bg'
+import os
+import pathlib
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+import dotenv
 
-ALLOWED_HOSTS = []
+import core.utils.env
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = pathlib.Path(__file__).resolve().parent.parent
+
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
+
+# Variables from .env
+dotenv.load_dotenv()
+
+SECRET_KEY = os.getenv('SECRET_KEY', 'default_key')
+
+DEBUG = core.utils.env.env_to_bool(os.getenv('DEBUG', 'false'))
+
+ALLOWED_HOSTS = core.utils.env.env_to_list(
+    os.getenv(
+        'ALLOWED_HOSTS',
+        '127.0.0.1',
+    ),
+)
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'core.apps.CoreConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+if DEBUG:
+    INSTALLED_APPS += [
+        'debug_toolbar',
+    ]
+
+INTERNAL_IPS = [
+    '127.0.0.1',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +77,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+if DEBUG:
+    MIDDLEWARE += [
+        "debug_toolbar.middleware.DebugToolbarMiddleware",
+    ]
 
 ROOT_URLCONF = 'brainstorm.urls'
 
@@ -103,7 +136,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
