@@ -24,3 +24,7 @@ blank_line_after_tag="load,extends,include"
 blank_line_before_tag="load,extends,include"
 preserve_blank_lines=true
 profile="django"
+
+[tool.isort]
+profile="google"
+known_first_party = ["core"]
