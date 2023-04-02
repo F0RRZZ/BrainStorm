@@ -21,6 +21,7 @@ import brainstorm.settings
 
 urlpatterns = [
     django.urls.path('admin/', django.contrib.admin.site.urls),
+    django.urls.path('projects/', django.urls.include('projects.urls')),
 ]
 
 if brainstorm.settings.DEBUG:

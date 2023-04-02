@@ -1,25 +1,24 @@
 import os
 import pathlib
 
-import environ
+import dotenv
+
+dotenv.load_dotenv()
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent.parent
 
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+SECRET_KEY = os.getenv('SECRET_KEY', default='this_is_no_secret_key')
 
-env = environ.Env(
-    ALLOWED_HOSTS=(list, ['*']),
-    DEBUG=(bool, True),
-    SECRET_KEY=(str, 'dummy-key'),
-)
+possible_true_values = ('true', '1', 'yes', 'y', 't')
 
-ALLOWED_HOSTS = env('ALLOWED_HOSTS')
+DEBUG = os.getenv('DEBUG', default='False').lower() in possible_true_values
 
-DEBUG = env('DEBUG')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
 
-SECRET_KEY = env('SECRET_KEY')
 
 INSTALLED_APPS = [
+    'comments.apps.CommentsConfig',
+    'projects.apps.ProjectsConfig',
     'core.apps.CoreConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -56,7 +55,7 @@ ROOT_URLCONF = 'brainstorm.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
