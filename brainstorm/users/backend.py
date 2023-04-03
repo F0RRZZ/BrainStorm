@@ -1,5 +1,4 @@
 from django.contrib.auth.backends import ModelBackend, UserModel
-
 from users.models import User
 
 

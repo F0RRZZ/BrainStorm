@@ -6,9 +6,8 @@ from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django.views.generic import CreateView, DetailView, UpdateView
-
-from users.models import User
 from users.forms import CustomUserCreationForm, UserProfileForm
+from users.models import User
 
 
 class SignUpView(CreateView):
@@ -84,14 +83,14 @@ class UserDetailView(DetailView):
         projects = None
         comments = None
         context.update(
-                    {
-                        'first_name': first_name,
-                        'last_name': last_name,
-                        'image': image,
-                        'projects': projects,
-                        'comments': comments,
-                    }
-                )
+            {
+                'first_name': first_name,
+                'last_name': last_name,
+                'image': image,
+                'projects': projects,
+                'comments': comments,
+            }
+        )
         return context
 
 

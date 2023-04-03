@@ -1,7 +1,6 @@
 import django.contrib.auth.models
 import django.db.models
 import django.shortcuts
-
 from users.models import User
 
 
