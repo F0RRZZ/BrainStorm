@@ -3,6 +3,8 @@ import re
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
 
+from users.managers import UserManager
+
 
 class NormalizedEmailField(models.EmailField):
     def __init__(self, *args, **kwargs):
@@ -106,6 +108,8 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
+
+    objects = UserManager()
 
     class Meta:
         verbose_name = 'пользователь'
