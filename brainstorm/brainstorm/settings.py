@@ -20,14 +20,17 @@ DEBUG = env('DEBUG')
 SECRET_KEY = env('SECRET_KEY')
 
 INSTALLED_APPS = [
-    'core.apps.CoreConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core.apps.CoreConfig',
+    'feeds.apps.FeedsConfig',
+    'users.apps.UsersConfig',
 ]
+
 if DEBUG:
     INSTALLED_APPS += [
         'debug_toolbar',
