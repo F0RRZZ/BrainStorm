@@ -10,4 +10,21 @@ class CustomUserCreationForm(BootstrapFormMixin, UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2')
+        fields = (
+            User.username.field.name,
+            User.email.field.name,
+            'password1',
+            'password2',
+        )
+
+
+class UserProfileForm(BootstrapFormMixin, forms.ModelForm):
+    class Meta:
+        model = User
+        field = [
+            User.email.field.name,
+            User.username.field.name,
+            User.first_name.field.name,
+            User.last_name.field.name,
+            User.image.field.name,
+        ]

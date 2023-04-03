@@ -1,13 +1,14 @@
 from django.conf import settings
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.mail import send_mail
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.utils import timezone
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, UpdateView
 
 from users.models import User
-from users.forms import CustomUserCreationForm
+from users.forms import CustomUserCreationForm, UserProfileForm
 
 
 class SignUpView(CreateView):
@@ -65,3 +66,45 @@ class ActivateUser(DetailView):
         user.save()
 
         return user
+
+
+class UserDetailView(DetailView):
+    # TODO: add projects and comments in context
+
+    template_name = 'users/user_detail.html'
+    queryset = User.objects.all()
+    pk_url_kwarg = 'pk'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.object
+        first_name = user.first_name if user.first_name else 'не указано'
+        last_name = user.last_name if user.last_name else 'не указано'
+        image = user.image if user.image else 'не указано'
+        projects = None
+        comments = None
+        context.update(
+                    {
+                        'first_name': first_name,
+                        'last_name': last_name,
+                        'image': image,
+                        'projects': projects,
+                        'comments': comments,
+                    }
+                )
+        return context
+
+
+class ProfileView(LoginRequiredMixin, UpdateView):
+    model = User
+    form_class = UserProfileForm
+    template_name = 'users/profile.html'
+    success_url = reverse_lazy('users:profile')
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['image'] = self.request.user.image
+        return context

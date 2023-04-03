@@ -72,4 +72,10 @@ urlpatterns = [
         views.ActivationDoneView.as_view(),
         name='activation_done',
     ),
+    path(
+        'user_detail/<int:pk>/',
+        views.UserDetailView.as_view(),
+        name='user_detail',
+    ),
+    path('profile/', views.ProfileView.as_view(), name='profile'),
 ]
