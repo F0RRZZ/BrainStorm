@@ -18,12 +18,13 @@ class FeedbackFormView(FormView):
     success_url = reverse_lazy('feedback:success')
 
     def form_valid(self, form):
+        subject = form.cleaned_data.get('subject')
         text = form.cleaned_data.get('text')
         email = form.cleaned_data.get('email')
         personal_data = feedback.models.PersonalData(email=email)
         personal_data.save()
         new_feedback = feedback.models.Feedback(
-            text=text, personal_data=personal_data
+            subject=subject, text=text, personal_data=personal_data
         )
         new_feedback.save()
         if self.request.FILES.getlist('files'):
@@ -38,7 +39,7 @@ class FeedbackFormView(FormView):
                 )
                 feedback_file.save()
         send_mail(
-            'Subject',
+            subject,
             text,
             settings.EMAIL,
             [email],
