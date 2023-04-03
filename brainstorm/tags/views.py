@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from django.views.generic import ListView
+from tags.models import Tag
 
-# Create your views here.
+
+class TagsListView(ListView):
+    model = Tag
+    template_name = 'tags/list.html'
+
+    def get_queryset(self):
+        return Tag.objects.all()

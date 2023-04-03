@@ -45,7 +45,7 @@ class SignUpView(CreateView):
         return super().form_valid(form)
 
 
-class ActivateUser(DetailView):
+class ActivateUserView(DetailView):
     model = User
     template_name = 'users/confirm_email.html'
 
