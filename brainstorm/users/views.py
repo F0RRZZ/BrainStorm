@@ -54,7 +54,7 @@ class ActivateUser(DetailView):
 
         if user.last_login is None:
             if timezone.now() - user.date_joined > timezone.timedelta(
-                    hours=12
+                hours=12
             ):
                 raise Http404
         else:
