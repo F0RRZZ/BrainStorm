@@ -1,22 +1,22 @@
 import django.urls
-from . import views
+import projects.views
 
 app_name = 'projects'
 
 urlpatterns = [
     django.urls.path(
         'view/<int:project_id>',
-        views.ViewProjects,
+        projects.views.viewprojects,
         name='create'
     ),
     django.urls.path(
         'create/',
-        views.CreateProject,
+        projects.views.createproject,
         name='create'
     ),
     django.urls.path(
         'redact/<int:project_id>',
-        views.RedactProject,
+        projects.views.redactproject,
         name='create'
     )
 ]
