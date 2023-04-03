@@ -10,14 +10,16 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 env = environ.Env(
     ALLOWED_HOSTS=(list, ['*']),
     DEBUG=(bool, True),
+    EMAIL=(str, 'example@example.com'),
     SECRET_KEY=(str, 'dummy-key'),
 )
 
 ALLOWED_HOSTS = env('ALLOWED_HOSTS')
-
 DEBUG = env('DEBUG')
-
+EMAIL = env('EMAIL')
 SECRET_KEY = env('SECRET_KEY')
+
+USERS_AUTOACTIVATE = True if DEBUG else env('USERS_AUTOACTIVATE')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
