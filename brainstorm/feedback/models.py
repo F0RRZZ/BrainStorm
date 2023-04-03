@@ -7,10 +7,19 @@ class Feedback(models.Model):
         ('processing', 'в обработке'),
         ('answered', 'ответ дан'),
     ]
-    subject = models.CharField('subject', max_length=200, help_text='тема',)
-    text = models.TextField('text', help_text='содержание письма',)
+    subject = models.CharField(
+        'subject',
+        max_length=200,
+        help_text='тема',
+    )
+    text = models.TextField(
+        'text',
+        help_text='содержание письма',
+    )
     created_on = models.DateTimeField(
-        'created_on', auto_now_add=True, help_text='время создания отзыва',
+        'created_on',
+        auto_now_add=True,
+        help_text='время создания отзыва',
     )
     personal_data = models.OneToOneField(
         'PersonalData',

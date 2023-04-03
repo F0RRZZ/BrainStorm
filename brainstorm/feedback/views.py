@@ -6,7 +6,6 @@ from django.core.mail import send_mail
 from django.urls import reverse_lazy
 from django.views.generic import FormView
 from django.views.generic.base import TemplateView
-
 import feedback.forms
 import feedback.models
 
