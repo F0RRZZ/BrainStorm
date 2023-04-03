@@ -29,7 +29,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core.apps.CoreConfig',
+    'feedback.apps.FeedbackConfig',
     'feeds.apps.FeedsConfig',
+    'tags.apps.TagsConfig',
     'users.apps.UsersConfig',
 ]
 
