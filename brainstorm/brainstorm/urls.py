@@ -8,6 +8,7 @@ import brainstorm.settings
 
 urlpatterns = [
     path('feed/', include('feeds.urls', namespace='feeds')),
+    path('feedback/', include('feedback.urls', namespace='feedback')),
     path('auth/', include('users.urls', namespace='users')),
     path('auth/', include(django.contrib.auth.urls)),
     path('admin/', django.contrib.admin.site.urls),

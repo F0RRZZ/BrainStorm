@@ -1,7 +1,7 @@
 import django.contrib.auth.models
 import django.db.models
 import django.shortcuts
-from users.models import User
+import users.models
 
 
 class UserManager(django.contrib.auth.models.BaseUserManager):
@@ -31,6 +31,6 @@ class UserManager(django.contrib.auth.models.BaseUserManager):
         return django.shortcuts.get_object_or_404(
             self.filter(
                 is_active=True,
-            ).only(User.username.field.name),
+            ).only(users.models.User.username.field.name),
             id=pk,
         )
