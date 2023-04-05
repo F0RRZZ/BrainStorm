@@ -1,19 +1,23 @@
 import os
 import pathlib
 
-import dotenv
-
-dotenv.load_dotenv()
+import environ
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY', default='this_is_no_secret_key')
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-possible_true_values = ('true', '1', 'yes', 'y', 't')
+env = environ.Env(
+    ALLOWED_HOSTS=(list, ['*']),
+    DEBUG=(bool, True),
+    SECRET_KEY=(str, 'dummy-key'),
+)
 
-DEBUG = os.getenv('DEBUG', default='False').lower() in possible_true_values
+ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
+DEBUG = env('DEBUG')
+
+SECRET_KEY = env('SECRET_KEY')
 
 
 INSTALLED_APPS = [
