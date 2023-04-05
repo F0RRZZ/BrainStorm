@@ -1,16 +1,23 @@
 import django.shortcuts
+import django.views.generic
 
 
-def viewprojects(request, project_id):
+class ViewProject(django.views.generic.TemplateView):
     template_name = 'projects/project_view.html'
-    return django.shortcuts.render(request, template_name)
+
+    def get_context_data(self, **kwargs):
+        return super().get_context_data(**kwargs)
 
 
-def createproject(request):
+class CreateProject(django.views.generic.TemplateView):
     template_name = 'projects/project_create.html'
-    return django.shortcuts.render(request, template_name)
+
+    def get_context_data(self, **kwargs):
+        return super().get_context_data(**kwargs)
 
 
-def redactproject(request, project_id):
+class RedactProject(django.views.generic.TemplateView):
     template_name = 'projects/project_redact.html'
-    return django.shortcuts.render(request, template_name)
+
+    def get_context_data(self, **kwargs):
+        return super().get_context_data(**kwargs)
