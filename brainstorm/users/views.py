@@ -5,7 +5,8 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.utils import timezone
-from django.views.generic import CreateView, DetailView, UpdateView
+from django.views.generic import CreateView, DetailView, UpdateView, \
+    TemplateView
 from users.forms import CustomUserCreationForm, UserProfileForm
 from users.models import User
 
@@ -92,6 +93,10 @@ class UserDetailView(DetailView):
             }
         )
         return context
+
+
+class ActivationDoneView(TemplateView, LoginRequiredMixin):
+    template_name = 'users/activate_link_sends.html'
 
 
 class ProfileView(LoginRequiredMixin, UpdateView):
