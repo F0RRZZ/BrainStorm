@@ -4,8 +4,6 @@ import django.contrib.admin
 import django.contrib.auth.urls
 from django.urls import include, path
 
-import brainstorm.settings
-
 urlpatterns = [
     path('feed/', include('feeds.urls', namespace='feeds')),
     path('feedback/', include('feedback.urls', namespace='feedback')),
@@ -15,5 +13,7 @@ urlpatterns = [
     path('admin/', django.contrib.admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-if brainstorm.settings.DEBUG:
-    urlpatterns += path('__debug__/', include('debug_toolbar.urls'))
+if settings.DEBUG:
+    import debug_toolbar
+
+    urlpatterns += (path('__debug__/', include(debug_toolbar.urls)),)

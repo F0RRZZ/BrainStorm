@@ -5,13 +5,12 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.utils import timezone
-from django.views.generic import CreateView, DetailView, UpdateView, \
-    TemplateView
+import django.views.generic
 from users.forms import CustomUserCreationForm, UserProfileForm
 from users.models import User
 
 
-class SignUpView(CreateView):
+class SignUpView(django.views.generic.CreateView):
     form_class = CustomUserCreationForm
     template_name = 'users/signup.html'
     success_url = (
@@ -46,7 +45,7 @@ class SignUpView(CreateView):
         return super().form_valid(form)
 
 
-class ActivateUserView(DetailView):
+class ActivateUserView(django.views.generic.DetailView):
     model = User
     template_name = 'users/confirm_email.html'
 
@@ -68,7 +67,7 @@ class ActivateUserView(DetailView):
         return user
 
 
-class UserDetailView(DetailView):
+class UserDetailView(django.views.generic.DetailView):
     # TODO: add projects and comments in context
 
     template_name = 'users/user_detail.html'
@@ -95,11 +94,13 @@ class UserDetailView(DetailView):
         return context
 
 
-class ActivationDoneView(TemplateView, LoginRequiredMixin):
+class ActivationDoneView(
+    django.views.generic.TemplateView, LoginRequiredMixin
+):
     template_name = 'users/activate_link_sends.html'
 
 
-class ProfileView(LoginRequiredMixin, UpdateView):
+class ProfileView(LoginRequiredMixin, django.views.generic.UpdateView):
     model = User
     form_class = UserProfileForm
     template_name = 'users/profile.html'
