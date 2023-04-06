@@ -1,19 +1,51 @@
-from django.conf import settings
-from django.conf.urls.static import static
+import django.conf
+import django.conf.urls.static
 import django.contrib.admin
 import django.contrib.auth.urls
-from django.urls import include, path
+import django.urls
 
 urlpatterns = [
-    path('feed/', include('feeds.urls', namespace='feeds')),
-    path('feedback/', include('feedback.urls', namespace='feedback')),
-    path('tags/', include('tags.urls', namespace='tags')),
-    path('auth/', include('users.urls', namespace='users')),
-    path('auth/', include(django.contrib.auth.urls)),
-    path('admin/', django.contrib.admin.site.urls),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    django.urls.path(
+        '',
+        django.urls.include('core.urls', namespace='core'),
+    ),
+    django.urls.path(
+        'feed/',
+        django.urls.include('feeds.urls', namespace='feeds'),
+    ),
+    django.urls.path(
+        'feedback/',
+        django.urls.include('feedback.urls', namespace='feedback'),
+    ),
+    django.urls.path(
+        'tags/',
+        django.urls.include('tags.urls', namespace='tags'),
+    ),
+    django.urls.path(
+        'auth/',
+        django.urls.include('users.urls', namespace='users'),
+    ),
+    django.urls.path(
+        'auth/',
+        django.urls.include(django.contrib.auth.urls),
+    ),
+    django.urls.path(
+        'admin/',
+        django.contrib.admin.site.urls,
+    ),
+]
 
-if settings.DEBUG:
+urlpatterns += django.conf.urls.static.static(
+    django.conf.settings.MEDIA_URL,
+    document_root=django.conf.settings.MEDIA_ROOT,
+)
+
+if django.conf.settings.DEBUG:
     import debug_toolbar
 
-    urlpatterns += (path('__debug__/', include(debug_toolbar.urls)),)
+    urlpatterns += (
+        django.urls.path(
+            '__debug__/',
+            django.urls.include(debug_toolbar.urls),
+        ),
+    )
