@@ -1,0 +1,11 @@
+{% load i18n %}
+{% load static %}
+
+<div class="d-flex" role="search" id="search-string">
+  <input class="form-control me-2"
+         type="search"
+         placeholder="{% trans "type_what_you_search" %}"
+         aria-label="Search"/>
+  <button class="btn btn-outline-success" type="submit">{% trans "search" %}</button>
+</div>
+<script src="{% static 'js/search_string.js' %}"></script>

@@ -3,83 +3,127 @@
 {% load static %}
 
 <nav class="border-down">
-    <div class="navbar navbar-expand-lg">
-        <div class="container">
-            <div class="bs-top-nav-container">
-                <a class="navbar-brand d-flex align-items-center justify-content-between"
-                   href="{% url 'core:main' %}">
-                    <img src="{% static 'img/icons/favicon.ico' %}"
-                         alt="Logo"
-                         width="40px"
-                         height="40px"
-                         class="d-inline-block align-text-top"/>
-                    <div class="ms-1">BrainStorm</div>
-                </a>
-                <div class="d-flex">
-                    {% if user.is_authenticated %}
-                        <a class="btn btn-info me-2" href="{% url 'users:profile' %}">{% trans "profile" %}</a>
-                        <a class="btn btn-secondary" href="{% url 'users:signout' %}">{% trans "logout" %}</a>
-                    {% else %}
-                        <a class="btn btn-primary me-2" href="{% url 'users:login' %}">{% trans "login" %}</a>
-                        <a class="btn btn-success" href="{% url 'users:signup' %}">{% trans "register" %}</a>
-                    {% endif %}
-                </div>
-            </div>
+  <div class="navbar navbar-expand-lg">
+    <div class="container">
+      <div class="bs-top-nav-container">
+        <a class="navbar-brand d-flex align-items-center justify-content-between"
+           href="{% url 'core:main' %}">
+          <img src="{% static 'img/icons/favicon.ico' %}"
+               alt="Logo"
+               width="40px"
+               height="40px"
+               class="d-inline-block align-text-top"/>
+          <div class="ms-1">BrainStorm</div>
+        </a>
+        <div class="d-flex">
+          {% if user.is_authenticated %}
+            <a class="btn btn-info me-2" href="{% url 'users:profile' %}">{% trans "profile" %}</a>
+            <a class="btn btn-secondary" href="{% url 'users:signout' %}">{% trans "logout" %}</a>
+          {% else %}
+            <a class="btn btn-primary me-2" href="{% url 'users:login' %}">{% trans "login" %}</a>
+            <a class="btn btn-success" href="{% url 'users:signup' %}">{% trans "register" %}</a>
+          {% endif %}
         </div>
+      </div>
     </div>
-    <div class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container">
-            <a class="navbar-brand" href="#">Навигация</a>
-            <button class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+  </div>
+  <div class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand fs-6" href="#">{% trans "navigation" %}:</a>
+      <button class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        {% with request.resolver_match.view_name as view_name %}
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle{% if view_name == 'feeds:new' or view_name == 'feeds:best' or view_name == 'feeds:speaked' or view_name == 'feeds:archive' %} active{% endif %}"
+                 href="#"
+                 role="button"
+                 data-bs-toggle="dropdown"
+                 aria-expanded="false">{% trans "feeds" %}</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item{% if view_name == 'feeds:new' %} active{% endif %}"
+                     href="{% url 'feeds:new' %}">{% trans "new" %}</a>
+                </li>
+                <li>
+                  <a class="dropdown-item{% if view_name == 'feeds:best' %} active{% endif %}"
+                     href="{% url 'feeds:best' %}">{% trans "popular" %}</a>
+                </li>
+                <li>
+                  <a class="dropdown-item{% if view_name == 'feeds:speaked' %} active{% endif %}"
+                     href="{% url 'feeds:speaked' %}">{% trans "speaked" %}</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item{% if view_name == 'feeds:archive' %} active{% endif %}"
+                     href="{% url 'feeds:archive' %}">{% trans "archive" %}</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link{% if view_name == 'tags:list' %} active{% endif %}"
+                 aria-current="page"
+                 href="{% url 'tags:list' %}">{% trans "tags" %}</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle{% if view_name == 'about:main' or view_name == 'about:rules' or view_name == 'feedback:feedback' %} active{% endif %}"
+                 href="#"
+                 role="button"
+                 data-bs-toggle="dropdown"
+                 aria-expanded="false">{% trans "site" %}</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item{% if view_name == 'about:main' %} active{% endif %}"
+                     href="{% url 'about:main' %}">{% trans "about_us" %}</a>
+                </li>
+                <li>
+                  <a class="dropdown-item{% if view_name == 'about:rules' %} active{% endif %}"
+                     href="{% url 'about:rules' %}">{% trans "rules" %}</a>
+                </li>
+                <li>
+                  <a class="dropdown-item{% if view_name == 'feedback:feedback' %} active{% endif %}"
+                     href="{% url 'feedback:feedback' %}">{% trans "give_feedback" %}</a>
+                </li>
+              </ul>
+            </li>
+            {% if user.is_superuser or user.is_stuff %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"
+                   href="#"
+                   role="button"
+                   data-bs-toggle="dropdown"
+                   aria-expanded="false">{% trans "ruling" %}</a>
+                <ul class="dropdown-menu">
+                  {% if user.is_superuser %}
+                    <li>
+                      <a class="dropdown-item{% if view_name == 'admin:index' %} active{% endif %}"
+                         href="{% url 'admin:index' %}">{% trans "admin" %}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle"
-                           href="#"
-                           role="button"
-                           data-bs-toggle="dropdown"
-                           aria-expanded="false">Dropdown</a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" href="#">Action</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Another action</a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider" />
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
-                    </li>
+                  {% endif %}
+                  {% comment %} <li>
+                                <a class="dropdown-item{% if view_name == 'feedback:list' %} active{% endif %}" href="{% url 'feedback:list' %}">{% trans "feedback_list" %}</a>
+                  </li> {% endcomment %}
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2"
-                           type="search"
-                           placeholder="Search"
-                           aria-label="Search" />
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
+              </li>
+            {% endif %}
+          </ul>
+        {% endwith %}
+        {% block search_string %}
+
+          {% include "includes/search_string.html" %}
+
+        {% endblock search_string %}
+      </div>
     </div>
+  </div>
 </nav>

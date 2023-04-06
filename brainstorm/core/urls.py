@@ -1,7 +1,6 @@
 import django.urls
 
 import core.views
-import feeds.views
 
 app_name = 'core'
 urlpatterns = [

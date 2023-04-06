@@ -2,9 +2,9 @@ name: Linting
 
 on:
   push:
-    branches: [ "main", "develop" ]
+    branches: [ "main", "develop", "feature/templates" ]
   pull_request:
-    branches: [ "main", "develop" ]
+    branches: [ "main", "develop", "feature/templates" ]
 
 jobs:
   build:

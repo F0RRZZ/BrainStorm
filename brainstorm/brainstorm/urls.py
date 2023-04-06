@@ -18,6 +18,10 @@ urlpatterns = [
         django.urls.include('feedback.urls', namespace='feedback'),
     ),
     django.urls.path(
+        'about/',
+        django.urls.include('about.urls', namespace='about'),
+    ),
+    django.urls.path(
         'tags/',
         django.urls.include('tags.urls', namespace='tags'),
     ),
