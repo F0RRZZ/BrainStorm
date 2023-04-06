@@ -14,6 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+import django.conf
+import django.conf.urls.static
 import django.contrib.admin
 import django.urls
 
@@ -23,6 +25,11 @@ urlpatterns = [
     django.urls.path('admin/', django.contrib.admin.site.urls),
     django.urls.path('projects/', django.urls.include('projects.urls')),
 ]
+
+urlpatterns += django.conf.urls.static.static(
+    django.conf.settings.MEDIA_URL,
+    document_root=django.conf.settings.MEDIA_ROOT
+)
 
 if brainstorm.settings.DEBUG:
     urlpatterns += [

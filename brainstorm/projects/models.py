@@ -1,15 +1,8 @@
 import django.contrib.auth.models
 import django.db.models
 import django.utils.safestring
-import sorl.thumbnail
 
-
-def directory_path(instance, filename):
-    if type(instance) == Project:
-        path = f'{instance.name}_{instance.author.id}'
-    else:
-        path = f'{instance.project.name}_{instance.project.author.id}'
-    return f'{path}/{filename}'
+import core.models
 
 
 class Project(django.db.models.Model):
@@ -25,27 +18,14 @@ class Project(django.db.models.Model):
         related_name='project'
     )
 
-    main_image = django.db.models.ImageField(
-        'главная картинка',
-        upload_to=directory_path,
-        null=True,
-        blank=True
-    )
-
-    def get_image_300x300(self, size='300x300'):
-        return (
-            sorl.thumbnail
-            .get_thumbnail(self.main_image, size, crop='center', quality=51)
-        )
-
     name = django.db.models.CharField(
         'название',
-        help_text='Назовите продукт',
+        help_text='Назовите проект',
         max_length=150
     )
     description = django.db.models.TextField(
         'описание',
-        help_text='Введите описание продукта',
+        help_text='Введите описание проекта',
     )
     collaborators = django.db.models.ManyToManyField(
         django.contrib.auth.models.User,
@@ -62,8 +42,6 @@ class Project(django.db.models.Model):
         'в архиве',
         default=False,
     )
-    # добавить теги
-    # добавить комментарии
     status = django.db.models.CharField(
         'статус проетка',
         max_length=14,
@@ -80,12 +58,12 @@ class Project(django.db.models.Model):
     )
 
     class Meta:
-        verbose_name = 'продукт'
-        verbose_name_plural = 'продукты'
+        verbose_name = 'проект'
+        verbose_name_plural = 'проекты'
 
     def image_tmb(self):
-        if self.main_image:
-            image_url = self.get_image_300x300('300x300').url
+        if self.preview:
+            image_url = self.preview.get_image_300x300().url
             return django.utils.safestring.mark_safe(
                 f'<img src="{image_url}" width="50" height="50">'
             )
@@ -95,27 +73,35 @@ class Project(django.db.models.Model):
     image_tmb.allow_tags = True
 
 
-class ImagesGallery(django.db.models.Model):
-    image = django.db.models.ImageField(
-        'Будет приведено к разрешению 300x300',
-        upload_to=directory_path,
+class Preview(core.models.ProjectImage):
+    project = django.db.models.OneToOneField(
+        Project,
+        verbose_name=Project._meta.verbose_name,
+        help_text='Какому проекту принадлежит превью',
+        on_delete=django.db.models.CASCADE,
+        related_name='preview',
     )
 
-    def get_image_300x300(self, size='300x300'):
-        return (
-            sorl.thumbnail
-            .get_thumbnail(self.image, size, quality=51)
-        )
+    class Meta:
+        verbose_name = 'превью'
+        verbose_name_plural = 'превьюшки'
 
+    def __str__(self):
+        return self.image.url
+
+
+class ImagesGallery(core.models.ProjectImage):
     project = django.db.models.ForeignKey(
         Project,
         verbose_name='продукт',
         on_delete=django.db.models.CASCADE,
+        help_text='Какому проекту принадлежит картинка',
+        related_name='images_gallery'
     )
 
     class Meta:
-        verbose_name = 'картинка'
-        verbose_name_plural = 'картинки'
+        verbose_name = 'галлерея'
+        verbose_name_plural = 'галлереи'
 
     def __str__(self):
         return self.image.url
