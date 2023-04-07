@@ -1,12 +1,14 @@
-from django import forms
-from django.contrib.auth.forms import UserCreationForm
+import django.forms
+import django.contrib.auth.forms
 
-from core.forms import BootstrapFormMixin
+import core.forms
 from users.models import User
 
 
-class CustomUserCreationForm(BootstrapFormMixin, UserCreationForm):
-    email = forms.EmailField(required=True)
+class CustomUserCreationForm(
+    core.forms.BootstrapFormMixin, django.contrib.auth.forms.UserCreationForm
+):
+    email = django.forms.EmailField(required=True)
 
     class Meta:
         model = User
@@ -18,7 +20,7 @@ class CustomUserCreationForm(BootstrapFormMixin, UserCreationForm):
         )
 
 
-class UserProfileForm(BootstrapFormMixin, forms.ModelForm):
+class UserProfileForm(core.forms.BootstrapFormMixin, django.forms.ModelForm):
     class Meta:
         model = User
         fields = [
@@ -28,3 +30,24 @@ class UserProfileForm(BootstrapFormMixin, forms.ModelForm):
             User.last_name.field.name,
             User.image.field.name,
         ]
+
+
+class LoginForm(
+    core.forms.BootstrapFormMixin,
+    django.contrib.auth.forms.AuthenticationForm,
+):
+    pass
+
+
+class PasswordChangeForm(
+    core.forms.BootstrapFormMixin,
+    django.contrib.auth.forms.PasswordChangeForm,
+):
+    pass
+
+
+class PasswordResetForm(
+    core.forms.BootstrapFormMixin,
+    django.contrib.auth.forms.PasswordResetForm,
+):
+    pass

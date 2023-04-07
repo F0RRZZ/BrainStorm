@@ -1,44 +1,54 @@
-"""brainstorm URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-
 import django.conf
 import django.conf.urls.static
 import django.contrib.admin
 import django.contrib.auth.urls
-from django.urls import include, path
+import django.urls
 
 urlpatterns = [
-    path('projects/', django.urls.include('projects.urls')),
-    path('feed/', include('feeds.urls', namespace='feeds')),
-    path('feedback/', include('feedback.urls', namespace='feedback')),
-    path('tags/', include('tags.urls', namespace='tags')),
-    path('auth/', include('users.urls', namespace='users')),
-    path('auth/', include(django.contrib.auth.urls)),
-    path('admin/', django.contrib.admin.site.urls),
-] + django.conf.urls.static.static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    django.urls.path(
+        'projects/',
+        django.urls.include('projects.urls')
+    ),
+    django.urls.path(
+        '',
+        django.urls.include('core.urls', namespace='core'),
+    ),
+    django.urls.path(
+        'feed/',
+        django.urls.include('feeds.urls', namespace='feeds'),
+    ),
+    django.urls.path(
+        'feedback/',
+        django.urls.include('feedback.urls', namespace='feedback'),
+    ),
+    django.urls.path(
+        'about/',
+        django.urls.include('about.urls', namespace='about'),
+    ),
+    django.urls.path(
+        'tags/',
+        django.urls.include('tags.urls', namespace='tags'),
+    ),
+    django.urls.path(
+        'auth/',
+        django.urls.include('users.urls', namespace='users'),
+    ),
+    django.urls.path(
+        'auth/',
+        django.urls.include(django.contrib.auth.urls),
+    ),
+    django.urls.path(
+        'admin/',
+        django.contrib.admin.site.urls,
+    ),
+]
 
 urlpatterns += django.conf.urls.static.static(
     django.conf.settings.MEDIA_URL,
     document_root=django.conf.settings.MEDIA_ROOT,
 )
 
-if brainstorm.settings.DEBUG:
-    urlpatterns += [
-        django.urls.path(
-            '__debug__/',
-            django.urls.include('debug_toolbar.urls'),
-        ),
-    ]
+if django.conf.settings.DEBUG:
+    import debug_toolbar
+    
+    urlpatterns += (path('__debug__/', include(debug_toolbar.urls)),)

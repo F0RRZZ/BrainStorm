@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sorl.thumbnail',
     'django_cleanup.apps.CleanupConfig',
+    'about.apps.AboutConfig',
     'core.apps.CoreConfig',
     'feedback.apps.FeedbackConfig',
     'feeds.apps.FeedsConfig',
@@ -66,7 +67,9 @@ ROOT_URLCONF = 'brainstorm.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [
+            BASE_DIR / 'templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

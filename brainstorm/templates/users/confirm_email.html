@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block title %}
+  {% trans "user_activation_done" %}
+{% endblock title %}
+
+{% block content %}
+  <div class="container">
+    <h3>{% trans "user_activation_done" %}</h3>
+    <div class="alert alert-success" role="alert">{% trans "user_activation_done_info" %}</div>
+    <p class="mt-2">
+      <a href="{% url 'users:login' %}" class="link-secondary">{% trans "login" %}</a>
+    </p>
+  </div>
+{% endblock content %}

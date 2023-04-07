@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block title %}
+  {% trans "signup" %}
+{% endblock title %}
+
+{% block content %}
+  <div class="container">
+    <h3 class="mb-3">{% trans "signup" %}</h3>
+
+    {% include "includes/form.html" %}
+
+    <p class="mt-2">
+      <a href="{% url 'users:login' %}" class="link-secondary">{% trans "login" %}</a>
+    </p>
+  </div>
+{% endblock content %}

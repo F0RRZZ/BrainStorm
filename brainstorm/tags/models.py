@@ -11,7 +11,7 @@ class Tag(models.Model):
         max_length=150,
         help_text='Максимум 150 символов',
     )
-    description = models.CharField(
+    description = models.TextField(
         'description',
         max_length=300,
         help_text='Описание. Максимум 300 символов',
