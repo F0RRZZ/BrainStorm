@@ -10,27 +10,31 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 env = environ.Env(
     ALLOWED_HOSTS=(list, ['*']),
     DEBUG=(bool, True),
+    EMAIL=(str, 'example@example.com'),
     SECRET_KEY=(str, 'dummy-key'),
 )
 
 ALLOWED_HOSTS = env('ALLOWED_HOSTS')
-
 DEBUG = env('DEBUG')
-
+EMAIL = env('EMAIL')
 SECRET_KEY = env('SECRET_KEY')
 
+USERS_AUTOACTIVATE = True if DEBUG else env('USERS_AUTOACTIVATE')
 
 INSTALLED_APPS = [
-    'comments.apps.CommentsConfig',
-    'projects.apps.ProjectsConfig',
-    'core.apps.CoreConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core.apps.CoreConfig',
+    'feedback.apps.FeedbackConfig',
+    'feeds.apps.FeedsConfig',
+    'tags.apps.TagsConfig',
+    'users.apps.UsersConfig',
 ]
+
 if DEBUG:
     INSTALLED_APPS += [
         'debug_toolbar',
@@ -116,5 +120,25 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static_dev',
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = BASE_DIR / 'sent_emails'
+
+LOGIN_URL = '/auth/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+
+AUTH_USER_MODEL = 'users.User'
+AUTHENTICATION_BACKENDS = [
+    'users.backend.NormalizedEmailAuthBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
