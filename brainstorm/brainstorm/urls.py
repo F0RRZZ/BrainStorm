@@ -6,6 +6,10 @@ import django.urls
 
 urlpatterns = [
     django.urls.path(
+        'projects/',
+        django.urls.include('projects.urls')
+    ),
+    django.urls.path(
         '',
         django.urls.include('core.urls', namespace='core'),
     ),
