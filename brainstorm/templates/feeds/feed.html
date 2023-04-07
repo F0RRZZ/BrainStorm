@@ -1,1 +1,20 @@
+{% extends "base.html" %}
 
+{% block title %}
+    {{ feed_name }}
+{% endblock title %}
+
+{% block header %}
+    {% with render_search=True %}{{ block.super }}{% endwith %}
+{% endblock header %}
+
+{% block content %}
+    <div class="container">
+        <div class="bs-feed-main-container">
+            <div class="bs-feed-feed-container">
+                <h2 class="text-center">{{ feed_name }}</h2>
+            </div>
+            {% include "includes/tags_selector.html" %}
+        </div>
+    </div>
+{% endblock content %}

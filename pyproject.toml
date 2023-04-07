@@ -27,4 +27,4 @@ profile="django"
 
 [tool.isort]
 profile="google"
-known_first_party = ["about", "core"]
+known_first_party = ["about", "core", "feedback", "feeds", "tags", "users"]

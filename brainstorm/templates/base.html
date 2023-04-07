@@ -54,10 +54,11 @@
     <div class="bs-all-content">
       <div>
         <head role="banner">
+          {% block header %}
 
-          {% include "includes/header.html" %}
+            {% include "includes/header.html" %}
 
-
+          {% endblock header %}
         </head>
         <main role="main">
           {% block content %}
@@ -69,12 +70,11 @@
 
         {% include "includes/footer.html" %}
 
-
       </footer>
     </div>
     <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/bootstrap/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap/bootstrap.esm.min.js' %}"></script>
+    <script type="module" src="{% static 'js/bootstrap/bootstrap.esm.min.js' %}"></script>
     <script src="https://kit.fontawesome.com/497b41eca7.js"
             crossorigin="anonymous"></script>
   </body>

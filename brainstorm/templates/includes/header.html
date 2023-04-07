@@ -119,9 +119,11 @@
           </ul>
         {% endwith %}
         {% block search_string %}
+          {% if render_search %}
 
-          {% include "includes/search_string.html" %}
+            {% include "includes/search_string.html" %}
 
+          {% endif %}
         {% endblock search_string %}
       </div>
     </div>

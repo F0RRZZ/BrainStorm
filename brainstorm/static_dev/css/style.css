@@ -18,3 +18,19 @@ p:empty {
 .bs-fit-content-table {
   width: fit-content !important;
 }
+
+.bs-feed-main-container {
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bs-feed-feed-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+}

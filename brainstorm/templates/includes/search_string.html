@@ -1,4 +1,5 @@
 {% load i18n %}
+
 {% load static %}
 
 <div class="d-flex" role="search" id="search-string">
@@ -8,4 +9,4 @@
          aria-label="Search"/>
   <button class="btn btn-outline-success" type="submit">{% trans "search" %}</button>
 </div>
-<script src="{% static 'js/search_string.js' %}"></script>
+<script type="module" src="{% static 'js/search_string.js' %}"></script>
