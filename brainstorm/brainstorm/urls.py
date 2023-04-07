@@ -17,14 +17,18 @@ Including another URLconf
 import django.conf
 import django.conf.urls.static
 import django.contrib.admin
-import django.urls
-
-import brainstorm.settings
+import django.contrib.auth.urls
+from django.urls import include, path
 
 urlpatterns = [
-    django.urls.path('admin/', django.contrib.admin.site.urls),
-    django.urls.path('projects/', django.urls.include('projects.urls')),
-]
+    path('projects/', django.urls.include('projects.urls')),
+    path('feed/', include('feeds.urls', namespace='feeds')),
+    path('feedback/', include('feedback.urls', namespace='feedback')),
+    path('tags/', include('tags.urls', namespace='tags')),
+    path('auth/', include('users.urls', namespace='users')),
+    path('auth/', include(django.contrib.auth.urls)),
+    path('admin/', django.contrib.admin.site.urls),
+] + django.conf.urls.static.static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += django.conf.urls.static.static(
     django.conf.settings.MEDIA_URL,
