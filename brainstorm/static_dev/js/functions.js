@@ -20,7 +20,7 @@ export function getUrlWithNewArgument(arg, value, url=window.location.href) {
         }
     }
     if (value) {
-        newArgs.push(`${arg}=${value}`);
+        newArgs.push(`${arg}=${encodeURIComponent(value)}`);
     }
     return `${baseUrl}?${newArgs.join("&")}`
 }
@@ -32,7 +32,7 @@ export function getArgumentFromUrl(arg, default_="", url=window.location.href) {
         let param, value;
         [param, value] = argument.split("=");
         if (param == arg) {
-            return value;
+            return decodeURIComponent(value);
         }
     }
     return default_;

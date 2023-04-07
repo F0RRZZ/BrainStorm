@@ -9,9 +9,4 @@ urlpatterns = [
         core.views.TestView.as_view(),
         name='main',
     ),
-    django.urls.path(
-        '<path:template>/',
-        core.views.TestView.as_view(),
-        name='test_templates',
-    ),
 ]

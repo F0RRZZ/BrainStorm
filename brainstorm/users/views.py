@@ -1,17 +1,19 @@
 from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
+import django.contrib.auth.views
 from django.core.mail import send_mail
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.utils import timezone
 import django.views.generic
-from users.forms import CustomUserCreationForm, UserProfileForm
-from users.models import User
+
+import users.forms
+import users.models
 
 
 class SignUpView(django.views.generic.CreateView):
-    form_class = CustomUserCreationForm
+    form_class = users.forms.CustomUserCreationForm
     template_name = 'users/signup.html'
     success_url = (
         reverse_lazy('users:activation_done')
@@ -46,11 +48,13 @@ class SignUpView(django.views.generic.CreateView):
 
 
 class ActivateUserView(django.views.generic.DetailView):
-    model = User
+    model = users.models.User
     template_name = 'users/confirm_email.html'
 
     def get_object(self, queryset=None):
-        user = get_object_or_404(User, username=self.kwargs['username'])
+        user = get_object_or_404(
+            users.models.User, username=self.kwargs['username']
+        )
 
         if user.last_login is None:
             if timezone.now() - user.date_joined > timezone.timedelta(
@@ -71,7 +75,7 @@ class UserDetailView(django.views.generic.DetailView):
     # TODO: add projects and comments in context
 
     template_name = 'users/user_detail.html'
-    queryset = User.objects.all()
+    queryset = users.models.User.objects.all()
     pk_url_kwarg = 'pk'
 
     def get_context_data(self, **kwargs):
@@ -101,8 +105,8 @@ class ActivationDoneView(
 
 
 class ProfileView(LoginRequiredMixin, django.views.generic.UpdateView):
-    model = User
-    form_class = UserProfileForm
+    model = users.models.User
+    form_class = users.forms.UserProfileForm
     template_name = 'users/profile.html'
     success_url = reverse_lazy('users:profile')
 
@@ -113,3 +117,24 @@ class ProfileView(LoginRequiredMixin, django.views.generic.UpdateView):
         context = super().get_context_data(**kwargs)
         context['image'] = self.request.user.image
         return context
+
+
+class LoginView(
+    django.contrib.auth.views.LoginView,
+):
+    form_class = users.forms.LoginForm
+    template_name = 'users/login.html'
+
+
+class PasswordChangeView(
+    django.contrib.auth.views.PasswordChangeView,
+):
+    form_class = users.forms.PasswordChangeForm
+    template_name = 'users/password_change.html'
+
+
+class PasswordResetView(
+    django.contrib.auth.views.PasswordResetView,
+):
+    form_class = users.forms.PasswordResetForm
+    template_name = 'users/password_reset.html'

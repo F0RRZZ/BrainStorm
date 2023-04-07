@@ -18,7 +18,7 @@
         <div class="d-flex">
           {% if user.is_authenticated %}
             <a class="btn btn-info me-2" href="{% url 'users:profile' %}">{% trans "profile" %}</a>
-            <a class="btn btn-secondary" href="{% url 'users:signout' %}">{% trans "logout" %}</a>
+            <a class="btn btn-secondary" href="{% url 'users:logout' %}">{% trans "logout" %}</a>
           {% else %}
             <a class="btn btn-primary me-2" href="{% url 'users:login' %}">{% trans "login" %}</a>
             <a class="btn btn-success" href="{% url 'users:signup' %}">{% trans "register" %}</a>
@@ -43,14 +43,14 @@
         {% with request.resolver_match.view_name as view_name %}
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle{% if view_name == 'feeds:new' or view_name == 'feeds:best' or view_name == 'feeds:speaked' or view_name == 'feeds:archive' %} active{% endif %}"
+              <a class="nav-link dropdown-toggle{% if view_name == 'core:main' or view_name == 'feeds:new' or view_name == 'feeds:best' or view_name == 'feeds:speaked' or view_name == 'feeds:archive' %} active{% endif %}"
                  href="#"
                  role="button"
                  data-bs-toggle="dropdown"
                  aria-expanded="false">{% trans "feeds" %}</a>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="dropdown-item{% if view_name == 'feeds:new' %} active{% endif %}"
+                  <a class="dropdown-item{% if view_name == 'core:main' or view_name == 'feeds:new' %} active{% endif %}"
                      href="{% url 'feeds:new' %}">{% trans "new" %}</a>
                 </li>
                 <li>
