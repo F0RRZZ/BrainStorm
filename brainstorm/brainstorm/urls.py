@@ -46,10 +46,5 @@ urlpatterns += django.conf.urls.static.static(
 
 if django.conf.settings.DEBUG:
     import debug_toolbar
-
-    urlpatterns += (
-        django.urls.path(
-            '__debug__/',
-            django.urls.include(debug_toolbar.urls),
-        ),
-    )
+    
+    urlpatterns += (path('__debug__/', include(debug_toolbar.urls)),)
