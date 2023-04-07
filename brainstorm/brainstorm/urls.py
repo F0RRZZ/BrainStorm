@@ -5,6 +5,7 @@ import django.contrib.auth.urls
 from django.urls import include, path
 
 urlpatterns = [
+    path('projects/', django.urls.include('projects.urls')),
     path('feed/', include('feeds.urls', namespace='feeds')),
     path('feedback/', include('feedback.urls', namespace='feedback')),
     path('tags/', include('tags.urls', namespace='tags')),
@@ -15,5 +16,5 @@ urlpatterns = [
 
 if settings.DEBUG:
     import debug_toolbar
-
+    
     urlpatterns += (path('__debug__/', include(debug_toolbar.urls)),)
