@@ -28,7 +28,7 @@ urlpatterns = [
 
 urlpatterns += django.conf.urls.static.static(
     django.conf.settings.MEDIA_URL,
-    document_root=django.conf.settings.MEDIA_ROOT
+    document_root=django.conf.settings.MEDIA_ROOT,
 )
 
 if brainstorm.settings.DEBUG:

@@ -15,11 +15,11 @@ class Comment(django.db.models.Model):
         django.contrib.auth.models.User,
         on_delete=django.db.models.CASCADE,
         verbose_name='пользователь',
-        related_name='comment'
+        related_name='comment',
     )
     text = django.db.models.TextField(
         'комментарий',
-        help_text='Оставить комментарий'
+        help_text='Оставить комментарий',
     )
 
     class Meta:

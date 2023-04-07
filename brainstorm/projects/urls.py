@@ -7,16 +7,16 @@ urlpatterns = [
     django.urls.path(
         'view/<int:project_id>',
         projects.views.ViewProject.as_view(),
-        name='view'
+        name='view',
     ),
     django.urls.path(
         'create/',
         projects.views.CreateProject.as_view(),
-        name='create'
+        name='create',
     ),
     django.urls.path(
         'redact/<int:project_id>',
         projects.views.RedactProject.as_view(),
-        name='redact'
-    )
+        name='redact',
+    ),
 ]

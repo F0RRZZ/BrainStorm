@@ -7,21 +7,21 @@ import core.models
 
 class Project(django.db.models.Model):
     class Status(django.db.models.TextChoices):
-        DEVELOPMENT = 'development', 'В разработке',
-        READY = 'ready', 'Готов'
+        DEVELOPMENT = ('development', 'В разработке')
+        READY = ('ready', 'Готов')
 
     author = django.db.models.ForeignKey(
         django.contrib.auth.models.User,
         on_delete=django.db.models.CASCADE,
         verbose_name='автор',
         help_text='Кто автор',
-        related_name='project'
+        related_name='project',
     )
 
     name = django.db.models.CharField(
         'название',
         help_text='Назовите проект',
-        max_length=150
+        max_length=150,
     )
     description = django.db.models.TextField(
         'описание',
@@ -50,11 +50,11 @@ class Project(django.db.models.Model):
     )
     creation_date = django.db.models.DateTimeField(
         'дата создания',
-        auto_now_add=True
+        auto_now_add=True,
     )
     update_date = django.db.models.DateTimeField(
         'дата изменения',
-        auto_now=True
+        auto_now=True,
     )
 
     class Meta:
@@ -96,7 +96,7 @@ class ImagesGallery(core.models.ProjectImage):
         verbose_name='продукт',
         on_delete=django.db.models.CASCADE,
         help_text='Какому проекту принадлежит картинка',
-        related_name='images_gallery'
+        related_name='images_gallery',
     )
 
     class Meta:
