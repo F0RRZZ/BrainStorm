@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block title %}
+  {% trans "activate_link_sent" %}
+{% endblock title %}
+
+{% block content %}
+  <div class="container">
+    <h3>{% trans "activate_link_sent" %}</h3>
+    <div class="alert alert-success" role="alert">{% trans "activate_link_sent_info" %}</div>
+  </div>
+{% endblock content %}
