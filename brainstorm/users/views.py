@@ -18,7 +18,7 @@ class SignUpView(django.views.generic.CreateView):
     success_url = (
         reverse_lazy('users:activation_done')
         if not settings.DEBUG
-        else reverse_lazy('index:index')
+        else reverse_lazy('core:main')
     )
 
     def form_valid(self, form):
