@@ -10,17 +10,19 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 env = environ.Env(
     ALLOWED_HOSTS=(list, ['*']),
     DEBUG=(bool, True),
-    EMAIL=(str, 'example@example.com'),
+    EMAIL_ADDRESS=(str, 'example@example.com'),
+    EMAIL_PASSWORD=(str, 'password'),
     SECRET_KEY=(str, 'dummy-key'),
+    USERS_AUTOACTIVATE=(bool, True),
 )
 
 ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 DEBUG = env('DEBUG')
-EMAIL = env('EMAIL')
+EMAIL = env('EMAIL_ADDRESS')
 
 SECRET_KEY = env('SECRET_KEY')
 
-USERS_AUTOACTIVATE = True if DEBUG else env('USERS_AUTOACTIVATE')
+USERS_AUTOACTIVATE = env('USERS_AUTOACTIVATE')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -135,8 +137,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 
-EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_FILE_PATH = BASE_DIR / 'sent_emails'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = EMAIL
+EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 LOGIN_URL = '/auth/login/'
 LOGIN_REDIRECT_URL = '/'

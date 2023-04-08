@@ -17,7 +17,7 @@ class SignUpView(django.views.generic.CreateView):
     template_name = 'users/signup.html'
     success_url = (
         reverse_lazy('users:activation_done')
-        if not settings.DEBUG
+        if not settings.USERS_AUTOACTIVATE
         else reverse_lazy('core:main')
     )
 
