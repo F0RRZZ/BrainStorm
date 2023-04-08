@@ -9,6 +9,7 @@ urlpatterns = [
         '',
         django.urls.include('core.urls', namespace='core'),
     ),
+    django.urls.path('projects/', django.urls.include('projects.urls')),
     django.urls.path(
         'feed/',
         django.urls.include('feeds.urls', namespace='feeds'),
@@ -46,5 +47,9 @@ urlpatterns += django.conf.urls.static.static(
 
 if django.conf.settings.DEBUG:
     import debug_toolbar
-    
-    urlpatterns += (path('__debug__/', include(debug_toolbar.urls)),)
+
+    urlpatterns += (
+        django.urls.path(
+            '__debug__/', django.urls.include(debug_toolbar.urls)
+        ),
+    )

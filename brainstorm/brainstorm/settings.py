@@ -17,6 +17,7 @@ env = environ.Env(
 ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 DEBUG = env('DEBUG')
 EMAIL = env('EMAIL')
+
 SECRET_KEY = env('SECRET_KEY')
 
 USERS_AUTOACTIVATE = True if DEBUG else env('USERS_AUTOACTIVATE')
@@ -28,6 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sorl.thumbnail',
+    'django_cleanup.apps.CleanupConfig',
     'about.apps.AboutConfig',
     'core.apps.CoreConfig',
     'feedback.apps.FeedbackConfig',
