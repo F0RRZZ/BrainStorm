@@ -31,6 +31,10 @@ urlpatterns = [
         django.urls.include('users.urls', namespace='users'),
     ),
     django.urls.path(
+        'accounts/',
+        django.urls.include('allauth.urls'),
+    ),
+    django.urls.path(
         'auth/',
         django.urls.include(django.contrib.auth.urls),
     ),

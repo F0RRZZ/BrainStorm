@@ -12,6 +12,8 @@ env = environ.Env(
     DEBUG=(bool, True),
     EMAIL_ADDRESS=(str, 'example@example.com'),
     EMAIL_PASSWORD=(str, 'password'),
+    GITHUB_CLIENT_ID=(str, 'client_id'),
+    GITHUB_SECRET_KEY=(str, 'secret_key'),
     SECRET_KEY=(str, 'dummy-key'),
     USERS_AUTOACTIVATE=(bool, True),
 )
@@ -31,8 +33,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sorl.thumbnail',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
     'django_cleanup.apps.CleanupConfig',
+    'sorl.thumbnail',
     'about.apps.AboutConfig',
     'core.apps.CoreConfig',
     'feedback.apps.FeedbackConfig',
@@ -154,4 +160,17 @@ AUTH_USER_MODEL = 'users.User'
 AUTHENTICATION_BACKENDS = [
     'users.backend.NormalizedEmailAuthBackend',
     'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+SITE_ID = 1
+
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'APP': {
+            'client_id': env('GITHUB_CLIENT_ID'),
+            'secret': env('GITHUB_SECRET_KEY'),
+            'key': '',
+        }
+    }
+}
