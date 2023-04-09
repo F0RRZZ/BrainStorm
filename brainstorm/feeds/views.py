@@ -1,5 +1,5 @@
-import django.views.generic
 from django.utils.translation import gettext_lazy as _
+import django.views.generic
 
 import projects.models
 import tags.models

@@ -48,6 +48,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     bio = models.TextField(
         'bio',
         max_length=1000,
+        default='',
         help_text='О себе',
     )
     first_name = models.CharField(

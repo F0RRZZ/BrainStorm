@@ -15,9 +15,9 @@ class Project(django.db.models.Model):
     author = django.db.models.ForeignKey(
         users.models.User,
         on_delete=django.db.models.CASCADE,
+        related_name='projects',
         verbose_name='автор',
         help_text='Кто автор',
-        related_name='project',
     )
 
     name = django.db.models.CharField(
