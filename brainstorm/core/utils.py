@@ -1,3 +1,4 @@
+import django.conf
 import sorl.thumbnail
 
 
@@ -14,7 +15,7 @@ class ImageMixin:
                 self.image, '50x50', crop='center', quality=51
             )
         return sorl.thumbnail.get_thumbnail(
-            'static/img/user_default.jpg', '50x50', crop='center', quality=51
+            django.conf.settings.DEFAULT_USER_IMAGE_PATH, '50x50', crop='center', quality=51,
         )
 
     def __str__(self):

@@ -11,6 +11,28 @@
   flex: 1;
 }
 
+.bs-user-nav-block img {
+  border: solid 3px rgb(45, 43, 43);
+  border-radius: 10px;
+  transition: all 0.1s ease-in;
+}
+
+.bs-user-nav-block a:last-child {
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.1s ease-in;
+  color: black;
+}
+
+.bs-user-nav-block:hover img {
+  border-color: #4cbbab;
+}
+
+.bs-user-nav-block:hover a:last-child {
+  color: #4cbbab;
+  text-decoration: underline;
+}
+
 .bs-fit-content-element {
   width: fit-content !important;
 }

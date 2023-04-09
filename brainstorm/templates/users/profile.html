@@ -55,6 +55,7 @@
         </div>
       </div>
       <div class="bs-child-vertical-container">
+        <h5 class="mb-4">{% trans "my_projects" %}</h5>
         {% for project in user.projects.all %}
           {% with show_author=False %}
 

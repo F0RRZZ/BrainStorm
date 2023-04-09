@@ -131,6 +131,10 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static_dev',
 ]
 
+DEFAULT_USER_IMAGE_PATH = 'images/user_default.jpg'
+
+THUMBNAIL_DEBUG = True
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = BASE_DIR / 'media'
