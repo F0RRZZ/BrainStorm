@@ -1,4 +1,5 @@
 import django.views.generic
+from django.utils.translation import gettext_lazy as _
 
 import projects.models
 import tags.models
@@ -13,28 +14,28 @@ class GetContextMixin:
 
 
 class NewProjectsView(GetContextMixin, django.views.generic.ListView):
-    feed_name = 'Последние активные'
+    feed_name = _('new')
     template_name = 'feeds/feed.html'
     context_object_name = 'projects'
     queryset = projects.models.Project.objects.all()
 
 
 class BestProjectsView(GetContextMixin, django.views.generic.ListView):
-    feed_name = 'Самые популярные'
+    feed_name = _('most_popular')
     template_name = 'feeds/feed.html'
     context_object_name = 'projects'
     queryset = projects.models.Project.objects.all()
 
 
 class SpeakedProjectsView(GetContextMixin, django.views.generic.ListView):
-    feed_name = 'Самые обсуждаемые'
+    feed_name = _('most_speaked')
     template_name = 'feeds/feed.html'
     context_object_name = 'projects'
     queryset = projects.models.Project.objects.all()
 
 
 class ArchiveProjectsView(GetContextMixin, django.views.generic.ListView):
-    feed_name = 'Архив проектов'
+    feed_name = _('projects_archive')
     template_name = 'feeds/feed.html'
     context_object_name = 'projects'
     queryset = projects.models.Project.objects.all()

@@ -1,1 +1,17 @@
+{% extends "base.html" %}
 
+{% load i18n %}
+
+{% load static %}
+
+{% block title %}
+  {% trans "my_profile" %}
+{% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/user_view.css' %}" />
+  <div class="container">
+    <h3 class="mb-3">{% trans "my_profile" %}</h3>
+    
+  </div>
+{% endblock content %}

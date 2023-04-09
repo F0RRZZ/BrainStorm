@@ -8,7 +8,7 @@ class Comment(django.db.models.Model):
     project = django.db.models.ForeignKey(
         projects.models.Project,
         verbose_name='проект',
-        related_name='project',
+        related_name='commants',
         on_delete=django.db.models.CASCADE,
         help_text='Какому проекту принадлежит комментарий',
     )
@@ -16,7 +16,7 @@ class Comment(django.db.models.Model):
         django.contrib.auth.models.User,
         on_delete=django.db.models.CASCADE,
         verbose_name='пользователь',
-        related_name='comment',
+        related_name='comments',
     )
     text = django.db.models.TextField(
         'комментарий',

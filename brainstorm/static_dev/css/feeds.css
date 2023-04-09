@@ -1,0 +1,26 @@
+.bs-feed-main-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 991.5px) {
+  .bs-feed-main-container {
+    flex-direction: column;
+  }
+}
+
+.bs-feed-feed-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bs-tags-selector-container {
+  min-width: 300px;
+}

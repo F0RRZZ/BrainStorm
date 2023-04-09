@@ -1,0 +1,20 @@
+.bs-all-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.bs-top-nav-container {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.bs-fit-content-element {
+  width: fit-content !important;
+}
+
+p:empty {
+  display: none;
+}
