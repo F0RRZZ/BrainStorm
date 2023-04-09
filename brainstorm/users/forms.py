@@ -1,3 +1,5 @@
+import re
+
 import django.forms
 import django.contrib.auth.forms
 
@@ -18,6 +20,12 @@ class CustomUserCreationForm(
             'password1',
             'password2',
         )
+
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        if not re.match(r'^[\w-]+$', username):
+            raise django.forms.ValidationError('Недопустимое имя пользователя')
+        return username
 
 
 class UserProfileForm(core.forms.BootstrapFormMixin, django.forms.ModelForm):

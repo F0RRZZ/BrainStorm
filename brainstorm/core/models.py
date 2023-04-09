@@ -10,7 +10,7 @@ def directory_path(instance, filename):
 
 class ProjectImage(django.db.models.Model, core.utils.ImageMixin):
     image = django.db.models.ImageField(
-        'фотка',
+        'превью',
         upload_to=directory_path,
     )
 

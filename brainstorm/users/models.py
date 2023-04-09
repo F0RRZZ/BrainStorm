@@ -40,25 +40,27 @@ class NormalizedEmailField(models.EmailField):
 
 class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(
-        'username',
+        'имя пользователя',
         max_length=100,
-        help_text='Имя пользователя',
+        help_text=(
+            'Допускаются только буквы, цифры, дефис и нижнее подчеркивание'
+        ),
         unique=True,
     )
     bio = models.TextField(
-        'bio',
+        'о себе',
         max_length=1000,
         help_text='О себе',
     )
     first_name = models.CharField(
-        'first name',
+        'имя',
         max_length=100,
         null=True,
         blank=True,
         help_text='Имя',
     )
     last_name = models.CharField(
-        'last name',
+        'фамилия',
         max_length=100,
         null=True,
         blank=True,
@@ -71,7 +73,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         help_text='Электронная почта',
     )
     normalized_email = NormalizedEmailField(
-        'normalized email address',
+        'нормализованная почта',
         unique=True,
         help_text='Нормализованная электронная почта',
     )
@@ -101,7 +103,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         return 'avatars/user_{}{}'.format(self.id, ext)
 
     image = models.ImageField(
-        'profile picture',
+        'аватар',
         upload_to=get_image_filename,
         null=True,
         blank=True,
