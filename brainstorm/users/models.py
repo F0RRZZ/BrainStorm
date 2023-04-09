@@ -42,6 +42,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(
         'username',
         max_length=100,
+        unique=True,
         help_text='Имя пользователя',
     )
     bio = models.TextField(

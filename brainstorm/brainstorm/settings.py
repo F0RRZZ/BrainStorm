@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'feedback.apps.FeedbackConfig',
     'feeds.apps.FeedsConfig',
+    'projects.apps.ProjectsConfig',
     'tags.apps.TagsConfig',
     'users.apps.UsersConfig',
 ]

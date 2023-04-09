@@ -1,4 +1,5 @@
 import django.urls
+
 import projects.views
 
 app_name = 'projects'
