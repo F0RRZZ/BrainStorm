@@ -1,6 +1,5 @@
 from django.utils.translation import gettext_lazy as _
 import django.views.generic
-
 import projects.models
 import tags.models
 
@@ -17,14 +16,14 @@ class NewProjectsView(GetContextMixin, django.views.generic.ListView):
     feed_name = _('new')
     template_name = 'feeds/feed.html'
     context_object_name = 'projects'
-    queryset = projects.models.Project.objects.all()
+    queryset = projects.models.Project.objects.new()
 
 
 class BestProjectsView(GetContextMixin, django.views.generic.ListView):
     feed_name = _('most_popular')
     template_name = 'feeds/feed.html'
     context_object_name = 'projects'
-    queryset = projects.models.Project.objects.all()
+    queryset = projects.models.Project.objects.best()
 
 
 class SpeakedProjectsView(GetContextMixin, django.views.generic.ListView):
@@ -38,4 +37,4 @@ class ArchiveProjectsView(GetContextMixin, django.views.generic.ListView):
     feed_name = _('projects_archive')
     template_name = 'feeds/feed.html'
     context_object_name = 'projects'
-    queryset = projects.models.Project.objects.all()
+    queryset = projects.models.Project.objects.archive()

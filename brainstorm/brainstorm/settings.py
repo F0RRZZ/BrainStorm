@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'projects.apps.ProjectsConfig',
     'tags.apps.TagsConfig',
     'users.apps.UsersConfig',
+    'projects.apps.ProjectsConfig',
+    'comments.apps.CommentsConfig',
+    'rating.apps.RatingConfig',
 ]
 
 if DEBUG:

@@ -9,3 +9,5 @@ class CommentAdmin(django.contrib.admin.ModelAdmin):
         comments.models.Comment.user.field.name,
         comments.models.Comment.text.field.name,
     )
+
+    list_display_links = (comments.models.Comment.user.field.name,)

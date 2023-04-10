@@ -4,6 +4,8 @@ import django.db.models
 import projects.models
 import users.models
 
+import users.models
+
 
 class Comment(django.db.models.Model):
     project = django.db.models.ForeignKey(
@@ -35,6 +37,6 @@ class Comment(django.db.models.Model):
     class Meta:
         verbose_name = 'комментарий'
         verbose_name_plural = 'комментарии'
-        ordering = [
-            '-creation_date',
-        ]
+
+    def __str__(self):
+        return self.text[:15]

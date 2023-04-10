@@ -1,16 +1,35 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% load i18n %}
-
-{% block title %}
-  {% trans "redact_project" %}
-{% endblock title %}
+{% load static %}
 
 {% block content %}
-  <div class="container">
-    <h3>{% trans "redact_project" %}</h3>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
-    {% include "includes/form.html" %}
-
+<div class="container mt-4">
+  <img src={{ project.preview.image.url }} width='300' height='300'></img>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      {% for image in project.images_gallery.all %}
+      <div class="swiper-slide text-center"><img src={{ image.get_image_300x300.url }}></img></div>
+      {% endfor %}
+    </div>  
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
   </div>
-{% endblock content %}
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="mb-3">
+    {{ field.label_tag }} {{ field }}
+    {% if field.help_text %}
+      <div class="form-text">{{ field.help_text|safe }}</div>
+    {% endif %}
+    </div>
+    {% endfor %}
+    <input type="submit" value="сохранить" class="btn btn-success">
+  </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="{% static 'js/project_detail.js' %}"></script>
+{% endblock %}
