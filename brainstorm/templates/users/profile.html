@@ -15,7 +15,7 @@
     <div class="bs-main-horizontal-container">
       <div class="bs-child-vertical-container mb-3">
         <div class="bs-user-image-block">
-          <img src="{% if user.image %} {{ user.image.url }} {% else %} {% static 'img/user_default.jpg' %} {% endif %}"
+          <img src="{{ user.get_image_300x300.url }}"
                class="img-fluid rounded"
                width="300px"
                alt="..."/>
@@ -55,9 +55,15 @@
         </div>
       </div>
       <div class="bs-child-vertical-container">
-        <h5 class="mb-4">{% trans "my_projects" %}</h5>
+        <h5 class="mb-1">{% trans "my_projects" %}</h5>
+        <div class="bs-profile-projects-nav">
+
+          {% include "includes/search_string.html" %}
+
+          <a href="{% url 'projects:create' %}" class="btn btn-success mt-3">{% trans "create" %}</a>
+        </div>
         {% for project in user.projects.all %}
-          {% with show_author=False %}
+          {% with show_author=False show_redact_button=True %}
 
             {% include "includes/project_card.html" %}
 

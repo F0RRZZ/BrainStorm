@@ -3,19 +3,21 @@ import sorl.thumbnail
 
 
 class ImageMixin:
-    def get_image_300x300(self, size='300x300'):
-        return sorl.thumbnail.get_thumbnail(
-            self.image, size, crop='center', quality=51
-        )
+    @property
+    def get_image_300x300(self):
+        return self.get_sized_image('300x300')
 
     @property
     def get_image_50x50(self):
+        return self.get_sized_image('50x50')
+    
+    def get_sized_image(self, size):
         if self.image:
             return sorl.thumbnail.get_thumbnail(
-                self.image, '50x50', crop='center', quality=51
+                self.image, size, crop='center', quality=51
             )
         return sorl.thumbnail.get_thumbnail(
-            django.conf.settings.DEFAULT_USER_IMAGE_PATH, '50x50', crop='center', quality=51,
+            django.conf.settings.DEFAULT_USER_IMAGE_PATH, size, crop='center', quality=51,
         )
 
     def __str__(self):

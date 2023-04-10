@@ -17,12 +17,11 @@
         </a>
         <div class="d-flex">
           {% if user.is_authenticated %}
-            <div class="d-flex align-items-center bs-user-nav-block">
-              <a href="{% url 'users:profile' %}">
-                <img class="bs-user-image" src="{{ user.get_image_50x50.url }}" alt="..." />
-              </a>
-              <a class="bs-user-nav-link ms-2" href="{% url 'users:profile' %}">{{ user.username.capitalize }}</a>
-            </div>
+            <a href="{% url 'users:profile' %}"
+               class="d-flex align-items-center bs-user-nav-block">
+              <img class="bs-user-image" src="{{ user.get_image_50x50.url }}" alt="..." />
+              <i class="bs-user-nav-link ms-2">{{ user.username }}</i>
+            </a>
           {% else %}
             <a class="btn btn-primary me-2" href="{% url 'users:login' %}">{% trans "login" %}</a>
             <a class="btn btn-success" href="{% url 'users:signup' %}">{% trans "register" %}</a>

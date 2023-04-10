@@ -17,7 +17,7 @@
   transition: all 0.1s ease-in;
 }
 
-.bs-user-nav-block a:last-child {
+.bs-user-nav-block {
   text-decoration: none;
   text-align: center;
   transition: all 0.1s ease-in;
@@ -28,7 +28,7 @@
   border-color: #4cbbab;
 }
 
-.bs-user-nav-block:hover a:last-child {
+.bs-user-nav-block:hover {
   color: #4cbbab;
   text-decoration: underline;
 }
