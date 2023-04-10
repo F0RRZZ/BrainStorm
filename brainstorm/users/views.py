@@ -16,9 +16,9 @@ class SignUpView(django.views.generic.CreateView):
     form_class = users.forms.CustomUserCreationForm
     template_name = 'users/signup.html'
     success_url = (
-        reverse_lazy('users:activation_done')
-        if not settings.USERS_AUTOACTIVATE
-        else reverse_lazy('core:main')
+        django.urls.reverse_lazy('users:activation_done')
+        if not django.conf.settings.USERS_AUTOACTIVATE
+        else django.urls.reverse_lazy('core:main')
     )
 
     def form_valid(self, form):

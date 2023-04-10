@@ -44,7 +44,7 @@ class User(
     django.contrib.auth.models.PermissionsMixin,
     core.utils.ImageMixin,
 ):
-    username = models.CharField(
+    username = django.db.models.CharField(
         'имя пользователя',
         max_length=100,
         help_text=(
@@ -52,20 +52,20 @@ class User(
         ),
         unique=True,
     )
-    bio = models.TextField(
+    bio = django.db.models.TextField(
         'о себе',
         max_length=1000,
         default='',
         help_text='О себе',
     )
-    first_name = models.CharField(
+    first_name = django.db.models.CharField(
         'имя',
         max_length=100,
         null=True,
         blank=True,
         help_text='Имя',
     )
-    last_name = models.CharField(
+    last_name = django.db.models.CharField(
         'фамилия',
         max_length=100,
         null=True,
@@ -108,7 +108,7 @@ class User(
         ext = os.path.splitext(filename)[-1]
         return 'avatars/user_{}{}'.format(self.id, ext)
 
-    image = models.ImageField(
+    image = django.db.models.ImageField(
         'аватар',
         upload_to=get_image_filename,
         null=True,
