@@ -1,36 +1,36 @@
-from django import forms
+import django.forms
 
-from core.forms import BootstrapFormMixin
-from feedback.models import Feedback
+import core.forms
+import feedback.models
 
 
-class FeedbackForm(BootstrapFormMixin, forms.ModelForm):
-    email = forms.EmailField(
-        widget=forms.EmailInput(
+class FeedbackForm(core.forms.BootstrapFormMixin, django.forms.ModelForm):
+    email = django.forms.EmailField(
+        widget=django.forms.EmailInput(
             attrs={'placeholder': 'example@example.com'},
         ),
         label='Почта',
         help_text='введите свою почту',
     )
-    files = forms.FileField(
-        widget=forms.ClearableFileInput(attrs={'multiple': True}),
+    files = django.forms.FileField(
+        widget=django.forms.ClearableFileInput(attrs={'multiple': True}),
         required=False,
         label='Файлы',
         help_text='Приложите файлы',
     )
 
     class Meta:
-        model = Feedback
+        model = feedback.models.Feedback
         fields = (
-            Feedback.subject.field.name,
-            Feedback.text.field.name,
+            feedback.models.Feedback.subject.field.name,
+            feedback.models.Feedback.text.field.name,
         )
         labels = {
-            Feedback.subject.field.name: 'Тема',
-            Feedback.text.field.name: 'Текст',
+            feedback.models.Feedback.subject.field.name: 'Тема',
+            feedback.models.Feedback.text.field.name: 'Текст',
         }
         widget = {
-            Feedback.text.field.name: forms.Textarea(
+            feedback.models.Feedback.text.field.name: django.forms.Textarea(
                 attrs={'rows': 5},
             ),
         }

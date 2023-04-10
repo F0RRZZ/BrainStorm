@@ -1,5 +1,6 @@
 import django.contrib.admin
 import django.utils.safestring
+
 import projects.models
 
 
@@ -28,4 +29,7 @@ class ProjectAdmin(django.contrib.admin.ModelAdmin):
         ImagesGalleryInline,
         PreviewInline,
     )
-    filter_horizontal = (projects.models.Project.collaborators.field.name,)
+    filter_horizontal = (
+        projects.models.Project.collaborators.field.name,
+        projects.models.Project.tags.field.name,
+    )

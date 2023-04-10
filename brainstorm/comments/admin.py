@@ -1,5 +1,6 @@
-import comments.models
 import django.contrib.admin
+
+import comments.models
 
 
 @django.contrib.admin.register(comments.models.Comment)

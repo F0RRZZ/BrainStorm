@@ -27,11 +27,15 @@ urlpatterns = [
         django.urls.include('tags.urls', namespace='tags'),
     ),
     django.urls.path(
-        'auth/',
+        'users/',
         django.urls.include('users.urls', namespace='users'),
     ),
     django.urls.path(
-        'auth/',
+        'accounts/',
+        django.urls.include('allauth.urls'),
+    ),
+    django.urls.path(
+        'users/',
         django.urls.include(django.contrib.auth.urls),
     ),
     django.urls.path(

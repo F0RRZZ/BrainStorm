@@ -1,1 +1,96 @@
+{% extends "base.html" %}
 
+{% load i18n %}
+
+{% load static %}
+
+{% block title %}
+  {% trans "my_profile" %}
+{% endblock title %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/user_view.css' %}" />
+  <div class="container">
+    <h3 class="mb-3 text-center text-wrap">{% trans "my_profile" %}</h3>
+    <div class="bs-main-horizontal-container">
+      <div class="bs-child-vertical-container mb-3">
+        <div class="bs-user-image-block">
+          <img src="{{ user.get_image_300x300.url }}"
+               class="img-fluid rounded"
+               width="300px"
+               alt="..."/>
+        </div>
+        <div class="bs-username-block mt-2">
+          <p class="fs-3 text-wrap text-center">
+            {% if not user.first_name %}
+              {{ user.username }}
+            {% else %}
+              {{ user.first_name }} {{ user.last_name }}
+            {% endif %}
+          </p>
+        </div>
+        <div class="bs-user-info-container">
+          <h6 class="text-left">{% trans "user_email" %}</h6>
+          <p>{{ user.email }}</p>
+        </div>
+        <div class="bs-user-info-container">
+          <h6 class="text-left">{% trans "user_bio" %}</h6>
+          <p>
+            {% if user.bio %}
+              {{ user.bio }}
+            {% else %}
+              <i>{% trans "not_set" %}</i>
+            {% endif %}
+          </p>
+        </div>
+        <div class="bs-user-info-container">
+          <button class="btn btn-outline-secondary"
+                  type="button"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#userSettings"
+                  aria-controls="userSettings">
+            {% trans "setings" %} <i class="fa-solid fa-gear ms-2"></i>
+          </button>
+          <a class="btn btn-outline-danger mt-2" href="{% url 'users:logout' %}">{% trans "logout" %}</a>
+        </div>
+      </div>
+      <div class="bs-child-vertical-container">
+        <h5 class="mb-1">{% trans "my_projects" %}</h5>
+        <div class="bs-profile-projects-nav">
+
+          {% include "includes/search_string.html" %}
+
+          <a href="{% url 'projects:create' %}" class="btn btn-success mt-3">{% trans "create" %}</a>
+        </div>
+        {% for project in user.projects.all %}
+          {% with show_author=False show_redact_button=True %}
+
+            {% include "includes/project_card.html" %}
+
+          {% endwith %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-start"
+       data-bs-scroll="true"
+       tabindex="-1"
+       id="userSettings"
+       aria-labelledby="userSettingsLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="userSettingsLabel">
+        {% trans "setings" %} <i class="fa-solid fa-gear ms-2"></i>
+      </h5>
+      <button type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+
+      {% include "includes/form.html" %}
+
+    </div>
+  </div>
+{% endblock content %}

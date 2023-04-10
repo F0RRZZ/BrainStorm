@@ -1,0 +1,78 @@
+.bs-main-horizontal-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bs-child-vertical-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.bs-child-vertical-container:first-child {
+  min-width: 400px;
+  width: 400px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.bs-child-vertical-container:last-child {
+  align-self: stretch;
+  width: 100%;
+}
+
+@media screen and (max-width: 991.5px) {
+  .bs-main-horizontal-container {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .bs-child-vertical-container:first-child {
+    width: auto;
+  }
+}
+
+.bs-user-image-block {
+    border-radius: 50%;
+    border: solid 4px black;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+}
+
+.bs-user-image-block:hover {
+    border: solid 4px rgb(50, 49, 49);
+    box-shadow: 0 0 3px 0.4rem #1415158e;
+}
+
+.bs-username-block {
+  max-width: 400px;
+  overflow: auto;
+}
+
+.bs-user-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: flex-start;
+}
+
+.bs-profile-projects-nav {
+  display: flex;
+  justify-content: space-between;
+  align-self: stretch;
+  padding-right: 25px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.bs-profile-projects-nav > div {
+  margin-right: 20px;
+}
+
+.bs-profile-projects-nav > a {
+  margin: 0px !important;
+}

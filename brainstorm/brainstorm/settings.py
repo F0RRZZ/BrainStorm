@@ -10,17 +10,21 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 env = environ.Env(
     ALLOWED_HOSTS=(list, ['*']),
     DEBUG=(bool, True),
-    EMAIL=(str, 'example@example.com'),
+    EMAIL_ADDRESS=(str, 'example@example.com'),
+    EMAIL_PASSWORD=(str, 'password'),
+    GITHUB_CLIENT_ID=(str, 'client_id'),
+    GITHUB_SECRET_KEY=(str, 'secret_key'),
     SECRET_KEY=(str, 'dummy-key'),
+    USERS_AUTOACTIVATE=(bool, True),
 )
 
 ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 DEBUG = env('DEBUG')
-EMAIL = env('EMAIL')
+EMAIL = env('EMAIL_ADDRESS')
 
 SECRET_KEY = env('SECRET_KEY')
 
-USERS_AUTOACTIVATE = True if DEBUG else env('USERS_AUTOACTIVATE')
+USERS_AUTOACTIVATE = env('USERS_AUTOACTIVATE')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -29,12 +33,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sorl.thumbnail',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
     'django_cleanup.apps.CleanupConfig',
+    'sorl.thumbnail',
     'about.apps.AboutConfig',
     'core.apps.CoreConfig',
+    'comments.apps.CommentsConfig',
     'feedback.apps.FeedbackConfig',
     'feeds.apps.FeedsConfig',
+    'projects.apps.ProjectsConfig',
     'tags.apps.TagsConfig',
     'users.apps.UsersConfig',
     'projects.apps.ProjectsConfig',
@@ -133,13 +143,22 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static_dev',
 ]
 
+DEFAULT_USER_IMAGE_PATH = 'images/user_default.jpg'
+
+THUMBNAIL_DEBUG = True
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 
-EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_FILE_PATH = BASE_DIR / 'sent_emails'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = EMAIL
+EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 LOGIN_URL = '/auth/login/'
 LOGIN_REDIRECT_URL = '/'
@@ -150,4 +169,17 @@ AUTH_USER_MODEL = 'users.User'
 AUTHENTICATION_BACKENDS = [
     'users.backend.NormalizedEmailAuthBackend',
     'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+SITE_ID = 1
+
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'APP': {
+            'client_id': env('GITHUB_CLIENT_ID'),
+            'secret': env('GITHUB_SECRET_KEY'),
+            'key': '',
+        }
+    }
+}

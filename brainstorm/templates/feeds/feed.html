@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %}
   {{ feed_name }}
 {% endblock title %}
@@ -9,14 +11,22 @@
 {% endblock header %}
 
 {% block content %}
+  <link rel="stylesheet" href="{% static 'css/feeds.css' %}" />
   <div class="container">
-    <div class="bs-feed-main-container">
-      <div class="bs-feed-feed-container">
-        <h2 class="text-center">{{ feed_name }}</h2>
-      </div>
+    <div class="bs-main-horizontal-container">
 
       {% include "includes/tags_selector.html" %}
 
+      <div class="bs-child-vertical-container">
+        <h3 class="text-center">{{ feed_name }}</h3>
+        {% for project in projects %}
+          {% with show_author=True %}
+
+            {% include "includes/project_card.html" %}
+
+          {% endwith %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 {% endblock content %}

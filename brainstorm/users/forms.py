@@ -1,8 +1,10 @@
+import re
+
 import django.forms
 import django.contrib.auth.forms
 
 import core.forms
-from users.models import User
+import users.models
 
 
 class CustomUserCreationForm(
@@ -11,24 +13,35 @@ class CustomUserCreationForm(
     email = django.forms.EmailField(required=True)
 
     class Meta:
-        model = User
+        model = users.models.User
         fields = (
-            User.username.field.name,
-            User.email.field.name,
+            users.models.User.username.field.name,
+            users.models.User.email.field.name,
             'password1',
             'password2',
         )
 
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        if not re.match(r'^[\w-]+$', username):
+            raise django.forms.ValidationError('Недопустимое имя пользователя')
+        return username
+
 
 class UserProfileForm(core.forms.BootstrapFormMixin, django.forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields[users.models.User.bio.field.name].required = False
+
     class Meta:
-        model = User
+        model = users.models.User
         fields = [
-            User.email.field.name,
-            User.username.field.name,
-            User.first_name.field.name,
-            User.last_name.field.name,
-            User.image.field.name,
+            users.models.User.email.field.name,
+            users.models.User.username.field.name,
+            users.models.User.first_name.field.name,
+            users.models.User.last_name.field.name,
+            users.models.User.bio.field.name,
+            users.models.User.image.field.name,
         ]
 
 

@@ -69,13 +69,8 @@ urlpatterns = [
         name='activation_done',
     ),
     django.urls.path(
-        'user_detail/<int:pk>/',
+        'overview/<str:username>/',
         users.views.UserDetailView.as_view(),
-        name='user_detail',
-    ),
-    django.urls.path(
-        'profile/',
-        users.views.ProfileView.as_view(),
-        name='profile',
+        name='overview',
     ),
 ]
