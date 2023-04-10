@@ -1,8 +1,8 @@
-import comments.models
 import django.core.validators
 import django.db.models
-import projects.models
 
+import comments.models
+import projects.models
 import users.models
 
 

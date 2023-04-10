@@ -3,13 +3,11 @@ import django.http
 import django.shortcuts
 import django.urls
 import django.views.generic
-import projects.forms
-import projects.models
-
-import users.models
 
 import comments.forms
+import projects.forms
 import projects.models
+import users.models
 
 
 class ViewProject(

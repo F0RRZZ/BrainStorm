@@ -1,8 +1,8 @@
 import django.db.models
 import django.utils.safestring
-import projects.managers
 
 import core.models
+import projects.managers
 import tags.models
 import users.models
 
