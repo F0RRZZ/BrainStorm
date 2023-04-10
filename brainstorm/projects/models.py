@@ -1,13 +1,15 @@
-import django.contrib.auth.models
 import django.db.models
 import django.utils.safestring
 
 import core.models
+import projects.managers
 import tags.models
 import users.models
 
 
 class Project(django.db.models.Model):
+    objects = projects.managers.ProjectManager()
+
     class Status(django.db.models.TextChoices):
         DEVELOPMENT = ('development', 'В разработке')
         READY = ('ready', 'Готов')
@@ -73,6 +75,9 @@ class Project(django.db.models.Model):
     class Meta:
         verbose_name = 'проект'
         verbose_name_plural = 'проекты'
+
+    def __str__(self):
+        return self.name[:15]
 
     def image_tmb(self):
         if self.preview:

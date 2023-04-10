@@ -1,4 +1,3 @@
-import django.contrib.auth.models
 import django.db.models
 
 import projects.models
@@ -35,6 +34,6 @@ class Comment(django.db.models.Model):
     class Meta:
         verbose_name = 'комментарий'
         verbose_name_plural = 'комментарии'
-        ordering = [
-            '-creation_date',
-        ]
+
+    def __str__(self):
+        return self.text[:15]
