@@ -76,12 +76,13 @@ class ActivateUserView(django.views.generic.DetailView):
 
 
 class UserDetailView(
-    django.views.generic.UpdateView, django.views.generic.DetailView
+    django.views.generic.UpdateView,
+    django.views.generic.DetailView,
 ):
     # TODO: add projects and comments in context
 
     template_name = 'users/user_detail.html'
-    pk_url_kwarg = 'pk'
+    pk_url_kwarg = 'username'
 
     model = users.models.User
     form_class = users.forms.UserProfileForm
@@ -89,6 +90,12 @@ class UserDetailView(
 
     queryset = users.models.User.objects.all()
     context_object_name = 'rendering_user'
+
+    def get_object(self):
+        return django.shortcuts.get_object_or_404(
+            self.get_queryset(),
+            username=self.kwargs[self.pk_url_kwarg],
+        )
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'django_cleanup.apps.CleanupConfig',
     'about.apps.AboutConfig',
     'core.apps.CoreConfig',
+    'comments.apps.CommentsConfig',
     'feedback.apps.FeedbackConfig',
     'feeds.apps.FeedsConfig',
     'projects.apps.ProjectsConfig',

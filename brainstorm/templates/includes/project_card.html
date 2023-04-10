@@ -15,14 +15,14 @@
         {% if show_author %}
           <p class="card-text text-body-secondary">
             {% trans "author" %}:
-            <a href="#"
+            <a href="{% url 'users:overview' project.author.username %}"
                class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
               {{ project.author.username }}
             </a>
           </p>
         {% endif %}
         <hr />
-        <p class="card-text">{{ project.short_description }}</p>
+        <p class="card-text">{{ project.short_description|safe }}</p>
       </div>
     </div>
     <div class="col-md-4">

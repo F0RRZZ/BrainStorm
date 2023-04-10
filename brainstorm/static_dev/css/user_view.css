@@ -21,6 +21,7 @@
 
 .bs-child-vertical-container:last-child {
   align-self: stretch;
+  width: 100%;
 }
 
 @media screen and (max-width: 991.5px) {
@@ -41,14 +42,14 @@
     transition: all 0.3s ease-out;
 }
 
-.bs-username-block {
-    max-width: 400px;
-    overflow: auto;
-}
-
 .bs-user-image-block:hover {
     border: solid 4px rgb(50, 49, 49);
     box-shadow: 0 0 3px 0.4rem #1415158e;
+}
+
+.bs-username-block {
+  max-width: 400px;
+  overflow: auto;
 }
 
 .bs-user-info-container {

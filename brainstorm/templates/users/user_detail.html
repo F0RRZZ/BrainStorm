@@ -15,7 +15,7 @@
 {% block content %}
   <link rel="stylesheet" href="{% static 'css/user_view.css' %}" />
   <div class="container">
-    <h3 class="mb-3 text-center text-wrap">
+    <h3 class="mb-4 text-center text-wrap">
       {% if show_profile %}
         {% trans "my_profile" %}
       {% else %}
@@ -93,7 +93,7 @@
             </button>
           </div>
         </nav>
-        <div class="tab-content" id="nav-tabContent">
+        <div class="tab-content align-self-stretch" id="nav-tabContent">
           <div class="tab-pane fade show active"
                id="nav-projects"
                role="tabpanel"
@@ -122,7 +122,20 @@
                id="nav-comments"
                role="tabpanel"
                aria-labelledby="nav-comments-tab"
-               tabindex="0"></div>
+               tabindex="0">
+            <div class="d-flex flex-column align-items-stretch align-self-stretch mt-1">
+              {% for comment in rendering_user.comments.all %}
+                <div class="d-flex justify-content-between mt-3">
+                  <div class="fs-5">
+                    <a class="link-dark" href="{% url 'projects:view' comment.project.id %}">{{ comment.project.name }}</a>, <span>{{ comment.creation_date }}</span>
+                  </div>
+                  <a class="btn btn-outline-info text-nowrap"
+                     target="_blanc"
+                     href="{% url 'projects:view' comment.project.id %}#comment-{{ comment.id }}">{% trans "go_to" %}  <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
         </div>
       </div>
     </div>

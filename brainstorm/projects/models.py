@@ -76,7 +76,7 @@ class Project(django.db.models.Model):
 
     def image_tmb(self):
         if self.preview:
-            image_url = self.preview.get_image_300x300().url
+            image_url = self.preview.get_image_300x300.url
             return django.utils.safestring.mark_safe(
                 f'<img src="{image_url}" width="50" height="50">'
             )

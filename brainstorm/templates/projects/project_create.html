@@ -1,1 +1,16 @@
+{% extends "base.html" %}
 
+{% load i18n %}
+
+{% block title %}
+  {% trans "create_project" %}
+{% endblock title %}
+
+{% block content %}
+  <div class="container">
+    <h3>{% trans "create_project" %}</h3>
+
+    {% include "includes/form.html" %}
+
+  </div>
+{% endblock content %}
