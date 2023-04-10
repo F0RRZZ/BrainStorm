@@ -86,10 +86,25 @@ class UserDetailView(
 
     model = users.models.User
     form_class = users.forms.UserProfileForm
-    success_url = django.urls.reverse_lazy('users:profile')
 
     queryset = users.models.User.objects.all()
     context_object_name = 'rendering_user'
+
+    def get_success_url(self):
+        return django.urls.reverse_lazy('users:overview', kwargs=self.kwargs)
+
+    def form_valid(self, form):
+        super().form_valid(form)
+        return django.http.HttpResponseRedirect(
+            django.urls.reverse_lazy(
+                'users:overview',
+                kwargs={
+                    self.pk_url_kwarg: form.cleaned_data[
+                        users.models.User.username.field.name
+                    ],
+                },
+            ),
+        )
 
     def get_object(self):
         return django.shortcuts.get_object_or_404(
@@ -127,10 +142,6 @@ class ActivationDoneView(
     django.contrib.auth.mixins.LoginRequiredMixin,
 ):
     template_name = 'users/activate_link_sends.html'
-
-
-def profile_view(request):
-    return django.shortcuts.redirect('users:user_detail', request.user.id)
 
 
 class LoginView(
