@@ -1,18 +1,17 @@
 import django.views.generic
-
-# from projects.models import Project
+import projects.models
 
 
 class NewProjectsView(django.views.generic.ListView):
     template_name = 'feeds/feed.html'
     context_object_name = 'projects'
-    # queryset = Project.objects.new()
+    queryset = projects.models.Project.objects.new()
 
 
 class BestProjectsView(django.views.generic.ListView):
     template_name = 'feeds/feed.html'
     context_object_name = 'projects'
-    # queryset = Project.objects.best()
+    queryset = projects.models.Project.objects.best()
 
 
 class SpeakedProjectsView(django.views.generic.ListView):
@@ -24,4 +23,4 @@ class SpeakedProjectsView(django.views.generic.ListView):
 class ArchiveProjectsView(django.views.generic.ListView):
     template_name = 'feeds/feed.html'
     context_object_name = 'projects'
-    # queryset = Project.objects.archive()
+    queryset = projects.models.Project.objects.archive()

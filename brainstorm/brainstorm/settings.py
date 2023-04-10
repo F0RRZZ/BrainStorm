@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'feeds.apps.FeedsConfig',
     'tags.apps.TagsConfig',
     'users.apps.UsersConfig',
+    'projects.apps.ProjectsConfig',
+    'comments.apps.CommentsConfig',
+    'rating.apps.RatingConfig',
 ]
 
 if DEBUG:

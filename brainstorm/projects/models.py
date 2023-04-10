@@ -1,17 +1,20 @@
-import django.contrib.auth.models
 import django.db.models
 import django.utils.safestring
+import projects.managers
 
 import core.models
+import users.models
 
 
 class Project(django.db.models.Model):
+    objects = projects.managers.ProjectManager()
+
     class Status(django.db.models.TextChoices):
         DEVELOPMENT = ('development', 'В разработке')
         READY = ('ready', 'Готов')
 
     author = django.db.models.ForeignKey(
-        django.contrib.auth.models.User,
+        users.models.User,
         on_delete=django.db.models.CASCADE,
         verbose_name='автор',
         help_text='Кто автор',
@@ -28,7 +31,7 @@ class Project(django.db.models.Model):
         help_text='Введите описание проекта',
     )
     collaborators = django.db.models.ManyToManyField(
-        django.contrib.auth.models.User,
+        users.models.User,
         verbose_name='коллабораторы',
         related_name='colleagues',
         null=True,
@@ -60,6 +63,9 @@ class Project(django.db.models.Model):
     class Meta:
         verbose_name = 'проект'
         verbose_name_plural = 'проекты'
+
+    def __str__(self):
+        return self.name[:15]
 
     def image_tmb(self):
         if self.preview:
