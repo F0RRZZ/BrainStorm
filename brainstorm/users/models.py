@@ -39,7 +39,11 @@ class NormalizedEmailField(django.db.models.EmailField):
         return value
 
 
-class User(django.contrib.auth.models.AbstractBaseUser, django.contrib.auth.models.PermissionsMixin, core.utils.ImageMixin,):
+class User(
+    django.contrib.auth.models.AbstractBaseUser,
+    django.contrib.auth.models.PermissionsMixin,
+    core.utils.ImageMixin,
+):
     username = django.db.models.CharField(
         'username',
         max_length=100,

@@ -57,12 +57,16 @@ class ActivateUserView(django.views.generic.DetailView):
         )
 
         if user.last_login is None:
-            if (django.utils.timezone.now() - user.date_joined >
-                django.utils.timezone.timedelta(hours=12)):
+            if (
+                django.utils.timezone.now() - user.date_joined
+                > django.utils.timezone.timedelta(hours=12)
+            ):
                 raise django.http.Http404
         else:
-            if (django.utils.timezone.now() - user.date_joined >
-                django.utils.timezone.timedelta(weeks=1)):
+            if (
+                django.utils.timezone.now() - user.date_joined
+                > django.utils.timezone.timedelta(weeks=1)
+            ):
                 raise django.http.Http404
 
         user.is_active = True
@@ -71,7 +75,9 @@ class ActivateUserView(django.views.generic.DetailView):
         return user
 
 
-class UserDetailView(django.views.generic.UpdateView, django.views.generic.DetailView):
+class UserDetailView(
+    django.views.generic.UpdateView, django.views.generic.DetailView
+):
     # TODO: add projects and comments in context
 
     template_name = 'users/user_detail.html'
@@ -93,7 +99,9 @@ class UserDetailView(django.views.generic.UpdateView, django.views.generic.Detai
         image = user.image if user.image else 'не указано'
         projects = None
         comments = None
-        show_profile = current_user.is_authenticated and current_user.id == user.id
+        show_profile = (
+            current_user.is_authenticated and current_user.id == user.id
+        )
         context.update(
             {
                 'first_name': first_name,
@@ -108,7 +116,8 @@ class UserDetailView(django.views.generic.UpdateView, django.views.generic.Detai
 
 
 class ActivationDoneView(
-    django.views.generic.TemplateView, django.contrib.auth.mixins.LoginRequiredMixin,
+    django.views.generic.TemplateView,
+    django.contrib.auth.mixins.LoginRequiredMixin,
 ):
     template_name = 'users/activate_link_sends.html'
 

@@ -38,8 +38,8 @@
     <a href="{% url 'projects:view' project.id %}"
        class="btn btn-outline-secondary mt-3">{% trans "go_to_project" %}</a>
     {% if show_redact_button %}
-    <a href="{% url 'projects:redact' project.id %}"
-       class="btn btn-outline-success mt-3">{% trans "redact" %}</a>
+      <a href="{% url 'projects:redact' project.id %}"
+         class="btn btn-outline-success mt-3">{% trans "redact" %}</a>
     {% endif %}
   </div>
 </div>
