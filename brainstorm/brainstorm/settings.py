@@ -41,8 +41,10 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'about.apps.AboutConfig',
     'core.apps.CoreConfig',
+    'comments.apps.CommentsConfig',
     'feedback.apps.FeedbackConfig',
     'feeds.apps.FeedsConfig',
+    'projects.apps.ProjectsConfig',
     'tags.apps.TagsConfig',
     'users.apps.UsersConfig',
 ]
@@ -137,6 +139,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static_dev',
 ]
+
+DEFAULT_USER_IMAGE_PATH = 'images/user_default.jpg'
+
+THUMBNAIL_DEBUG = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

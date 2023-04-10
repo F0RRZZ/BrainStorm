@@ -3,6 +3,8 @@ import django.db.models
 import django.utils.safestring
 
 import core.models
+import tags.models
+import users.models
 
 
 class Project(django.db.models.Model):
@@ -11,11 +13,11 @@ class Project(django.db.models.Model):
         READY = ('ready', 'Готов')
 
     author = django.db.models.ForeignKey(
-        django.contrib.auth.models.User,
+        users.models.User,
         on_delete=django.db.models.CASCADE,
+        related_name='projects',
         verbose_name='автор',
         help_text='Кто автор',
-        related_name='project',
     )
 
     name = django.db.models.CharField(
@@ -23,14 +25,25 @@ class Project(django.db.models.Model):
         help_text='Назовите проект',
         max_length=150,
     )
+    short_description = django.db.models.TextField(
+        'краткое описание',
+        help_text='Введите краткое описание проекта',
+    )
     description = django.db.models.TextField(
         'описание',
         help_text='Введите описание проекта',
     )
     collaborators = django.db.models.ManyToManyField(
-        django.contrib.auth.models.User,
+        users.models.User,
         verbose_name='коллабораторы',
         related_name='colleagues',
+        null=True,
+        blank=True,
+    )
+    tags = django.db.models.ManyToManyField(
+        tags.models.Tag,
+        verbose_name='теги',
+        related_name='projects',
         null=True,
         blank=True,
     )
@@ -63,7 +76,7 @@ class Project(django.db.models.Model):
 
     def image_tmb(self):
         if self.preview:
-            image_url = self.preview.get_image_300x300().url
+            image_url = self.preview.get_image_300x300.url
             return django.utils.safestring.mark_safe(
                 f'<img src="{image_url}" width="50" height="50">'
             )

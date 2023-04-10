@@ -1,11 +1,11 @@
-from django.conf import settings
-from django.contrib.auth.mixins import LoginRequiredMixin
+import django.conf
+import django.contrib.auth.mixins
 import django.contrib.auth.views
-from django.core.mail import send_mail
-from django.http import Http404
-from django.shortcuts import get_object_or_404
-from django.urls import reverse_lazy
-from django.utils import timezone
+import django.core.mail
+import django.http
+import django.shortcuts
+import django.urls
+import django.utils
 import django.views.generic
 
 import users.forms
@@ -23,21 +23,21 @@ class SignUpView(django.views.generic.CreateView):
 
     def form_valid(self, form):
         user = form.save(commit=False)
-        if not settings.USERS_AUTOACTIVATE:
+        if not django.conf.settings.USERS_AUTOACTIVATE:
             user.is_activate = False
             user.save()
 
             absolute_url = self.request.build_absolute_uri(
-                reverse_lazy(
+                django.urls.reverse_lazy(
                     'users:activate',
                     args=[user.username],
                 )
             )
 
-            send_mail(
+            django.core.mail.send_mail(
                 'Подтверждение регистрации',
                 f'Для активации аккаунта перейдите по ссылке: {absolute_url}',
-                settings.EMAIL,
+                django.conf.settings.EMAIL,
                 [user.email],
                 fail_silently=False,
             )
@@ -52,18 +52,22 @@ class ActivateUserView(django.views.generic.DetailView):
     template_name = 'users/confirm_email.html'
 
     def get_object(self, queryset=None):
-        user = get_object_or_404(
+        user = django.shortcuts.get_object_or_404(
             users.models.User, username=self.kwargs['username']
         )
 
         if user.last_login is None:
-            if timezone.now() - user.date_joined > timezone.timedelta(
-                hours=12
+            if (
+                django.utils.timezone.now() - user.date_joined
+                > django.utils.timezone.timedelta(hours=12)
             ):
-                raise Http404
+                raise django.http.Http404
         else:
-            if timezone.now() - user.date_joined > timezone.timedelta(weeks=1):
-                raise Http404
+            if (
+                django.utils.timezone.now() - user.date_joined
+                > django.utils.timezone.timedelta(weeks=1)
+            ):
+                raise django.http.Http404
 
         user.is_active = True
         user.save()
@@ -71,21 +75,55 @@ class ActivateUserView(django.views.generic.DetailView):
         return user
 
 
-class UserDetailView(django.views.generic.DetailView):
+class UserDetailView(
+    django.views.generic.UpdateView,
+    django.views.generic.DetailView,
+):
     # TODO: add projects and comments in context
 
     template_name = 'users/user_detail.html'
+    pk_url_kwarg = 'username'
+
+    model = users.models.User
+    form_class = users.forms.UserProfileForm
+
     queryset = users.models.User.objects.all()
-    pk_url_kwarg = 'pk'
+    context_object_name = 'rendering_user'
+
+    def get_success_url(self):
+        return django.urls.reverse_lazy('users:overview', kwargs=self.kwargs)
+
+    def form_valid(self, form):
+        super().form_valid(form)
+        return django.http.HttpResponseRedirect(
+            django.urls.reverse_lazy(
+                'users:overview',
+                kwargs={
+                    self.pk_url_kwarg: form.cleaned_data[
+                        users.models.User.username.field.name
+                    ],
+                },
+            ),
+        )
+
+    def get_object(self):
+        return django.shortcuts.get_object_or_404(
+            self.get_queryset(),
+            username=self.kwargs[self.pk_url_kwarg],
+        )
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = self.object
+        current_user = self.request.user
         first_name = user.first_name if user.first_name else 'не указано'
         last_name = user.last_name if user.last_name else 'не указано'
         image = user.image if user.image else 'не указано'
         projects = None
         comments = None
+        show_profile = (
+            current_user.is_authenticated and current_user.id == user.id
+        )
         context.update(
             {
                 'first_name': first_name,
@@ -93,30 +131,17 @@ class UserDetailView(django.views.generic.DetailView):
                 'image': image,
                 'projects': projects,
                 'comments': comments,
+                'show_profile': show_profile,
             }
         )
         return context
 
 
 class ActivationDoneView(
-    django.views.generic.TemplateView, LoginRequiredMixin
+    django.views.generic.TemplateView,
+    django.contrib.auth.mixins.LoginRequiredMixin,
 ):
     template_name = 'users/activate_link_sends.html'
-
-
-class ProfileView(LoginRequiredMixin, django.views.generic.UpdateView):
-    model = users.models.User
-    form_class = users.forms.UserProfileForm
-    template_name = 'users/profile.html'
-    success_url = reverse_lazy('users:profile')
-
-    def get_object(self, queryset=None):
-        return self.request.user
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['image'] = self.request.user.image
-        return context
 
 
 class LoginView(

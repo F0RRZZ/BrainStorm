@@ -7,7 +7,7 @@
     {{ field }}
     {% if field.help_text %}
       <div class="text-secondary">
-        <p>{{ field.help_text|safe }}</p>
+        <p>{{ field.help_text.capitalize|safe }}</p>
       </div>
     {% endif %}
 

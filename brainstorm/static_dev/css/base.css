@@ -1,0 +1,42 @@
+.bs-all-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.bs-top-nav-container {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.bs-user-nav-block img {
+  border: solid 3px rgb(45, 43, 43);
+  border-radius: 10px;
+  transition: all 0.1s ease-in;
+}
+
+.bs-user-nav-block {
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.1s ease-in;
+  color: black;
+}
+
+.bs-user-nav-block:hover img {
+  border-color: #4cbbab;
+}
+
+.bs-user-nav-block:hover {
+  color: #4cbbab;
+  text-decoration: underline;
+}
+
+.bs-fit-content-element {
+  width: fit-content !important;
+}
+
+p:empty {
+  display: none;
+}

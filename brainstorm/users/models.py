@@ -1,13 +1,14 @@
 import os
 import re
 
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
-from django.db import models
+import django.contrib.auth.models
+import django.db.models
 
-from users.managers import UserManager
+import core.utils
+import users.managers
 
 
-class NormalizedEmailField(models.EmailField):
+class NormalizedEmailField(django.db.models.EmailField):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -38,7 +39,11 @@ class NormalizedEmailField(models.EmailField):
         return value
 
 
-class User(AbstractBaseUser, PermissionsMixin):
+class User(
+    django.contrib.auth.models.AbstractBaseUser,
+    django.contrib.auth.models.PermissionsMixin,
+    core.utils.ImageMixin,
+):
     username = models.CharField(
         'имя пользователя',
         max_length=100,
@@ -50,6 +55,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     bio = models.TextField(
         'о себе',
         max_length=1000,
+        default='',
         help_text='О себе',
     )
     first_name = models.CharField(
@@ -66,7 +72,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         blank=True,
         help_text='Фамилия',
     )
-    email = models.EmailField(
+    email = django.db.models.EmailField(
         'email address',
         max_length=254,
         unique=True,
@@ -77,22 +83,22 @@ class User(AbstractBaseUser, PermissionsMixin):
         unique=True,
         help_text='Нормализованная электронная почта',
     )
-    date_joined = models.DateTimeField(
+    date_joined = django.db.models.DateTimeField(
         'date joined',
         auto_now=True,
         help_text='Дата регистрации',
     )
-    is_active = models.BooleanField(
+    is_active = django.db.models.BooleanField(
         'active',
         default=False,
         help_text='Активен',
     )
-    is_staff = models.BooleanField(
+    is_staff = django.db.models.BooleanField(
         'staff',
         default=False,
         help_text='Персонал',
     )
-    is_superuser = models.BooleanField(
+    is_superuser = django.db.models.BooleanField(
         'superuser',
         default=False,
         help_text='Суперпользователь',
@@ -113,7 +119,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
 
-    objects = UserManager()
+    objects = users.managers.UserManager()
 
     class Meta:
         verbose_name = 'пользователь'
