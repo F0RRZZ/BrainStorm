@@ -9,6 +9,7 @@ urlpatterns = [
         '',
         django.urls.include('core.urls', namespace='core'),
     ),
+    django.urls.path('projects/', django.urls.include('projects.urls')),
     django.urls.path(
         'feed/',
         django.urls.include('feeds.urls', namespace='feeds'),
@@ -26,12 +27,12 @@ urlpatterns = [
         django.urls.include('tags.urls', namespace='tags'),
     ),
     django.urls.path(
-        'projects/',
-        django.urls.include('projects.urls', namespace='projects'),
-    ),
-    django.urls.path(
         'users/',
         django.urls.include('users.urls', namespace='users'),
+    ),
+    django.urls.path(
+        'accounts/',
+        django.urls.include('allauth.urls'),
     ),
     django.urls.path(
         'users/',

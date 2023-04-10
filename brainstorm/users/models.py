@@ -44,27 +44,29 @@ class User(
     django.contrib.auth.models.PermissionsMixin,
     core.utils.ImageMixin,
 ):
-    username = django.db.models.CharField(
-        'username',
+    username = models.CharField(
+        'имя пользователя',
         max_length=100,
+        help_text=(
+            'Допускаются только буквы, цифры, дефис и нижнее подчеркивание'
+        ),
         unique=True,
-        help_text='Имя пользователя',
     )
-    bio = django.db.models.TextField(
-        'bio',
+    bio = models.TextField(
+        'о себе',
         max_length=1000,
         default='',
         help_text='О себе',
     )
-    first_name = django.db.models.CharField(
-        'first name',
+    first_name = models.CharField(
+        'имя',
         max_length=100,
         null=True,
         blank=True,
         help_text='Имя',
     )
-    last_name = django.db.models.CharField(
-        'last name',
+    last_name = models.CharField(
+        'фамилия',
         max_length=100,
         null=True,
         blank=True,
@@ -77,7 +79,7 @@ class User(
         help_text='Электронная почта',
     )
     normalized_email = NormalizedEmailField(
-        'normalized email address',
+        'нормализованная почта',
         unique=True,
         help_text='Нормализованная электронная почта',
     )
@@ -106,8 +108,8 @@ class User(
         ext = os.path.splitext(filename)[-1]
         return 'avatars/user_{}{}'.format(self.id, ext)
 
-    image = django.db.models.ImageField(
-        'profile picture',
+    image = models.ImageField(
+        'аватар',
         upload_to=get_image_filename,
         null=True,
         blank=True,

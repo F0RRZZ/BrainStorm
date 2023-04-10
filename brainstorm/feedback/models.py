@@ -8,12 +8,12 @@ class Feedback(models.Model):
         ('answered', 'ответ дан'),
     ]
     subject = models.CharField(
-        'subject',
+        'тема',
         max_length=200,
         help_text='тема',
     )
     text = models.TextField(
-        'text',
+        'текст',
         help_text='содержание письма',
     )
     created_on = models.DateTimeField(
@@ -28,7 +28,7 @@ class Feedback(models.Model):
         null=True,
     )
     status = models.CharField(
-        'status',
+        'статус',
         max_length=20,
         choices=CHOICES,
         default='received',

@@ -7,12 +7,12 @@ from core.tools import name_formatter
 class Tag(models.Model):
     is_published = models.BooleanField('published', default=True)
     name = models.CharField(
-        'name',
+        'название',
         max_length=150,
         help_text='Максимум 150 символов',
     )
     description = models.TextField(
-        'description',
+        'описание',
         max_length=300,
         help_text='Описание. Максимум 300 символов',
     )

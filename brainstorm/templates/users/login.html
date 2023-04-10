@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load i18n %}
+{% load socialaccount %}
 
 {% block title %}
   {% trans "login" %}
@@ -12,9 +13,11 @@
 
     {% include "includes/form.html" %}
 
+    <a href="{% provider_login_url 'github' method='oauth2' %}">Войти через GitHub</a>
+
     <p class="mt-2">
       <a href="{% url 'users:password_reset' %}" class="link-secondary">{% trans "forgot_password" %}</a>
-      <br />
+      <br/>
       <a href="{% url 'users:signup' %}" class="link-secondary mt-2">{% trans "register" %}</a>
     </p>
   </div>
