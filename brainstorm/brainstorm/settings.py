@@ -1,6 +1,7 @@
 import os
 import pathlib
 
+from django.utils.translation import gettext_lazy as _
 import environ
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent.parent
@@ -14,6 +15,8 @@ env = environ.Env(
     EMAIL_PASSWORD=(str, 'password'),
     GITHUB_CLIENT_ID=(str, 'client_id'),
     GITHUB_SECRET_KEY=(str, 'secret_key'),
+    GOOGLE_CLIENT_ID=(str, 'client_id'),
+    GOOGLE_SECRET_KEY=(str, 'secret_key'),
     SECRET_KEY=(str, 'dummy-key'),
     USERS_AUTOACTIVATE=(bool, True),
 )
@@ -37,6 +40,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.google',
     'django_cleanup.apps.CleanupConfig',
     'sorl.thumbnail',
     'about.apps.AboutConfig',
@@ -62,6 +66,7 @@ INTERNAL_IPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -179,5 +184,13 @@ SOCIALACCOUNT_PROVIDERS = {
             'secret': env('GITHUB_SECRET_KEY'),
             'key': '',
         }
-    }
+    },
 }
+
+LANGUAGES = (
+    ('en', _('English')),
+    ('ru', _('Russian')),
+    ('de', _('Deutsche')),
+)
+
+LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale/'),)

@@ -116,6 +116,7 @@ class User(
         help_text='Аватарка',
     )
 
+    EMAIL_FIELD = 'email'
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
 
