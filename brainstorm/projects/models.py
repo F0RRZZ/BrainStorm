@@ -2,6 +2,7 @@ import django.db.models
 import django.utils.safestring
 
 import core.models
+import core.utils
 import projects.managers
 import tags.models
 import users.models

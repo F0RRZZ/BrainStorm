@@ -35,7 +35,8 @@
             {% if not rendering_user.first_name %}
               {{ rendering_user.username }}
             {% else %}
-              {{ rendering_user.first_name }} {{ rendering_user.last_name }}
+              {{ rendering_user.first_name }}
+              {% if rendering_user.last_name %}{{ rendering_user.last_name }}{% endif %}
             {% endif %}
           </p>
         </div>

@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 
+{% load i18n %}
+
+{% block title %}
+  {% trans "project_create" %}
+{% endblock title %}
+
 {% block content %}
-  <div class="container mt-4">
-    <form method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      {% for field in form %}
-        <div class="mb-3">
-          {{ field.label_tag }} {{ field }}
-          {% if field.help_text %}<div class="form-text">{{ field.help_text|safe }}</div>{% endif %}
-        </div>
-      {% endfor %}
-      <input type="submit" value="отправить" class="btn btn-primary" />
-    </form>
+  <div class="container">
+    <h3>{% trans "project_create" %}</h3>
+
+    {% include "includes/form.html" %}
+
   </div>
 {% endblock content %}

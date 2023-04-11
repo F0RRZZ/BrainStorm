@@ -16,13 +16,22 @@
 
         {% load thumbnail %}
 
+        {% if project.preview.image %}
+
         {% thumbnail project.preview.image "300x300" padding=True as im %}
         <img src="{{ im.url }}"
              class="bs-image-block"
              height="{{ im.height }}"
              width="{{ im.width }}"
              alt="..."/>
-      {% endthumbnail %}
+        {% endthumbnail %}
+        {% else %}
+        <img src="{% static 'img/project_default.jpg' %}"
+             class="bs-image-block"
+             height="300px"
+             width="300px"
+             alt="..."/>
+        {% endif %}
     </div>
     <div class="bs-child-vertical-container">
       <h3 class="mb-3 text-center text-wrap">{{ project.name }}</h3>
@@ -63,7 +72,7 @@
              class="accordion-collapse collapse"
              data-bs-parent="#projectAccordion">
           <div class="accordion-body">
-            {% if project.images_gallery %}
+            {% if project.images_gallery.all %}
               <div id="carouselExample"
                    class="carousel slide bs-project-gallery-carousel">
                 <div class="carousel-inner">
@@ -137,7 +146,7 @@
     <div>
       {% for tag in project.tags.all %}<span class="badge text-bg-dark me-1">{{ tag.name }}</span>{% endfor %}
     </div>
-    {% if user.id != project.user.id %}
+    {% if user.id != project.author.id %}
       <h3 class="mt-4 mb-3">{% trans "my_rating" %}</h3>
       <form class="d-flex align-items-center"
             method="post"
