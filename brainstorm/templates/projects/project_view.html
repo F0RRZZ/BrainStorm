@@ -3,6 +3,7 @@
 {% load i18n %}
 
 {% load static %}
+{% load thumbnail %}
 
 {% block title %}
   {{ project.name }}
@@ -13,8 +14,6 @@
   <div class="container">
     <div class="bs-main-horizontal-container">
       <div class="bs-child-vertical-container mb-3">
-
-        {% load thumbnail %}
 
         {% thumbnail project.preview.image "300x300" padding=True as im %}
         <img src="{{ im.url }}"

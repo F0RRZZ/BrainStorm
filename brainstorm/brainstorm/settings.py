@@ -185,6 +185,13 @@ SOCIALACCOUNT_PROVIDERS = {
             'key': '',
         }
     },
+    'google': {
+        'APP': {
+            'client_id': env('GOOGLE_CLIENT_ID'),
+            'secret': env('GOOGLE_SECRET_KEY'),
+            'key': '',
+        }
+    },
 }
 
 LANGUAGES = (

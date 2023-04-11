@@ -19,7 +19,7 @@
       {% if show_profile %}
         {% trans "my_profile" %}
       {% else %}
-        {{ rendering_user.username }}
+        {{ username }}
       {% endif %}
     </h3>
     <div class="bs-main-horizontal-container">
@@ -33,7 +33,7 @@
         <div class="bs-username-block mt-2">
           <p class="fs-3 text-wrap text-center">
             {% if not rendering_user.first_name %}
-              {{ rendering_user.username }}
+              {{ username }}
             {% else %}
               {{ rendering_user.first_name }} {{ rendering_user.last_name }}
             {% endif %}
@@ -62,7 +62,7 @@
                     data-bs-toggle="offcanvas"
                     data-bs-target="#userSettings"
                     aria-controls="userSettings">
-              {% trans "setings" %} <i class="fa-solid fa-gear ms-2"></i>
+              {% trans "settings" %} <i class="fa-solid fa-gear ms-2"></i>
             </button>
             <a class="btn btn-outline-danger mt-2" href="{% url 'users:logout' %}">{% trans "logout" %}</a>
           </div>
@@ -102,7 +102,6 @@
             <div class="{% if show_profile %}bs-profile-projects-nav{% else %}d-flex justify-content-start align-self-start mt-3 mb-4{% endif %}">
 
               {% include "includes/search_string.html" %}
-
  
               {% if show_profile %}
                 <a href="{% url 'projects:create' %}" class="btn btn-success mt-3">{% trans "create" %}</a>
@@ -110,10 +109,8 @@
             </div>
             {% for project in rendering_user.projects.all %}
               {% with show_author=False show_redact_button=show_profile %}
- 
 
                 {% include "includes/project_card.html" %}
-
  
               {% endwith %}
             {% endfor %}

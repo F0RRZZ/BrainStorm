@@ -79,15 +79,12 @@ class UserDetailView(
     django.views.generic.UpdateView,
     django.views.generic.DetailView,
 ):
-    # TODO: add projects and comments in context
-
     template_name = 'users/user_detail.html'
     pk_url_kwarg = 'username'
 
     model = users.models.User
     form_class = users.forms.UserProfileForm
 
-    queryset = users.models.User.objects.all()
     context_object_name = 'rendering_user'
 
     def get_success_url(self):
@@ -108,7 +105,7 @@ class UserDetailView(
 
     def get_object(self):
         return django.shortcuts.get_object_or_404(
-            self.get_queryset(),
+            self.get_queryset().select_related(),
             username=self.kwargs[self.pk_url_kwarg],
         )
 
@@ -116,21 +113,23 @@ class UserDetailView(
         context = super().get_context_data(**kwargs)
         user = self.object
         current_user = self.request.user
-        first_name = user.first_name if user.first_name else 'не указано'
-        last_name = user.last_name if user.last_name else 'не указано'
-        image = user.image if user.image else 'не указано'
-        projects = None
-        comments = None
+        first_name = user.first_name
+        last_name = user.last_name
+        image = user.image
         show_profile = (
             current_user.is_authenticated and current_user.id == user.id
         )
         context.update(
             {
-                'first_name': first_name,
-                'last_name': last_name,
-                'image': image,
-                'projects': projects,
-                'comments': comments,
+                'first_name': first_name
+                if first_name is not None
+                else 'не указано',
+                'last_name': last_name
+                if last_name is not None
+                else 'не указано',
+                'image': image
+                if last_name is not None
+                else 'не указано',
                 'show_profile': show_profile,
             }
         )

@@ -40,9 +40,9 @@ class FeedbackFormView(FormView):
                 feedback_file.save()
         send_mail(
             subject,
-            text,
+            text + f'\nАвтор: {email}',
             settings.EMAIL,
-            [email],
+            [settings.EMAIL],
             fail_silently=False,
         )
         return super().form_valid(form)
