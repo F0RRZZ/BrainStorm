@@ -8,6 +8,8 @@ import django.urls
 import django.utils
 import django.views.generic
 
+import comments.models
+import projects.models
 import users.forms
 import users.models
 
@@ -114,23 +116,17 @@ class UserDetailView(
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
         user = self.object
         current_user = self.request.user
-        first_name = user.first_name if user.first_name else 'не указано'
-        last_name = user.last_name if user.last_name else 'не указано'
-        image = user.image if user.image else 'не указано'
-        projects = None
-        comments = None
         show_profile = (
             current_user.is_authenticated and current_user.id == user.id
         )
+
         context.update(
             {
-                'first_name': first_name,
-                'last_name': last_name,
-                'image': image,
-                'projects': projects,
-                'comments': comments,
+                'projects': projects.models.Project.objects.get_user_projects(user.id),
+                'comments': comments.models.Comment.objects.get_user_comments(user.id),
                 'show_profile': show_profile,
             }
         )

@@ -109,7 +109,7 @@
                 <a href="{% url 'projects:create' %}" class="btn btn-success mt-3">{% trans "create" %}</a>
               {% endif %}
             </div>
-            {% for project in rendering_user.projects.all %}
+            {% for project in projects %}
               {% with show_author=False show_redact_button=show_profile %}
  
 
@@ -125,7 +125,7 @@
                aria-labelledby="nav-comments-tab"
                tabindex="0">
             <div class="d-flex flex-column align-items-stretch align-self-stretch mt-1">
-              {% for comment in rendering_user.comments.all %}
+              {% for comment in comments %}
                 <div class="d-flex justify-content-between mt-3">
                   <div class="fs-5">
                     <a class="link-dark" href="{% url 'projects:view' comment.project.id %}">{{ comment.project.name }}</a>, <span>{{ comment.creation_date }}</span>
