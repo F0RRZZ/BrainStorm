@@ -7,6 +7,11 @@ import users.models
 
 
 class ProjectRating(django.db.models.Model):
+    class ScoreData:
+        MIN = 1
+        MAX = 10
+        DEFAULT = 5
+
     project = django.db.models.ForeignKey(
         projects.models.Project,
         verbose_name='проект',
@@ -21,10 +26,11 @@ class ProjectRating(django.db.models.Model):
         related_name='score_project_user',
     )
     score = django.db.models.PositiveSmallIntegerField(
+        default=ScoreData.DEFAULT,
         verbose_name='оценка проекта',
         validators=[
-            django.core.validators.MinValueValidator(1),
-            django.core.validators.MaxValueValidator(10),
+            django.core.validators.MinValueValidator(ScoreData.MIN),
+            django.core.validators.MaxValueValidator(ScoreData.MAX),
         ],
     )
 

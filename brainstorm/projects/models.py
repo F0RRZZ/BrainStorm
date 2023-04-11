@@ -39,15 +39,11 @@ class Project(django.db.models.Model):
         users.models.User,
         verbose_name='коллабораторы',
         related_name='colleagues',
-        null=True,
-        blank=True,
     )
     tags = django.db.models.ManyToManyField(
         tags.models.Tag,
         verbose_name='теги',
         related_name='projects',
-        null=True,
-        blank=True,
     )
     published = django.db.models.BooleanField(
         'опубликовано',

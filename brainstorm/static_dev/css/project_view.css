@@ -77,3 +77,27 @@
     margin-right: 7px;
     align-self: flex-start;
 }
+
+#range-value-display {
+  width: 50px;
+  min-width: 50px;
+  height: 50px;
+  font-size: 30px;
+
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-left: 20px;
+  margin-right: 10px;
+
+  border: solid 3px #9acd32;
+  border-radius: 20%;
+
+  transition: all 0.3s ease-in-out;
+}
+
+#range-value-display:hover {
+  border-radius: 50%;
+}

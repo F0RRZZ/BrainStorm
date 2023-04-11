@@ -137,24 +137,41 @@
     <div>
       {% for tag in project.tags.all %}<span class="badge text-bg-dark me-1">{{ tag.name }}</span>{% endfor %}
     </div>
-    <h3 class="mt-4">{% trans "comments" %}</h3>
-    <h5 class="mt-3 text-secondary">{% trans "leave_comment" %}:</h5>
-    <div class="d-flex align-items-center align-self-stretch mt-2 pb-4">
-      <img class="bs-comment-user-image"
-           src="{{ user.get_image_50x50.url }}"
-           width="50px"
-           height="50px"
-           alt="..."/>
+    {% if user.id != project.user.id %}
+      <h3 class="mt-4 mb-3">{% trans "my_rating" %}</h3>
       <form class="d-flex align-items-center"
             method="post"
             enctype="multipart/form-data">
+        <input type="hidden" name="action" value="set_rating" />
         {% csrf_token %}
-        {% for field in form %}{{ field }}{% endfor %}
+        {% for field in rating_form %}{{ field }}{% endfor %}
+        <div id="range-value-display"></div>
         <input type="submit"
-               class="btn btn-outline-secondary align-self-end ms-2"
-               value="{% trans "send" %}"/>
+               class="btn btn-light align-self-end ms-2"
+               value="{% trans "set_rating" %}"/>
       </form>
-    </div>
+    {% endif %}
+    <h3 class="mt-4">{% trans "comments" %}</h3>
+    {% if user.is_authenticated %}
+      <h5 class="mt-3 text-secondary">{% trans "leave_comment" %}:</h5>
+      <div class="d-flex align-items-center align-self-stretch mt-2 pb-4">
+        <img class="bs-comment-user-image"
+             src="{{ user.get_image_50x50.url }}"
+             width="50px"
+             height="50px"
+             alt="..."/>
+        <form class="d-flex align-items-center"
+              method="post"
+              enctype="multipart/form-data">
+          <input type="hidden" name="action" value="leave_comment" />
+          {% csrf_token %}
+          {% for field in comment_form %}{{ field }}{% endfor %}
+          <input type="submit"
+                 class="btn btn-outline-secondary align-self-end ms-2"
+                 value="{% trans "send" %}"/>
+        </form>
+      </div>
+    {% endif %}
     <div class="d-flex flex-column align-items-stretch align-self-stretch pt-3">
       {% for comment in project.comments.all %}
         <div id="comment-{{ comment.id }}" class="bs-comment">
@@ -178,4 +195,5 @@
     </div>
   </div>
 </div>
+<script type="module" src="{% static 'js/rating_range.js' %}"></script>
 {% endblock content %}

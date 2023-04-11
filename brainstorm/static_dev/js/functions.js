@@ -41,3 +41,17 @@ export function getArgumentFromUrl(arg, default_="", url=window.location.href) {
 export function getSelectedValues(select) {
     return Array.from(select.options).filter(option => option.selected).map(option => option.value);
 }
+
+export function getColorFromNumber(number) {
+    let color;
+    if (number <= 3) {
+        color = "#de1212";
+    } else if (number <= 6) {
+        color = "#debc12";
+    } else if (number <= 9) {
+        color = "#5ebf13";
+    } else if (number <= 10) {
+        color = "#00d0ff";
+    }
+    return color;
+}

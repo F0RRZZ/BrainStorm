@@ -1,4 +1,5 @@
 import django.contrib.admin
+
 import rating.models
 
 
