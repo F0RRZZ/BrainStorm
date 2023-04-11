@@ -55,3 +55,7 @@ export function getColorFromNumber(number) {
     }
     return color;
 }
+
+export function clearFromNonVisible(string) {
+    return string.replace(/( )/gm, '').replace(/(\r\n|\n|\r)/gm, '');
+}

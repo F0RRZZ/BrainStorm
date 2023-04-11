@@ -17,21 +17,19 @@ class ViewProject(django.views.generic.DetailView):
     pk_url_kwarg = 'project_id'
     model = projects.models.Project
 
-    # def form_valid(self, form):
-    #     form.save(self.request.user.id, self.get_object().id)
-    #     return django.http.HttpResponseRedirect(
-    #         django.urls.reverse_lazy('projects:view', kwargs=self.kwargs),
-    #     )
-
-    def get_initial_rating(self):
+    def get_and_check_initial_rating(self):
         try:
             score = rating.models.ProjectRating.objects.get(
                 user_id=self.request.user.id,
                 project_id=self.kwargs[self.pk_url_kwarg],
             ).score
+            rating_exists = True
         except rating.models.ProjectRating.DoesNotExist:
             score = rating.models.ProjectRating.ScoreData.DEFAULT
-        return {rating.models.ProjectRating.score.field.name: score}
+            rating_exists = False
+        return {
+            rating.models.ProjectRating.score.field.name: score
+        }, rating_exists
 
     def get_object(self):
         return django.shortcuts.get_object_or_404(
@@ -39,23 +37,35 @@ class ViewProject(django.views.generic.DetailView):
             id=self.kwargs[self.pk_url_kwarg],
         )
 
-    def get_context_data(self, **kwargs):
-        context = {
-            'project': self.get_object(),
+    def get_base_context(self, rating_exists=False):
+        project = self.get_object()
+        return {
+            'project': project,
+            'average_rating': projects.models.Project.objects.get_avg_rating(
+                project.id,
+            ),
+            'rating_exists': rating_exists,
         }
+
+    def get_context_data(self, **kwargs):
+        initial_data, rating_exists = self.get_and_check_initial_rating()
+        context = self.get_base_context(rating_exists)
         user = self.request.user
         if user.is_authenticated:
             context['comment_form'] = comments.forms.CommentForm()
             context['rating_form'] = rating.forms.ProjectRatingForm(
-                initial=self.get_initial_rating(),
+                initial=initial_data,
             )
         return context
 
     def post(self, request, project_id):
+        initial_data, rating_exists = self.get_and_check_initial_rating()
+        context = self.get_base_context(rating_exists)
+
         user = request.user
-        project = self.get_object()
+        project = context['project']
         comment_form = comments.forms.CommentForm()
-        rating_form = rating.forms.ProjectRatingForm()
+        rating_form = rating.forms.ProjectRatingForm(initial_data)
 
         action = self.request.POST['action']
 
@@ -71,7 +81,7 @@ class ViewProject(django.views.generic.DetailView):
         elif action == 'set_rating':
             rating_form = rating.forms.ProjectRatingForm(
                 request.POST or None,
-                initial=self.get_initial_rating(),
+                initial=initial_data,
             )
             if rating_form.is_valid():
                 rating_form.save(user.id, project.id)
@@ -81,11 +91,12 @@ class ViewProject(django.views.generic.DetailView):
                     ),
                 )
 
-        context = {
-            'project': project,
-            'rating_form': rating_form,
-            'comment_form': comment_form,
-        }
+        context.update(
+            {
+                'rating_form': rating_form,
+                'comment_form': comment_form,
+            }
+        )
         return django.shortcuts.render(request, self.template_name, context)
 
 

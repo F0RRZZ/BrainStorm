@@ -28,9 +28,7 @@
     <div class="col-md-4">
       {% with image_url=project.preview.get_image_300x300.url %}
         {% if image_url %}
-          <img src="{{ image_url }}"
-               class="img-fluid rounded-end"
-               alt="..."/>
+          <img src="{{ image_url }}" class="img-fluid rounded-end" alt="..."/>
         {% else %}
           <img src="{% static 'img/project_default.jpg' %}"
                class="img-fluid rounded-end"

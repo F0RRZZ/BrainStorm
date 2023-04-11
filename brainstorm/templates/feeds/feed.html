@@ -20,11 +20,19 @@
       <div class="bs-child-vertical-container">
         <h3 class="text-center">{{ feed_name }}</h3>
         {% for project in projects %}
-          {% with show_author=True %}
+          {% if user.is_authenticated and user.id == project.author.id %}
+            {% with show_author=True show_redact_button=True %}
 
-            {% include "includes/project_card.html" %}
+              {% include "includes/project_card.html" %}
 
-          {% endwith %}
+            {% endwith %}
+          {% else %}
+            {% with show_author=True %}
+
+              {% include "includes/project_card.html" %}
+
+            {% endwith %}
+          {% endif %}
         {% endfor %}
       </div>
     </div>

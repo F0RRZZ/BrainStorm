@@ -13,3 +13,6 @@ class ProjectManager(django.db.models.Manager):
 
     def best(self):
         return self.get_queryset().order_by('-score_project__score')
+
+    def get_avg_rating(self, project_id):
+        return 8.6

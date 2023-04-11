@@ -23,7 +23,6 @@ class SignUpView(django.views.generic.CreateView):
 
     def form_valid(self, form):
         user = form.save(commit=False)
-        print("AUTO", django.conf.settings.USERS_AUTOACTIVATE)
         if not django.conf.settings.USERS_AUTOACTIVATE:
             user.is_activate = False
             user.save()

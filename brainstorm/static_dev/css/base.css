@@ -37,6 +37,12 @@
   width: fit-content !important;
 }
 
+.bs-none {
+  display: none;
+  width: 0px;
+  height: 0px;
+}
+
 p:empty {
   display: none;
 }
