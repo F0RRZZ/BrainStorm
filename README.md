@@ -45,7 +45,7 @@ git clone https://github.com/F0RRZZ/BrainStorm.git
 |--------------------------------------------|---------------------------------------------|
 | ```pip install -r requirements/test.txt``` | ```pip3 install -r requirements/test.txt``` |
 
-4. Устанавливаем переменные окружения
+4. Устанавите переменные окружения
 
 ```shell
 cd brainstorm
@@ -68,7 +68,7 @@ cp .env-example .env
 |----------------------------------------|-----------------------------------------|
 | ```python manage.py createsuperuser``` | ```python3 manage.py createsuperuser``` |
 
-* Второй способ. Использовать готовую базу данных
+* Второй способ. Использование готовой базы данных
 
 ```shell
 cp db_example.sqlite3 db.sqlite3
