@@ -81,8 +81,6 @@ class UserDetailView(
     django.views.generic.UpdateView,
     django.views.generic.DetailView,
 ):
-    # TODO: add projects and comments in context
-
     template_name = 'users/user_detail.html'
     pk_url_kwarg = 'username'
 
@@ -125,8 +123,12 @@ class UserDetailView(
 
         context.update(
             {
-                'projects': projects.models.Project.objects.get_user_projects(user.id),
-                'comments': comments.models.Comment.objects.get_user_comments(user.id),
+                'projects': projects.models.Project.objects.get_user_projects(
+                    user.id
+                ),
+                'comments': comments.models.Comment.objects.get_user_comments(
+                    user.id
+                ),
                 'show_profile': show_profile,
             }
         )

@@ -5,6 +5,7 @@ import django.urls
 import django.views.generic
 
 import comments.forms
+import comments.models
 import projects.forms
 import projects.models
 import rating.forms
@@ -41,6 +42,9 @@ class ViewProject(django.views.generic.DetailView):
         project = self.get_object()
         return {
             'project': project,
+            'comments': comments.models.Comment.objects.get_project_comments(
+                project.id,
+            ),
             'average_rating': projects.models.Project.objects.get_avg_rating(
                 project.id,
             ),
