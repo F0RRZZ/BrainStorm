@@ -15,8 +15,6 @@ env = environ.Env(
     EMAIL_PASSWORD=(str, 'password'),
     GITHUB_CLIENT_ID=(str, 'client_id'),
     GITHUB_SECRET_KEY=(str, 'secret_key'),
-    GOOGLE_CLIENT_ID=(str, 'client_id'),
-    GOOGLE_SECRET_KEY=(str, 'secret_key'),
     SECRET_KEY=(str, 'dummy-key'),
     USERS_AUTOACTIVATE=(bool, True),
 )
@@ -45,6 +43,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'about.apps.AboutConfig',
     'core.apps.CoreConfig',
+    'collaboration_request.apps.CollaborationRequestConfig',
     'comments.apps.CommentsConfig',
     'feedback.apps.FeedbackConfig',
     'feeds.apps.FeedsConfig',
@@ -182,13 +181,6 @@ SOCIALACCOUNT_PROVIDERS = {
         'APP': {
             'client_id': env('GITHUB_CLIENT_ID'),
             'secret': env('GITHUB_SECRET_KEY'),
-            'key': '',
-        }
-    },
-    'google': {
-        'APP': {
-            'client_id': env('GOOGLE_CLIENT_ID'),
-            'secret': env('GOOGLE_SECRET_KEY'),
             'key': '',
         }
     },

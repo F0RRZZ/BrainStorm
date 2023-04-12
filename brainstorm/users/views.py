@@ -127,9 +127,7 @@ class UserDetailView(
                 'last_name': last_name
                 if last_name is not None
                 else 'не указано',
-                'image': image
-                if last_name is not None
-                else 'не указано',
+                'image': image if last_name is not None else 'не указано',
                 'show_profile': show_profile,
             }
         )
