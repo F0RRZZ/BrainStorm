@@ -27,6 +27,13 @@ urlpatterns = [
         django.urls.include('tags.urls', namespace='tags'),
     ),
     django.urls.path(
+        'collaboration_requests/',
+        django.urls.include(
+            'collaboration_request.urls',
+            namespace='collaboration_requests',
+        ),
+    ),
+    django.urls.path(
         'users/',
         django.urls.include('users.urls', namespace='users'),
     ),
