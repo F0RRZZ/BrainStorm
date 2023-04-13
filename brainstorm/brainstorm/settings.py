@@ -1,6 +1,7 @@
 import os
 import pathlib
 
+from django.utils.translation import gettext_lazy as _
 import environ
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent.parent
@@ -37,10 +38,12 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.google',
     'django_cleanup.apps.CleanupConfig',
     'sorl.thumbnail',
     'about.apps.AboutConfig',
     'core.apps.CoreConfig',
+    'collaboration_request.apps.CollaborationRequestConfig',
     'comments.apps.CommentsConfig',
     'feedback.apps.FeedbackConfig',
     'feeds.apps.FeedsConfig',
@@ -62,6 +65,7 @@ INTERNAL_IPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -179,5 +183,13 @@ SOCIALACCOUNT_PROVIDERS = {
             'secret': env('GITHUB_SECRET_KEY'),
             'key': '',
         }
-    }
+    },
 }
+
+LANGUAGES = (
+    ('en', _('English')),
+    ('ru', _('Russian')),
+    ('de', _('Deutsche')),
+)
+
+LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale/'),)

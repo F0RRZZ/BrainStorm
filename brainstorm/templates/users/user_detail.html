@@ -19,7 +19,7 @@
       {% if show_profile %}
         {% trans "my_profile" %}
       {% else %}
-        {{ rendering_user.username }}
+        {{ username }}
       {% endif %}
     </h3>
     <div class="bs-main-horizontal-container">
@@ -33,7 +33,7 @@
         <div class="bs-username-block mt-2">
           <p class="fs-3 text-wrap text-center">
             {% if not rendering_user.first_name %}
-              {{ rendering_user.username }}
+              {{ username }}
             {% else %}
               {{ rendering_user.first_name }}
               {% if rendering_user.last_name %}{{ rendering_user.last_name }}{% endif %}
@@ -63,7 +63,7 @@
                     data-bs-toggle="offcanvas"
                     data-bs-target="#userSettings"
                     aria-controls="userSettings">
-              {% trans "setings" %} <i class="fa-solid fa-gear ms-2"></i>
+              {% trans "settings" %} <i class="fa-solid fa-gear ms-2"></i>
             </button>
             <a class="btn btn-outline-danger mt-2" href="{% url 'users:logout' %}">{% trans "logout" %}</a>
           </div>
@@ -124,7 +124,6 @@
  
 
                 {% include "includes/pagination_bar.html" %}
-
  
               {% endwith %}
             </div>

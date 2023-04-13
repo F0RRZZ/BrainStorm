@@ -88,7 +88,6 @@ class UserDetailView(
     model = users.models.User
     form_class = users.forms.UserProfileForm
 
-    queryset = users.models.User.objects.all()
     context_object_name = 'rendering_user'
 
     def get_success_url(self):
@@ -109,7 +108,7 @@ class UserDetailView(
 
     def get_object(self):
         return django.shortcuts.get_object_or_404(
-            self.get_queryset(),
+            self.get_queryset().select_related(),
             username=self.kwargs[self.pk_url_kwarg],
         )
 
