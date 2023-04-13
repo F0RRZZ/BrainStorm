@@ -45,7 +45,9 @@ class ViewProject(django.views.generic.DetailView):
         comments_ = comments.models.Comment.objects.get_project_comments(
             project.id,
         )
-        paginator = django.core.paginator.Paginator(comments_, ViewProject.paginate_by)
+        paginator = django.core.paginator.Paginator(
+            comments_, ViewProject.paginate_by
+        )
         page_obj = paginator.get_page(self.request.GET.get('page', 1))
         return {
             'project': project,

@@ -83,6 +83,7 @@ class UserDetailView(
 ):
     template_name = 'users/user_detail.html'
     pk_url_kwarg = 'username'
+    paginate_by = 30
 
     model = users.models.User
     form_class = users.forms.UserProfileForm
@@ -121,14 +122,34 @@ class UserDetailView(
             current_user.is_authenticated and current_user.id == user.id
         )
 
+        projects_ = projects.models.Project.objects.get_user_projects(
+            user.id,
+        )
+        projects_paginator = django.core.paginator.Paginator(
+            projects_,
+            UserDetailView.paginate_by,
+        )
+        projects_page_obj = projects_paginator.get_page(
+            self.request.GET.get('projects_page', 1),
+        )
+
+        comments_ = comments.models.Comment.objects.get_user_comments(
+            user.id,
+        )
+        comments_paginator = django.core.paginator.Paginator(
+            comments_,
+            UserDetailView.paginate_by,
+        )
+        comments_page_obj = comments_paginator.get_page(
+            self.request.GET.get('comments_page', 1),
+        )
+
         context.update(
             {
-                'projects': projects.models.Project.objects.get_user_projects(
-                    user.id
-                ),
-                'comments': comments.models.Comment.objects.get_user_comments(
-                    user.id
-                ),
+                'projects_paginator': projects_paginator,
+                'projects': projects_page_obj,
+                'comments_paginator': comments_paginator,
+                'comments': comments_page_obj,
                 'show_profile': show_profile,
             }
         )

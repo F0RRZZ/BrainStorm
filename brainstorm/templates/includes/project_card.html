@@ -27,7 +27,7 @@
         <p class="card-text">{{ project.short_description|safe }}</p>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 bs-project-image-container">
       {% if project.preview.image %}
         {% thumbnail project.preview.image "300x300" padding=True as im %}
         <img src="{{ im.url }}" class="img-fluid rounded-end" alt="..."/>
