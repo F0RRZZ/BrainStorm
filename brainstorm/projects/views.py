@@ -126,6 +126,7 @@ class CreateProject(
             name=form.cleaned_data['name'],
             description=form.cleaned_data['description'],
             status=form.cleaned_data['status'],
+            short_description=form.cleaned_data['short_description']
         )
         project.save()
         if 'preview' in self.request.FILES:
@@ -159,3 +160,25 @@ class RedactProject(
             self.model,
             pk=self.kwargs['project_id'],
         )
+
+    def form_valid(self, form):
+        project = form.save(commit=False)
+        if 'preview' in self.request.FILES:
+            preview = projects.models.Preview.objects.filter(project=project)
+            if preview.first():
+                preview.image = self.request.FILES.get('preview')
+                preview.save(update_fields=['image'])
+            else:
+                preview = projects.models.Preview.objects.create(
+                    project=project,
+                    image=self.request.FILES.get('preview'),
+                )
+                preview.save()
+        photos = self.request.FILES.getlist('photos')
+        for photo in photos:
+            add_image = projects.models.ImagesGallery.objects.create(
+                project=project,
+                image=photo
+            )
+            add_image.save()
+        return super().form_valid(form)

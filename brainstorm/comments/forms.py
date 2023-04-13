@@ -1,7 +1,7 @@
+import comments.models
 import django.forms
 from django.utils.translation import gettext_lazy as _
 
-import comments.models
 import core.forms
 
 
