@@ -6,10 +6,13 @@ import tags.models
 
 
 class GetContextMixin:
+    paginate_by = 30
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['tags'] = tags.models.Tag.objects.all()
         context['feed_name'] = self.__class__.feed_name
+        print(context)
         return context
 
 

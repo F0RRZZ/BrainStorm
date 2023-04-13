@@ -1,0 +1,7 @@
+.page-item > .page-link {
+  transition: all 0.2s ease;
+}
+
+.page-item:hover:not(.disabled) > .page-link {
+  box-shadow: 0 0 3px 0.1rem #1457c38e;
+}

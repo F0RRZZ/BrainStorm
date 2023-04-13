@@ -1,9 +1,10 @@
 import django.forms
 
+import core.forms
 import projects.models
 
 
-class ProjectForm(django.forms.ModelForm):
+class ProjectForm(core.forms.BootstrapFormMixin, django.forms.ModelForm):
     preview = django.forms.ImageField(
         label='Превью',
         help_text='прикрепите превью проекта',
@@ -16,20 +17,19 @@ class ProjectForm(django.forms.ModelForm):
         required=False,
     )
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for field in self.visible_fields():
-            field.field.widget.attrs['class'] = 'form-control mt-2'
-
     class Meta:
         model = projects.models.Project
         fields = (
             projects.models.Project.name.field.name,
+            projects.models.Project.short_description.field.name,
             projects.models.Project.description.field.name,
             projects.models.Project.status.field.name,
         )
         labels = {
             projects.models.Project.name.field.name: 'Название',
             projects.models.Project.description.field.name: 'Описание',
+            projects.models.Project.short_description.field.name: (
+                'Краткое описание'
+            ),
             projects.models.Project.status.field.name: 'Статус',
         }

@@ -1,10 +1,15 @@
 import django.db.models
 
+import comments.managers
 import projects.models
 import users.models
 
+CREATION_DATE_FIELD_NAME = 'creation_date'
+
 
 class Comment(django.db.models.Model):
+    objects = comments.managers.CommentsManager()
+
     project = django.db.models.ForeignKey(
         projects.models.Project,
         verbose_name='проект',
@@ -32,6 +37,9 @@ class Comment(django.db.models.Model):
     )
 
     class Meta:
+        ordering = [
+            f'-{CREATION_DATE_FIELD_NAME}',
+        ]
         verbose_name = 'комментарий'
         verbose_name_plural = 'комментарии'
 

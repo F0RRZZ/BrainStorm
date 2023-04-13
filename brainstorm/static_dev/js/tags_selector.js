@@ -1,8 +1,8 @@
-import {getUrlWithNewArgument, getArgumentFromUrl, getSelectedValues} from './functions.js';
+import {getUrlWithNewArgument, getArgumentFromUrl, getSelectedValues, clearFromPaginators} from './functions.js';
 
 function redirect() {
     let selected = getSelectedValues(document.querySelector("#tags-selector > select"));
-    let new_url = getUrlWithNewArgument("tags", selected.join(","));
+    let new_url = clearFromPaginators(getUrlWithNewArgument("tags", selected.join(",")));
     window.location.replace(new_url);
 }
 
@@ -21,7 +21,6 @@ function filterOptions() {
         }
         select.options[i].style.display = "none";
     }
-    console.log("Hello");
 }
 
 let select = document.querySelector("#tags-selector > select");

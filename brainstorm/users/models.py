@@ -44,6 +44,8 @@ class User(
     django.contrib.auth.models.PermissionsMixin,
     core.utils.ImageMixin,
 ):
+    DEFAULT_IMAGE = 'images/user_default.jpg'
+
     username = django.db.models.CharField(
         'имя пользователя',
         max_length=100,

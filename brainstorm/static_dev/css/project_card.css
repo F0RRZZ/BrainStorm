@@ -1,5 +1,6 @@
 .bs-project-card {
   transition: all 0.3s ease-in;
+  width: 100%;
 }
 
 .bs-project-card:hover {
@@ -15,4 +16,26 @@
 
 .bs-hidden-link:hover {
   color: rgb(93, 91, 91);
+}
+
+.bs-project-image-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.bs-project-image-container > img {
+  width: auto;
+  height: auto;
+}
+
+@media screen and (max-width: 767.5px) {
+  .bs-project-image-container {
+    justify-content: center;
+    align-self: stretch;
+  }
+
+  .bs-project-image-container > img {
+    border-radius: 20px !important;
+  }
 }

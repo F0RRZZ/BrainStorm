@@ -8,6 +8,8 @@ import django.urls
 import django.utils
 import django.views.generic
 
+import comments.models
+import projects.models
 import users.forms
 import users.models
 
@@ -81,6 +83,7 @@ class UserDetailView(
 ):
     template_name = 'users/user_detail.html'
     pk_url_kwarg = 'username'
+    paginate_by = 30
 
     model = users.models.User
     form_class = users.forms.UserProfileForm
@@ -111,23 +114,41 @@ class UserDetailView(
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
         user = self.object
         current_user = self.request.user
-        first_name = user.first_name
-        last_name = user.last_name
-        image = user.image
         show_profile = (
             current_user.is_authenticated and current_user.id == user.id
         )
+
+        projects_ = projects.models.Project.objects.get_user_projects(
+            user.id,
+        )
+        projects_paginator = django.core.paginator.Paginator(
+            projects_,
+            UserDetailView.paginate_by,
+        )
+        projects_page_obj = projects_paginator.get_page(
+            self.request.GET.get('projects_page', 1),
+        )
+
+        comments_ = comments.models.Comment.objects.get_user_comments(
+            user.id,
+        )
+        comments_paginator = django.core.paginator.Paginator(
+            comments_,
+            UserDetailView.paginate_by,
+        )
+        comments_page_obj = comments_paginator.get_page(
+            self.request.GET.get('comments_page', 1),
+        )
+
         context.update(
             {
-                'first_name': first_name
-                if first_name is not None
-                else 'не указано',
-                'last_name': last_name
-                if last_name is not None
-                else 'не указано',
-                'image': image if last_name is not None else 'не указано',
+                'projects_paginator': projects_paginator,
+                'projects': projects_page_obj,
+                'comments_paginator': comments_paginator,
+                'comments': comments_page_obj,
                 'show_profile': show_profile,
             }
         )
