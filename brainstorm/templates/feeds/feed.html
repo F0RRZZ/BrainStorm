@@ -34,6 +34,11 @@
             {% endwith %}
           {% endif %}
         {% endfor %}
+        <div id="paginators-list" class="bs-none">page</div>
+        {% with indicator="page" additional_class="pagination-lg" %}
+          {% include "includes/pagination_bar.html" %}
+        {% endwith %}
+        <script type="module" src="{% static 'js/pagination_bar.js' %}"></script>
       </div>
     </div>
   </div>

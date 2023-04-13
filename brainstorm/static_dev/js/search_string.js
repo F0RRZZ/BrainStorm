@@ -1,9 +1,9 @@
-import {getUrlWithNewArgument, getArgumentFromUrl} from './functions.js';
+import {getUrlWithNewArgument, getArgumentFromUrl, clearFromPaginators} from './functions.js';
 
 function redirect() {
     let input = document.querySelector("#search-string > input");
-    let new_url = getUrlWithNewArgument("search", input.value);
-    window.location.replace(new_url);
+    let newUrl = clearFromPaginators(getUrlWithNewArgument("search", input.value));
+    window.location.replace(newUrl);
 }
 
 document.querySelector("#search-string > button").onclick = redirect;

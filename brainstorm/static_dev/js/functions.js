@@ -1,6 +1,7 @@
 `use strict`
 
 export function normalizeUrl(url) {
+    url = url.split("#")[0];
     while (url.includes("??")) {
         url = url.replace("??", "?");
     }
@@ -40,6 +41,21 @@ export function getArgumentFromUrl(arg, default_="", url=window.location.href) {
 
 export function getSelectedValues(select) {
     return Array.from(select.options).filter(option => option.selected).map(option => option.value);
+}
+
+export function getPaginatorsArgs() {
+    let element = document.getElementById("paginators-list");
+    if (!element) {
+        return [];
+    }
+    return clearFromNonVisible(element.innerHTML).split(",");
+}
+
+export function clearFromPaginators(url) {
+    for (let arg of getPaginatorsArgs()) {
+        url = getUrlWithNewArgument(arg, "", url=url);
+    }
+    return url;
 }
 
 export function getColorFromNumber(number) {

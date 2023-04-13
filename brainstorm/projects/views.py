@@ -1,4 +1,5 @@
 import django.contrib.auth.mixins
+import django.core.paginator
 import django.http
 import django.shortcuts
 import django.urls
@@ -17,6 +18,7 @@ class ViewProject(django.views.generic.DetailView):
     template_name = 'projects/project_view.html'
     pk_url_kwarg = 'project_id'
     model = projects.models.Project
+    paginate_by = 60
 
     def get_and_check_initial_rating(self):
         try:
@@ -40,11 +42,15 @@ class ViewProject(django.views.generic.DetailView):
 
     def get_base_context(self, rating_exists=False):
         project = self.get_object()
+        comments_ = comments.models.Comment.objects.get_project_comments(
+            project.id,
+        )
+        paginator = django.core.paginator.Paginator(comments_, ViewProject.paginate_by)
+        page_obj = paginator.get_page(self.request.GET.get('page', 1))
         return {
             'project': project,
-            'comments': comments.models.Comment.objects.get_project_comments(
-                project.id,
-            ),
+            'paginator': paginator,
+            'comments': page_obj,
             'average_rating': projects.models.Project.objects.get_avg_rating(
                 project.id,
             ),
