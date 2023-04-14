@@ -24,9 +24,8 @@ class NewProjectsView(GetContextMixin, django.views.generic.ListView):
     def get_queryset(self):
         tags_slugs = self.request.GET.get('tags', '').split(',')
         if tags_slugs[0]:
-            return (
-                projects.models.Project.objects.new()
-                .filter(tags__slug__in=tags_slugs)
+            return projects.models.Project.objects.new().filter(
+                tags__slug__in=tags_slugs
             )
         return projects.models.Project.objects.new()
 
@@ -40,9 +39,8 @@ class BestProjectsView(GetContextMixin, django.views.generic.ListView):
     def get_queryset(self):
         tags_slugs = self.request.GET.get('tags', '').split(',')
         if tags_slugs[0]:
-            return (
-                projects.models.Project.objects.best()
-                .filter(tags__slug__in=tags_slugs)
+            return projects.models.Project.objects.best().filter(
+                tags__slug__in=tags_slugs
             )
         return projects.models.Project.objects.best()
 
@@ -56,9 +54,8 @@ class SpeakedProjectsView(GetContextMixin, django.views.generic.ListView):
     def get_queryset(self):
         tags_slugs = self.request.GET.get('tags', '').split(',')
         if tags_slugs[0]:
-            return (
-                projects.models.Project.objects.speaked()
-                .filter(tags__slug__in=tags_slugs)
+            return projects.models.Project.objects.speaked().filter(
+                tags__slug__in=tags_slugs
             )
         return projects.models.Project.objects.speaked()
 
@@ -72,8 +69,7 @@ class ArchiveProjectsView(GetContextMixin, django.views.generic.ListView):
     def get_queryset(self):
         tags_slugs = self.request.GET.get('tags', '').split(',')
         if tags_slugs[0]:
-            return (
-                projects.models.Project.objects.archive()
-                .filter(tags__slug__in=tags_slugs)
+            return projects.models.Project.objects.archive().filter(
+                tags__slug__in=tags_slugs
             )
         return projects.models.Project.objects.archive()

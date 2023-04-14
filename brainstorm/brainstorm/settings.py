@@ -65,7 +65,6 @@ INTERNAL_IPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -130,7 +129,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -192,4 +191,6 @@ LANGUAGES = (
     ('de', _('Deutsche')),
 )
 
-LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale/'),)
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]

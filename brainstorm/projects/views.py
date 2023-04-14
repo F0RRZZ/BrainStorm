@@ -126,7 +126,7 @@ class CreateProject(
             name=form.cleaned_data['name'],
             description=form.cleaned_data['description'],
             status=form.cleaned_data['status'],
-            short_description=form.cleaned_data['short_description']
+            short_description=form.cleaned_data['short_description'],
         )
         project.save()
         if 'preview' in self.request.FILES:
@@ -177,8 +177,7 @@ class RedactProject(
         photos = self.request.FILES.getlist('photos')
         for photo in photos:
             add_image = projects.models.ImagesGallery.objects.create(
-                project=project,
-                image=photo
+                project=project, image=photo
             )
             add_image.save()
         return super().form_valid(form)
