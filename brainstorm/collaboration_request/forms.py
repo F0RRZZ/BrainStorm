@@ -1,7 +1,7 @@
+import collaboration_request.models as collab_models
 import django.forms
 
 import core.forms
-import collaboration_request.models as collab_models
 
 
 class CollaboratorRequestForm(

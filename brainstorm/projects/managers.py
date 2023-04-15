@@ -28,7 +28,11 @@ class ProjectManager(django.db.models.Manager):
         return self.get_queryset().order_by('-creation_date')
 
     def best(self):
-        return self.get_queryset().order_by('-score_project__score')
+        return (
+            self.get_queryset()
+            .annotate(score=django.db.models.Avg('score_project__score'))
+            .order_by('-score')
+        )
 
     def speaked(self):
         return (
@@ -39,6 +43,3 @@ class ProjectManager(django.db.models.Manager):
 
     def get_user_projects(self, user_id):
         return self.filter(author_id=user_id)
-
-    def get_avg_rating(self, project_id):
-        return 8.6
