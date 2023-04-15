@@ -1,0 +1,35 @@
+.bs-project-panel-container {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bs-project-panel-container > div {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.bs-project-panel-container > div > a:not(:first-child) {
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 991.5px) {
+    .bs-project-panel-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bs-project-panel-container > div {
+        flex-direction: row;
+        align-items: flex-start;
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
+
+    .bs-project-panel-container > div > a:not(:first-child) {
+        margin-top: 0px;
+        margin-left: 10px;
+    }
+}
