@@ -1,13 +1,13 @@
 import os
 
-from django.core.files.uploadedfile import SimpleUploadedFile
-from django.test import Client, TestCase
-from django.urls import reverse
+import django.core.files.uploadedfile as uploadedfile
+import django.test
+import django.urls
 
 import feedback.models
 
 
-class FeedbackViewTests(TestCase):
+class FeedbackViewTests(django.test.TestCase):
     def setUp(self) -> None:
         self.form_data = {
             'subject': 'subject',
@@ -16,13 +16,15 @@ class FeedbackViewTests(TestCase):
         }
 
     def test_feedback_page_context(self):
-        response = Client().get(reverse('feedback:feedback'))
+        response = django.test.Client().get(
+            django.urls.reverse('feedback:feedback')
+        )
         self.assertIn('form', response.context)
 
     def test_create_feedback(self):
         feedbacks_count = feedback.models.Feedback.objects.count()
-        Client().post(
-            reverse('feedback:feedback'),
+        django.test.Client().post(
+            django.urls.reverse('feedback:feedback'),
             data=self.form_data,
             follow=True,
         )
@@ -34,21 +36,21 @@ class FeedbackViewTests(TestCase):
         )
 
     def test_redirect(self):
-        response = Client().post(
-            reverse('feedback:feedback'),
+        response = django.test.Client().post(
+            django.urls.reverse('feedback:feedback'),
             data=self.form_data,
             follow=True,
         )
-        self.assertRedirects(response, reverse('feedback:success'))
+        self.assertRedirects(response, django.urls.reverse('feedback:success'))
 
     def test_file_upload(self):
         with open('test_file.txt', 'w') as f:
             f.write('test')
         with open('test_file.txt', 'rb') as f:
             form_data = self.form_data
-            form_data['files'] = SimpleUploadedFile(f.name, f.read())
-            Client().post(
-                reverse('feedback:feedback'),
+            form_data['files'] = uploadedfile.SimpleUploadedFile(f.name, f.read())
+            django.test.Client().post(
+                django.urls.reverse('feedback:feedback'),
                 data=form_data,
                 follow=True,
             )
