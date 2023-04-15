@@ -1,6 +1,5 @@
-import django.urls
-
 import collaboration_request.views as collab_views
+import django.urls
 
 app_name = 'collaboration_requests'
 urlpatterns = [

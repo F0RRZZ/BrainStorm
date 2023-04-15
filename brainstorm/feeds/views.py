@@ -1,3 +1,4 @@
+import django.db.models
 from django.utils.translation import gettext_lazy as _
 import django.views.generic
 
@@ -15,19 +16,24 @@ class GetContextMixin:
         print(context)
         return context
 
+    def get_queryset(self):
+        search = self.request.GET.get('search', '')
+        tags_slugs = self.request.GET.get('tags', '').split(',')
+        obj = self.queryset.filter(
+            django.db.models.Q(name__icontains=search)
+            | django.db.models.Q(short_description__icontains=search)
+            | django.db.models.Q(description__icontains=search),
+        )
+        if tags_slugs[0]:
+            obj = obj.filter(tags__slug__in=tags_slugs)
+        return obj.distinct()
+
 
 class NewProjectsView(GetContextMixin, django.views.generic.ListView):
     feed_name = _('new')
     template_name = 'feeds/feed.html'
     context_object_name = 'projects'
-
-    def get_queryset(self):
-        tags_slugs = self.request.GET.get('tags', '').split(',')
-        if tags_slugs[0]:
-            return projects.models.Project.objects.new().filter(
-                tags__slug__in=tags_slugs
-            )
-        return projects.models.Project.objects.new()
+    queryset = projects.models.Project.objects.new()
 
 
 class BestProjectsView(GetContextMixin, django.views.generic.ListView):
@@ -36,14 +42,6 @@ class BestProjectsView(GetContextMixin, django.views.generic.ListView):
     context_object_name = 'projects'
     queryset = projects.models.Project.objects.best()
 
-    def get_queryset(self):
-        tags_slugs = self.request.GET.get('tags', '').split(',')
-        if tags_slugs[0]:
-            return projects.models.Project.objects.best().filter(
-                tags__slug__in=tags_slugs
-            )
-        return projects.models.Project.objects.best()
-
 
 class SpeakedProjectsView(GetContextMixin, django.views.generic.ListView):
     feed_name = _('most_speaked')
@@ -51,25 +49,9 @@ class SpeakedProjectsView(GetContextMixin, django.views.generic.ListView):
     context_object_name = 'projects'
     queryset = projects.models.Project.objects.speaked()
 
-    def get_queryset(self):
-        tags_slugs = self.request.GET.get('tags', '').split(',')
-        if tags_slugs[0]:
-            return projects.models.Project.objects.speaked().filter(
-                tags__slug__in=tags_slugs
-            )
-        return projects.models.Project.objects.speaked()
-
 
 class ArchiveProjectsView(GetContextMixin, django.views.generic.ListView):
     feed_name = _('projects_archive')
     template_name = 'feeds/feed.html'
     context_object_name = 'projects'
     queryset = projects.models.Project.objects.archive()
-
-    def get_queryset(self):
-        tags_slugs = self.request.GET.get('tags', '').split(',')
-        if tags_slugs[0]:
-            return projects.models.Project.objects.archive().filter(
-                tags__slug__in=tags_slugs
-            )
-        return projects.models.Project.objects.archive()
