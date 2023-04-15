@@ -3,10 +3,13 @@ import django.db.models
 
 import comments.models
 import projects.models
+import rating.managers
 import users.models
 
 
 class ProjectRating(django.db.models.Model):
+    objects = rating.managers.RatingProjectManager()
+
     class ScoreData:
         MIN = 1
         MAX = 10

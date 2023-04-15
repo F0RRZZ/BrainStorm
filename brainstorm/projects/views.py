@@ -12,6 +12,7 @@ import projects.models
 import rating.forms
 import rating.models
 import users.models
+import tags.models
 
 
 class ViewProject(django.views.generic.DetailView):
@@ -53,7 +54,7 @@ class ViewProject(django.views.generic.DetailView):
             'project': project,
             'paginator': paginator,
             'comments': page_obj,
-            'average_rating': projects.models.Project.objects.get_avg_rating(
+            'average_rating': rating.models.ProjectRating.objects.get_avg_rating(
                 project.id,
             ),
             'rating_exists': rating_exists,
@@ -126,9 +127,17 @@ class CreateProject(
             name=form.cleaned_data['name'],
             description=form.cleaned_data['description'],
             status=form.cleaned_data['status'],
-            short_description=form.cleaned_data['short_description']
+            short_description=form.cleaned_data['short_description'],
         )
         project.save()
+        for tag in form.cleaned_data['tags']:
+            project.tags.add(
+                tags.models.Tag.objects.get(name=tag).pk
+            )
+        for collaborator in form.cleaned_data['collaborators']:
+            project.collaborators.add(
+                users.models.User.objects.get(username=collaborator).pk
+            )
         if 'preview' in self.request.FILES:
             image = self.request.FILES.get('preview')
             preview = projects.models.Preview(

@@ -16,5 +16,5 @@ class CollaborationRequest(django.db.models.Model):
         related_name='collaboration_requests',
     )
     subject = django.db.models.TextField(max_length=150)
-    text = django.db.models.RichTextField(blank=True)
+    text = django.db.models.TextField(blank=True)
     created_at = django.db.models.DateTimeField(auto_now_add=True)
