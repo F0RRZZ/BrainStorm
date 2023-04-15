@@ -145,10 +145,10 @@ class UserDetailView(
 
         context.update(
             {
-                'projects_paginator': projects_paginator,
-                'projects': projects_page_obj,
-                'comments_paginator': comments_paginator,
                 'comments': comments_page_obj,
+                'comments_paginator': comments_paginator,
+                'projects': projects_page_obj,
+                'projects_paginator': projects_paginator,
                 'show_profile': show_profile,
             }
         )

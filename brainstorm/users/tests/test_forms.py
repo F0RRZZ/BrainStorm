@@ -33,14 +33,27 @@ class UserCreationFormTests(django.test.TestCase):
         )
 
     def test_password_label(self):
-        username_label = UserCreationFormTests.form.fields['password1'].label
-        self.assertEqual(username_label, 'Password')
+        password_label = UserCreationFormTests.form.fields['password1'].label
+        self.assertEqual(password_label, 'Пароль')
 
     def test_password_help_text(self):
         password_help_text = (
-            UserCreationFormTests.form.fields['password2'].help_text
+            UserCreationFormTests.form.fields['password1'].help_text
         )
         self.assertEqual(
             password_help_text,
-            'Enter the same password as before, for verification.'
+            'Введите пароль'
+        )
+
+    def test_password_confirm_label(self):
+        password_confirm_label = UserCreationFormTests.form.fields['password2'].label
+        self.assertEqual(password_confirm_label, 'Подтверждение пароля')
+
+    def test_password_confirm_help_text(self):
+        password_confirm_help_text = (
+            UserCreationFormTests.form.fields['password2'].help_text
+        )
+        self.assertEqual(
+            password_confirm_help_text,
+            'Введите пароль еще раз для подтверждения'
         )
