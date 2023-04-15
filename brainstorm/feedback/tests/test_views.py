@@ -48,7 +48,9 @@ class FeedbackViewTests(django.test.TestCase):
             f.write('test')
         with open('test_file.txt', 'rb') as f:
             form_data = self.form_data
-            form_data['files'] = uploadedfile.SimpleUploadedFile(f.name, f.read())
+            form_data['files'] = uploadedfile.SimpleUploadedFile(
+                f.name, f.read()
+            )
             django.test.Client().post(
                 django.urls.reverse('feedback:feedback'),
                 data=form_data,

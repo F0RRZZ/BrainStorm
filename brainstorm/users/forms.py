@@ -10,8 +10,6 @@ import users.models
 class CustomUserCreationForm(
     core.forms.BootstrapFormMixin, django.contrib.auth.forms.UserCreationForm
 ):
-    email = django.forms.EmailField(required=True)
-
     class Meta:
         model = users.models.User
         fields = (

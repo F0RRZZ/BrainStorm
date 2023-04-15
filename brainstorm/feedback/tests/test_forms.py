@@ -23,9 +23,7 @@ class FormTests(django.test.TestCase):
 
     def test_email_help_text(self):
         email_help_text = FormTests.form.fields['email'].help_text
-        self.assertEqual(
-            email_help_text, 'введите свою почту'
-        )
+        self.assertEqual(email_help_text, 'введите свою почту')
 
     def test_file_upload_label(self):
         file_upload_label = FormTests.form.fields['files'].label

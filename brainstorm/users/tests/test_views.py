@@ -1,17 +1,17 @@
-from http import HTTPStatus
+import http
 
-from django.db.utils import IntegrityError
-from django.shortcuts import reverse
-from django.test import Client, TestCase, override_settings
-from django.utils import timezone
-from unittest.mock import patch
+import django.db.utils
+import django.shortcuts
+import django.test
+import django.utils
+import unittest.mock
 
-from users.models import User
+import users.models
 
 
-class SignUpTests(TestCase):
+class SignUpTests(django.test.TestCase):
     def setUp(self) -> None:
-        self.url = reverse('users:signup')
+        self.url = django.shortcuts.reverse('users:signup')
         self.test_user_data = {
             'username': 'testuser',
             'email': 'test@user.com',
@@ -19,60 +19,67 @@ class SignUpTests(TestCase):
             'password2': 'fF5bo0zTVN',
         }
 
-    @override_settings(USERS_AUTOACTIVATE=True)
+    @django.test.override_settings(USERS_AUTOACTIVATE=True)
     def test_signup_with_debug_true(self):
-        response = Client().post(self.url, data=self.test_user_data)
-        self.assertEqual(response.status_code, HTTPStatus.FOUND)
-        user = User.objects.get(
+        response = django.test.Client().post(
+            self.url, data=self.test_user_data
+        )
+        self.assertEqual(response.status_code, http.HTTPStatus.FOUND)
+        user = users.models.User.objects.get(
             username=self.test_user_data.get('username')
         )
         self.assertTrue(user.is_active)
 
-    @override_settings(USERS_AUTOACTIVATE=False)
+    @django.test.override_settings(USERS_AUTOACTIVATE=False)
     def test_signup_with_debug_false(self):
-        response = Client().post(self.url, data=self.test_user_data)
-        self.assertEqual(response.status_code, HTTPStatus.FOUND)
-        user = User.objects.get(
+        response = django.test.Client().post(
+            self.url, data=self.test_user_data
+        )
+        self.assertEqual(response.status_code, http.HTTPStatus.FOUND)
+        user = users.models.User.objects.get(
             username=self.test_user_data.get('username')
         )
         self.assertFalse(user.is_active)
 
-    @override_settings(USERS_AUTOACTIVATE=False)
+    @django.test.override_settings(USERS_AUTOACTIVATE=False)
     def test_activate_user_within_12_hours(self):
-        Client().post(self.url, data=self.test_user_data)
-        activation_url = reverse(
+        django.test.Client().post(self.url, data=self.test_user_data)
+        activation_url = django.shortcuts.reverse(
             'users:activate', args=[self.test_user_data['username']]
         )
-        activation_response = Client().get(activation_url)
-        self.assertEqual(activation_response.status_code, HTTPStatus.OK)
-        user = User.objects.get(
+        activation_response = django.test.Client().get(activation_url)
+        self.assertEqual(activation_response.status_code, http.HTTPStatus.OK)
+        user = users.models.User.objects.get(
             username=self.test_user_data['username']
         )
         self.assertTrue(user.is_active)
 
-    @override_settings(USERS_AUTOACTIVATE=False)
+    @django.test.override_settings(USERS_AUTOACTIVATE=False)
     def test_activate_user_after_12_hours(self):
-        Client().post(self.url, data=self.test_user_data)
-        activation_url = reverse(
+        django.test.Client().post(self.url, data=self.test_user_data)
+        activation_url = django.shortcuts.reverse(
             'users:activate', args=[self.test_user_data['username']]
         )
-        with patch.object(
-            timezone,
+        with unittest.mock.patch.object(
+            django.utils.timezone,
             'now',
-            return_value=timezone.now() + timezone.timedelta(hours=13),
+            return_value=(
+                django.utils.timezone.now()
+                + django.utils.timezone.timedelta(hours=13)
+            ),
         ):
-            activation_response = Client().get(activation_url)
+            activation_response = django.test.Client().get(activation_url)
             self.assertEqual(
-                activation_response.status_code, HTTPStatus.NOT_FOUND
+                activation_response.status_code, http.HTTPStatus.NOT_FOUND
             )
-            user = User.objects.get(
+            user = users.models.User.objects.get(
                 username=self.test_user_data['username']
             )
             self.assertFalse(user.is_active)
 
-    @override_settings(USERS_AUTOACTIVATE=True)
+    @django.test.override_settings(USERS_AUTOACTIVATE=True)
     def test_yandex_email_formatting(self):
-        Client().post(
+        django.test.Client().post(
             self.url,
             {
                 'username': 'test',
@@ -81,12 +88,12 @@ class SignUpTests(TestCase):
                 'password2': 'fF5bo0zTVN',
             },
         )
-        user = User.objects.get(username='test')
+        user = users.models.User.objects.get(username='test')
         self.assertEqual(user.normalized_email, 'yandex-test@yandex.ru')
 
-    @override_settings(USERS_AUTOACTIVATE=True)
+    @django.test.override_settings(USERS_AUTOACTIVATE=True)
     def test_google_email_formatting(self):
-        Client().post(
+        django.test.Client().post(
             self.url,
             {
                 'username': 'test',
@@ -95,12 +102,12 @@ class SignUpTests(TestCase):
                 'password2': 'fF5bo0zTVN',
             },
         )
-        user = User.objects.get(username='test')
+        user = users.models.User.objects.get(username='test')
         self.assertEqual(user.normalized_email, 'googletest@gmail.com')
 
-    @override_settings(USERS_AUTOACTIVATE=True)
+    @django.test.override_settings(USERS_AUTOACTIVATE=True)
     def test_with_similar_emails(self):
-        Client().post(
+        django.test.Client().post(
             self.url,
             {
                 'username': 'test1',
@@ -109,8 +116,8 @@ class SignUpTests(TestCase):
                 'password2': 'fF5bo0zTVN',
             },
         )
-        with self.assertRaises(IntegrityError):
-            Client().post(
+        with self.assertRaises(django.db.utils.IntegrityError):
+            django.test.Client().post(
                 self.url,
                 {
                     'username': 'test2',
