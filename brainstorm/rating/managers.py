@@ -6,5 +6,6 @@ class RatingProjectManager(django.db.models.Manager):
         return (
             self.filter(project_id=project_id)
             .aggregate(avg_rating=django.db.models.Avg('score'))
-            .get('avg_rating') or '?'
+            .get('avg_rating')
+            or '?'
         )

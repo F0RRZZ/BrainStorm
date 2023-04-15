@@ -11,8 +11,8 @@ import projects.forms
 import projects.models
 import rating.forms
 import rating.models
-import users.models
 import tags.models
+import users.models
 
 
 class ViewProject(django.views.generic.DetailView):
@@ -54,8 +54,8 @@ class ViewProject(django.views.generic.DetailView):
             'project': project,
             'paginator': paginator,
             'comments': page_obj,
-            'average_rating': rating.models.ProjectRating.objects.get_avg_rating(
-                project.id,
+            'average_rating': (
+                rating.models.ProjectRating.objects.get_avg_rating(project.id)
             ),
             'rating_exists': rating_exists,
         }
@@ -131,9 +131,7 @@ class CreateProject(
         )
         project.save()
         for tag in form.cleaned_data['tags']:
-            project.tags.add(
-                tags.models.Tag.objects.get(name=tag).pk
-            )
+            project.tags.add(tags.models.Tag.objects.get(name=tag).pk)
         for collaborator in form.cleaned_data['collaborators']:
             project.collaborators.add(
                 users.models.User.objects.get(username=collaborator).pk
@@ -186,8 +184,7 @@ class RedactProject(
         photos = self.request.FILES.getlist('photos')
         for photo in photos:
             add_image = projects.models.ImagesGallery.objects.create(
-                project=project,
-                image=photo
+                project=project, image=photo
             )
             add_image.save()
         return super().form_valid(form)

@@ -1,8 +1,7 @@
-import django.views.generic
-import django.urls
-
 import collaboration_request.forms
 import collaboration_request.models
+import django.urls
+import django.views.generic
 
 
 class CollaborationRequestFormView(django.views.generic.FormView):

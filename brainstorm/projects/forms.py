@@ -33,7 +33,9 @@ class ProjectForm(core.forms.BootstrapFormMixin, django.forms.ModelForm):
             projects.models.Project.short_description.field.name: _(
                 'Краткое описание'
             ),
-            projects.models.Project.collaborators.field.name: _('Коллабораторы'),
+            projects.models.Project.collaborators.field.name: _(
+                'Коллабораторы'
+            ),
             projects.models.Project.description.field.name: _('Описание'),
             projects.models.Project.status.field.name: _('Статус'),
             projects.models.Project.tags.field.name: _('теги'),
