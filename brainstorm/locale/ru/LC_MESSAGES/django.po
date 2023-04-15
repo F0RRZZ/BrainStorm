@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-10 22:19+0300\n"
+"POT-Creation-Date: 2023-04-14 13:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,314 +16,369 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
-"%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\brainstorm\settings.py:188
+#: brainstorm/settings.py:189
 msgid "English"
 msgstr "Английский"
 
-#: .\brainstorm\settings.py:189
+#: brainstorm/settings.py:190
 msgid "Russian"
 msgstr "Русский"
 
-#: .\brainstorm\settings.py:190
+#: brainstorm/settings.py:191
 msgid "Deutsche"
 msgstr "Немецкий"
 
-#: .\comments\forms.py:24
+#: comments/forms.py:24
 msgid "type_text"
-msgstr ""
+msgstr "Введите текст"
 
-#: .\feeds\views.py:17 .\templates\includes\header.html:57
+#: feeds/views.py:20 templates/includes/header.html:57
 msgid "new"
 msgstr "Новые"
 
-#: .\feeds\views.py:24
+#: feeds/views.py:34
 msgid "most_popular"
 msgstr "Самые популярные"
 
-#: .\feeds\views.py:31
+#: feeds/views.py:49
 msgid "most_speaked"
 msgstr "Самые обсуждаемые"
 
-#: .\feeds\views.py:38
+#: feeds/views.py:64
 msgid "projects_archive"
 msgstr "Архив"
 
-#: .\templates\about\main.html:6 .\templates\about\main.html:11
+#: templates/about/main.html:6 templates/about/main.html:11
 msgid "about_project"
 msgstr "О проекте"
 
-#: .\templates\about\rules.html:6 .\templates\about\rules.html:11
+#: templates/about/rules.html:6 templates/about/rules.html:11
 msgid "community_rules"
 msgstr "Правила сообщества"
 
-#: .\templates\base.html:65
+#: templates/base.html:65
 msgid "no_content"
-msgstr ""
+msgstr "Нет контента"
 
-#: .\templates\feedback\feedback.html:6 .\templates\feedback\success.html:8
+#: templates/feedback/feedback.html:6 templates/feedback/success.html:8
 msgid "feedback_page"
 msgstr "Страница обратной связи"
 
-#: .\templates\feedback\feedback.html:11 .\templates\includes\header.html:98
+#: templates/feedback/feedback.html:11 templates/includes/header.html:98
 msgid "give_feedback"
 msgstr "Отправить отзыв"
 
-#: .\templates\feedback\success.html:13
+#: templates/feedback/success.html:13
 msgid "thanks_for_your_feedback"
 msgstr "Спасибо за отзыв!"
 
-#: .\templates\feedback\success.html:16
+#: templates/feedback/success.html:16
 msgid "to_main"
 msgstr "На главную"
 
-#: .\templates\feedback\success.html:19
+#: templates/feedback/success.html:19
 msgid "to_feedback"
-msgstr ""
+msgstr "К отзыву"
 
-#: .\templates\includes\form.html:9 .\templates\projects\project_view.html:155
+#: templates/includes/form.html:9 templates/projects/project_view.html:242
 msgid "send"
 msgstr "Отправить"
 
-#: .\templates\includes\header.html:26 .\templates\users\confirm_email.html:14
-#: .\templates\users\login.html:8 .\templates\users\login.html:13
-#: .\templates\users\password_reset_complete.html:13
-#: .\templates\users\password_reset_done.html:14
-#: .\templates\users\signup.html:16
+#: templates/includes/header.html:26 templates/users/confirm_email.html:14
+#: templates/users/login.html:8 templates/users/login.html:13
+#: templates/users/password_reset_complete.html:13
+#: templates/users/password_reset_done.html:14 templates/users/signup.html:16
 msgid "login"
 msgstr "Вход"
 
-#: .\templates\includes\header.html:27 .\templates\users\login.html:22
+#: templates/includes/header.html:27 templates/users/login.html:24
 msgid "register"
 msgstr "Регистрация"
 
-#: .\templates\includes\header.html:35
+#: templates/includes/header.html:35
 msgid "navigation"
 msgstr "Навигация"
 
-#: .\templates\includes\header.html:53
+#: templates/includes/header.html:53
 msgid "feeds"
 msgstr "Ленты"
 
-#: .\templates\includes\header.html:61
+#: templates/includes/header.html:61
 msgid "popular"
 msgstr "Популярные"
 
-#: .\templates\includes\header.html:65
+#: templates/includes/header.html:65
 msgid "speaked"
 msgstr "Обсуждаемые"
 
-#: .\templates\includes\header.html:72
+#: templates/includes/header.html:72
 msgid "archive"
 msgstr "Архив"
 
-#: .\templates\includes\header.html:79
+#: templates/includes/header.html:79
 msgid "tags"
 msgstr "Теги"
 
-#: .\templates\includes\header.html:86
+#: templates/includes/header.html:86
 msgid "site"
 msgstr "Сайт"
 
-#: .\templates\includes\header.html:90
+#: templates/includes/header.html:90
 msgid "about_us"
 msgstr "О нас"
 
-#: .\templates\includes\header.html:94
+#: templates/includes/header.html:94
 msgid "rules"
 msgstr "Правила"
 
-#: .\templates\includes\header.html:108
+#: templates/includes/header.html:108
 msgid "ruling"
 msgstr "Управление"
 
-#: .\templates\includes\header.html:113
+#: templates/includes/header.html:113
 msgid "admin"
 msgstr "Админка"
 
-#: .\templates\includes\project_card.html:17
-#: .\templates\projects\project_view.html:122
+#: templates/includes/project_card.html:19
+#: templates/projects/project_view.html:182
 msgid "author"
 msgstr "Автор"
 
-#: .\templates\includes\project_card.html:39
+#: templates/includes/project_card.html:47
 msgid "go_to_project"
 msgstr "К проекту"
 
-#: .\templates\includes\project_card.html:42
+#: templates/includes/project_card.html:50
+#: templates/projects/project_view.html:48
 msgid "redact"
 msgstr "Редактировать"
 
-#: .\templates\includes\search_string.html:8
+#: templates/includes/search_string.html:8
 msgid "type_what_you_search"
 msgstr "Ваш запрос"
 
-#: .\templates\includes\search_string.html:10
+#: templates/includes/search_string.html:10
 msgid "search"
 msgstr "Поиск"
 
-#: .\templates\includes\tags_selector.html:20
+#: templates/includes/tags_selector.html:9
+msgid "tags_search"
+msgstr "Поиск по тегам"
+
+#: templates/includes/tags_selector.html:20
 msgid "apply"
 msgstr "Применить"
 
-#: .\templates\includes\tags_selector.html:22 .\templates\tags\list.html:6
-#: .\templates\tags\list.html:15
+#: templates/includes/tags_selector.html:22 templates/tags/list.html:6
+#: templates/tags/list.html:15
 msgid "tags_list"
 msgstr "Список тегов"
 
-#: .\templates\includes\tags_selector.html:24
+#: templates/includes/tags_selector.html:24
 msgid "reset"
 msgstr "Сбросить"
 
-#: .\templates\projects\project_view.html:42
+#: templates/projects/project_create.html:6
+#: templates/projects/project_create.html:11
+msgid "project_create"
+msgstr "Создать проект"
+
+#: templates/projects/project_redact.html:6
+#: templates/projects/project_redact.html:11
+msgid "project_redact"
+msgstr "Редактировать проект"
+
+#: templates/projects/project_view.html:43
+msgid "rating"
+msgstr "Оценка"
+
+#: templates/projects/project_view.html:49
+msgid "delete"
+msgstr "Удалить"
+
+#: templates/projects/project_view.html:64
+msgid "information"
+msgstr "Информация"
+
+#: templates/projects/project_view.html:74
+msgid "ratings_count"
+msgstr "Количество оценок"
+
+#: templates/projects/project_view.html:78
+msgid "comments_count"
+msgstr "Количество комментариев"
+
+#: templates/projects/project_view.html:82
+msgid "creation_date"
+msgstr "Дата создания"
+
+#: templates/projects/project_view.html:86
+msgid "update_date"
+msgstr "Дата изменения"
+
+#: templates/projects/project_view.html:102
 msgid "description"
 msgstr "Описание"
 
-#: .\templates\projects\project_view.html:59
+#: templates/projects/project_view.html:119
 msgid "gallery"
-msgstr "Галлерея"
+msgstr "Галерея"
 
-#: .\templates\projects\project_view.html:96
+#: templates/projects/project_view.html:156
 msgid "no_photo"
 msgstr "Нет фото"
 
-#: .\templates\projects\project_view.html:109
+#: templates/projects/project_view.html:169
 msgid "collaborators"
 msgstr "Коллабораторы"
 
-#: .\templates\projects\project_view.html:140
-#: .\templates\users\user_detail.html:92
+#: templates/projects/project_view.html:202
+msgid "my_rating"
+msgstr "Моя оценка"
+
+#: templates/projects/project_view.html:215
+msgid "set_rating"
+msgstr "Дать оценку"
+
+#: templates/projects/project_view.html:222 templates/users/user_detail.html:93
 msgid "comments"
 msgstr "Комментарии"
 
-#: .\templates\projects\project_view.html:141
+#: templates/projects/project_view.html:226
 msgid "leave_comment"
-msgstr ""
+msgstr "Оставить комментарий"
 
-#: .\templates\users\activate_link_sends.html:6
-#: .\templates\users\activate_link_sends.html:11
+#: templates/users/activate_link_sends.html:6
+#: templates/users/activate_link_sends.html:11
 msgid "activate_link_sent"
 msgstr "Ссылка отправлена"
 
-#: .\templates\users\activate_link_sends.html:12
+#: templates/users/activate_link_sends.html:12
+#, fuzzy
+#| msgid "activate_link_sent"
 msgid "activate_link_sent_info"
-msgstr ""
+msgstr "Ссылка отправлена"
 
-#: .\templates\users\confirm_email.html:6
-#: .\templates\users\confirm_email.html:11
+#: templates/users/confirm_email.html:6 templates/users/confirm_email.html:11
 msgid "user_activation_done"
-msgstr ""
+msgstr "Активация выполнена"
 
-#: .\templates\users\confirm_email.html:12
+#: templates/users/confirm_email.html:12
 msgid "user_activation_done_info"
-msgstr ""
+msgstr "Поздравляем, ваш аккаунт активирован!"
 
-#: .\templates\users\login.html:20 .\templates\users\password_change.html:16
+#: templates/users/login.html:22 templates/users/password_change.html:16
 msgid "forgot_password"
-msgstr "Забыл пароль"
+msgstr "Забыли пароль?"
 
-#: .\templates\users\password_change.html:6
-#: .\templates\users\password_change.html:11
+#: templates/users/password_change.html:6
+#: templates/users/password_change.html:11
 msgid "password_change"
 msgstr "Смена пароля"
 
-#: .\templates\users\password_change_done.html:6
-#: .\templates\users\password_change_done.html:11
+#: templates/users/password_change_done.html:6
+#: templates/users/password_change_done.html:11
 msgid "password_change_done"
-msgstr ""
+msgstr "Пароль изменён"
 
-#: .\templates\users\password_change_done.html:12
+#: templates/users/password_change_done.html:12
 msgid "password_change_done_info"
-msgstr ""
+msgstr "Поздравляем, ваш пароль успешно изменён!"
 
-#: .\templates\users\password_reset.html:6
-#: .\templates\users\password_reset.html:11
+#: templates/users/password_reset.html:6 templates/users/password_reset.html:11
 msgid "password_reset"
-msgstr "Сброс пароля"
+msgstr "Восстановление пароля"
 
-#: .\templates\users\password_reset.html:12
+#: templates/users/password_reset.html:12
 msgid "password_reset_info"
-msgstr "Информация о сбросе пароля"
+msgstr ""
+"Забыли пароль? Введите свой адрес электронной почты ниже, и мы вышлем вам "
+"инструкцию, как установить новый пароль."
 
-#: .\templates\users\password_reset_complete.html:6
-#: .\templates\users\password_reset_complete.html:11
+#: templates/users/password_reset_complete.html:6
+#: templates/users/password_reset_complete.html:11
 msgid "password_reset_complete"
-msgstr ""
+msgstr "Восстановление пароля завершено"
 
-#: .\templates\users\password_reset_complete.html:12
+#: templates/users/password_reset_complete.html:12
 msgid "password_reset_complete_info"
-msgstr ""
+msgstr "Ваш пароль был сохранен. Теперь вы можете войти."
 
-#: .\templates\users\password_reset_confirm.html:6
-#: .\templates\users\password_reset_confirm.html:11
+#: templates/users/password_reset_confirm.html:6
+#: templates/users/password_reset_confirm.html:11
 msgid "password_reset_confirm"
-msgstr ""
+msgstr "Ошибка восстановления пароля"
 
-#: .\templates\users\password_reset_confirm.html:12
+#: templates/users/password_reset_confirm.html:12
 msgid "password_reset_confirm_info"
 msgstr ""
+"Неверная ссылка для восстановления пароля. Возможно, ей уже воспользовались. "
+"Пожалуйста, попробуйте восстановить пароль еще раз."
 
-#: .\templates\users\password_reset_done.html:6
-#: .\templates\users\password_reset_done.html:11
+#: templates/users/password_reset_done.html:6
+#: templates/users/password_reset_done.html:11
 msgid "password_reset_done"
-msgstr ""
+msgstr "Письмо с инструкциями по восстановлению пароля отправлено"
 
-#: .\templates\users\password_reset_done.html:12
+#: templates/users/password_reset_done.html:12
 msgid "password_reset_done_info"
 msgstr ""
+"Мы отправили вам инструкцию по установке нового пароля на указанный адрес "
+"электронной почты (если в нашей базе данных есть такой адрес). Вы должны "
+"получить ее в ближайшее время. Если вы не получили письмо, пожалуйста, "
+"убедитесь, что вы ввели адрес с которым Вы зарегистрировались, и проверьте "
+"папку со спамом."
 
-#: .\templates\users\profile.html:8 .\templates\users\profile.html:14
-#: .\templates\users\user_detail.html:9 .\templates\users\user_detail.html:20
+#: templates/users/profile.html:8 templates/users/profile.html:14
+#: templates/users/user_detail.html:9 templates/users/user_detail.html:20
 msgid "my_profile"
 msgstr "Мой профиль"
 
-#: .\templates\users\profile.html:33 .\templates\users\user_detail.html:44
+#: templates/users/profile.html:33 templates/users/user_detail.html:45
 msgid "user_email"
 msgstr "Электронная почта"
 
-#: .\templates\users\profile.html:37 .\templates\users\user_detail.html:49
+#: templates/users/profile.html:37 templates/users/user_detail.html:50
 msgid "user_bio"
-msgstr "Информация о пользователе"
+msgstr "О себе"
 
-#: .\templates\users\profile.html:42 .\templates\users\user_detail.html:54
+#: templates/users/profile.html:42 templates/users/user_detail.html:55
 msgid "not_set"
-msgstr ""
+msgstr "Не указано"
 
-#: .\templates\users\profile.html:52 .\templates\users\user_detail.html:152
+#: templates/users/profile.html:52 templates/users/profile.html:83
+#: templates/users/user_detail.html:66 templates/users/user_detail.html:169
 msgid "settings"
 msgstr "Настройки"
 
-#: .\templates\users\profile.html:54 .\templates\users\user_detail.html:67
+#: templates/users/profile.html:54 templates/users/user_detail.html:68
 msgid "logout"
 msgstr "Выйти"
 
-#: .\templates\users\profile.html:58
+#: templates/users/profile.html:58
 msgid "my_projects"
 msgstr "Мои проекты"
 
-#: .\templates\users\profile.html:63 .\templates\users\user_detail.html:108
+#: templates/users/profile.html:63 templates/users/user_detail.html:111
 msgid "create"
 msgstr "Создать"
 
-#: .\templates\users\profile.html:83 .\templates\users\user_detail.html:65
-msgid "setings"
-msgstr "Настройки"
-
-#: .\templates\users\signup.html:6 .\templates\users\signup.html:11
+#: templates/users/signup.html:6 templates/users/signup.html:11
 msgid "signup"
 msgstr "Регистрация"
 
-#: .\templates\users\user_detail.html:82
+#: templates/users/user_detail.html:83
 msgid "projects"
 msgstr "Проекты"
 
-#: .\templates\users\user_detail.html:134
+#: templates/users/user_detail.html:144
 msgid "go_to"
 msgstr "Перейти"
 
-#: .\templates\users\user_detail.html:164
+#: templates/users/user_detail.html:181
 msgid "change_password"
 msgstr "Сменить пароль"
