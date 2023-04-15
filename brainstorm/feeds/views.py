@@ -6,7 +6,7 @@ import tags.models
 
 
 class GetContextMixin:
-    paginate_by = 30
+    paginate_by = 5
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
