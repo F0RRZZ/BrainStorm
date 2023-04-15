@@ -6,12 +6,6 @@
   margin-right: auto;
 }
 
-@media screen and (max-width: 991.5px) {
-  .bs-main-horizontal-container {
-    flex-direction: column;
-  }
-}
-
 .bs-child-vertical-container {
   display: flex;
   flex-direction: column;
@@ -19,6 +13,17 @@
   justify-content: flex-start;
   margin-left: auto;
   margin-right: auto;
+  padding-right: 20px;
+}
+
+@media screen and (max-width: 991.5px) {
+  .bs-main-horizontal-container {
+    flex-direction: column;
+  }
+
+  .bs-child-vertical-container {
+    padding-right: 0px;
+  }
 }
 
 .bs-tags-selector-container {

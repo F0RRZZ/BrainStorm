@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-14 13:59+0000\n"
+"POT-Creation-Date: 2023-04-15 05:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,16 +84,17 @@ msgstr "На главную"
 msgid "to_feedback"
 msgstr "К отзыву"
 
-#: templates/includes/form.html:9 templates/projects/project_view.html:242
+#: templates/includes/form.html:9 templates/projects/project_view.html:243
 msgid "send"
 msgstr "Отправить"
 
 #: templates/includes/header.html:26 templates/users/confirm_email.html:14
 #: templates/users/login.html:8 templates/users/login.html:13
+#: templates/users/login.html:19
 #: templates/users/password_reset_complete.html:13
-#: templates/users/password_reset_done.html:14 templates/users/signup.html:16
+#: templates/users/password_reset_done.html:14 templates/users/signup.html:21
 msgid "login"
-msgstr "Вход"
+msgstr "Войти"
 
 #: templates/includes/header.html:27 templates/users/login.html:24
 msgid "register"
@@ -144,7 +145,7 @@ msgid "admin"
 msgstr "Админка"
 
 #: templates/includes/project_card.html:19
-#: templates/projects/project_view.html:182
+#: templates/projects/project_view.html:183
 msgid "author"
 msgstr "Автор"
 
@@ -153,7 +154,7 @@ msgid "go_to_project"
 msgstr "К проекту"
 
 #: templates/includes/project_card.html:50
-#: templates/projects/project_view.html:48
+#: templates/projects/project_view.html:49
 msgid "redact"
 msgstr "Редактировать"
 
@@ -182,73 +183,87 @@ msgstr "Список тегов"
 msgid "reset"
 msgstr "Сбросить"
 
-#: templates/projects/project_create.html:6
-#: templates/projects/project_create.html:11
+#: templates/projects/project_create.html:8
+#: templates/projects/project_create.html:15
 msgid "project_create"
 msgstr "Создать проект"
 
-#: templates/projects/project_redact.html:6
-#: templates/projects/project_redact.html:11
+#: templates/projects/project_create.html:17
+#: templates/projects/project_redact.html:17
+msgid "cancel"
+msgstr "Отмена"
+
+#: templates/projects/project_create.html:26 templates/users/profile.html:63
+#: templates/users/user_detail.html:111
+msgid "create"
+msgstr "Создать"
+
+#: templates/projects/project_redact.html:15
 msgid "project_redact"
 msgstr "Редактировать проект"
 
-#: templates/projects/project_view.html:43
-msgid "rating"
-msgstr "Оценка"
-
-#: templates/projects/project_view.html:49
+#: templates/projects/project_redact.html:18
+#: templates/projects/project_view.html:50
 msgid "delete"
 msgstr "Удалить"
 
-#: templates/projects/project_view.html:64
+#: templates/projects/project_redact.html:25
+msgid "save"
+msgstr "Сохранить"
+
+#: templates/projects/project_view.html:44
+msgid "rating"
+msgstr "Оценка"
+
+#: templates/projects/project_view.html:65
 msgid "information"
 msgstr "Информация"
 
-#: templates/projects/project_view.html:74
+#: templates/projects/project_view.html:75
 msgid "ratings_count"
 msgstr "Количество оценок"
 
-#: templates/projects/project_view.html:78
+#: templates/projects/project_view.html:79
 msgid "comments_count"
 msgstr "Количество комментариев"
 
-#: templates/projects/project_view.html:82
+#: templates/projects/project_view.html:83
 msgid "creation_date"
 msgstr "Дата создания"
 
-#: templates/projects/project_view.html:86
+#: templates/projects/project_view.html:87
 msgid "update_date"
 msgstr "Дата изменения"
 
-#: templates/projects/project_view.html:102
+#: templates/projects/project_view.html:103
 msgid "description"
 msgstr "Описание"
 
-#: templates/projects/project_view.html:119
+#: templates/projects/project_view.html:120
 msgid "gallery"
 msgstr "Галерея"
 
-#: templates/projects/project_view.html:156
+#: templates/projects/project_view.html:157
 msgid "no_photo"
 msgstr "Нет фото"
 
-#: templates/projects/project_view.html:169
+#: templates/projects/project_view.html:170
 msgid "collaborators"
 msgstr "Коллабораторы"
 
-#: templates/projects/project_view.html:202
+#: templates/projects/project_view.html:203
 msgid "my_rating"
 msgstr "Моя оценка"
 
-#: templates/projects/project_view.html:215
+#: templates/projects/project_view.html:216
 msgid "set_rating"
 msgstr "Дать оценку"
 
-#: templates/projects/project_view.html:222 templates/users/user_detail.html:93
+#: templates/projects/project_view.html:223 templates/users/user_detail.html:93
 msgid "comments"
 msgstr "Комментарии"
 
-#: templates/projects/project_view.html:226
+#: templates/projects/project_view.html:227
 msgid "leave_comment"
 msgstr "Оставить комментарий"
 
@@ -258,8 +273,6 @@ msgid "activate_link_sent"
 msgstr "Ссылка отправлена"
 
 #: templates/users/activate_link_sends.html:12
-#, fuzzy
-#| msgid "activate_link_sent"
 msgid "activate_link_sent_info"
 msgstr "Ссылка отправлена"
 
@@ -271,9 +284,13 @@ msgstr "Активация выполнена"
 msgid "user_activation_done_info"
 msgstr "Поздравляем, ваш аккаунт активирован!"
 
-#: templates/users/login.html:22 templates/users/password_change.html:16
+#: templates/users/login.html:23 templates/users/password_change.html:16
 msgid "forgot_password"
 msgstr "Забыли пароль?"
+
+#: templates/users/login.html:26
+msgid "or_login_with"
+msgstr "Или войти с помощью"
 
 #: templates/users/password_change.html:6
 #: templates/users/password_change.html:11
@@ -351,7 +368,7 @@ msgid "not_set"
 msgstr "Не указано"
 
 #: templates/users/profile.html:52 templates/users/profile.html:83
-#: templates/users/user_detail.html:66 templates/users/user_detail.html:169
+#: templates/users/user_detail.html:66 templates/users/user_detail.html:170
 msgid "settings"
 msgstr "Настройки"
 
@@ -363,22 +380,22 @@ msgstr "Выйти"
 msgid "my_projects"
 msgstr "Мои проекты"
 
-#: templates/users/profile.html:63 templates/users/user_detail.html:111
-msgid "create"
-msgstr "Создать"
-
 #: templates/users/signup.html:6 templates/users/signup.html:11
 msgid "signup"
 msgstr "Регистрация"
+
+#: templates/users/signup.html:17
+msgid "create_account"
+msgstr "Создать аккаунт"
 
 #: templates/users/user_detail.html:83
 msgid "projects"
 msgstr "Проекты"
 
-#: templates/users/user_detail.html:144
+#: templates/users/user_detail.html:145
 msgid "go_to"
 msgstr "Перейти"
 
-#: templates/users/user_detail.html:181
+#: templates/users/user_detail.html:182
 msgid "change_password"
 msgstr "Сменить пароль"
