@@ -160,24 +160,3 @@ class ActivationDoneView(
     django.contrib.auth.mixins.LoginRequiredMixin,
 ):
     template_name = 'users/activate_link_sends.html'
-
-
-class LoginView(
-    django.contrib.auth.views.LoginView,
-):
-    form_class = users.forms.LoginForm
-    template_name = 'users/login.html'
-
-
-class PasswordChangeView(
-    django.contrib.auth.views.PasswordChangeView,
-):
-    form_class = users.forms.PasswordChangeForm
-    template_name = 'users/password_change.html'
-
-
-class PasswordResetView(
-    django.contrib.auth.views.PasswordResetView,
-):
-    form_class = users.forms.PasswordResetForm
-    template_name = 'users/password_reset.html'
