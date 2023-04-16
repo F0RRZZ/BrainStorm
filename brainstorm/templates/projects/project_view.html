@@ -190,10 +190,16 @@
                   </a>
                 </li>
               {% endfor %}
-              {% if user.is_authenticated and user.id != project.author.id and user.id not in project.collaborators.all %}
+              {% if user.is_authenticated %}
                 <div class="bs-fit-content-element mt-3">
-                  <a href="{% url 'collaboration:create_request' project.id %}"
-                     class="btn btn-outline-info bs-fit-content-element">{% trans "request_collaboration" %}</a>
+                  {% if user.id != project.author.id and user.id not in project.collaborators.all %}
+                    <a href="{% url 'collaboration:create_request' project.id %}"
+                       class="btn btn-outline-info bs-fit-content-element">{% trans "request_collaboration" %}</a>
+                  {% endif %}
+                  {% if user.id == project.author.id %}
+                    <a href="{% url 'collaboration:request_list' project.id %}"
+                       class="btn btn-outline-info">{% trans "collaboration_requests_list" %}</a>
+                  {% endif %}
                 </div>
               {% endif %}
             </ul>
@@ -233,7 +239,7 @@
         {% trans "leave_comment" %}:
       </h5>
       <div class="d-flex align-items-center align-self-stretch mt-2 pb-4">
-        <img class="bs-comment-user-image"
+        <img class="bs-small-user-image"
              src="{{ user.get_image_50x50.url }}"
              width="50px"
              height="50px"
@@ -254,17 +260,11 @@
       {% for comment in comments %}
         <div id="comment-{{ comment.id }}" class="bs-comment">
           <div class="d-flex align-items-center justify-content-between mb-2 flex-wrap">
-            <span>
-              <img class="bs-comment-user-image"
-                   src="{{ comment.user.get_image_50x50.url }}"
-                   width="50px"
-                   height="50px"
-                   alt="..."/>
-              <a href="{% url 'users:overview' comment.user.username %}"
-                 class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
-                {{ comment.user.username }}
-              </a>
-            </span>
+            {% with user=comment.user %}
+
+              {% include "includes/user_preview.html" %}
+
+            {% endwith %}
             <span class="pe-2 text-secondary">{{ comment.creation_date }}</span>
           </div>
           <p class="ms-2">

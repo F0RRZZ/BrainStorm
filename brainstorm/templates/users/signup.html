@@ -13,8 +13,11 @@
     <form method="post" enctype="multipart/form-data">
 
       {% include "includes/form_fields.html" %}
+
  
-      <input type="submit" class="btn btn-success mt-1" value="{% trans "create_account" %}"/>
+      <input type="submit"
+             class="btn btn-success mt-1"
+             value="{% trans "create_account" %}"/>
     </form>
 
     <p class="mt-3">

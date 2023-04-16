@@ -95,15 +95,6 @@
     border-radius: 7px;
 }
 
-.bs-comment-user-image {
-    width: 50px;
-    height: 50px;
-    border: 2px solid rgb(119, 115, 115);
-    border-radius: 50%;
-    margin-right: 7px;
-    align-self: flex-start;
-}
-
 .bs-rating-show {
   width: 50px;
   min-width: 50px;

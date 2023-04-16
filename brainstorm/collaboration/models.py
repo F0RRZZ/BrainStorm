@@ -18,6 +18,7 @@ class CollaborationRequest(django.db.models.Model):
     )
     contact = django.db.models.TextField(max_length=150)
     about = django.db.models.TextField(blank=True)
+    viewed = django.db.models.BooleanField(default=False)
     created_at = django.db.models.DateTimeField(auto_now_add=True)
 
     objects = collaboration.managers.CollaborationRequestManager()

@@ -1,8 +1,8 @@
 import django.forms
 from django.utils.translation import gettext_lazy as _
 
-import core.forms
 import collaboration.models
+import core.forms
 
 
 class CollaboratorRequestForm(
@@ -23,9 +23,11 @@ class CollaboratorRequestForm(
         )
         widgets = {
             collaboration.models.CollaborationRequest.contact.field.name: (
-                django.forms.Textarea(attrs={
-                    "rows": 3,
-                },)
+                django.forms.Textarea(
+                    attrs={
+                        'rows': 3,
+                    },
+                )
             ),
         }
         labels = {

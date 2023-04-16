@@ -15,8 +15,11 @@
     <form method="post" enctype="multipart/form-data">
 
       {% include "includes/form_fields.html" %}
+
  
-      <input type="submit" class="btn btn-primary mt-2" value="{% trans "login" %}"/>
+      <input type="submit"
+             class="btn btn-primary mt-2"
+             value="{% trans "login" %}"/>
     </form>
 
     <div class="d-flex flex-column align-items-start mt-3">
@@ -25,8 +28,10 @@
     </div>
     <h6 class="mt-4">{% trans "or_login_with" %}:</h6>
     <div class="d-flex justify-content-start mt-3">
-      <a class="btn btn-info" href="{% provider_login_url 'google' method='oauth2' %}">Google <i class="fa-brands fa-google"></i></a>
-    <a class="btn btn-secondary ms-2" href="{% provider_login_url 'github' method='oauth2' %}">GitHub <i class="fa-brands fa-github"></i></a>
+      <a class="btn btn-info"
+         href="{% provider_login_url 'google' method='oauth2' %}">Google <i class="fa-brands fa-google"></i></a>
+      <a class="btn btn-secondary ms-2"
+         href="{% provider_login_url 'github' method='oauth2' %}">GitHub <i class="fa-brands fa-github"></i></a>
     </div>
   </div>
 {% endblock content %}

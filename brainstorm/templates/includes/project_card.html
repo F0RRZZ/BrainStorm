@@ -5,7 +5,7 @@
 {% load thumbnail %}
 
 <link rel="stylesheet" href="{% static 'css/project_card.css' %}" />
-<div class="card bs-project-card mt-2 mb-3 me-3">
+<div class="card bs-card mt-2 mb-3 me-3">
   <div class="row g-0">
     <div class="col-md-8">
       <div class="card-body">
@@ -30,7 +30,7 @@
     <div class="col-md-4 bs-project-image-container">
       {% if project.preview.image %}
         {% thumbnail project.preview.image "300x300" padding=True as im %}
-        <img src="{{ im.url }}" class="img-fluid rounded-end" alt="..."/>
+        <img src="{{ im.url }}" class="img-fluid rounded-end" alt="..." />
       {% endthumbnail %}
     {% else %}
       <img src="{% static 'img/project_default.jpg' %}"

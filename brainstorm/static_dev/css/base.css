@@ -33,6 +33,26 @@
   text-decoration: underline;
 }
 
+.bs-card {
+  transition: all 0.3s ease-in;
+  width: 100%;
+}
+
+.bs-card:hover {
+  box-shadow: 0 0 3px 0.2rem #1415158e;
+  border-color: #141515d0;
+  border-style: solid;
+}
+
+.bs-small-user-image {
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgb(119, 115, 115);
+  border-radius: 50%;
+  margin-right: 7px;
+  align-self: flex-start;
+}
+
 .bs-fit-content-element {
   width: fit-content !important;
 }

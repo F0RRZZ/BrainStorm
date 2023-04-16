@@ -9,7 +9,6 @@ import django.urls
 import django.utils
 import django.views.generic
 
-import collaboration.models
 import comments.models
 import projects.models
 import users.forms

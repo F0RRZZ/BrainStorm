@@ -12,11 +12,11 @@ urlpatterns = [
     django.urls.path(
         'list/<int:project_id>/',
         collaboration.views.CollaborationRequestListView.as_view(),
-        name='list',
+        name='request_list',
     ),
     django.urls.path(
         'requests/view/<int:request_id>/',
-        collaboration.views.CollaborationRequestListView.as_view(),
-        name='list',
+        collaboration.views.CollaborationRequestDetailView.as_view(),
+        name='request_view',
     ),
 ]
