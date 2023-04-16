@@ -30,6 +30,8 @@
         <a href="{% url 'collaboration:request_view' request.id %}"
            class="btn btn-outline-secondary ms-2">{% trans "detailed" %}</a>
       </div>
+    {% empty %}
+      <div class="bs-empty-list-message">{% trans "nothing_to_show" %}</div>
     {% endfor %}
 
   </div>

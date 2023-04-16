@@ -271,6 +271,10 @@
             {{ comment.text|linebreaks }}
           </p>
         </div>
+      {% empty %}
+        <div class="bs-empty-list-message">
+          {% trans "nothing_to_show" %}
+        </div>
       {% endfor %}
       <div id="paginators-list" class="bs-none">
         page

@@ -63,6 +63,16 @@
   height: 0px;
 }
 
+.bs-empty-list-message {
+  width: 100%;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: stretch;
+  font-size: 30px;
+  color: rgba(113, 107, 107, 0.723);
+}
+
 p:empty {
   display: none;
 }

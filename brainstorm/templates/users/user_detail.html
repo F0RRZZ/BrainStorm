@@ -123,6 +123,8 @@
                   {% include "includes/project_card.html" %}
 
                 {% endwith %}
+              {% empty %}
+                <div class="bs-empty-list-message">{% trans "nothing_to_show" %}</div>
               {% endfor %}
               {% with indicator="projects_page" page_obj=projects paginator=projects_paginator %}
 
@@ -146,6 +148,8 @@
                      target="_blanc"
                      href="{% url 'projects:view' comment.project.id %}#comments-list-top">{% trans "go_to" %}  <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
+              {% empty %}
+                <div class="bs-empty-list-message">{% trans "nothing_to_show" %}</div>
               {% endfor %}
               {% with indicator="comments_page" page_obj=comments paginator=comments_paginator %}
 
@@ -154,7 +158,7 @@
               {% endwith %}
             </div>
           </div>
-          <div class="tab-pane fade show active"
+          <div class="tab-pane fade"
                id="nav-collaboration"
                role="tabpanel"
                aria-labelledby="nav-collaboration-tab"
@@ -173,6 +177,8 @@
                   {% include "includes/project_card.html" %}
 
                 {% endwith %}
+              {% empty %}
+                <div class="bs-empty-list-message">{% trans "nothing_to_show" %}</div>
               {% endfor %}
               {% with indicator="collaboration_page" page_obj=collaboration paginator=collaboration_paginator %}
 
