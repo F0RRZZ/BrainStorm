@@ -92,6 +92,16 @@
                     aria-selected="false">
               {% trans "comments" %}
             </button>
+            <button class="nav-link link-dark"
+                    id="nav-collaboration-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#nav-collaboration"
+                    type="button"
+                    role="tab"
+                    aria-controls="nav-collaboration"
+                    aria-selected="false">
+              {% trans "collaboration" %}
+            </button>
           </div>
         </nav>
         <div class="tab-content align-self-stretch" id="nav-tabContent">
@@ -102,30 +112,22 @@
                tabindex="0">
             <!-- div for similar tab-panes structure; important -->
             <div>
-              <div class="{% if show_profile %}bs-profile-projects-nav{% else %}d-flex justify-content-start align-self-start mt-3 mb-4{% endif %}">
-
-                {% include "includes/search_string.html" %}
-
- 
+              <div class="bs-profile-projects-nav">
                 {% if show_profile %}
                   <a href="{% url 'projects:create' %}" class="btn btn-success mt-3">{% trans "create" %}</a>
                 {% endif %}
               </div>
               {% for project in projects %}
                 {% with show_author=False show_redact_button=show_profile %}
- 
 
                   {% include "includes/project_card.html" %}
 
- 
                 {% endwith %}
               {% endfor %}
               {% with indicator="projects_page" page_obj=projects paginator=projects_paginator %}
- 
 
                 {% include "includes/pagination_bar.html" %}
 
- 
               {% endwith %}
             </div>
           </div>
@@ -142,15 +144,34 @@
                   </div>
                   <a class="btn btn-outline-info text-nowrap"
                      target="_blanc"
-                     href="{% url 'projects:view' comment.project.id %}#comment-{{ comment.id }}">{% trans "go_to" %}  <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                     href="{% url 'projects:view' comment.project.id %}#comments-list-top">{% trans "go_to" %}  <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
               {% endfor %}
               {% with indicator="comments_page" page_obj=comments paginator=comments_paginator %}
- 
 
                 {% include "includes/pagination_bar.html" %}
 
- 
+              {% endwith %}
+            </div>
+          </div>
+          <div class="tab-pane fade show active"
+               id="nav-collaboration"
+               role="tabpanel"
+               aria-labelledby="nav-collaboration-tab"
+               tabindex="0">
+            <!-- div for similar tab-panes structure; important -->
+            <div>
+              {% for project in collaborations %}
+                {% with show_author=True show_redact_button=False %}
+
+                  {% include "includes/project_card.html" %}
+
+                {% endwith %}
+              {% endfor %}
+              {% with indicator="collaboration_page" page_obj=collaboration paginator=collaboration_paginator %}
+
+                {% include "includes/pagination_bar.html" %}
+
               {% endwith %}
             </div>
           </div>
@@ -184,6 +205,6 @@
     </div>
   {% endif %}
 
-  <div id="paginators-list" class="bs-none">comments_page,projects_page</div>
+  <div id="paginators-list" class="bs-none">comments_page,projects_page,collaboration_page</div>
   <script type="module" src="{% static 'js/pagination_bar.js' %}"></script>
 {% endblock content %}

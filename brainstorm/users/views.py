@@ -2,12 +2,14 @@ import django.conf
 import django.contrib.auth.mixins
 import django.contrib.auth.views
 import django.core.mail
+import django.core.paginator
 import django.http
 import django.shortcuts
 import django.urls
 import django.utils
 import django.views.generic
 
+import collaboration.models
 import comments.models
 import projects.models
 import users.forms
@@ -142,6 +144,14 @@ class UserDetailView(
         comments_page_obj = comments_paginator.get_page(
             self.request.GET.get('comments_page', 1),
         )
+        collab = projects.models.Project.objects.get_for_collaborator(user.id)
+        collaboration_paginator = django.core.paginator.Paginator(
+            collab,
+            UserDetailView.paginate_by,
+        )
+        collaboration_page_obj = collaboration_paginator.get_page(
+            self.request.GET.get('collaboration_page', 1),
+        )
 
         context.update(
             {
@@ -149,6 +159,8 @@ class UserDetailView(
                 'projects': projects_page_obj,
                 'comments_paginator': comments_paginator,
                 'comments': comments_page_obj,
+                'collaboration_paginator': collaboration_paginator,
+                'collaboration': collaboration_page_obj,
                 'show_profile': show_profile,
             }
         )

@@ -1,5 +1,6 @@
 import django.db.models
 
+import collaboration.managers
 import projects.models
 import users.models
 
@@ -18,3 +19,5 @@ class CollaborationRequest(django.db.models.Model):
     contact = django.db.models.TextField(max_length=150)
     about = django.db.models.TextField(blank=True)
     created_at = django.db.models.DateTimeField(auto_now_add=True)
+
+    objects = collaboration.managers.CollaborationRequestManager()

@@ -5,7 +5,7 @@
 {% csrf_token %}
 {% for field in form %}
   <div>
-    <label class="form-label">{{ field.label_tag }}</label>
+    <label class="form-label mt-2">{{ field.label_tag }}</label>
     {{ field|add_class:"form-control" }}
     {% if field.help_text %}
       <div class="text-secondary">

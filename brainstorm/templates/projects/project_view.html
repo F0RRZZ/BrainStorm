@@ -125,7 +125,7 @@
              data-bs-parent="#projectAccordion">
           <div class="accordion-body">
             {% if project.images_gallery.all %}
-              <div id="carouselExample"
+              <div id="gelleryCarousel"
                    class="carousel slide bs-project-gallery-carousel">
                 <div class="carousel-inner">
                   {% for image in project.images_gallery.all %}
@@ -140,14 +140,14 @@
                 </div>
                 <button class="carousel-control-prev"
                         type="button"
-                        data-bs-target="#carouselExample"
+                        data-bs-target="#gelleryCarousel"
                         data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
                 </button>
                 <button class="carousel-control-next"
                         type="button"
-                        data-bs-target="#carouselExample"
+                        data-bs-target="#gelleryCarousel"
                         data-bs-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
@@ -164,13 +164,13 @@
           <button class="accordion-button collapsed"
                   type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#collapseTwo"
+                  data-bs-target="#collapseCollaboration"
                   aria-expanded="false"
-                  aria-controls="collapseTwo">
+                  aria-controls="collapseCollaboration">
             {% trans "collaborators" %}
           </button>
         </h2>
-        <div id="collapseTwo"
+        <div id="collapseCollaboration"
              class="accordion-collapse collapse"
              data-bs-parent="#projectAccordion">
           <div class="accordion-body">
@@ -190,6 +190,12 @@
                   </a>
                 </li>
               {% endfor %}
+              {% if user.is_authenticated and user.id != project.author.id and user.id not in project.collaborators.all %}
+                <div class="bs-fit-content-element mt-3">
+                  <a href="{% url 'collaboration:create_request' project.id %}"
+                     class="btn btn-outline-info bs-fit-content-element">{% trans "request_collaboration" %}</a>
+                </div>
+              {% endif %}
             </ul>
           </div>
         </div>
@@ -219,7 +225,7 @@
     <div id="set-range-value-in-start" class="bs-none">
       {% if rating_exists %}Yes{% endif %}
     </div>
-    <h4 class="mt-4">
+    <h4 id="comments-list-top" class="mt-4">
       {% trans "comments" %}
     </h4>
     {% if user.is_authenticated %}
