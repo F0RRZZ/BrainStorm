@@ -1,10 +1,12 @@
 {% load i18n %}
 
+{% load add_class %}
+
 {% csrf_token %}
 {% for field in form %}
   <div>
     <label class="form-label">{{ field.label_tag }}</label>
-    {{ field }}
+    {{ field|add_class:"form-control" }}
     {% if field.help_text %}
       <div class="text-secondary">
         <p>{{ field.help_text.capitalize|safe }}</p>

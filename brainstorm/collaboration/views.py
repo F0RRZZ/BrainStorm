@@ -1,13 +1,13 @@
 import django.urls
 import django.views.generic
 
-import collaboration_request.forms
-import collaboration_request.models
+import collaboration.forms
+import collaboration.models
 
 
 class CollaborationRequestFormView(django.views.generic.FormView):
-    model = collaboration_request.models.CollaborationRequest
-    form_class = collaboration_request.forms.CollaboratorRequestForm
+    model = collaboration.models.CollaborationRequest
+    form_class = collaboration.forms.CollaboratorRequestForm
     template_name = ''
     success_url = django.urls.reverse_lazy('')
 
@@ -15,4 +15,4 @@ class CollaborationRequestFormView(django.views.generic.FormView):
 class CollaborationRequestListView(django.views.generic.ListView):
     template_name = ''
     context_object_name = 'requests'
-    queryset = collaboration_request.models.CollaborationRequest.objects.all()
+    queryset = collaboration.models.CollaborationRequest.objects.all()

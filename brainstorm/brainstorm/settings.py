@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'about.apps.AboutConfig',
     'core.apps.CoreConfig',
-    'collaboration_request.apps.CollaborationRequestConfig',
+    'collaboration.apps.CollaborationConfig',
     'comments.apps.CommentsConfig',
     'feedback.apps.FeedbackConfig',
     'feeds.apps.FeedsConfig',

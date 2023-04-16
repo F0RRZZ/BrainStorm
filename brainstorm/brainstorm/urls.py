@@ -27,10 +27,10 @@ urlpatterns = [
         django.urls.include('tags.urls', namespace='tags'),
     ),
     django.urls.path(
-        'collaboration_requests/',
+        'collaboration/',
         django.urls.include(
-            'collaboration_request.urls',
-            namespace='collaboration_requests',
+            'collaboration.urls',
+            namespace='collaboration',
         ),
     ),
     django.urls.path(
