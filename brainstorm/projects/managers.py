@@ -8,7 +8,6 @@ class ProjectManager(django.db.models.Manager):
         return (
             super()
             .get_queryset()
-            .filter(published=True)
             .select_related('preview')
             .prefetch_related(
                 django.db.models.Prefetch(
@@ -18,18 +17,29 @@ class ProjectManager(django.db.models.Manager):
                     ).only('name'),
                 )
             )
-            .only('name', 'short_description', 'author__id', 'tags__name')
+            .only(
+                'id', 'tags__id', 'author__id',
+                'author__username', 'preview__image', 'short_description'
+            )
         )
 
     def archive(self):
-        return self.get_queryset().filter(in_archive=True)
+        return (
+            self.get_queryset()
+            .filter(in_archive=True, published=True)
+        )
 
     def new(self):
-        return self.get_queryset().order_by('-creation_date')
+        return (
+            self.get_queryset()
+            .filter(in_archive=False, published=True)
+            .order_by('-creation_date')
+        )
 
     def best(self):
         return (
             self.get_queryset()
+            .filter(in_archive=False, published=True)
             .annotate(score=django.db.models.Avg('score_project__score'))
             .order_by('-score')
         )
@@ -37,6 +47,7 @@ class ProjectManager(django.db.models.Manager):
     def speaked(self):
         return (
             self.get_queryset()
+            .filter(in_archive=False, published=True)
             .annotate(django.db.models.Count('comments'))
             .order_by('-comments__count')
         )
