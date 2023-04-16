@@ -194,11 +194,11 @@
                 <div class="bs-fit-content-element mt-3">
                   {% if user.id != project.author.id and user.id not in project.collaborators.all %}
                     <a href="{% url 'collaboration:create_request' project.id %}"
-                       class="btn btn-outline-info bs-fit-content-element">{% trans "request_collaboration" %}</a>
+                       class="btn btn-outline-info bs-fit-content-element">{% trans "create_request" %}</a>
                   {% endif %}
                   {% if user.id == project.author.id %}
                     <a href="{% url 'collaboration:request_list' project.id %}"
-                       class="btn btn-outline-info">{% trans "collaboration_requests_list" %}</a>
+                       class="btn btn-outline-info">{% trans "requests_list" %}</a>
                   {% endif %}
                 </div>
               {% endif %}

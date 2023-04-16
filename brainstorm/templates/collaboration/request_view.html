@@ -8,7 +8,12 @@
 
 {% block content %}
   <div class="container">
-    <h3>{% trans "request_view" %}</h3>
+    <div class="d-flex justify-content-between flex-wrap ms-auto me-auto">
+      <h3 class="me-2">{% trans "request_view" %}</h3>
+      <a href="{% if user.id == request.user.id %} {% url 'collaboration:my_requests' %} {% else %} {% url 'collaboration:request_list' request.project.id %} {% endif %}"
+         class="btn btn-outline-info">{% trans "to_list" %}</a>
+    </div>
+    <hr />
 
   </div>
 {% endblock content %}
