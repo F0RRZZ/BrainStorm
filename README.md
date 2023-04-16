@@ -80,11 +80,32 @@ cp db_example.sqlite3 db.sqlite3
 |-------------------------------------------|--------------------------------------------|
 | ```python manage.py loaddata data.json``` | ```python3 manage.py loaddata data.json``` |
 
-6. Запустите сервер
+
+6. Установить сервер redis
+
+| Windows                      | Linux/MacOS                                |
+|------------------------------|--------------------------------------------|
+| ```https://clck.ru/34A34T``` | ```sudo docker run -d -p 6379:6379 redis```|
+
+
+7. Запустите сервер
 
 | Windows                          | Linux/MacOS                       |
 |----------------------------------|-----------------------------------|
 | ```python manage.py runserver``` | ```python3 manage.py runserver``` |
+
+
+8. Запустите worker(в отдельном терминале)
+
+```shell
+celery -A brainstorm worker -l info
+```
+
+9. Запустите beat(в отдельном терминале)
+
+```shell
+celery -A brainstorm beat -l info
+```
 
 Далее перейдите по ссылке 
 ```

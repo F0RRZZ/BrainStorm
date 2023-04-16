@@ -13,7 +13,6 @@ class GetContextMixin:
         context = super().get_context_data(**kwargs)
         context['tags'] = tags.models.Tag.objects.all()
         context['feed_name'] = self.__class__.feed_name
-        print(context)
         return context
 
     def get_queryset(self):
@@ -25,7 +24,8 @@ class GetContextMixin:
             | django.db.models.Q(description__icontains=search),
         )
         if tags_slugs[0]:
-            obj = obj.filter(tags__slug__in=tags_slugs)
+            for tag in tags_slugs:
+                obj = obj.filter(tags__slug=tag)
         return obj.distinct()
 
 

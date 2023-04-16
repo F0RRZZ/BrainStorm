@@ -174,19 +174,15 @@
              data-bs-parent="#projectAccordion">
           <div class="accordion-body">
             <ul class="list-group">
-              <li class="list-group-item">
-                <a href="{% url 'users:overview' project.author.username %}"
-                   class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
-                  {{ project.author.username }}
-                </a>
-                <span class="badge text-bg-success ms-2">{% trans "author" %}</span>
-              </li>
               {% for collab in project.collaborators.all %}
                 <li class="list-group-item">
                   <a href="{% url 'users:overview' collab.username %}"
                      class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
                     {{ collab.username }}
                   </a>
+                  {% if collab.username == project.author.username %}
+                  <span class="badge text-bg-success ms-2">{% trans "author" %}</span>
+                  {% endif %}
                 </li>
               {% endfor %}
             </ul>
