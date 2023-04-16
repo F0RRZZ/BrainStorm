@@ -161,7 +161,13 @@
                tabindex="0">
             <!-- div for similar tab-panes structure; important -->
             <div>
-              {% for project in collaborations %}
+              <div class="bs-profile-projects-nav">
+                {% if show_profile %}
+                  <a href="{% url 'collaboration:my_requests' %}"
+                     class="btn btn-info mt-3">{% trans "my_requests" %}</a>
+                {% endif %}
+              </div>
+              {% for project in collaboration %}
                 {% with show_author=True show_redact_button=False %}
 
                   {% include "includes/project_card.html" %}

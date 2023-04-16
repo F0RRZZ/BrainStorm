@@ -19,4 +19,9 @@ urlpatterns = [
         collaboration.views.CollaborationRequestDetailView.as_view(),
         name='request_view',
     ),
+    django.urls.path(
+        'requests/my',
+        collaboration.views.UserRequestsListView.as_view(),
+        name='my_requests',
+    ),
 ]

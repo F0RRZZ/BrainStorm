@@ -55,6 +55,19 @@ class CollaborationRequestListView(
         )
 
 
+class UserRequestsListView(
+    django.views.generic.ListView,
+    django.contrib.auth.mixins.LoginRequiredMixin,
+):
+    template_name = 'collaboration/my_requests.html'
+    context_object_name = 'requests'
+
+    def get_queryset(self):
+        return collaboration.models.CollaborationRequest.objects.get_for_user(
+            self.request.user.id,
+        )
+
+
 class CollaborationRequestDetailView(
     django.views.generic.DetailView,
     django.contrib.auth.mixins.LoginRequiredMixin,
