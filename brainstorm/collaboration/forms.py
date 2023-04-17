@@ -1,13 +1,35 @@
+import django.db.models
 import django.forms
 from django.utils.translation import gettext_lazy as _
 
 import collaboration.models
-import core.forms
 
 
-class CollaboratorRequestForm(
-    core.forms.BootstrapFormMixin, django.forms.ModelForm
-):
+class RequestAnswerForm(django.forms.Form):
+    class Status(django.db.models.TextChoices):
+        ADOPTED = collaboration.models.CollaborationRequest.Status.ADOPTED
+        REJECTED = collaboration.models.CollaborationRequest.Status.REJECTED
+
+    action = django.forms.ChoiceField(
+        choices=Status.choices,
+        widget=django.forms.RadioSelect(
+            attrs={
+                "class": "btn-check",
+            },
+        ),
+    )
+    answer = django.forms.CharField(
+        required=False,
+        widget=django.forms.Textarea(
+            attrs={
+                'rows': 4,
+                'placeholder': _('type_message'),
+            },
+        ),
+    )
+
+
+class CollaboratorRequestForm(django.forms.ModelForm):
     def save(self, user_id, project_id, commit=True):
         request = super().save(commit=False)
         request.user_id = user_id

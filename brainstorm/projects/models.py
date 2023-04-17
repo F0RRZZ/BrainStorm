@@ -1,5 +1,6 @@
 import django.db.models
 import django.utils.safestring
+from django.utils.translation import gettext_lazy as _
 
 import core.models
 import core.utils
@@ -12,29 +13,26 @@ class Project(django.db.models.Model):
     objects = projects.managers.ProjectManager()
 
     class Status(django.db.models.TextChoices):
-        DEVELOPMENT = ('development', 'В разработке')
-        READY = ('ready', 'Готов')
+        IDEA = ('idea', _('idea'))
+        DEVELOPMENT = ('development', _('in_develop'))
+        READY = ('ended', _('ended'))
 
     author = django.db.models.ForeignKey(
         users.models.User,
         on_delete=django.db.models.CASCADE,
         related_name='projects',
         verbose_name='автор',
-        help_text='Кто автор',
     )
 
     name = django.db.models.CharField(
         'название',
-        help_text='Назовите проект',
         max_length=150,
     )
     short_description = django.db.models.TextField(
         'краткое описание',
-        help_text='Введите краткое описание проекта',
     )
     description = django.db.models.TextField(
         'описание',
-        help_text='Введите описание проекта',
     )
     collaborators = django.db.models.ManyToManyField(
         users.models.User,
@@ -55,10 +53,10 @@ class Project(django.db.models.Model):
         default=False,
     )
     status = django.db.models.CharField(
-        'статус проетка',
-        max_length=14,
+        'статус проекта',
+        max_length=20,
         choices=Status.choices,
-        default=Status.DEVELOPMENT,
+        default=Status.IDEA,
     )
     creation_date = django.db.models.DateTimeField(
         'дата создания',

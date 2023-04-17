@@ -20,7 +20,7 @@ class AddProjectToContextMixin:
         return context
 
 
-class CollaborationRequestFormView(
+class RequestCreateView(
     AddProjectToContextMixin,
     django.views.generic.FormView,
     django.contrib.auth.mixins.LoginRequiredMixin,
@@ -38,7 +38,7 @@ class CollaborationRequestFormView(
         return django.urls.reverse_lazy('projects:view', kwargs=self.kwargs)
 
 
-class CollaborationRequestListView(
+class RequestsListView(
     AddProjectToContextMixin,
     django.views.generic.ListView,
     django.contrib.auth.mixins.LoginRequiredMixin,
@@ -55,7 +55,7 @@ class CollaborationRequestListView(
         )
 
 
-class UserRequestsListView(
+class MyRequestsListView(
     django.views.generic.ListView,
     django.contrib.auth.mixins.LoginRequiredMixin,
 ):
@@ -68,11 +68,30 @@ class UserRequestsListView(
         )
 
 
-class CollaborationRequestDetailView(
+class MyRequestDetailView(
     django.views.generic.DetailView,
     django.contrib.auth.mixins.LoginRequiredMixin,
 ):
+    template_name = 'collaboration/my_request.html'
     context_object_name = 'request'
     pk_url_kwarg = 'request_id'
 
     queryset = collaboration.models.CollaborationRequest.objects.all()
+
+
+class RequestDetailView(MyRequestDetailView, django.views.generic.FormView):
+    template_name = 'collaboration/request_view.html'
+    form_class = collaboration.forms.RequestAnswerForm
+
+    def get_success_url(self):
+        return self.request.path
+
+    def form_valid(self, form):
+        collab_request = self.get_object()
+        collab_request.answer = form.cleaned_data['answer']
+        collab_request.status = form.cleaned_data['action']
+        collab_request.save()
+        if collab_request.status == collaboration.models.CollaborationRequest.Status.ADOPTED:
+            collab_request.project.collaborators.add(collab_request.user)
+            print("Added")
+        return super().form_valid(form)

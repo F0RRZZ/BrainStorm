@@ -31,8 +31,5 @@ class ProjectForm(core.forms.BootstrapFormMixin, django.forms.ModelForm):
                 'Краткое описание'
             ),
             projects.models.Project.description.field.name: 'Описание',
-            projects.models.Project.short_description.field.name: (
-                'Краткое описание'
-            ),
             projects.models.Project.status.field.name: 'Статус',
         }

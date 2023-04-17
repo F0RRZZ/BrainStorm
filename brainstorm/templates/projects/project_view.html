@@ -40,8 +40,11 @@
       <p>{{ project.short_description|safe }}</p>
     </div>
     <div class="bs-child-vertical-container mb-4">
-      <div class="d-flex flex-nowrap">
-        <span class="fs-4">{% trans "rating" %}</span> <span class="bs-rating-show ms-3">{{ average_rating }}</span>
+      <div class="d-flex flex-column align-items-end mb-2">
+        <div class="d-flex flex-nowrap">
+          <span class="fs-4">{% trans "rating" %}</span> <span class="bs-rating-show ms-3">{{ average_rating }}</span>
+        </div>
+        <div class="badge text-bg-light bs-status-badge fs-5 ms-2 mt-3">{{ project.get_status_display }}</div>
       </div>
       <div>
         {% if user.is_authenticated and user.id == project.author.id %}

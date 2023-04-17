@@ -1,0 +1,3 @@
+<div class="badge text-bg-{% if request.status == "in_queue" %}warning{% elif request.status == "adopted" %}success{% elif request.status == "rejected" %}danger{% endif %}">
+    {{ request.get_status_display }}
+</div>

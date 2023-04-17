@@ -32,12 +32,11 @@
         </div>
         <div class="bs-username-block mt-2">
           <p class="fs-3 text-wrap text-center">
-            {% if not rendering_user.first_name %}
-              {{ username }}
-            {% else %}
-              {{ rendering_user.first_name }}
-              {% if rendering_user.last_name %}{{ rendering_user.last_name }}{% endif %}
-            {% endif %}
+            {% with user=rendering_user %}
+
+              {% include "includes/user_name.html" %}
+
+            {% endwith %}
           </p>
         </div>
         {% if show_profile %}

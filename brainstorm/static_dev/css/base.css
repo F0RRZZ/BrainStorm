@@ -36,6 +36,7 @@
 .bs-card {
   transition: all 0.3s ease-in;
   width: 100%;
+  overflow: hidden;
 }
 
 .bs-card:hover {
