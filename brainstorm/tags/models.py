@@ -5,7 +5,7 @@ from core.tools import name_formatter
 
 
 class Tag(models.Model):
-    is_published = models.BooleanField('published', default=True)
+    is_published = models.BooleanField('Опубликовано', default=True)
     name = models.CharField(
         'название',
         max_length=150,

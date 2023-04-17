@@ -1,14 +1,3 @@
-.bs-project-card {
-  transition: all 0.3s ease-in;
-  width: 100%;
-}
-
-.bs-project-card:hover {
-  box-shadow: 0 0 3px 0.2rem #1415158e;
-  border-color: #141515d0;
-  border-style: solid;
-}
-
 .bs-hidden-link {
   text-decoration: none;
   color: rgb(0, 0, 0);

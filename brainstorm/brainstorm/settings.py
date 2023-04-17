@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'about.apps.AboutConfig',
     'core.apps.CoreConfig',
-    'collaboration_request.apps.CollaborationRequestConfig',
+    'collaboration.apps.CollaborationConfig',
     'comments.apps.CommentsConfig',
     'feedback.apps.FeedbackConfig',
     'feeds.apps.FeedsConfig',
@@ -194,3 +194,11 @@ LANGUAGES = (
 LOCALE_PATHS = [
     BASE_DIR / 'locale',
 ]
+
+REDIS_HOST = '0.0.0.0'
+REDIS_PORT = '6379'
+CELERY_BROKER_URL = ''.join(['redis://', REDIS_HOST, ':', REDIS_PORT, '/0'])
+CELERY_BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
+CELERY_RESULT_BACKEND = ''.join(
+    ['redis://', REDIS_HOST, ':', REDIS_PORT, '/0']
+)

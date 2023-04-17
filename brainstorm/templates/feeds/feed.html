@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load i18n %}
+
 {% load static %}
 
 {% block title %}
@@ -33,6 +35,8 @@
 
             {% endwith %}
           {% endif %}
+        {% empty %}
+          <div class="bs-empty-list-message">{% trans "nothing_to_show" %}</div>
         {% endfor %}
         <div id="paginators-list" class="bs-none">page</div>
         {% with indicator="page" additional_class="pagination-lg" %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block title %}
+  {% trans "my_requests" %}
+{% endblock title %}
+
+{% block content %}
+  <div class="container">
+    <div class="d-flex justify-content-between flex-wrap ms-auto me-auto">
+      <h3 class="me-2">{% trans "my_requests" %}</h3>
+      <a href="{% url 'users:overview' user.username %}"
+         class="btn btn-outline-info">{% trans "go_to_profile" %}</a>
+    </div>
+    <hr />
+
+    {% for request in requests %}
+      <div class="bs-card border rounded p-1 pb-2 mb-3">
+        <div class="d-flex align-items-center justify-content-between mb-2 flex-wrap">
+          <a href="{% url 'projects:view' request.project.id %}"
+             class="link-dark fs-4 ms-2 link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+            {{ request.project.name }}
+          </a>
+          <span class="pe-2 text-secondary">{{ request.creation_date }}</span>
+        </div>
+
+        {% include "includes/request_card_bottom.html" %}
+
+        <a href="{% url 'collaboration:my_request' request.id %}"
+           class="btn btn-outline-secondary">{% trans "detailed" %}</a>
+
+      </div>
+    {% empty %}
+      <div class="bs-empty-list-message">{% trans "nothing_to_show" %}</div>
+    {% endfor %}
+
+  </div>
+{% endblock content %}

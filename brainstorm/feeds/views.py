@@ -24,7 +24,8 @@ class GetContextMixin:
             | django.db.models.Q(description__icontains=search),
         )
         if tags_slugs[0]:
-            obj = obj.filter(tags__slug__in=tags_slugs)
+            for tag in tags_slugs:
+                obj = obj.filter(tags__slug=tag)
         return obj.distinct()
 
 

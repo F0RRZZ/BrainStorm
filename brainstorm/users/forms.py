@@ -58,24 +58,3 @@ class UserProfileForm(core.forms.BootstrapFormMixin, django.forms.ModelForm):
             users.models.User.bio.field.name,
             users.models.User.image.field.name,
         ]
-
-
-class LoginForm(
-    core.forms.BootstrapFormMixin,
-    django.contrib.auth.forms.AuthenticationForm,
-):
-    pass
-
-
-class PasswordChangeForm(
-    core.forms.BootstrapFormMixin,
-    django.contrib.auth.forms.PasswordChangeForm,
-):
-    pass
-
-
-class PasswordResetForm(
-    core.forms.BootstrapFormMixin,
-    django.contrib.auth.forms.PasswordResetForm,
-):
-    pass

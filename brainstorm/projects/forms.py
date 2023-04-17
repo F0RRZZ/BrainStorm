@@ -1,3 +1,4 @@
+import django.core.exceptions
 import django.forms
 from django.utils.translation import gettext_lazy as _
 
@@ -38,5 +39,11 @@ class ProjectForm(core.forms.BootstrapFormMixin, django.forms.ModelForm):
             ),
             projects.models.Project.description.field.name: _('Описание'),
             projects.models.Project.status.field.name: _('Статус'),
-            projects.models.Project.tags.field.name: _('теги'),
+            projects.models.Project.tags.field.name: _('Теги'),
         }
+
+    def clean(self):
+        super().clean()
+        tags = self.cleaned_data.get('tags')
+        if len(tags) > 5:
+            raise django.core.exceptions.ValidationError(_('Максимум 5 тегов'))

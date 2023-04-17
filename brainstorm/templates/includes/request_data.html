@@ -1,0 +1,16 @@
+{% load i18n %}
+
+<h4>{% trans "user_bio" %}</h4>
+<p>
+  {{ request.about|safe }}
+  {% if not request.about %}
+    <div class="bs-empty-list-message mb-3">{% trans "nothing_to_show" %}</div>
+  {% endif %}
+</p>
+<h4>{% trans "contacts" %}</h4>
+<p>
+  {{ request.contact|safe }}
+  {% if not request.contact %}
+    <div class="bs-empty-list-message mb-3">{% trans "nothing_to_show" %}</div>
+  {% endif %}
+</p>

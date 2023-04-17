@@ -3,8 +3,8 @@ import sorl.thumbnail
 
 class ImageMixin:
     @property
-    def get_image_400x400(self):
-        return self.get_sized_image('400x400')
+    def get_image_150x150(self):
+        return self.get_sized_image('150x150')
 
     @property
     def get_image_300x300(self):

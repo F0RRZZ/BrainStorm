@@ -2,6 +2,7 @@ import django.conf
 import django.contrib.auth.mixins
 import django.contrib.auth.views
 import django.core.mail
+import django.core.paginator
 import django.http
 import django.shortcuts
 import django.urls
@@ -108,7 +109,7 @@ class UserDetailView(
 
     def get_object(self):
         return django.shortcuts.get_object_or_404(
-            self.get_queryset(),
+            self.get_queryset().select_related(),
             username=self.kwargs[self.pk_url_kwarg],
         )
 
@@ -142,13 +143,23 @@ class UserDetailView(
         comments_page_obj = comments_paginator.get_page(
             self.request.GET.get('comments_page', 1),
         )
+        collab = projects.models.Project.objects.get_for_collaborator(user.id)
+        collaboration_paginator = django.core.paginator.Paginator(
+            collab,
+            UserDetailView.paginate_by,
+        )
+        collaboration_page_obj = collaboration_paginator.get_page(
+            self.request.GET.get('collaboration_page', 1),
+        )
 
         context.update(
             {
-                'comments': comments_page_obj,
-                'comments_paginator': comments_paginator,
-                'projects': projects_page_obj,
                 'projects_paginator': projects_paginator,
+                'projects': projects_page_obj,
+                'comments_paginator': comments_paginator,
+                'comments': comments_page_obj,
+                'collaboration_paginator': collaboration_paginator,
+                'collaboration': collaboration_page_obj,
                 'show_profile': show_profile,
             }
         )
@@ -160,24 +171,3 @@ class ActivationDoneView(
     django.contrib.auth.mixins.LoginRequiredMixin,
 ):
     template_name = 'users/activate_link_sends.html'
-
-
-class LoginView(
-    django.contrib.auth.views.LoginView,
-):
-    form_class = users.forms.LoginForm
-    template_name = 'users/login.html'
-
-
-class PasswordChangeView(
-    django.contrib.auth.views.PasswordChangeView,
-):
-    form_class = users.forms.PasswordChangeForm
-    template_name = 'users/password_change.html'
-
-
-class PasswordResetView(
-    django.contrib.auth.views.PasswordResetView,
-):
-    form_class = users.forms.PasswordResetForm
-    template_name = 'users/password_reset.html'

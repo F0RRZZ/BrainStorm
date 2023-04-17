@@ -18,7 +18,7 @@ import users.models
 class ViewProject(django.views.generic.DetailView):
     template_name = 'projects/project_view.html'
     pk_url_kwarg = 'project_id'
-    model = projects.models.Project
+    queryset = projects.models.Project.objects.get_queryset()
     paginate_by = 60
 
     def get_and_check_initial_rating(self):
@@ -122,7 +122,7 @@ class CreateProject(
 ):
     template_name = 'projects/project_create.html'
     form_class = projects.forms.ProjectForm
-    success_url = django.urls.reverse_lazy('projects:create')
+    success_url = django.urls.reverse_lazy('core:main')
 
     def form_valid(self, form):
         project = projects.models.Project(
