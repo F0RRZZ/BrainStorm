@@ -1,0 +1,7 @@
+{% load i18n %}
+
+<div class="d-flex justify-content-between flex-wrap ms-auto me-auto mb-2">
+  <h3 class="me-2">{{ project.name }}</h3>
+  <a href="{% url 'projects:view' project.id %}"
+     class="btn btn-outline-dark">{% trans "go_to_project" %}</a>
+</div>
