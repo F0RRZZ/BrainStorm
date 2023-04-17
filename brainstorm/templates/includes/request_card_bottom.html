@@ -1,0 +1,5 @@
+{% load i18n %}
+
+<p class="ms-2">{{ request.about|safe|truncatewords_html:60 }}</p>
+<a href="{% url 'collaboration:request_view' request.id %}"
+   class="btn btn-outline-secondary ms-2">{% trans "detailed" %}</a>

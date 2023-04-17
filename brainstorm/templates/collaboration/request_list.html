@@ -8,11 +8,7 @@
 
 {% block content %}
   <div class="container">
-    <div class="d-flex justify-content-between flex-wrap ms-auto me-auto">
-      <h3 class="me-2">{{ project.name }}</h3>
-      <a href="{% url 'projects:view' project.id %}"
-         class="btn btn-outline-dark">{% trans "go_to_project" %}</a>
-    </div>
+    {% include "includes/project_title.html" %}
     <h4 class="mt-3">{% trans "requests_list" %}</h4>
     <hr />
 
@@ -26,9 +22,7 @@
           {% endwith %}
           <span class="pe-2 text-secondary">{{ request.created_at }}</span>
         </div>
-        <p class="ms-2">{{ request.about|safe|truncatewords_html:60 }}</p>
-        <a href="{% url 'collaboration:request_view' request.id %}"
-           class="btn btn-outline-secondary ms-2">{% trans "detailed" %}</a>
+        {% include "includes/request_card_bottom.html" %}
       </div>
     {% empty %}
       <div class="bs-empty-list-message">{% trans "nothing_to_show" %}</div>

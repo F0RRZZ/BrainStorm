@@ -1,0 +1,10 @@
+{% load i18n %}
+
+<h4>{% trans "user_bio" %}</h4>
+<p>
+    {{ request.about|safe }}
+</p>
+<h4>{% trans "contacts" %}</h4>
+<p>
+    {{ request.contact|safe }}
+</p>

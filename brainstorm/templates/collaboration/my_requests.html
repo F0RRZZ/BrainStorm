@@ -24,9 +24,7 @@
           </a>
           <span class="pe-2 text-secondary">{{ request.created_at }}</span>
         </div>
-        <p class="ms-2">{{ request.about|safe|truncatewords_html:60 }}</p>
-        <a href="{% url 'collaboration:request_view' request.id %}"
-           class="btn btn-outline-secondary ms-2">{% trans "detailed" %}</a>
+        {% include "includes/request_card_bottom.html" %}
       </div>
     {% empty %}
       <div class="bs-empty-list-message">{% trans "nothing_to_show" %}</div>

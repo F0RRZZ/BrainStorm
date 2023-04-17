@@ -72,7 +72,6 @@ class CollaborationRequestDetailView(
     django.views.generic.DetailView,
     django.contrib.auth.mixins.LoginRequiredMixin,
 ):
-    template_name = 'collaboration/request_view.html'
     context_object_name = 'request'
     pk_url_kwarg = 'request_id'
 
