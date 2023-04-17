@@ -31,11 +31,18 @@ class RequestCreateView(
     pk_url_kwarg = 'project_id'
 
     def form_valid(self, form):
-        form.save(self.request.user.id, self.kwargs[self.pk_url_kwarg])
+        self.request_id = form.save(
+            self.request.user.id, self.kwargs[self.pk_url_kwarg]
+        ).id
         return super().form_valid(form)
 
     def get_success_url(self):
-        return django.urls.reverse_lazy('projects:view', kwargs=self.kwargs)
+        return django.urls.reverse_lazy(
+            'collaboration:my_request',
+            kwargs={
+                'request_id': self.request_id,
+            },
+        )
 
 
 class RequestsListView(
