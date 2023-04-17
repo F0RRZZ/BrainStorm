@@ -13,7 +13,6 @@ class GetContextMixin:
         context = super().get_context_data(**kwargs)
         context['tags'] = tags.models.Tag.objects.all()
         context['feed_name'] = self.__class__.feed_name
-        print(context)
         return context
 
     def get_queryset(self):

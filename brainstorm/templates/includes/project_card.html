@@ -29,7 +29,7 @@
     </div>
     <div class="col-md-4 bs-project-image-container">
       {% if project.preview.image %}
-        {% thumbnail project.preview.image "300x300" padding=True as im %}
+        {% thumbnail project.get_preview.image "300x300" padding=True as im %}
         <img src="{{ im.url }}" class="img-fluid rounded-end" alt="..."/>
       {% endthumbnail %}
     {% else %}

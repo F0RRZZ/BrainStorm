@@ -37,14 +37,17 @@ class ViewProject(django.views.generic.DetailView):
 
     def get_object(self):
         return django.shortcuts.get_object_or_404(
-            projects.models.Project,
+            projects.models.Project.objects.prefetch_related('tags'),
             id=self.kwargs[self.pk_url_kwarg],
         )
 
     def get_base_context(self, rating_exists=False):
         project = self.get_object()
-        comments_ = comments.models.Comment.objects.get_project_comments(
-            project.id,
+        comments_ = (
+            comments.models.Comment.objects
+            .get_project_comments(
+                project.id,
+            )
         )
         paginator = django.core.paginator.Paginator(
             comments_, ViewProject.paginate_by

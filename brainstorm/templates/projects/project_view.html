@@ -76,7 +76,7 @@
                 </tr>
                 <tr>
                   <th scope="row">{% trans "comments_count" %}</th>
-                  <td class="text-center">{{ project.comments.count }}</td>
+                  <td class="text-center">{{ project.get_project_comments.count }}</td>
                 </tr>
                 <tr>
                   <th scope="row">{% trans "creation_date" %}</th>
@@ -123,11 +123,11 @@
              class="accordion-collapse collapse"
              data-bs-parent="#projectAccordion">
           <div class="accordion-body">
-            {% if project.images_gallery.all %}
+            {% if project.get_gallery_images.all %}
               <div id="carouselExample"
                    class="carousel slide bs-project-gallery-carousel">
                 <div class="carousel-inner">
-                  {% for image in project.images_gallery.all %}
+                  {% for image in project.get_gallery_images.all %}
                     <div class="carousel-item{% if forloop.first %} active{% endif %}">
                       <img src="{{ image.image.url }}"
                            width="400px"
