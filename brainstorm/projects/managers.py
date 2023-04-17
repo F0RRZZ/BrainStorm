@@ -20,16 +20,17 @@ class ProjectManager(django.db.models.Manager):
                 )
             )
             .only(
-                'id', 'tags__id', 'author__id',
-                'author__username', 'preview__image', 'short_description'
+                'id',
+                'tags__id',
+                'author__id',
+                'author__username',
+                'preview__image',
+                'short_description',
             )
         )
 
     def archive(self):
-        return (
-            self.get_queryset()
-            .filter(in_archive=True, published=True)
-        )
+        return self.get_queryset().filter(in_archive=True, published=True)
 
     def new(self):
         return (

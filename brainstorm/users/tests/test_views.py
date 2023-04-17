@@ -1,10 +1,10 @@
 import http
+import unittest.mock
 
 import django.db.utils
 import django.shortcuts
 import django.test
 import django.utils
-import unittest.mock
 
 import users.models
 

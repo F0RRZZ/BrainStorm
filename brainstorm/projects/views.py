@@ -43,11 +43,8 @@ class ViewProject(django.views.generic.DetailView):
 
     def get_base_context(self, rating_exists=False):
         project = self.get_object()
-        comments_ = (
-            comments.models.Comment.objects
-            .get_project_comments(
-                project.id,
-            )
+        comments_ = comments.models.Comment.objects.get_project_comments(
+            project.id,
         )
         paginator = django.core.paginator.Paginator(
             comments_, ViewProject.paginate_by

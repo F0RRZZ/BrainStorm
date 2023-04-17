@@ -31,10 +31,8 @@ class FeedbackFormView(django.views.generic.FormView):
             feedback_dir = os.path.join('uploads', str(new_feedback.id))
             os.makedirs(feedback_dir)
             for file in self.request.FILES.getlist('files'):
-                file_system = (
-                    django.core.files.storage.FileSystemStorage(
-                        location=feedback_dir
-                    )
+                file_system = django.core.files.storage.FileSystemStorage(
+                    location=feedback_dir
                 )
                 filename = file_system.save(file.name, file)
                 feedback_file = feedback.models.FeedbackFile(
