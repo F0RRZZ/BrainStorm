@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% load add_class %}
+
+{% block title %}
+  {% trans "request_view" %}
+{% endblock title %}
+
+{% block content %}
+  <div class="container">
+    {% with project=request.project %}
+
+      {% include "includes/project_title.html" %}
+
+    {% endwith %}
+    <div class="d-flex justify-content-between flex-wrap ms-auto me-auto">
+      <h4 class="me-2">{% trans "request_view" %}</h4>
+      <a href="{% if user.id == request.user.id %} {% url 'collaboration:my_requests' %} {% else %} {% url 'collaboration:request_list' request.project.id %} {% endif %}"
+         class="btn btn-outline-info">{% trans "to_list" %}</a>
+    </div>
+    <hr />
+    <div class="d-flex justify-content-start flex-wrap mb-3">
+      <div class="bs-card bs-fit-content-element border rounded-5 me-4">
+        <img src="{{ request.user.get_image_150x150.url }}"
+             class="img-fluid rounded"
+             alt="..."/>
+      </div>
+      <div class="align-self-center">
+        <a class="link-success fs-3"
+           href="{% url 'users:overview' request.user.username %}">
+          {% with user=request.user %}
+
+            {% include "includes/user_name.html" %}
+
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+
+    {% include "includes/request_data.html" %}
+
+    <hr />
+    <h3>{% trans "my_answer" %}</h3>
+    {% if request.status == "in_queue" %}
+      <form class="d-flex flex-column align-items-start mt-3"
+            method="post"
+            enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.answer|add_class:"form-control" }}
+        <div class="btn-group mt-2"
+             role="group"
+             aria-label="Basic checkbox toggle button group">
+          {% for radio in form.action %}
+            {{ radio.tag }}
+            <label class="btn btn-outline-{% if forloop.counter == 1 %}success{% else %}danger{% endif %}"
+                   for="{{ radio.id_for_label }}">
+              {{ radio.choice_label }}
+            </label>
+          {% endfor %}
+        </div>
+
+        <input type="submit"
+               class="btn btn-secondary mt-2"
+               value="{% trans "answer" %}"/>
+      </form>
+    {% else %}
+      <div class="mt-3">{{ request.answer }}</div>
+      <div class="mt-1 fs-4">
+
+        {% include "includes/request_status_badge.html" %}
+
+      </div>
+    {% endif %}
+
+  </div>
+{% endblock content %}

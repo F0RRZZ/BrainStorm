@@ -1,0 +1,11 @@
+<span>
+  <img class="bs-small-user-image"
+       src="{{ user.get_image_50x50.url }}"
+       width="50px"
+       height="50px"
+       alt="..."/>
+  <a href="{% url 'users:overview' user.username %}"
+     class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+    {{ user.username }}
+  </a>
+</span>

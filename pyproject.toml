@@ -19,7 +19,7 @@ skip-string-normalization = true
 [tool.djlint]
 indent=2
 exclude=".venv,venv,.tox,.eggs"
-ignore="H030,H031,H006,H023"
+ignore="H030,H031,H006,H019,H023"
 blank_line_after_tag="load,extends,include"
 blank_line_before_tag="load,extends,include"
 preserve_blank_lines=true
@@ -27,4 +27,4 @@ profile="django"
 
 [tool.isort]
 profile="google"
-known_first_party = ["about", "core", "comments", "feedback", "feeds", "projects", "rating", "tags", "users"]
+known_first_party = ["about", "core", "comments", "collaboration", "feedback", "feeds", "projects", "rating", "tags", "users"]

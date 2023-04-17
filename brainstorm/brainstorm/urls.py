@@ -9,7 +9,10 @@ urlpatterns = [
         '',
         django.urls.include('core.urls', namespace='core'),
     ),
-    django.urls.path('projects/', django.urls.include('projects.urls')),
+    django.urls.path(
+        'projects/',
+        django.urls.include('projects.urls', namespace='projects'),
+    ),
     django.urls.path(
         'feed/',
         django.urls.include('feeds.urls', namespace='feeds'),
@@ -27,10 +30,10 @@ urlpatterns = [
         django.urls.include('tags.urls', namespace='tags'),
     ),
     django.urls.path(
-        'collaboration_requests/',
+        'collaboration/',
         django.urls.include(
-            'collaboration_request.urls',
-            namespace='collaboration_requests',
+            'collaboration.urls',
+            namespace='collaboration',
         ),
     ),
     django.urls.path(
@@ -43,7 +46,7 @@ urlpatterns = [
     ),
     django.urls.path(
         'users/',
-        django.urls.include(django.contrib.auth.urls),
+        django.urls.include('django.contrib.auth.urls'),
     ),
     django.urls.path(
         'admin/',

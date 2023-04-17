@@ -12,16 +12,26 @@
   <div class="container">
     <h3 class="mb-3">{% trans "login" %}</h3>
 
-    {% include "includes/form.html" %}
+    <form method="post" enctype="multipart/form-data">
 
-    <a href="{% provider_login_url 'google' method='oauth2' %}">Войти через Google</a>
-    <br/>
-    <a href="{% provider_login_url 'github' method='oauth2' %}">Войти через GitHub</a>
+      {% include "includes/form_fields.html" %}
 
-    <p class="mt-2">
+ 
+      <input type="submit"
+             class="btn btn-primary mt-2"
+             value="{% trans "login" %}"/>
+    </form>
+
+    <div class="d-flex flex-column align-items-start mt-3">
       <a href="{% url 'users:password_reset' %}" class="link-secondary">{% trans "forgot_password" %}</a>
-      <br/>
-      <a href="{% url 'users:signup' %}" class="link-secondary mt-2">{% trans "register" %}</a>
-    </p>
+      <a href="{% url 'users:signup' %}" class="link-secondary mt-1">{% trans "register" %}</a>
+    </div>
+    <h6 class="mt-4">{% trans "or_login_with" %}:</h6>
+    <div class="d-flex justify-content-start mt-3">
+      <a class="btn btn-info"
+         href="{% provider_login_url 'google' method='oauth2' %}">Google <i class="fa-brands fa-google"></i></a>
+      <a class="btn btn-secondary ms-2"
+         href="{% provider_login_url 'github' method='oauth2' %}">GitHub <i class="fa-brands fa-github"></i></a>
+    </div>
   </div>
 {% endblock content %}

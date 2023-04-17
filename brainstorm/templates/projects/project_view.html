@@ -3,6 +3,7 @@
 {% load i18n %}
 
 {% load static %}
+
 {% load thumbnail %}
 
 {% block title %}
@@ -39,14 +40,17 @@
       <p>{{ project.short_description|safe }}</p>
     </div>
     <div class="bs-child-vertical-container mb-4">
-      <div class="d-flex flex-nowrap">
-        <span class="fs-4">{% trans "rating" %}</span> <span class="bs-rating-show ms-3">{{ average_rating }}</span>
+      <div class="d-flex flex-column align-items-end mb-2">
+        <div class="d-flex flex-nowrap">
+          <span class="fs-4">{% trans "rating" %}</span> <span class="bs-rating-show ms-3">{{ average_rating }}</span>
+        </div>
+        <div class="badge text-bg-light bs-status-badge fs-5 ms-2 mt-3">{{ project.get_status_display }}</div>
       </div>
       <div>
         {% if user.is_authenticated and user.id == project.author.id %}
           <a href="{% url 'projects:redact' project.id %}"
              class="btn btn-outline-success">{% trans "redact" %}</a>
-          <a href="?search=0" class="btn btn-outline-danger ms-2 mt-2">{% trans "delete" %}</a>
+          <a href="" class="btn btn-outline-danger ms-2 mt-2">{% trans "delete" %}</a>
         {% endif %}
       </div>
     </div>
@@ -124,7 +128,7 @@
              data-bs-parent="#projectAccordion">
           <div class="accordion-body">
             {% if project.images_gallery.all %}
-              <div id="carouselExample"
+              <div id="gelleryCarousel"
                    class="carousel slide bs-project-gallery-carousel">
                 <div class="carousel-inner">
                   {% for image in project.images_gallery.all %}
@@ -139,14 +143,14 @@
                 </div>
                 <button class="carousel-control-prev"
                         type="button"
-                        data-bs-target="#carouselExample"
+                        data-bs-target="#gelleryCarousel"
                         data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
                 </button>
                 <button class="carousel-control-next"
                         type="button"
-                        data-bs-target="#carouselExample"
+                        data-bs-target="#gelleryCarousel"
                         data-bs-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
@@ -163,17 +167,24 @@
           <button class="accordion-button collapsed"
                   type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#collapseTwo"
+                  data-bs-target="#collapseCollaboration"
                   aria-expanded="false"
-                  aria-controls="collapseTwo">
+                  aria-controls="collapseCollaboration">
             {% trans "collaborators" %}
           </button>
         </h2>
-        <div id="collapseTwo"
+        <div id="collapseCollaboration"
              class="accordion-collapse collapse"
              data-bs-parent="#projectAccordion">
           <div class="accordion-body">
             <ul class="list-group">
+              <li class="list-group-item">
+                <a href="{% url 'users:overview' project.author.username %}"
+                   class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+                  {{ project.author.username }}
+                </a>
+                <span class="badge text-bg-success ms-2">{% trans "author" %}</span>
+              </li>
               {% for collab in project.collaborators.all %}
                 <li class="list-group-item">
                   <a href="{% url 'users:overview' collab.username %}"
@@ -185,6 +196,18 @@
                   {% endif %}
                 </li>
               {% endfor %}
+              {% if user.is_authenticated %}
+                <div class="bs-fit-content-element mt-3">
+                  {% if user.id != project.author.id and user not in project.collaborators.all %}
+                    <a href="{% url 'collaboration:create_request' project.id %}"
+                       class="btn btn-outline-success">{% trans "create_request" %}</a>
+                  {% endif %}
+                  {% if user.id == project.author.id %}
+                    <a href="{% url 'collaboration:request_list' project.id %}"
+                       class="btn btn-outline-info">{% trans "requests_list" %}</a>
+                  {% endif %}
+                </div>
+              {% endif %}
             </ul>
           </div>
         </div>
@@ -214,7 +237,7 @@
     <div id="set-range-value-in-start" class="bs-none">
       {% if rating_exists %}Yes{% endif %}
     </div>
-    <h4 class="mt-4">
+    <h4 id="comments-list-top" class="mt-4">
       {% trans "comments" %}
     </h4>
     {% if user.is_authenticated %}
@@ -222,7 +245,7 @@
         {% trans "leave_comment" %}:
       </h5>
       <div class="d-flex align-items-center align-self-stretch mt-2 pb-4">
-        <img class="bs-comment-user-image"
+        <img class="bs-small-user-image"
              src="{{ user.get_image_50x50.url }}"
              width="50px"
              height="50px"
@@ -243,22 +266,20 @@
       {% for comment in comments %}
         <div id="comment-{{ comment.id }}" class="bs-comment">
           <div class="d-flex align-items-center justify-content-between mb-2 flex-wrap">
-            <span>
-              <img class="bs-comment-user-image"
-                   src="{{ comment.user.get_image_50x50.url }}"
-                   width="50px"
-                   height="50px"
-                   alt="..."/>
-              <a href="{% url 'users:overview' comment.user.username %}"
-                 class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
-                {{ comment.user.username }}
-              </a>
-            </span>
+            {% with user=comment.user %}
+
+              {% include "includes/user_preview.html" %}
+
+            {% endwith %}
             <span class="pe-2 text-secondary">{{ comment.creation_date }}</span>
           </div>
           <p class="ms-2">
             {{ comment.text|linebreaks }}
           </p>
+        </div>
+      {% empty %}
+        <div class="bs-empty-list-message">
+          {% trans "nothing_to_show" %}
         </div>
       {% endfor %}
       <div id="paginators-list" class="bs-none">

@@ -62,7 +62,7 @@
 
 .bs-profile-projects-nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-self: stretch;
   padding-right: 25px;
   margin-top: 20px;

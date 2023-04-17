@@ -1,6 +1,8 @@
 import django.db.models
 
+import projects.models
 import tags.models
+import users.models
 
 
 class ProjectManager(django.db.models.Manager):
@@ -54,3 +56,13 @@ class ProjectManager(django.db.models.Manager):
 
     def get_user_projects(self, user_id):
         return self.filter(author_id=user_id)
+
+    def get_for_collaborator(self, user_id):
+        return self.prefetch_related(
+            django.db.models.Prefetch(
+                projects.models.Project.collaborators.field.name,
+                queryset=users.models.User.objects.only(
+                    users.models.User.id.field.name,
+                ),
+            )
+        ).filter(collaborators__id__contains=user_id)
