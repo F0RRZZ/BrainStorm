@@ -1,3 +1,4 @@
+import ckeditor.fields
 import django.db.models
 import django.utils.safestring
 from django.utils.translation import gettext_lazy as _
@@ -28,10 +29,10 @@ class Project(django.db.models.Model):
         'название',
         max_length=150,
     )
-    short_description = django.db.models.TextField(
+    short_description = ckeditor.fields.RichTextField(
         'краткое описание',
     )
-    description = django.db.models.TextField(
+    description = ckeditor.fields.RichTextField(
         'описание',
     )
     collaborators = django.db.models.ManyToManyField(

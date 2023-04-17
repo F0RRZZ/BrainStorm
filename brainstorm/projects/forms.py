@@ -1,3 +1,4 @@
+import ckeditor.widgets
 import django.core.exceptions
 import django.forms
 from django.utils.translation import gettext_lazy as _
@@ -23,7 +24,7 @@ class ProjectForm(core.forms.BootstrapFormMixin, django.forms.ModelForm):
         model = projects.models.Project
         fields = (
             projects.models.Project.name.field.name,
-            projects.models.Project.short_description.field.name,
+            'short_description',
             projects.models.Project.description.field.name,
             projects.models.Project.collaborators.field.name,
             projects.models.Project.status.field.name,
@@ -40,6 +41,14 @@ class ProjectForm(core.forms.BootstrapFormMixin, django.forms.ModelForm):
             projects.models.Project.description.field.name: _('Описание'),
             projects.models.Project.status.field.name: _('Статус'),
             projects.models.Project.tags.field.name: _('Теги'),
+        }
+        widgets = {
+            projects.models.Project.short_description.field.name: (
+                ckeditor.widgets.CKEditorWidget()
+            ),
+            projects.models.Project.description.field.name: (
+                ckeditor.widgets.CKEditorWidget()
+            ),
         }
 
     def clean(self):

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.google',
+    'ckeditor',
     'django_cleanup.apps.CleanupConfig',
     'sorl.thumbnail',
     'about.apps.AboutConfig',
@@ -128,6 +129,15 @@ AUTH_PASSWORD_VALIDATORS = [
         ),
     },
 ]
+
+CKEDITOR_CONFIGS = {
+    'awesome_ckeditor': {
+        'toolbar': 'Basic',
+    },
+    'default': {
+        'update': ['blockquote'],
+    },
+}
 
 LANGUAGE_CODE = 'ru'
 

@@ -1,3 +1,4 @@
+import ckeditor.fields
 import django.db.models
 from django.utils.translation import gettext_lazy as _
 
@@ -22,12 +23,12 @@ class CollaborationRequest(django.db.models.Model):
         on_delete=django.db.models.CASCADE,
         related_name='collaboration_requests',
     )
-    contact = django.db.models.TextField(
+    contact = ckeditor.fields.RichTextField(
         'информация о контактах',
         max_length=150,
         blank=True,
     )
-    about = django.db.models.TextField(
+    about = ckeditor.fields.RichTextField(
         'информация о пользователе',
         blank=True,
     )
