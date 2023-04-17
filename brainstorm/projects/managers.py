@@ -35,7 +35,7 @@ class ProjectManager(django.db.models.Manager):
     def new(self):
         return (
             self.get_queryset()
-            .filter(in_archive=False)
+            .filter(in_archive=False, published=True)
             .select_related('author', 'preview')
             .order_by('-creation_date')
             .only(
@@ -45,7 +45,6 @@ class ProjectManager(django.db.models.Manager):
                 'tags__name',
                 'short_description',
             )
-            .filter(in_archive=False, published=True)
             .order_by('-creation_date')
         )
 
@@ -54,7 +53,6 @@ class ProjectManager(django.db.models.Manager):
             self.get_queryset()
             .filter(in_archive=False, published=True)
             .annotate(score=django.db.models.Avg('score_project__score'))
-            .filter(in_archive=False)
             .select_related('author', 'preview')
             .order_by('-score')
             .only(
@@ -71,7 +69,6 @@ class ProjectManager(django.db.models.Manager):
             self.get_queryset()
             .filter(in_archive=False, published=True)
             .annotate(django.db.models.Count('comments'))
-            .filter(in_archive=False)
             .select_related('author', 'preview')
             .order_by('-comments__count')
             .only(
@@ -85,6 +82,9 @@ class ProjectManager(django.db.models.Manager):
 
     def get_user_projects(self, user_id):
         return self.filter(author_id=user_id)
+
+    def get_name(self):
+        return self.only('name')
 
     def get_gallery_images(self):
         return self.prefetch_related('images_gallery')
