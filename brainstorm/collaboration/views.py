@@ -89,9 +89,15 @@ class RequestDetailView(MyRequestDetailView, django.views.generic.FormView):
     def form_valid(self, form):
         collab_request = self.get_object()
         collab_request.answer = form.cleaned_data['answer']
-        collab_request.status = form.cleaned_data['action']
-        collab_request.save()
-        if collab_request.status == collaboration.models.CollaborationRequest.Status.ADOPTED:
+        action = form.cleaned_data['action']
+        if action == collaboration.forms.RequestAnswerForm.Status.ADOPT:
+            collab_request.status = (
+                collaboration.models.CollaborationRequest.Status.ADOPTED
+            )
             collab_request.project.collaborators.add(collab_request.user)
-            print("Added")
+        if action == collaboration.forms.RequestAnswerForm.Status.REJECT:
+            collab_request.status = (
+                collaboration.models.CollaborationRequest.Status.REJECTED
+            )
+        collab_request.save()
         return super().form_valid(form)

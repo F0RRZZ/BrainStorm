@@ -8,7 +8,11 @@ function handleRangeChange(addValue=true) {
         if (display.id == 'range-value-display' && addValue) {
             display.innerHTML = rangeValue;
         }
-        let color = getColorFromNumber(Number(display.innerHTML.replace(",", ".")));
+        let rating = Number(display.innerHTML.replace(",", "."));
+        if (isNaN(rating)) {
+            continue;
+        }
+        let color = getColorFromNumber(rating);
         display.style.borderColor = color;
         display.style.boxShadow = "0 0 3px 0.2rem " + color + "b5";
     }

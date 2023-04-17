@@ -1,10 +1,10 @@
 {% load i18n %}
 
 <div class="d-flex flex-column align-items-start ms-2">
-<div>{{ request.about|safe|truncatewords_html:60 }}</div>
-<div class="mb-2 mt-2 fs-5">
-{% include "includes/request_status_badge.html" %}
-</div>
-<a href="{% url 'collaboration:request_view' request.id %}"
-   class="btn btn-outline-secondary">{% trans "detailed" %}</a>
+  <div>{{ request.about|safe|truncatewords_html:60 }}</div>
+  <div class="mb-2 mt-2 fs-5">
+
+    {% include "includes/request_status_badge.html" %}
+
+  </div>
 </div>

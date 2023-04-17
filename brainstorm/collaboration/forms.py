@@ -7,14 +7,20 @@ import collaboration.models
 
 class RequestAnswerForm(django.forms.Form):
     class Status(django.db.models.TextChoices):
-        ADOPTED = collaboration.models.CollaborationRequest.Status.ADOPTED
-        REJECTED = collaboration.models.CollaborationRequest.Status.REJECTED
+        ADOPT = (
+            'adopt',
+            _('adopt'),
+        )
+        REJECT = (
+            'reject',
+            _('reject'),
+        )
 
     action = django.forms.ChoiceField(
         choices=Status.choices,
         widget=django.forms.RadioSelect(
             attrs={
-                "class": "btn-check",
+                'class': 'btn-check',
             },
         ),
     )

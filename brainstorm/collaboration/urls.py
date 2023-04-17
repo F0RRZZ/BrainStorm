@@ -21,12 +21,12 @@ urlpatterns = [
     ),
     django.urls.path(
         'requests/my',
-        collaboration.views.MyRequestDetailView.as_view(),
+        collaboration.views.MyRequestsListView.as_view(),
         name='my_requests',
     ),
     django.urls.path(
         'requests/my/<int:request_id>/',
-        collaboration.views.MyRequestsListView.as_view(),
+        collaboration.views.MyRequestDetailView.as_view(),
         name='my_request',
     ),
 ]

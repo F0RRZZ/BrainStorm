@@ -24,7 +24,12 @@
           </a>
           <span class="pe-2 text-secondary">{{ request.creation_date }}</span>
         </div>
+
         {% include "includes/request_card_bottom.html" %}
+
+        <a href="{% url 'collaboration:my_request' request.id %}"
+           class="btn btn-outline-secondary">{% trans "detailed" %}</a>
+
       </div>
     {% empty %}
       <div class="bs-empty-list-message">{% trans "nothing_to_show" %}</div>
