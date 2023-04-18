@@ -167,10 +167,9 @@ class RedactProject(
     def form_valid(self, form):
         project = form.save(commit=False)
         if 'preview' in self.request.FILES:
-            preview = (
-                projects.models.Preview.objects
-                .filter(project=project).first()
-            )
+            preview = projects.models.Preview.objects.filter(
+                project=project
+            ).first()
             if preview:
                 preview.image = self.request.FILES.get('preview')
                 preview.save(update_fields=['image'])

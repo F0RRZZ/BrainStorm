@@ -24,5 +24,5 @@ urlpatterns = [
         'delete/<int:project_id>',
         projects.views.DeleteProject.as_view(),
         name='delete',
-    )
+    ),
 ]
