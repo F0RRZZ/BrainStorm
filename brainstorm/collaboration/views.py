@@ -1,4 +1,5 @@
 import django.contrib.auth.mixins
+import django.http
 import django.shortcuts
 import django.urls
 import django.views.generic
@@ -9,14 +10,19 @@ import projects.models
 
 
 class AddProjectToContextMixin:
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['project'] = django.shortcuts.get_object_or_404(
+    def dispatch(self, request, *args, **kwargs):
+        self.project = django.shortcuts.get_object_or_404(
             projects.models.Project.objects.only(
-                projects.models.Project.name.field.name
+                projects.models.Project.name.field.name,
+                projects.models.Project.author_id.field.name,
             ),
             id=self.kwargs[self.pk_url_kwarg],
         )
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['project'] = self.project
         return context
 
 
@@ -29,6 +35,19 @@ class RequestCreateView(
     form_class = collaboration.forms.CollaboratorRequestForm
     template_name = 'collaboration/request_create.html'
     pk_url_kwarg = 'project_id'
+
+    def dispatch(self, request, *args, **kwargs):
+        result = super().dispatch(request, *args, **kwargs)
+        user = self.request.user
+        if user.id == self.project.author_id:
+            raise django.http.Http404()
+        collaborators_id = self.project.collaborators.values_list(
+            projects.models.Project.id.field.name,
+            flat=True,
+        )
+        if user.id in collaborators_id:
+            raise django.http.Http404()
+        return result
 
     def form_valid(self, form):
         self.request_id = form.save(
@@ -53,6 +72,13 @@ class RequestsListView(
     template_name = 'collaboration/request_list.html'
     context_object_name = 'requests'
     pk_url_kwarg = 'project_id'
+
+    def dispatch(self, request, *args, **kwargs):
+        result = super().dispatch(request, *args, **kwargs)
+        user = self.request.user
+        if user.id != self.project.author_id:
+            raise django.http.Http404()
+        return result
 
     def get_queryset(self):
         return collaboration.models.CollaborationRequest.objects.get_for_list(
@@ -86,6 +112,12 @@ class MyRequestDetailView(
     def get_queryset(self):
         model = collaboration.models.CollaborationRequest
         return model.objects.get_for_my_detail()
+
+    def get_object(self, queryset=None):
+        object_ = super().get_object(queryset)
+        if object_.user_id != self.request.user.id:
+            raise django.http.Http404()
+        return object_
 
 
 class RequestDetailView(
@@ -121,3 +153,9 @@ class RequestDetailView(
             )
         collab_request.save()
         return super().form_valid(form)
+
+    def get_object(self, queryset=None):
+        object_ = super().get_object(queryset)
+        if object_.project.author_id != self.request.user.id:
+            raise django.http.Http404()
+        return object_

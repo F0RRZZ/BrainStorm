@@ -1,7 +1,7 @@
 import django.core.exceptions
+import django.core.validators
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-import django.core.validators
 
 from core.tools import name_formatter
 

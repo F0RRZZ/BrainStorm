@@ -1,7 +1,7 @@
 import re
 
-import django.forms
 import django.contrib.auth.forms
+import django.forms
 from django.utils.translation import gettext_lazy as _
 
 import core.forms
