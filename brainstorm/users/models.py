@@ -116,8 +116,8 @@ class User(
     objects = users.managers.UserManager()
 
     class Meta:
-        verbose_name = 'пользователь'
-        verbose_name_plural = 'пользователи'
+        verbose_name = _('user')
+        verbose_name_plural = _('users')
 
     def natural_key(self):
         return self.username

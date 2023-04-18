@@ -2,29 +2,32 @@ import re
 
 import django.forms
 import django.contrib.auth.forms
+from django.utils.translation import gettext_lazy as _
 
 import core.forms
 import users.models
+
+PASSWORD1_FIELD_NAME = 'password1'
+PASSWORD2_FIELD_NAME = 'password2'
 
 
 class CustomUserCreationForm(
     core.forms.BootstrapFormMixin, django.contrib.auth.forms.UserCreationForm
 ):
     password1 = django.forms.CharField(
-        label='Пароль',
+        label=_('password'),
         strip=False,
         widget=django.forms.PasswordInput(
             attrs={'autocomplete': 'new-password'}, render_value=False
         ),
-        help_text='Введите пароль',
     )
     password2 = django.forms.CharField(
-        label='Подтверждение пароля',
+        label=_('password_again'),
         widget=django.forms.PasswordInput(
             attrs={'autocomplete': 'new-password'}, render_value=False
         ),
         strip=False,
-        help_text='Введите пароль еще раз для подтверждения',
+        help_text=_('type_password_again_for_confirmation'),
     )
 
     class Meta:
@@ -32,14 +35,14 @@ class CustomUserCreationForm(
         fields = (
             users.models.User.username.field.name,
             users.models.User.email.field.name,
-            'password1',
-            'password2',
+            PASSWORD1_FIELD_NAME,
+            PASSWORD2_FIELD_NAME,
         )
 
     def clean_username(self):
-        username = self.cleaned_data['username']
+        username = self.cleaned_data[users.models.User.username.field.name]
         if not re.match(r'^[\w-]+$', username):
-            raise django.forms.ValidationError('Недопустимое имя пользователя')
+            raise django.forms.ValidationError(_('incorrect_username'))
         return username
 
 

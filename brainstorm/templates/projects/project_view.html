@@ -82,7 +82,7 @@
                 </tr>
                 <tr>
                   <th scope="row">{% trans "comments_count" %}</th>
-                  <td class="text-center">{{ project.comments.count }}</td>
+                  <td class="text-center">{{ paginator.count }}</td>
                 </tr>
                 <tr>
                   <th scope="row">{% trans "creation_date" %}</th>
@@ -129,39 +129,41 @@
              class="accordion-collapse collapse"
              data-bs-parent="#projectAccordion">
           <div class="accordion-body">
-            {% if project.images_gallery.all %}
-              <div id="gelleryCarousel"
-                   class="carousel slide bs-project-gallery-carousel">
-                <div class="carousel-inner">
-                  {% for image in project.images_gallery.all %}
-                    <div class="carousel-item{% if forloop.first %} active{% endif %}">
-                      <img src="{{ image.image.url }}"
-                           width="400px"
-                           height="auto"
-                           class="d-block w-100"
-                           alt="..."/>
-                    </div>
-                  {% endfor %}
+            {% with images_list=project.images_gallery.all %}
+              {% if images_list %}
+                <div id="gelleryCarousel"
+                     class="carousel slide bs-project-gallery-carousel">
+                  <div class="carousel-inner">
+                    {% for image in images_list %}
+                      <div class="carousel-item{% if forloop.first %} active{% endif %}">
+                        <img src="{{ image.image.url }}"
+                             width="400px"
+                             height="auto"
+                             class="d-block w-100"
+                             alt="..."/>
+                      </div>
+                    {% endfor %}
+                  </div>
+                  <button class="carousel-control-prev"
+                          type="button"
+                          data-bs-target="#gelleryCarousel"
+                          data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next"
+                          type="button"
+                          data-bs-target="#gelleryCarousel"
+                          data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
                 </div>
-                <button class="carousel-control-prev"
-                        type="button"
-                        data-bs-target="#gelleryCarousel"
-                        data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next"
-                        type="button"
-                        data-bs-target="#gelleryCarousel"
-                        data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-            {% else %}
-              <i>{% trans "no_photo" %}</i>
-            {% endif %}
-          </div>
+              {% else %}
+                <i>{% trans "no_photo" %}</i>
+              {% endif %}
+            </div>
+          {% endwith %}
         </div>
       </div>
       <div class="accordion-item">

@@ -84,9 +84,8 @@ class MyRequestDetailView(
     pk_url_kwarg = 'request_id'
 
     def get_queryset(self):
-        return (
-            collaboration.models.CollaborationRequest.objects.get_for_my_detail()
-        )
+        model = collaboration.models.CollaborationRequest
+        return model.objects.get_for_my_detail()
 
 
 class RequestDetailView(

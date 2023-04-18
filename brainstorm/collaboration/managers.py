@@ -22,12 +22,12 @@ class CollaborationRequestManager(django.db.models.Manager):
 
     def get_ordered_by_date(self):
         return self.order_by(
-            f"""-{(
+            f"""-{
                 (
                     collaboration.models.CollaborationRequest
                     .creation_date.field.name
-                ),
-            )}""",
+                )
+            }""",
         )
 
     def get_for_list(self, project_id):
@@ -44,7 +44,7 @@ class CollaborationRequestManager(django.db.models.Manager):
                 '__'.join(
                     (
                         self.USER_FIELD_NAME,
-                        users.models.User.USERNAME_FIELD,
+                        users.models.User.username.field.name,
                     )
                 ),
                 '__'.join(
@@ -113,7 +113,7 @@ class CollaborationRequestManager(django.db.models.Manager):
             '__'.join(
                 (
                     collaboration.models.CollaborationRequest.user.field.name,
-                    users.models.User.USERNAME_FIELD,
+                    users.models.User.username.field.name,
                 )
             ),
             '__'.join(

@@ -37,8 +37,8 @@ class Tag(models.Model):
 
     class Meta:
         default_related_name = 'tags'
-        verbose_name = 'тег'
-        verbose_name_plural = 'теги'
+        verbose_name = _('tag')
+        verbose_name_plural = _('tags')
 
     def __str__(self):
         return self.name

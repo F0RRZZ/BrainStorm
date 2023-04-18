@@ -70,8 +70,8 @@ class Project(django.db.models.Model):
     )
 
     class Meta:
-        verbose_name = 'проект'
-        verbose_name_plural = 'проекты'
+        verbose_name = _('project')
+        verbose_name_plural = _('projects')
 
     def __str__(self):
         return self.name[:15]

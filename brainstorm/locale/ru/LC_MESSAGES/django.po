@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-18 14:21+0000\n"
+"POT-Creation-Date: 2023-04-18 18:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,17 +20,26 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: brainstorm/settings.py:223
+#: about/apps.py:8 templates/about/main.html:6 templates/about/main.html:11
+msgid "about_project"
+msgstr "О проекте"
+
+#: brainstorm/settings.py:220
 msgid "English"
 msgstr "Английский"
 
-#: brainstorm/settings.py:224
+#: brainstorm/settings.py:221
 msgid "Russian"
 msgstr "Русский"
 
-#: brainstorm/settings.py:225
+#: brainstorm/settings.py:222
 msgid "Deutsche"
 msgstr "Немецкий"
+
+#: collaboration/apps.py:8 collaboration/models.py:53
+#: templates/users/user_detail.html:102
+msgid "collaboration"
+msgstr "Участие"
 
 #: collaboration/forms.py:12
 msgid "adopt"
@@ -64,9 +73,96 @@ msgstr "Отклонено"
 msgid "adopted"
 msgstr "Принято"
 
+#: collaboration/models.py:27 templates/includes/request_data.html:10
+msgid "contacts"
+msgstr "Контакты"
+
+#: collaboration/models.py:31
+msgid "about_user"
+msgstr "О пользователе"
+
+#: collaboration/models.py:35 templates/collaboration/my_request_detail.html:26
+msgid "answer__noun"
+msgstr "Ответ"
+
+#: collaboration/models.py:37
+msgid "answer_of_project_author"
+msgstr "Ответ автора проекта"
+
+#: collaboration/models.py:40 comments/models.py:28 feedback/models.py:27
+#: projects/models.py:64 templates/projects/project_view.html:88
+msgid "creation_date"
+msgstr "Дата создания"
+
+#: collaboration/models.py:44 feedback/models.py:37 projects/models.py:58
+msgid "status"
+msgstr "Статус"
+
+#: collaboration/models.py:54
+msgid "collaborations"
+msgstr "Участия"
+
+#: comments/apps.py:8 comments/models.py:38
+#: templates/projects/project_view.html:245 templates/users/user_detail.html:92
+msgid "comments"
+msgstr "Комментарии"
+
 #: comments/forms.py:24
 msgid "type_text"
 msgstr "Введите текст"
+
+#: comments/models.py:14 projects/models.py:73 rating/models.py:18
+msgid "project"
+msgstr "Проект"
+
+#: comments/models.py:21 rating/models.py:25 users/models.py:119
+msgid "user"
+msgstr "Пользователь"
+
+#: comments/models.py:25 comments/models.py:37
+msgid "comment"
+msgstr "Комментарий"
+
+#: comments/models.py:32 projects/models.py:68
+#: templates/projects/project_view.html:92
+msgid "update_date"
+msgstr "Дата изменения"
+
+#: feedback/apps.py:8 feedback/models.py:45
+msgid "feedbacks"
+msgstr "Отзывы"
+
+#: feedback/forms.py:19
+msgid "files"
+msgstr "Файлы"
+
+#: feedback/forms.py:20
+msgid "add_some_files_if_necessary__lowercase"
+msgstr "добавьте несколько файлов при необходимости"
+
+#: feedback/models.py:7 templates/users/user_detail.html:44 users/models.py:74
+msgid "user_email"
+msgstr "Электронная почта"
+
+#: feedback/models.py:9
+msgid "type_email_on_what_answer_will_be_sent__lowercase"
+msgstr "введите почту, на которую будет отправлен ответ"
+
+#: feedback/models.py:20
+msgid "subject"
+msgstr "Тема"
+
+#: feedback/models.py:24
+msgid "message"
+msgstr "Сообщение"
+
+#: feedback/models.py:44
+msgid "feedback"
+msgstr "Отзыв"
+
+#: feeds/apps.py:8 templates/includes/header.html:53
+msgid "feeds"
+msgstr "Ленты"
 
 #: feeds/views.py:33 templates/includes/header.html:57
 msgid "new"
@@ -84,6 +180,10 @@ msgstr "Самые обсуждаемые"
 msgid "projects_archive"
 msgstr "Архив"
 
+#: projects/apps.py:8 projects/models.py:74 templates/users/user_detail.html:82
+msgid "projects"
+msgstr "Проекты"
+
 #: projects/forms.py:12 projects/models.py:87
 msgid "preview"
 msgstr "Превью"
@@ -100,27 +200,7 @@ msgstr "Изображения"
 msgid "add_additional_photo_to_project__lowercase"
 msgstr "добавьте здесь дополнительные фото проекта"
 
-#: projects/forms.py:33 projects/models.py:29 users/models.py:62
-msgid "name"
-msgstr "Название"
-
-#: projects/forms.py:35 projects/models.py:33
-msgid "short_description"
-msgstr "Краткое описание"
-
-#: projects/forms.py:38 projects/models.py:36
-msgid "full_description"
-msgstr "Полное описание"
-
-#: projects/forms.py:40 projects/models.py:58
-msgid "status"
-msgstr "Статус"
-
-#: projects/forms.py:41 projects/models.py:45 templates/includes/header.html:79
-msgid "tags"
-msgstr "Теги"
-
-#: projects/forms.py:57 projects/models.py:47
+#: projects/forms.py:46 projects/models.py:47
 msgid "5_tags_maximum__lowercase"
 msgstr "выберите не более 5 тегов"
 
@@ -136,11 +216,28 @@ msgstr "В разработке"
 msgid "ended"
 msgstr "Завершён"
 
-#: projects/models.py:40 templates/projects/project_view.html:175
+#: projects/models.py:29 tags/models.py:15 users/models.py:62
+msgid "name"
+msgstr "Название"
+
+#: projects/models.py:33
+msgid "short_description"
+msgstr "Краткое описание"
+
+#: projects/models.py:36
+msgid "full_description"
+msgstr "Полное описание"
+
+#: projects/models.py:40 templates/projects/project_view.html:177
 msgid "collaborators"
 msgstr "Участники"
 
-#: projects/models.py:50
+#: projects/models.py:45 tags/apps.py:8 tags/models.py:41
+#: templates/includes/header.html:79
+msgid "tags"
+msgstr "Теги"
+
+#: projects/models.py:50 tags/models.py:11
 msgid "published"
 msgstr "Опубликовано"
 
@@ -148,21 +245,49 @@ msgstr "Опубликовано"
 msgid "in_archive"
 msgstr "В архиве"
 
-#: projects/models.py:64 templates/projects/project_view.html:88
-msgid "creation_date"
-msgstr "Дата создания"
-
-#: projects/models.py:68 templates/projects/project_view.html:92
-msgid "update_date"
-msgstr "Дата изменения"
-
-#: projects/models.py:85 templates/projects/project_view.html:162
+#: projects/models.py:85 templates/projects/project_view.html:163
 msgid "no_photo"
 msgstr "Нет фото"
 
-#: templates/about/main.html:6 templates/about/main.html:11
-msgid "about_project"
-msgstr "О проекте"
+#: rating/apps.py:8 rating/models.py:40 templates/projects/project_view.html:47
+msgid "rating"
+msgstr "Оценка"
+
+#: rating/models.py:30
+msgid "score"
+msgstr "Рейтинг"
+
+#: rating/models.py:41
+msgid "ratings"
+msgstr "Оценки"
+
+#: tags/models.py:17
+msgid "maximum_30_symbols"
+msgstr "Максимум 30 символов"
+
+#: tags/models.py:20 templates/projects/project_view.html:108
+msgid "description"
+msgstr "Описание"
+
+#: tags/models.py:22
+msgid "maximum_400_symbols"
+msgstr "Максимум 400 символов"
+
+#: tags/models.py:30
+msgid "maximum_50_symbols"
+msgstr "Максимум 50 символов"
+
+#: tags/models.py:33
+msgid "normalized_name"
+msgstr "Нормализованное название"
+
+#: tags/models.py:40
+msgid "tag"
+msgstr "Тег"
+
+#: tags/models.py:56
+msgid "name_must_be_unique"
+msgstr "Название должно быть уникальным"
 
 #: templates/about/rules.html:6 templates/about/rules.html:11
 msgid "community_rules"
@@ -172,36 +297,32 @@ msgstr "Правила сообщества"
 msgid "no_content"
 msgstr "Нет контента"
 
-#: templates/collaboration/my_request.html:6
-#: templates/collaboration/my_request.html:17
+#: templates/collaboration/my_request_detail.html:6
+#: templates/collaboration/my_request_detail.html:17
 msgid "my_request"
 msgstr "Моя заявка"
 
-#: templates/collaboration/my_request.html:19
-#: templates/collaboration/request_view.html:21
+#: templates/collaboration/my_request_detail.html:19
+#: templates/collaboration/request_detail.html:21
 msgid "to_list"
 msgstr "К списку"
 
-#: templates/collaboration/my_request.html:26
-msgid "answer__noun"
-msgstr "Ответ"
-
-#: templates/collaboration/my_requests.html:6
-#: templates/collaboration/my_requests.html:12
+#: templates/collaboration/my_request_list.html:6
+#: templates/collaboration/my_request_list.html:12
 #: templates/users/user_detail.html:170
 msgid "my_requests"
 msgstr "Мои заявки"
 
-#: templates/collaboration/my_requests.html:14
+#: templates/collaboration/my_request_list.html:14
 msgid "go_to_profile"
 msgstr "В профиль"
 
-#: templates/collaboration/my_requests.html:31
+#: templates/collaboration/my_request_list.html:31
 #: templates/collaboration/request_list.html:31
 msgid "detailed"
 msgstr "Подробнее"
 
-#: templates/collaboration/my_requests.html:35
+#: templates/collaboration/my_request_list.html:35
 #: templates/collaboration/request_list.html:35 templates/feeds/feed.html:39
 #: templates/includes/request_data.html:7
 #: templates/includes/request_data.html:14
@@ -213,28 +334,28 @@ msgstr "Ничего нет"
 
 #: templates/collaboration/request_create.html:6
 #: templates/collaboration/request_create.html:14
-#: templates/projects/project_view.html:205
+#: templates/projects/project_view.html:207
 msgid "create_request"
 msgstr "Подать заявку на участие"
 
-#: templates/collaboration/request_list.html:6
-#: templates/collaboration/request_list.html:14
-#: templates/projects/project_view.html:209
-msgid "requests_list"
-msgstr "Список заявок на участие"
-
-#: templates/collaboration/request_view.html:8
-#: templates/collaboration/request_view.html:19
+#: templates/collaboration/request_detail.html:8
+#: templates/collaboration/request_detail.html:19
 msgid "request_view"
 msgstr "Заявка на участие"
 
-#: templates/collaboration/request_view.html:45
+#: templates/collaboration/request_detail.html:45
 msgid "my_answer"
 msgstr "Мой ответ"
 
-#: templates/collaboration/request_view.html:66
+#: templates/collaboration/request_detail.html:66
 msgid "answer"
 msgstr "Ответить"
+
+#: templates/collaboration/request_list.html:6
+#: templates/collaboration/request_list.html:14
+#: templates/projects/project_view.html:211
+msgid "requests_list"
+msgstr "Список заявок на участие"
 
 #: templates/feedback/feedback.html:6 templates/feedback/success.html:8
 msgid "feedback_page"
@@ -276,10 +397,6 @@ msgstr "Регистрация"
 msgid "navigation"
 msgstr "Навигация"
 
-#: templates/includes/header.html:53
-msgid "feeds"
-msgstr "Ленты"
-
 #: templates/includes/header.html:61
 msgid "popular"
 msgstr "Популярные"
@@ -313,8 +430,8 @@ msgid "admin"
 msgstr "Админка"
 
 #: templates/includes/project_card.html:19
-#: templates/projects/project_view.html:188
-#: templates/projects/project_view.html:197
+#: templates/projects/project_view.html:190
+#: templates/projects/project_view.html:199
 msgid "author"
 msgstr "Автор"
 
@@ -333,10 +450,6 @@ msgstr "Редактировать"
 msgid "user_bio"
 msgstr "О себе"
 
-#: templates/includes/request_data.html:10
-msgid "contacts"
-msgstr "Контакты"
-
 #: templates/includes/search_string.html:8
 msgid "type_what_you_search"
 msgstr "Ваш запрос"
@@ -345,12 +458,12 @@ msgstr "Ваш запрос"
 msgid "search"
 msgstr "Поиск"
 
-#: templates/includes/tags_input.html:11
+#: templates/includes/tags_input.html:10
 #: templates/includes/tags_selector.html:9
 msgid "tags_search"
 msgstr "Поиск по тегам"
 
-#: templates/includes/tags_input.html:14
+#: templates/includes/tags_input.html:13
 #: templates/includes/tags_selector.html:24
 msgid "reset"
 msgstr "Сбросить"
@@ -392,10 +505,6 @@ msgstr "Удалить"
 msgid "save"
 msgstr "Сохранить"
 
-#: templates/projects/project_view.html:47
-msgid "rating"
-msgstr "Оценка"
-
 #: templates/projects/project_view.html:70
 msgid "information"
 msgstr "Информация"
@@ -408,27 +517,19 @@ msgstr "Количество оценок"
 msgid "comments_count"
 msgstr "Количество комментариев"
 
-#: templates/projects/project_view.html:108
-msgid "description"
-msgstr "Описание"
-
 #: templates/projects/project_view.html:125
 msgid "gallery"
 msgstr "Галерея"
 
-#: templates/projects/project_view.html:223
+#: templates/projects/project_view.html:225
 msgid "my_rating"
 msgstr "Моя оценка"
 
-#: templates/projects/project_view.html:236
+#: templates/projects/project_view.html:238
 msgid "set_rating"
 msgstr "Дать оценку"
 
-#: templates/projects/project_view.html:243 templates/users/user_detail.html:92
-msgid "comments"
-msgstr "Комментарии"
-
-#: templates/projects/project_view.html:247
+#: templates/projects/project_view.html:249
 msgid "leave_comment"
 msgstr "Оставить комментарий"
 
@@ -527,10 +628,6 @@ msgstr "Создать аккаунт"
 msgid "my_profile"
 msgstr "Мой профиль"
 
-#: templates/users/user_detail.html:44 users/models.py:74
-msgid "user_email"
-msgstr "Электронная почта"
-
 #: templates/users/user_detail.html:54
 msgid "not_set"
 msgstr "Не указано"
@@ -543,14 +640,6 @@ msgstr "Настройки"
 msgid "logout"
 msgstr "Выйти"
 
-#: templates/users/user_detail.html:82
-msgid "projects"
-msgstr "Проекты"
-
-#: templates/users/user_detail.html:102
-msgid "collaboration"
-msgstr "Участие"
-
 #: templates/users/user_detail.html:148
 msgid "go_to"
 msgstr "Перейти"
@@ -558,6 +647,26 @@ msgstr "Перейти"
 #: templates/users/user_detail.html:214
 msgid "change_password"
 msgstr "Сменить пароль"
+
+#: users/apps.py:8 users/models.py:120
+msgid "users"
+msgstr "Пользователи"
+
+#: users/forms.py:19
+msgid "password"
+msgstr "Пароль"
+
+#: users/forms.py:26
+msgid "password_again"
+msgstr "Повторите пароль"
+
+#: users/forms.py:31
+msgid "type_password_again_for_confirmation"
+msgstr "Введите пароль снова для подтверждения"
+
+#: users/forms.py:46
+msgid "incorrect_username"
+msgstr "Некорректное пользователя"
 
 #: users/models.py:51
 msgid "username"

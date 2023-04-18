@@ -1,5 +1,7 @@
 import django.db.models
 
+import comments.models
+
 
 class CommentsManager(django.db.models.Manager):
     def get_user_comments(self, user_id):
@@ -25,5 +27,8 @@ class CommentsManager(django.db.models.Manager):
                 'user__image',
                 'creation_date',
                 'project__id',
+            )
+            .order_by(
+                f'-{comments.models.Comment.creation_date.field.name}',
             )
         )

@@ -41,8 +41,8 @@ class Feedback(django.db.models.Model):
     )
 
     class Meta:
-        verbose_name = 'отзыв'
-        verbose_name_plural = 'отзывы'
+        verbose_name = _('feedback')
+        verbose_name_plural = _('feedbacks')
 
 
 class FeedbackFile(django.db.models.Model):

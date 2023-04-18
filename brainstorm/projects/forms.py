@@ -29,17 +29,6 @@ class ProjectForm(core.forms.BootstrapFormMixin, django.forms.ModelForm):
             projects.models.Project.status.field.name,
             projects.models.Project.tags.field.name,
         )
-        labels = {
-            projects.models.Project.name.field.name: _('name'),
-            projects.models.Project.short_description.field.name: _(
-                'short_description'
-            ),
-            projects.models.Project.description.field.name: _(
-                'full_description'
-            ),
-            projects.models.Project.status.field.name: _('status'),
-            projects.models.Project.tags.field.name: _('tags'),
-        }
         widgets = {
             projects.models.Project.short_description.field.name: (
                 ckeditor.widgets.CKEditorWidget()

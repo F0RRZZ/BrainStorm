@@ -1,5 +1,11 @@
-from django.contrib import admin
+import django.contrib.admin
 
-from users.models import User
+import users.models
 
-admin.site.register(User)
+
+@django.contrib.admin.register(users.models.User)
+class ProjectAdmin(django.contrib.admin.ModelAdmin):
+    exclude = [
+        users.models.User.password.field.name,
+        users.models.User.normalized_email.field.name,
+    ]

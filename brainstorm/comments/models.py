@@ -1,10 +1,9 @@
 import django.db.models
+from django.utils.translation import gettext_lazy as _
 
 import comments.managers
 import projects.models
 import users.models
-
-CREATION_DATE_FIELD_NAME = 'creation_date'
 
 
 class Comment(django.db.models.Model):
@@ -12,36 +11,31 @@ class Comment(django.db.models.Model):
 
     project = django.db.models.ForeignKey(
         projects.models.Project,
-        verbose_name='проект',
+        verbose_name=_('project'),
         related_name='comments',
         on_delete=django.db.models.CASCADE,
-        help_text='Какому проекту принадлежит комментарий',
     )
     user = django.db.models.ForeignKey(
         users.models.User,
         on_delete=django.db.models.CASCADE,
-        verbose_name='пользователь',
+        verbose_name=_('user'),
         related_name='comments',
     )
     text = django.db.models.TextField(
-        'комментарий',
-        help_text='Оставить комментарий',
+        _('comment'),
     )
     creation_date = django.db.models.DateTimeField(
-        'дата создания',
+        _('creation_date'),
         auto_now_add=True,
     )
     update_date = django.db.models.DateTimeField(
-        'дата изменения',
+        _('update_date'),
         auto_now=True,
     )
 
     class Meta:
-        ordering = [
-            f'-{CREATION_DATE_FIELD_NAME}',
-        ]
-        verbose_name = 'комментарий'
-        verbose_name_plural = 'комментарии'
+        verbose_name = _('comment')
+        verbose_name_plural = _('comments')
 
     def __str__(self):
         return self.text[:15]
