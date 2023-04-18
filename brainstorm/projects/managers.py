@@ -59,10 +59,9 @@ class ProjectManager(django.db.models.Manager):
             .filter(in_archive=False, published=True)
             .annotate(score=django.db.models.Avg('score_project__score'))
             .select_related(
-                projects.models.Project.author.field.name,
-                'preview'
+                projects.models.Project.author.field.name, 'preview'
             )
-            .order_by(f'-score')
+            .order_by('-score')
             .only(
                 f'{projects.models.Project.author.field.name}__'
                 f'{users.models.User.username.field.name}',
@@ -79,8 +78,7 @@ class ProjectManager(django.db.models.Manager):
             .filter(in_archive=False, published=True)
             .annotate(django.db.models.Count('comments'))
             .select_related(
-                projects.models.Project.author.field.name,
-                'preview'
+                projects.models.Project.author.field.name, 'preview'
             )
             .order_by('-comments__count')
             .only(
@@ -100,14 +98,11 @@ class ProjectManager(django.db.models.Manager):
         return self.only(projects.models.Project.name.field.name)
 
     def get_author(self):
-        return (
-            self.select_related(
-                projects.models.Project.author.field.name
-            )
-            .only(
-                'id',
-                users.models.User.username.field.name,
-            )
+        return self.select_related(
+            projects.models.Project.author.field.name
+        ).only(
+            'id',
+            users.models.User.username.field.name,
         )
 
     def get_gallery_images(self):

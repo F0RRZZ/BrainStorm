@@ -36,7 +36,7 @@ class Comment(django.db.models.Model):
 
     class Meta:
         ordering = [
-            f'-creation_date',
+            '-creation_date',
         ]
         verbose_name = 'комментарий'
         verbose_name_plural = 'комментарии'
