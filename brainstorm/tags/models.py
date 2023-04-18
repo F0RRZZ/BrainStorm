@@ -8,25 +8,25 @@ class Tag(models.Model):
     is_published = models.BooleanField('Опубликовано', default=True)
     name = models.CharField(
         'название',
-        max_length=150,
+        max_length=30,
         help_text='Максимум 150 символов',
     )
     description = models.TextField(
         'описание',
-        max_length=300,
+        max_length=400,
         help_text='Описание. Максимум 300 символов',
     )
     slug = models.SlugField(
         'slug',
         validators=[
-            MaxLengthValidator(200),
+            MaxLengthValidator(50),
         ],
         unique=True,
         help_text='Максимум 200 символов',
     )
     formatted_name = models.CharField(
         'formatted name',
-        max_length=150,
+        max_length=35,
         editable=False,
     )
 

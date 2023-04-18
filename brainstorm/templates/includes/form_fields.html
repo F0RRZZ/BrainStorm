@@ -6,7 +6,15 @@
 {% for field in form %}
   <div class="d-flex flex-column align-items-start">
     <label class="form-label mt-2">{{ field.label_tag }}</label>
-    {{ field|add_class:"form-control" }}
+ 
+    {% if use_tags_include and field.name == "tags" %}
+
+      {% include "includes/tags_input.html" %}
+
+    {% else %}
+      {{ field|add_class:"form-control" }}
+    {% endif %}
+
     {% if field.help_text %}
       <div class="text-secondary">
         <p>{{ field.help_text.capitalize|safe }}</p>

@@ -53,4 +53,6 @@ class ProjectForm(core.forms.BootstrapFormMixin, django.forms.ModelForm):
         super().clean()
         tags = self.cleaned_data.get(projects.models.Project.tags.field.name)
         if len(tags) > 5:
-            raise django.core.exceptions.ValidationError(_('5_tags_maximum'))
+            raise django.core.exceptions.ValidationError(
+                _('5_tags_maximum__lowercase').capitalize(),
+            )
