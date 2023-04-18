@@ -55,10 +55,8 @@ class RequestsListView(
     pk_url_kwarg = 'project_id'
 
     def get_queryset(self):
-        return (
-            collaboration.models.CollaborationRequest.objects.get_for_project(
-                self.kwargs[self.pk_url_kwarg],
-            )
+        return collaboration.models.CollaborationRequest.objects.get_for_list(
+            self.kwargs[self.pk_url_kwarg],
         )
 
 
@@ -66,12 +64,14 @@ class MyRequestsListView(
     django.views.generic.ListView,
     django.contrib.auth.mixins.LoginRequiredMixin,
 ):
-    template_name = 'collaboration/my_requests.html'
+    template_name = 'collaboration/my_request_list.html'
     context_object_name = 'requests'
 
     def get_queryset(self):
-        return collaboration.models.CollaborationRequest.objects.get_for_user(
-            self.request.user.id,
+        return (
+            collaboration.models.CollaborationRequest.objects.get_for_my_list(
+                self.request.user.id,
+            )
         )
 
 
@@ -79,16 +79,30 @@ class MyRequestDetailView(
     django.views.generic.DetailView,
     django.contrib.auth.mixins.LoginRequiredMixin,
 ):
-    template_name = 'collaboration/my_request.html'
+    template_name = 'collaboration/my_request_detail.html'
     context_object_name = 'request'
     pk_url_kwarg = 'request_id'
 
-    queryset = collaboration.models.CollaborationRequest.objects.all()
+    def get_queryset(self):
+        return (
+            collaboration.models.CollaborationRequest.objects.get_for_my_detail()
+        )
 
 
-class RequestDetailView(MyRequestDetailView, django.views.generic.FormView):
-    template_name = 'collaboration/request_view.html'
+class RequestDetailView(
+    django.views.generic.DetailView,
+    django.views.generic.FormView,
+    django.contrib.auth.mixins.LoginRequiredMixin,
+):
+    template_name = 'collaboration/request_detail.html'
     form_class = collaboration.forms.RequestAnswerForm
+    context_object_name = 'request'
+    pk_url_kwarg = 'request_id'
+
+    def get_queryset(self):
+        return (
+            collaboration.models.CollaborationRequest.objects.get_for_detail()
+        )
 
     def get_success_url(self):
         return self.request.path

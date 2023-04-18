@@ -1,59 +1,57 @@
-from django.db import models
+import django.db.models
+from django.utils.translation import gettext_lazy as _
 
 
-class Feedback(models.Model):
-    CHOICES = [
-        ('received', 'получено'),
-        ('processing', 'в обработке'),
-        ('answered', 'ответ дан'),
-    ]
-    subject = models.CharField(
-        'тема',
+class PersonalData(django.db.models.Model):
+    email = django.db.models.EmailField(
+        _('user_email'),
+        max_length=254,
+        help_text=_('type_email_on_what_answer_will_be_sent__lowercase'),
+    )
+
+
+class Feedback(django.db.models.Model):
+    class Status(django.db.models.TextChoices):
+        RECIEVED = ('received', 'получено')
+        PROCESSING = ('processing', 'в обработке')
+        ANSWERED = ('answered', 'ответ дан')
+
+    subject = django.db.models.CharField(
+        _('subject'),
         max_length=200,
-        help_text='тема',
     )
-    text = models.TextField(
-        'текст',
-        help_text='содержание письма',
+    text = django.db.models.TextField(
+        _('message'),
     )
-    created_on = models.DateTimeField(
-        'created_on',
+    created_on = django.db.models.DateTimeField(
+        _('creation_date'),
         auto_now_add=True,
-        help_text='время создания отзыва',
     )
-    personal_data = models.OneToOneField(
-        'PersonalData',
-        on_delete=models.CASCADE,
+    personal_data = django.db.models.OneToOneField(
+        PersonalData,
+        on_delete=django.db.models.CASCADE,
         blank=True,
         null=True,
     )
-    status = models.CharField(
-        'статус',
+    status = django.db.models.CharField(
+        _('status'),
         max_length=20,
-        choices=CHOICES,
-        default='received',
+        choices=Status.choices,
+        default=Status.RECIEVED,
     )
 
     class Meta:
-        verbose_name = 'сообщение'
-        verbose_name_plural = 'сообщения'
+        verbose_name = 'отзыв'
+        verbose_name_plural = 'отзывы'
 
 
-class FeedbackFile(models.Model):
-    file = models.FileField(
+class FeedbackFile(django.db.models.Model):
+    file = django.db.models.FileField(
         blank=True,
         null=True,
     )
-    feedback = models.ForeignKey(
+    feedback = django.db.models.ForeignKey(
         Feedback,
-        on_delete=models.CASCADE,
+        on_delete=django.db.models.CASCADE,
         related_name='feedback_files',
-    )
-
-
-class PersonalData(models.Model):
-    email = models.EmailField(
-        'email',
-        max_length=254,
-        help_text='введите почту, на которую будет отправлен ответ',
     )

@@ -21,8 +21,8 @@
       </div>
     {% endif %}
 
-    {% for error in field.errors %}<div class="alert alert-danger" role="alert">{{ error }}</div>{% endfor %}
+    {% for error in field.errors %}<div class="alert alert-danger mt-1" role="alert">{{ error }}</div>{% endfor %}
   </div>
 {% endfor %}
 {{ form.media }}
-{% for error in form.non_field_errors %}<div class="alert alert-danger" role="alert">{{ error }}</div>{% endfor %}
+{% for error in form.non_field_errors %}<div class="alert alert-danger mt-1" role="alert">{{ error }}</div>{% endfor %}

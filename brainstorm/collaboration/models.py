@@ -25,7 +25,6 @@ class CollaborationRequest(django.db.models.Model):
     )
     contact = ckeditor.fields.RichTextField(
         'информация о контактах',
-        max_length=150,
         blank=True,
     )
     about = ckeditor.fields.RichTextField(

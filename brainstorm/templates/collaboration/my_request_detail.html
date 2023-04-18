@@ -15,7 +15,7 @@
     {% endwith %}
     <div class="d-flex justify-content-between flex-wrap ms-auto me-auto">
       <h4 class="me-2">{% trans "my_request" %}</h4>
-      <a href="{% if user.id == request.user.id %} {% url 'collaboration:my_requests' %} {% else %} {% url 'collaboration:request_list' request.project.id %} {% endif %}"
+      <a href="{% if user.id == request.user_id %} {% url 'collaboration:my_requests' %} {% else %} {% url 'collaboration:request_list' request.project.id %} {% endif %}"
          class="btn btn-outline-info">{% trans "to_list" %}</a>
     </div>
     <hr />
