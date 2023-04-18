@@ -6,10 +6,9 @@ import users.models
 
 
 class ProjectManager(django.db.models.Manager):
-    def get_queryset(self):
+    def get_for_feed(self):
         return (
-            super()
-            .get_queryset()
+            self.get_queryset()
             .select_related('preview')
             .prefetch_related(
                 django.db.models.Prefetch(
@@ -18,15 +17,6 @@ class ProjectManager(django.db.models.Manager):
                         is_published=True
                     ).only(tags.models.Tag.name.field.name),
                 )
-            )
-            .only(
-                'id',
-                f'{projects.models.Project.tags.field.name}__id',
-                f'{projects.models.Project.author.field.name}__id',
-                f'{projects.models.Project.author.field.name}__'
-                f'{users.models.User.username.field.name}',
-                f'preview__{projects.models.Preview.image.field.name}',
-                projects.models.Project.short_description.field.name,
             )
         )
 
@@ -92,10 +82,7 @@ class ProjectManager(django.db.models.Manager):
         )
 
     def get_user_projects(self, user_id):
-        return self.filter(author_id=user_id)
-
-    def get_name(self):
-        return self.only(projects.models.Project.name.field.name)
+        return self.get_for_feed().filter(author_id=user_id)
 
     def get_author(self):
         return self.select_related(
@@ -109,7 +96,7 @@ class ProjectManager(django.db.models.Manager):
         return self.prefetch_related('images_gallery')
 
     def get_preview(self):
-        return self.select_related('preview')
+        return self.select_related('preview').only('image')
 
     def get_comments(self):
         return self.prefetch_related('comments')

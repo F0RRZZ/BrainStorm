@@ -109,7 +109,7 @@ class UserDetailView(
 
     def get_object(self):
         return django.shortcuts.get_object_or_404(
-            self.get_queryset().select_related(),
+            self.get_queryset(),
             username=self.kwargs[self.pk_url_kwarg],
         )
 
