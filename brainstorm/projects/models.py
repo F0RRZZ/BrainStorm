@@ -114,8 +114,8 @@ class ImagesGallery(core.models.ProjectImage):
     )
 
     class Meta:
-        verbose_name = 'галлерея'
-        verbose_name_plural = 'галлереи'
+        verbose_name = 'галерея'
+        verbose_name_plural = 'галереи'
 
     def __str__(self):
         return self.image.url
