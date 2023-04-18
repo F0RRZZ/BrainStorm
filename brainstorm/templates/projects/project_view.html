@@ -47,7 +47,7 @@
         <div class="badge text-bg-light bs-status-badge fs-5 ms-2 mt-3">{{ project.get_status_display }}</div>
       </div>
       <div>
-        {% if user.is_authenticated and user.id == project.author.id %}
+        {% if user.is_authenticated and user.id == project.get_author.id %}
           <a href="{% url 'projects:redact' project.id %}"
              class="btn btn-outline-success">{% trans "redact" %}</a>
           <a href="" class="btn btn-outline-danger ms-2 mt-2">{% trans "delete" %}</a>
@@ -80,7 +80,7 @@
                 </tr>
                 <tr>
                   <th scope="row">{% trans "comments_count" %}</th>
-                  <td class="text-center">{{ project.comments.count }}</td>
+                  <td class="text-center">{{ project.get_comments.count }}</td>
                 </tr>
                 <tr>
                   <th scope="row">{% trans "creation_date" %}</th>
@@ -127,11 +127,11 @@
              class="accordion-collapse collapse"
              data-bs-parent="#projectAccordion">
           <div class="accordion-body">
-            {% if project.images_gallery.all %}
+            {% if project.get_gallery_images.all %}
               <div id="gelleryCarousel"
                    class="carousel slide bs-project-gallery-carousel">
                 <div class="carousel-inner">
-                  {% for image in project.images_gallery.all %}
+                  {% for image in project.get_gallery_images.all %}
                     <div class="carousel-item{% if forloop.first %} active{% endif %}">
                       <img src="{{ image.image.url }}"
                            width="400px"

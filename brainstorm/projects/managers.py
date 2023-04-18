@@ -13,19 +13,20 @@ class ProjectManager(django.db.models.Manager):
             .select_related('preview')
             .prefetch_related(
                 django.db.models.Prefetch(
-                    'tags',
+                    projects.models.Project.tags.field.name,
                     queryset=tags.models.Tag.objects.filter(
                         is_published=True
-                    ).only('name'),
+                    ).only(tags.models.Tag.name.field.name),
                 )
             )
             .only(
                 'id',
-                'tags__id',
-                'author__id',
-                'author__username',
-                'preview__image',
-                'short_description',
+                f'{projects.models.Project.tags.field.name}__id',
+                f'{projects.models.Project.author.field.name}__id',
+                f'{projects.models.Project.author.field.name}__'
+                f'{users.models.User.username.field.name}',
+                f'preview__{projects.models.Preview.image.field.name}',
+                projects.models.Project.short_description.field.name,
             )
         )
 
@@ -36,16 +37,20 @@ class ProjectManager(django.db.models.Manager):
         return (
             self.get_queryset()
             .filter(in_archive=False, published=True)
-            .select_related('author', 'preview')
-            .order_by('-creation_date')
-            .only(
-                'author__username',
-                'name',
-                'author__id',
-                'tags__name',
-                'short_description',
+            .select_related(
+                projects.models.Project.author.field.name,
+                'preview',
             )
-            .order_by('-creation_date')
+            .only(
+                f'{projects.models.Project.author.field.name}__'
+                f'{users.models.User.username.field.name}',
+                projects.models.Project.name.field.name,
+                f'{projects.models.Project.author.field.name}__id',
+                f'{projects.models.Project.tags.field.name}__'
+                f'{tags.models.Tag.name.field.name}',
+                projects.models.Project.short_description.field.name,
+            )
+            .order_by(f'-{projects.models.Project.creation_date.field.name}')
         )
 
     def best(self):
@@ -53,14 +58,18 @@ class ProjectManager(django.db.models.Manager):
             self.get_queryset()
             .filter(in_archive=False, published=True)
             .annotate(score=django.db.models.Avg('score_project__score'))
-            .select_related('author', 'preview')
-            .order_by('-score')
+            .select_related(
+                projects.models.Project.author.field.name,
+                'preview'
+            )
+            .order_by(f'-score')
             .only(
-                'author__username',
-                'name',
-                'author__id',
-                'tags__name',
-                'short_description',
+                f'{projects.models.Project.author.field.name}__'
+                f'{users.models.User.username.field.name}',
+                projects.models.Project.name.field.name,
+                f'{projects.models.Project.author.field.name}__id',
+                f'{tags.models.Tag.name.field.name}',
+                projects.models.Project.short_description.field.name,
             )
         )
 
@@ -69,14 +78,18 @@ class ProjectManager(django.db.models.Manager):
             self.get_queryset()
             .filter(in_archive=False, published=True)
             .annotate(django.db.models.Count('comments'))
-            .select_related('author', 'preview')
+            .select_related(
+                projects.models.Project.author.field.name,
+                'preview'
+            )
             .order_by('-comments__count')
             .only(
-                'author__username',
-                'name',
-                'author__id',
-                'tags__name',
-                'short_description',
+                f'{projects.models.Project.author.field.name}__'
+                f'{users.models.User.username.field.name}',
+                projects.models.Project.name.field.name,
+                f'{projects.models.Project.author.field.name}__id',
+                f'{tags.models.Tag.name.field.name}',
+                projects.models.Project.short_description.field.name,
             )
         )
 
@@ -84,13 +97,27 @@ class ProjectManager(django.db.models.Manager):
         return self.filter(author_id=user_id)
 
     def get_name(self):
-        return self.only('name')
+        return self.only(projects.models.Project.name.field.name)
+
+    def get_author(self):
+        return (
+            self.select_related(
+                projects.models.Project.author.field.name
+            )
+            .only(
+                'id',
+                users.models.User.username.field.name,
+            )
+        )
 
     def get_gallery_images(self):
         return self.prefetch_related('images_gallery')
 
     def get_preview(self):
         return self.select_related('preview')
+
+    def get_comments(self):
+        return self.prefetch_related('comments')
 
     def get_for_collaborator(self, user_id):
         return self.prefetch_related(

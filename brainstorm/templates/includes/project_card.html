@@ -12,7 +12,7 @@
         <h5 class="card-title">
           <a href="{% url 'projects:view' project.id %}"
              class="bs-hidden-link"
-             target="_blanc">{{ project.get_name }}</a>
+             target="_blanc">{{ project.name }}</a>
         </h5>
         {% if show_author %}
           <p class="card-text text-body-secondary">
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="col-md-4 bs-project-image-container">
-      {% if project.get_preview.image %}
+      {% if project.preview.image %}
         {% thumbnail project.preview.image "300x300" padding=True as im %}
         <img src="{{ im.url }}" class="img-fluid rounded-end" alt="..." />
       {% endthumbnail %}
