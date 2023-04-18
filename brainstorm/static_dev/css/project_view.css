@@ -46,36 +46,6 @@
   border-radius: 15px;
 }
 
-@media screen and (max-width: 991.5px) {
-  .bs-main-horizontal-container {
-    align-items: center;
-    flex-direction: column;
-  }
-
-  .bs-child-vertical-container:first-child {
-    width: auto;
-    padding: 0px;
-    align-self: stretch;
-    align-items: flex-start;
-  }
-
-  .bs-child-vertical-container:last-child {
-    flex-direction: row;
-    align-items: center;
-    align-self: stretch;
-    flex-wrap: wrap;
-    margin-left: 0px;
-  }
-
-  .bs-child-vertical-container > div {
-    flex-direction: row;
-  }
-
-  .bs-child-vertical-container > div:not(:last-child) {
-    margin-left: 10px;
-  }
-}
-
 .bs-image-block {
   border-radius: 5%;
   border: solid 2px rgba(0, 0, 0, 0);
@@ -93,6 +63,11 @@
 
 .bs-project-gallery-carousel {
   max-width: 500px !important;
+}
+
+.bs-comment-form {
+  display: flex;
+  align-items: stretch;
 }
 
 .bs-comment {
@@ -130,4 +105,55 @@
 
 .bs-rating-show:hover {
   box-shadow: none !important;
+}
+
+@media screen and (max-width: 991.5px) {
+  .bs-main-horizontal-container {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .bs-child-vertical-container:first-child {
+    width: auto;
+    padding: 0px;
+    align-self: stretch;
+    align-items: flex-start;
+  }
+
+  .bs-child-vertical-container:last-child {
+    flex-direction: row;
+    align-items: center;
+    align-self: stretch;
+    flex-wrap: wrap;
+    margin-left: 0px;
+  }
+
+  .bs-child-vertical-container > div {
+    flex-direction: row;
+  }
+
+  .bs-child-vertical-container > div:not(:last-child) {
+    margin-left: 10px;
+  }
+
+  .bs-comment-form {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .bs-comment-form > *:last-child {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 437.5px) {
+  .bs-child-vertical-container:last-child > div:last-child {
+    align-items: flex-start;
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+
+  .bs-child-vertical-container:last-child > div:last-child > * {
+    margin-left: 0px !important;
+  }
 }

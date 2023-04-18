@@ -33,4 +33,7 @@ class CommentsManager(django.db.models.Manager):
                 comments.models.Comment.creation_date.field.name,
                 f'{comments.models.Comment.project.field.name}__id',
             )
+            .order_by(
+                f'-{comments.models.Comment.creation_date.field.name}',
+            )
         )

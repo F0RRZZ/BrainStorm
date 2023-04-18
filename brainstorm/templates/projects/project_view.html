@@ -6,6 +6,8 @@
 
 {% load thumbnail %}
 
+{% load add_class %}
+
 {% block title %}
   {{ project.name }}
 {% endblock title %}
@@ -80,7 +82,8 @@
                 </tr>
                 <tr>
                   <th scope="row">{% trans "comments_count" %}</th>
-                  <td class="text-center">{{ project.get_comments.count }}</td>
+                  <td class="text-center">{{ paginator.count }}</td>
+
                 </tr>
                 <tr>
                   <th scope="row">{% trans "creation_date" %}</th>
@@ -127,39 +130,41 @@
              class="accordion-collapse collapse"
              data-bs-parent="#projectAccordion">
           <div class="accordion-body">
-            {% if project.get_gallery_images.all %}
-              <div id="gelleryCarousel"
-                   class="carousel slide bs-project-gallery-carousel">
-                <div class="carousel-inner">
-                  {% for image in project.get_gallery_images.all %}
-                    <div class="carousel-item{% if forloop.first %} active{% endif %}">
-                      <img src="{{ image.image.url }}"
-                           width="400px"
-                           height="auto"
-                           class="d-block w-100"
-                           alt="..."/>
-                    </div>
-                  {% endfor %}
+            {% with images_list=project.images_gallery.all %}
+              {% if images_list %}
+                <div id="gelleryCarousel"
+                     class="carousel slide bs-project-gallery-carousel">
+                  <div class="carousel-inner">
+                    {% for image in images_list %}
+                      <div class="carousel-item{% if forloop.first %} active{% endif %}">
+                        <img src="{{ image.image.url }}"
+                             width="400px"
+                             height="auto"
+                             class="d-block w-100"
+                             alt="..."/>
+                      </div>
+                    {% endfor %}
+                  </div>
+                  <button class="carousel-control-prev"
+                          type="button"
+                          data-bs-target="#gelleryCarousel"
+                          data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next"
+                          type="button"
+                          data-bs-target="#gelleryCarousel"
+                          data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
                 </div>
-                <button class="carousel-control-prev"
-                        type="button"
-                        data-bs-target="#gelleryCarousel"
-                        data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next"
-                        type="button"
-                        data-bs-target="#gelleryCarousel"
-                        data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-            {% else %}
-              <i>{% trans "no_photo" %}</i>
-            {% endif %}
-          </div>
+              {% else %}
+                <i>{% trans "no_photo" %}</i>
+              {% endif %}
+            </div>
+          {% endwith %}
         </div>
       </div>
       <div class="accordion-item">
@@ -192,7 +197,7 @@
                     {{ collab.username }}
                   </a>
                   {% if collab.username == project.author.username %}
-                  <span class="badge text-bg-success ms-2">{% trans "author" %}</span>
+                    <span class="badge text-bg-success ms-2">{% trans "author" %}</span>
                   {% endif %}
                 </li>
               {% endfor %}
@@ -250,12 +255,10 @@
              width="50px"
              height="50px"
              alt="..."/>
-        <form class="d-flex align-items-center"
-              method="post"
-              enctype="multipart/form-data">
+        <form class="bs-comment-form" method="post" enctype="multipart/form-data">
           <input type="hidden" name="action" value="leave_comment" />
           {% csrf_token %}
-          {% for field in comment_form %}{{ field }}{% endfor %}
+          {% for field in comment_form %}{{ field|add_class:"form-control" }}{% endfor %}
           <input type="submit"
                  class="btn btn-outline-secondary align-self-end ms-2"
                  value="{% trans "send" %}"/>

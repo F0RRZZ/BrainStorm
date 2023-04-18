@@ -1,4 +1,5 @@
 import django.forms
+from django.utils.translation import gettext_lazy as _
 
 import core.forms
 import feedback.models
@@ -9,14 +10,14 @@ class FeedbackForm(core.forms.BootstrapFormMixin, django.forms.ModelForm):
         widget=django.forms.EmailInput(
             attrs={'placeholder': 'example@example.com'},
         ),
-        label='Почта',
-        help_text='введите свою почту',
+        label=feedback.models.PersonalData.email.field.verbose_name,
+        help_text=feedback.models.PersonalData.email.field.help_text,
     )
     files = django.forms.FileField(
         widget=django.forms.ClearableFileInput(attrs={'multiple': True}),
         required=False,
-        label='Файлы',
-        help_text='Приложите файлы',
+        label=_('files'),
+        help_text=_('add_some_files_if_necessary__lowercase'),
     )
 
     class Meta:
@@ -25,10 +26,6 @@ class FeedbackForm(core.forms.BootstrapFormMixin, django.forms.ModelForm):
             feedback.models.Feedback.subject.field.name,
             feedback.models.Feedback.text.field.name,
         )
-        labels = {
-            feedback.models.Feedback.subject.field.name: 'Тема',
-            feedback.models.Feedback.text.field.name: 'Текст',
-        }
         widget = {
             feedback.models.Feedback.text.field.name: django.forms.Textarea(
                 attrs={'rows': 5},

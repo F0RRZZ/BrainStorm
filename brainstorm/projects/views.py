@@ -132,10 +132,6 @@ class CreateProject(
         project.save()
         for tag in form.cleaned_data['tags']:
             project.tags.add(tags.models.Tag.objects.get(name=tag).pk)
-        for collaborator in form.cleaned_data['collaborators']:
-            project.collaborators.add(
-                users.models.User.objects.get(username=collaborator).pk
-            )
         if 'preview' in self.request.FILES:
             image = self.request.FILES.get('preview')
             preview = projects.models.Preview(
