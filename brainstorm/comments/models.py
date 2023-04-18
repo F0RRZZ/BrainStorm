@@ -36,6 +36,9 @@ class Comment(django.db.models.Model):
     class Meta:
         verbose_name = _('comment')
         verbose_name_plural = _('comments')
+        ordering = [
+            '-creation_date',
+        ]
 
     def __str__(self):
         return self.text[:15]

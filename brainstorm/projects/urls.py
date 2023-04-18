@@ -20,4 +20,9 @@ urlpatterns = [
         projects.views.RedactProject.as_view(),
         name='redact',
     ),
+    django.urls.path(
+        'delete/<int:project_id>',
+        projects.views.DeleteProject.as_view(),
+        name='delete',
+    )
 ]

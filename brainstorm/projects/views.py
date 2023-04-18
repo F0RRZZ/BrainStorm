@@ -167,8 +167,11 @@ class RedactProject(
     def form_valid(self, form):
         project = form.save(commit=False)
         if 'preview' in self.request.FILES:
-            preview = projects.models.Preview.objects.filter(project=project)
-            if preview.first():
+            preview = (
+                projects.models.Preview.objects
+                .filter(project=project).first()
+            )
+            if preview:
                 preview.image = self.request.FILES.get('preview')
                 preview.save(update_fields=['image'])
             else:
@@ -184,3 +187,16 @@ class RedactProject(
             )
             add_image.save()
         return super().form_valid(form)
+
+
+class DeleteProject(django.views.generic.DeleteView):
+    pk_url_kwarg = 'project_id'
+    model = projects.models.Project
+    success_url = django.urls.reverse_lazy('core:main')
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        success_url = self.get_success_url()
+        if self.object.author == request.user:
+            self.object.delete()
+        return django.http.HttpResponseRedirect(success_url)

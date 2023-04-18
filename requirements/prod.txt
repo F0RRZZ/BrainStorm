@@ -10,3 +10,4 @@ sqlparse==0.4.3
 sorl-thumbnail==12.9.0
 redis==4.5.4
 celery==5.2.7
+django-ckeditor==6.5.1
