@@ -188,3 +188,16 @@ class RedactProject(
             )
             add_image.save()
         return super().form_valid(form)
+
+
+class DeleteProject(django.views.generic.DeleteView):
+    pk_url_kwarg = 'project_id'
+    model = projects.models.Project
+    success_url = django.urls.reverse_lazy('core:main')
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        success_url = self.get_success_url()
+        if self.object.author == request.user:
+            self.object.delete()
+        return django.http.HttpResponseRedirect(success_url)
