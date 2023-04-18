@@ -10,7 +10,22 @@ import users.models
 class CustomUserCreationForm(
     core.forms.BootstrapFormMixin, django.contrib.auth.forms.UserCreationForm
 ):
-    email = django.forms.EmailField(required=True)
+    password1 = django.forms.CharField(
+        label='Пароль',
+        strip=False,
+        widget=django.forms.PasswordInput(
+            attrs={'autocomplete': 'new-password'}, render_value=False
+        ),
+        help_text='Введите пароль',
+    )
+    password2 = django.forms.CharField(
+        label='Подтверждение пароля',
+        widget=django.forms.PasswordInput(
+            attrs={'autocomplete': 'new-password'}, render_value=False
+        ),
+        strip=False,
+        help_text='Введите пароль еще раз для подтверждения',
+    )
 
     class Meta:
         model = users.models.User

@@ -75,7 +75,7 @@ class User(
         help_text='Фамилия',
     )
     email = django.db.models.EmailField(
-        'email address',
+        'почта',
         max_length=254,
         unique=True,
         help_text='Электронная почта',

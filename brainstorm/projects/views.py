@@ -37,7 +37,7 @@ class ViewProject(django.views.generic.DetailView):
 
     def get_object(self):
         return django.shortcuts.get_object_or_404(
-            projects.models.Project,
+            projects.models.Project.objects.prefetch_related('tags'),
             id=self.kwargs[self.pk_url_kwarg],
         )
 
