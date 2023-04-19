@@ -21,12 +21,16 @@ class FeedbackFormView(django.views.generic.FormView):
         subject = form.cleaned_data.get('subject')
         text = form.cleaned_data.get('text')
         email = form.cleaned_data.get('email')
-        personal_data = feedback.models.PersonalData(email=email)
-        personal_data.save()
         new_feedback = feedback.models.Feedback(
-            subject=subject, text=text, personal_data=personal_data
+            subject=subject,
+            text=text,
         )
         new_feedback.save()
+        personal_data = feedback.models.PersonalData(
+            email=email,
+            feedback=new_feedback,
+        )
+        personal_data.save()
         if self.request.FILES.getlist('files'):
             feedback_dir = os.path.join('uploads', str(new_feedback.id))
             os.makedirs(feedback_dir)

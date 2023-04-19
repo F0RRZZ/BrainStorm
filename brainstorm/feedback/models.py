@@ -2,14 +2,6 @@ import django.db.models
 from django.utils.translation import gettext_lazy as _
 
 
-class PersonalData(django.db.models.Model):
-    email = django.db.models.EmailField(
-        _('user_email'),
-        max_length=254,
-        help_text=_('type_email_on_what_answer_will_be_sent__lowercase'),
-    )
-
-
 class Feedback(django.db.models.Model):
     class Status(django.db.models.TextChoices):
         RECIEVED = ('received', 'получено')
@@ -27,12 +19,6 @@ class Feedback(django.db.models.Model):
         _('creation_date'),
         auto_now_add=True,
     )
-    personal_data = django.db.models.OneToOneField(
-        PersonalData,
-        on_delete=django.db.models.CASCADE,
-        blank=True,
-        null=True,
-    )
     status = django.db.models.CharField(
         _('status'),
         max_length=20,
@@ -43,6 +29,19 @@ class Feedback(django.db.models.Model):
     class Meta:
         verbose_name = _('feedback')
         verbose_name_plural = _('feedbacks')
+
+
+class PersonalData(django.db.models.Model):
+    email = django.db.models.EmailField(
+        _('user_email'),
+        max_length=254,
+        help_text=_('type_email_on_what_answer_will_be_sent__lowercase'),
+    )
+    feedback = django.db.models.OneToOneField(
+        Feedback,
+        on_delete=django.db.models.CASCADE,
+        related_name='personal_data',
+    )
 
 
 class FeedbackFile(django.db.models.Model):
