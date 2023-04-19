@@ -140,12 +140,6 @@ class ProjectManager(django.db.models.Manager):
                     projects.models.Project.tags.field.name,
                     queryset=tags.models.Tag.objects.get_for_select(),
                 ),
-                django.db.models.Prefetch(
-                    IMAGES_GALLERY_FIELD_NAME,
-                    queryset=projects.models.ImagesGallery.objects.only(
-                        projects.models.ImagesGallery.image.field.name,
-                    ),
-                ),
             )
             .only(
                 projects.models.Project.name.field.name,
@@ -156,14 +150,3 @@ class ProjectManager(django.db.models.Manager):
                 f'{projects.models.Preview.image.field.name}',
             )
         )
-
-    def get_gallery_images(self):
-        return self.prefetch_related(IMAGES_GALLERY_FIELD_NAME)
-
-    def get_preview(self):
-        return self.select_related(
-            projects.models.Project.preview.related.name
-        ).only(projects.models.Preview.image.field.name)
-
-    def get_comments(self):
-        return self.prefetch_related(COMMENTS_FIELD_NAME)

@@ -157,6 +157,13 @@ class RedactProject(
     form_class = projects.forms.ProjectForm
     pk_url_kwarg = 'project_id'
 
+    def get_initial(self):
+        project = self.object
+        initial = project.__dict__
+        if project.preview:
+            initial['preview'] = project.preview.image
+        return initial
+
     def get_success_url(self):
         return django.urls.reverse_lazy('projects:view', kwargs=self.kwargs)
 
