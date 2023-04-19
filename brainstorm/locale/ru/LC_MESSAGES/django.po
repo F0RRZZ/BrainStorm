@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 16:51+0000\n"
+"POT-Creation-Date: 2023-04-19 18:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,12 +89,12 @@ msgstr "Ответ"
 msgid "answer_of_project_author"
 msgstr "Ответ автора проекта"
 
-#: collaboration/models.py:40 comments/models.py:28 feedback/models.py:27
+#: collaboration/models.py:40 comments/models.py:28 feedback/models.py:19
 #: projects/models.py:64 templates/projects/project_view.html:90
 msgid "creation_date"
 msgstr "Дата создания"
 
-#: collaboration/models.py:44 feedback/models.py:37 projects/models.py:58
+#: collaboration/models.py:44 feedback/models.py:23 projects/models.py:58
 msgid "status"
 msgstr "Статус"
 
@@ -132,7 +132,11 @@ msgstr "Дата изменения"
 msgid "preview"
 msgstr "Превью"
 
-#: feedback/apps.py:8 feedback/models.py:45
+#: feedback/admin.py:21
+msgid "text"
+msgstr "Текст"
+
+#: feedback/apps.py:8 feedback/models.py:31
 msgid "feedbacks"
 msgstr "Отзывы"
 
@@ -144,25 +148,25 @@ msgstr "Файлы"
 msgid "add_some_files_if_necessary__lowercase"
 msgstr "добавьте несколько файлов при необходимости"
 
-#: feedback/models.py:7 templates/users/user_detail.html:44 users/models.py:74
-msgid "user_email"
-msgstr "Электронная почта"
-
-#: feedback/models.py:9
-msgid "type_email_on_what_answer_will_be_sent__lowercase"
-msgstr "введите почту, на которую будет отправлен ответ"
-
-#: feedback/models.py:20
+#: feedback/models.py:12
 msgid "subject"
 msgstr "Тема"
 
-#: feedback/models.py:24
+#: feedback/models.py:16
 msgid "message"
 msgstr "Сообщение"
 
-#: feedback/models.py:44
+#: feedback/models.py:30
 msgid "feedback"
 msgstr "Отзыв"
+
+#: feedback/models.py:36 templates/users/user_detail.html:44 users/models.py:74
+msgid "user_email"
+msgstr "Электронная почта"
+
+#: feedback/models.py:38
+msgid "type_email_on_what_answer_will_be_sent__lowercase"
+msgstr "введите почту, на которую будет отправлен ответ"
 
 #: feeds/apps.py:8 templates/includes/header.html:53
 msgid "feeds"
@@ -289,9 +293,41 @@ msgstr "Тег"
 msgid "name_must_be_unique"
 msgstr "Название должно быть уникальным"
 
+#: templates/about/main.html:13
+msgid "rules_paragraph_1"
+msgstr "BrainStorm – это сайт, на котором разработчики могут делиться своими оригинальными идеями, получать  фидбек от других людей и находить сообщников и спонсоров, готовых помочь в реализации проектов."
+
+#: templates/about/main.html:16
+msgid "rules_paragraph_2"
+msgstr "Сайт является не только местом для размещения проектов, но и помощником в их продвижении. Если ваша работа нравится людям, и вы получаете много положительных отзывов, то она поднимается в рейтинге, а это в свою очередь повышает шансы найти спонсоров и развить свою идею."
+
 #: templates/about/rules.html:6 templates/about/rules.html:11
 msgid "community_rules"
 msgstr "Правила сообщества"
+
+#: templates/about/rules.html:12
+msgid "our_rules_are_simple"
+msgstr "Наши правила очень просты:"
+
+#: templates/about/rules.html:14
+msgid "no_flood"
+msgstr "Не флудить"
+
+#: templates/about/rules.html:15
+msgid "no_spam"
+msgstr "Не спамить"
+
+#: templates/about/rules.html:16
+msgid "no_rude"
+msgstr "Не грубить"
+
+#: templates/about/rules.html:18
+msgid "on_either_problems_got_to_our_form"
+msgstr "По любым проблемам обращайтесь к нам через нашу форму"
+
+#: templates/about/rules.html:18
+msgid "of_feedbacks"
+msgstr "отзывов"
 
 #: templates/base.html:65
 msgid "no_content"
@@ -372,10 +408,6 @@ msgstr "Спасибо за отзыв!"
 #: templates/feedback/success.html:16
 msgid "to_main"
 msgstr "На главную"
-
-#: templates/feedback/success.html:19
-msgid "to_feedback"
-msgstr "К отзыву"
 
 #: templates/includes/form.html:9 templates/projects/project_view.html:265
 msgid "send"
