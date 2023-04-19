@@ -85,7 +85,7 @@ class UserDetailView(
     pk_url_kwarg = 'username'
     paginate_by = 30
 
-    model = users.models.User
+    queryset = users.models.User.objects.user_profile()
     form_class = users.forms.UserProfileForm
 
     context_object_name = 'rendering_user'
@@ -108,7 +108,7 @@ class UserDetailView(
 
     def get_object(self):
         return django.shortcuts.get_object_or_404(
-            self.get_queryset(),
+            self.queryset,
             username=self.kwargs[self.pk_url_kwarg],
         )
 
