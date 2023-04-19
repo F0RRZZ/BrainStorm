@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 18:47+0000\n"
+"POT-Creation-Date: 2023-04-19 22:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -293,13 +293,20 @@ msgstr "Тег"
 msgid "name_must_be_unique"
 msgstr "Название должно быть уникальным"
 
-#: templates/about/main.html:13
+#: templates/about/main.html:12
 msgid "rules_paragraph_1"
-msgstr "BrainStorm – это сайт, на котором разработчики могут делиться своими оригинальными идеями, получать  фидбек от других людей и находить сообщников и спонсоров, готовых помочь в реализации проектов."
+msgstr ""
+"BrainStorm – это сайт, на котором разработчики могут делиться своими "
+"оригинальными идеями, получать  фидбек от других людей и находить сообщников "
+"и спонсоров, готовых помочь в реализации проектов."
 
-#: templates/about/main.html:16
+#: templates/about/main.html:13
 msgid "rules_paragraph_2"
-msgstr "Сайт является не только местом для размещения проектов, но и помощником в их продвижении. Если ваша работа нравится людям, и вы получаете много положительных отзывов, то она поднимается в рейтинге, а это в свою очередь повышает шансы найти спонсоров и развить свою идею."
+msgstr ""
+"Сайт является не только местом для размещения проектов, но и помощником в их "
+"продвижении. Если ваша работа нравится людям, и вы получаете много "
+"положительных отзывов, то она поднимается в рейтинге, а это в свою очередь "
+"повышает шансы найти спонсоров и развить свою идею."
 
 #: templates/about/rules.html:6 templates/about/rules.html:11
 msgid "community_rules"
@@ -321,11 +328,11 @@ msgstr "Не спамить"
 msgid "no_rude"
 msgstr "Не грубить"
 
-#: templates/about/rules.html:18
+#: templates/about/rules.html:19
 msgid "on_either_problems_got_to_our_form"
 msgstr "По любым проблемам обращайтесь к нам через нашу форму"
 
-#: templates/about/rules.html:18
+#: templates/about/rules.html:19
 msgid "of_feedbacks"
 msgstr "отзывов"
 
@@ -709,7 +716,7 @@ msgstr "Введите пароль снова для подтверждения
 
 #: users/forms.py:45
 msgid "incorrect_username"
-msgstr "Некорректное пользователя"
+msgstr "Некорректное имя пользователя"
 
 #: users/models.py:51
 msgid "username"
