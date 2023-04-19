@@ -1,0 +1,817 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-19 22:37+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: about/apps.py:8 templates/about/main.html:6 templates/about/main.html:11
+msgid "about_project"
+msgstr "über Projekt"
+
+#: brainstorm/settings.py:220
+msgid "English"
+msgstr "Englisch"
+
+#: brainstorm/settings.py:221
+msgid "Russian"
+msgstr "Russisch"
+
+#: brainstorm/settings.py:222
+msgid "Deutsche"
+msgstr "Deutsche"
+
+#: collaboration/apps.py:8 collaboration/models.py:53
+#: templates/users/user_detail.html:102
+#, fuzzy
+#| msgid "collaborators"
+msgid "collaboration"
+msgstr "Mitglieder"
+
+#: collaboration/forms.py:11
+msgid "adopt"
+msgstr "Akzeptieren"
+
+#: collaboration/forms.py:15
+#, fuzzy
+#| msgid "projects"
+msgid "reject"
+msgstr "Projekte"
+
+#: collaboration/forms.py:31
+msgid "type_message"
+msgstr "Gib deine Nachricht ein"
+
+#: collaboration/forms.py:62
+msgid "tell_how_to_contact"
+msgstr "Sagen Sie uns, wie wir Sie erreichen können:"
+
+#: collaboration/forms.py:65
+#, fuzzy
+#| msgid "about_us"
+msgid "tell_about_you"
+msgstr "über uns"
+
+#: collaboration/models.py:12
+msgid "in_queue"
+msgstr "Warteschlange"
+
+#: collaboration/models.py:13
+#, fuzzy
+#| msgid "project_redact"
+msgid "rejected"
+msgstr "Projekt bearbeiten"
+
+#: collaboration/models.py:14
+msgid "adopted"
+msgstr "Akzeptiert"
+
+#: collaboration/models.py:27 templates/includes/request_data.html:10
+msgid "contacts"
+msgstr "Kontakte"
+
+#: collaboration/models.py:31
+#, fuzzy
+#| msgid "about_us"
+msgid "about_user"
+msgstr "über uns"
+
+#: collaboration/models.py:35 templates/collaboration/my_request_detail.html:26
+msgid "answer__noun"
+msgstr "Antworten"
+
+#: collaboration/models.py:37
+msgid "answer_of_project_author"
+msgstr "Antwort des Projektautors"
+
+#: collaboration/models.py:40 comments/models.py:28 feedback/models.py:19
+#: projects/models.py:64 templates/projects/project_view.html:90
+msgid "creation_date"
+msgstr "Erstelldatum"
+
+#: collaboration/models.py:44 feedback/models.py:23 projects/models.py:58
+msgid "status"
+msgstr "Status"
+
+#: collaboration/models.py:54
+#, fuzzy
+#| msgid "collaborators"
+msgid "collaborations"
+msgstr "Mitglieder"
+
+#: comments/apps.py:8 comments/models.py:38
+#: templates/projects/project_view.html:247 templates/users/user_detail.html:92
+msgid "comments"
+msgstr "Kommentare"
+
+#: comments/forms.py:24
+msgid "type_text"
+msgstr "Text eingeben"
+
+#: comments/models.py:14 projects/models.py:73 rating/models.py:18
+#, fuzzy
+#| msgid "projects"
+msgid "project"
+msgstr "Projekte"
+
+#: comments/models.py:21 rating/models.py:25 users/models.py:119
+#, fuzzy
+#| msgid "user_bio"
+msgid "user"
+msgstr "Über mich"
+
+#: comments/models.py:25 comments/models.py:37
+#, fuzzy
+#| msgid "comments"
+msgid "comment"
+msgstr "Kommentare"
+
+#: comments/models.py:32 projects/models.py:68
+#: templates/projects/project_view.html:94
+msgid "update_date"
+msgstr "Änderungsdatum"
+
+#: core/models.py:14 projects/forms.py:11 projects/models.py:87
+msgid "preview"
+msgstr "Vorschau"
+
+#: feedback/admin.py:21
+#, fuzzy
+#| msgid "type_text"
+msgid "text"
+msgstr "Text eingeben"
+
+#: feedback/apps.py:8 feedback/models.py:31
+#, fuzzy
+#| msgid "to_feedback"
+msgid "feedbacks"
+msgstr "zu Rückmeldungen"
+
+#: feedback/forms.py:19
+msgid "files"
+msgstr "Dateien"
+
+#: feedback/forms.py:20
+msgid "add_some_files_if_necessary__lowercase"
+msgstr "Fügen Sie bei Bedarf mehrere Dateien hinzu"
+
+#: feedback/models.py:12
+msgid "subject"
+msgstr "Thema"
+
+#: feedback/models.py:16
+msgid "message"
+msgstr "Nachricht"
+
+#: feedback/models.py:30
+#, fuzzy
+#| msgid "to_feedback"
+msgid "feedback"
+msgstr "zu Rückmeldungen"
+
+#: feedback/models.py:36 templates/users/user_detail.html:44 users/models.py:74
+msgid "user_email"
+msgstr "E-Mail"
+
+#: feedback/models.py:38
+msgid "type_email_on_what_answer_will_be_sent__lowercase"
+msgstr "Geben Sie die E-Mail-Adresse ein, an die die Antwort gesendet wird"
+
+#: feeds/apps.py:8 templates/includes/header.html:53
+msgid "feeds"
+msgstr "Einspeisungen"
+
+#: feeds/views.py:35 templates/includes/header.html:57
+msgid "new"
+msgstr "neu"
+
+#: feeds/views.py:42
+msgid "most_popular"
+msgstr "am beliebtesten"
+
+#: feeds/views.py:49
+msgid "most_speaked"
+msgstr "am meisten gesprochen"
+
+#: feeds/views.py:56
+msgid "projects_archive"
+msgstr "Projektarchiv"
+
+#: projects/apps.py:8 projects/models.py:74 templates/users/user_detail.html:82
+msgid "projects"
+msgstr "Projekte"
+
+#: projects/forms.py:12
+msgid "this_photo_will_be_displayed_as_preview__lowercase"
+msgstr "Dieses Foto wird als Cover des Projekts angezeigt"
+
+#: projects/forms.py:16
+#, fuzzy
+#| msgid "no_photo"
+msgid "photos"
+msgstr "Kein Foto"
+
+#: projects/forms.py:17
+msgid "add_additional_photo_to_project__lowercase"
+msgstr "Fügen Sie hier weitere Projektfotos hinzu"
+
+#: projects/forms.py:45 projects/models.py:47
+msgid "5_tags_maximum__lowercase"
+msgstr "Wählen Sie bis zu 5 Tags aus"
+
+#: projects/models.py:17
+msgid "idea"
+msgstr "Idee"
+
+#: projects/models.py:18
+msgid "in_develop"
+msgstr "In Bearbeitung"
+
+#: projects/models.py:19
+msgid "ended"
+msgstr "Vollendet"
+
+#: projects/models.py:29 tags/models.py:16 users/models.py:62
+msgid "name"
+msgstr "Name"
+
+#: projects/models.py:33
+#, fuzzy
+#| msgid "description"
+msgid "short_description"
+msgstr "Beschreibung"
+
+#: projects/models.py:36
+#, fuzzy
+#| msgid "description"
+msgid "full_description"
+msgstr "Beschreibung"
+
+#: projects/models.py:40 templates/projects/project_view.html:179
+msgid "collaborators"
+msgstr "Mitglieder"
+
+#: projects/models.py:45 tags/apps.py:8 tags/models.py:44
+#: templates/includes/header.html:79
+msgid "tags"
+msgstr "Stichworte"
+
+#: projects/models.py:50 tags/models.py:12
+msgid "published"
+msgstr "Veröffentlicht"
+
+#: projects/models.py:54
+#, fuzzy
+#| msgid "archive"
+msgid "in_archive"
+msgstr "Archiv"
+
+#: projects/models.py:85 templates/projects/project_view.html:165
+msgid "no_photo"
+msgstr "Kein Foto"
+
+#: rating/apps.py:8 rating/models.py:40 templates/projects/project_view.html:47
+msgid "rating"
+msgstr "Bewertung"
+
+#: rating/models.py:30
+msgid "score"
+msgstr "Bewertung"
+
+#: rating/models.py:41
+#, fuzzy
+#| msgid "rating"
+msgid "ratings"
+msgstr "Bewertung"
+
+#: tags/models.py:18
+msgid "maximum_30_symbols"
+msgstr "Maximal 30 Zeichen"
+
+#: tags/models.py:21 templates/projects/project_view.html:110
+msgid "description"
+msgstr "Beschreibung"
+
+#: tags/models.py:23
+msgid "maximum_400_symbols"
+msgstr "Maximal 400 Zeichen"
+
+#: tags/models.py:31
+msgid "maximum_50_symbols"
+msgstr "Maximal 50 Zeichen"
+
+#: tags/models.py:34
+msgid "normalized_name"
+msgstr "Normalisierter Name"
+
+#: tags/models.py:43
+#, fuzzy
+#| msgid "tags"
+msgid "tag"
+msgstr "Stichworte"
+
+#: tags/models.py:59
+msgid "name_must_be_unique"
+msgstr "Der Name muss eindeutig sein"
+
+#: templates/about/main.html:12
+msgid "rules_paragraph_1"
+msgstr ""
+"BrainStorm ist eine Website, auf der Entwickler ihre ursprünglichen"
+"Ideen teilen, Feedback von anderen erhalten und Mitarbeiter und Sponsoren"
+"finden können, die helfen, Projekte zu verwirklichen."
+
+#: templates/about/main.html:13
+msgid "rules_paragraph_2"
+msgstr ""
+"Die Website ist nicht nur ein Ort für die Platzierung von Projekten,"
+"sondern auch ein Assistent bei deren Förderung. Wenn die Leute deine Arbeit mögen"
+"und du viel positives Feedback bekommst, dann steigt das in den Rankings, was wiederum"
+"die Chancen erhöht, Sponsoren zu finden und deine Idee weiterzuentwickeln."
+
+#: templates/about/rules.html:6 templates/about/rules.html:11
+msgid "community_rules"
+msgstr "Gemeinschaftsregeln"
+
+#: templates/about/rules.html:12
+msgid "our_rules_are_simple"
+msgstr "Unsere Regeln sind ganz einfach:"
+
+#: templates/about/rules.html:14
+msgid "no_flood"
+msgstr "Nicht überschwemmen"
+
+#: templates/about/rules.html:15
+msgid "no_spam"
+msgstr "Spammen Sie nicht"
+
+#: templates/about/rules.html:16
+msgid "no_rude"
+msgstr "Sei nicht unhöflich"
+
+#: templates/about/rules.html:19
+msgid "on_either_problems_got_to_our_form"
+msgstr "Bei Problemen kontaktieren Sie uns bitte über unser Formular"
+
+#: templates/about/rules.html:19
+#, fuzzy
+#| msgid "to_feedback"
+msgid "of_feedbacks"
+msgstr "zu Rückmeldungen"
+
+#: templates/base.html:65
+msgid "no_content"
+msgstr "kein Inhalt"
+
+#: templates/collaboration/my_request_detail.html:6
+#: templates/collaboration/my_request_detail.html:17
+msgid "my_request"
+msgstr "Meine Bewerbung"
+
+#: templates/collaboration/my_request_detail.html:19
+#: templates/collaboration/request_detail.html:21
+#, fuzzy
+#| msgid "tags_list"
+msgid "to_list"
+msgstr "Tag-Liste"
+
+#: templates/collaboration/my_request_list.html:6
+#: templates/collaboration/my_request_list.html:12
+#: templates/users/user_detail.html:170
+msgid "my_requests"
+msgstr "Meine Anwendungen"
+
+#: templates/collaboration/my_request_list.html:14
+#, fuzzy
+#| msgid "go_to_project"
+msgid "go_to_profile"
+msgstr "Gehe zum Projekt"
+
+#: templates/collaboration/my_request_list.html:31
+#: templates/collaboration/request_list.html:31
+msgid "detailed"
+msgstr "Mehr"
+
+#: templates/collaboration/my_request_list.html:35
+#: templates/collaboration/request_list.html:35 templates/feeds/feed.html:39
+#: templates/includes/request_data.html:7
+#: templates/includes/request_data.html:14
+#: templates/projects/project_view.html:286
+#: templates/users/user_detail.html:126 templates/users/user_detail.html:151
+#: templates/users/user_detail.html:180
+msgid "nothing_to_show"
+msgstr "Es gibt nichts"
+
+#: templates/collaboration/request_create.html:6
+#: templates/collaboration/request_create.html:14
+#: templates/projects/project_view.html:209
+#, fuzzy
+#| msgid "create"
+msgid "create_request"
+msgstr "Erstellen"
+
+#: templates/collaboration/request_detail.html:8
+#: templates/collaboration/request_detail.html:19
+msgid "request_view"
+msgstr "Antrag auf Teilnahme"
+
+#: templates/collaboration/request_detail.html:45
+msgid "my_answer"
+msgstr "Meine Antwort"
+
+#: templates/collaboration/request_detail.html:66
+msgid "answer"
+msgstr "Antworten"
+
+#: templates/collaboration/request_list.html:6
+#: templates/collaboration/request_list.html:14
+#: templates/projects/project_view.html:213
+#, fuzzy
+#| msgid "tags_list"
+msgid "requests_list"
+msgstr "Tag-Liste"
+
+#: templates/feedback/feedback.html:6 templates/feedback/success.html:8
+msgid "feedback_page"
+msgstr "Feedback-Seite"
+
+#: templates/feedback/feedback.html:11 templates/includes/header.html:98
+msgid "give_feedback"
+msgstr "Feedback geben"
+
+#: templates/feedback/success.html:13
+msgid "thanks_for_your_feedback"
+msgstr "Vielen Dank für Ihr Feedback"
+
+#: templates/feedback/success.html:16
+msgid "to_main"
+msgstr "zu Haupt"
+
+#: templates/includes/form.html:9 templates/projects/project_view.html:265
+msgid "send"
+msgstr "schicken"
+
+#: templates/includes/header.html:26 templates/users/confirm_email.html:14
+#: templates/users/login.html:8 templates/users/login.html:13
+#: templates/users/login.html:22
+#: templates/users/password_reset_complete.html:13
+#: templates/users/password_reset_done.html:14 templates/users/signup.html:24
+msgid "login"
+msgstr "Anmeldung"
+
+#: templates/includes/header.html:27 templates/users/login.html:27
+msgid "register"
+msgstr "registrieren"
+
+#: templates/includes/header.html:35
+msgid "navigation"
+msgstr "Navigation"
+
+#: templates/includes/header.html:61
+msgid "popular"
+msgstr "beliebt"
+
+#: templates/includes/header.html:65
+msgid "speaked"
+msgstr "gesprochen"
+
+#: templates/includes/header.html:72
+msgid "archive"
+msgstr "Archiv"
+
+#: templates/includes/header.html:86
+msgid "site"
+msgstr "Grundstück"
+
+#: templates/includes/header.html:90
+msgid "about_us"
+msgstr "über uns"
+
+#: templates/includes/header.html:94
+msgid "rules"
+msgstr "Regeln"
+
+#: templates/includes/header.html:108
+msgid "ruling"
+msgstr "Urteil"
+
+#: templates/includes/header.html:113
+msgid "admin"
+msgstr "Admin"
+
+#: templates/includes/project_card.html:19
+#: templates/projects/project_view.html:192
+#: templates/projects/project_view.html:201
+msgid "author"
+msgstr "Autor"
+
+#: templates/includes/project_card.html:47
+#: templates/includes/project_title.html:6
+msgid "go_to_project"
+msgstr "Gehe zum Projekt"
+
+#: templates/includes/project_card.html:50
+#: templates/projects/project_view.html:54
+msgid "redact"
+msgstr "redigieren"
+
+#: templates/includes/request_data.html:3 templates/users/user_detail.html:49
+#: users/models.py:57
+msgid "user_bio"
+msgstr "Über mich"
+
+#: templates/includes/search_string.html:8
+msgid "type_what_you_search"
+msgstr "Geben Sie ein, was Sie suchen"
+
+#: templates/includes/search_string.html:10
+msgid "search"
+msgstr "suchen"
+
+#: templates/includes/tags_input.html:10
+#: templates/includes/tags_selector.html:9
+msgid "tags_search"
+msgstr "Suche nach Tags"
+
+#: templates/includes/tags_input.html:13
+#: templates/includes/tags_selector.html:24
+msgid "reset"
+msgstr "Zurücksetzen"
+
+#: templates/includes/tags_selector.html:20
+msgid "apply"
+msgstr "Anwenden"
+
+#: templates/includes/tags_selector.html:22 templates/tags/list.html:6
+#: templates/tags/list.html:11
+msgid "tags_list"
+msgstr "Tag-Liste"
+
+#: templates/projects/project_confirm_delete.html:8
+#: templates/projects/project_confirm_delete.html:18
+#, fuzzy
+#| msgid "project_create"
+msgid "project_delete"
+msgstr "Projekt erstellen"
+
+#: templates/projects/project_confirm_delete.html:20
+#: templates/projects/project_create.html:17
+#: templates/projects/project_redact.html:17
+msgid "cancel"
+msgstr "Stornieren"
+
+#: templates/projects/project_confirm_delete.html:23
+msgid "are_you_sure_you_want_to_delete_the_project"
+msgstr "Möchten Sie es wirklich löschen?"
+
+#: templates/projects/project_confirm_delete.html:32
+#: templates/projects/project_redact.html:19
+#: templates/projects/project_view.html:56
+msgid "delete"
+msgstr "Löschen"
+
+#: templates/projects/project_create.html:8
+#: templates/projects/project_create.html:15
+msgid "project_create"
+msgstr "Projekt erstellen"
+
+#: templates/projects/project_create.html:28
+#: templates/users/user_detail.html:116
+msgid "create"
+msgstr "Erstellen"
+
+#: templates/projects/project_redact.html:15
+msgid "project_redact"
+msgstr "Projekt bearbeiten"
+
+#: templates/projects/project_redact.html:28
+msgid "save"
+msgstr "Speichern"
+
+#: templates/projects/project_view.html:71
+msgid "information"
+msgstr "Information"
+
+#: templates/projects/project_view.html:81
+msgid "ratings_count"
+msgstr "Anzahl der Bewertungen"
+
+#: templates/projects/project_view.html:85
+msgid "comments_count"
+msgstr "Anzahl der Kommentare"
+
+#: templates/projects/project_view.html:127
+msgid "gallery"
+msgstr "Galerie"
+
+#: templates/projects/project_view.html:227
+msgid "my_rating"
+msgstr "Mein Zeichen"
+
+#: templates/projects/project_view.html:240
+msgid "set_rating"
+msgstr "Rate"
+
+#: templates/projects/project_view.html:251
+msgid "leave_comment"
+msgstr "Hinterlasse einen Kommentar"
+
+#: templates/users/activate_link_sends.html:6
+#: templates/users/activate_link_sends.html:11
+msgid "activate_link_sent"
+msgstr "Link gesendet"
+
+#: templates/users/activate_link_sends.html:12
+msgid "activate_link_sent_info"
+msgstr "Link gesendet"
+
+#: templates/users/confirm_email.html:6 templates/users/confirm_email.html:11
+msgid "user_activation_done"
+msgstr "Aktivierung abgeschlossen"
+
+#: templates/users/confirm_email.html:12
+msgid "user_activation_done_info"
+msgstr "Herzlichen Glückwunsch, Ihr Konto wurde aktiviert!"
+
+#: templates/users/login.html:26 templates/users/password_change.html:16
+msgid "forgot_password"
+msgstr "Passwort vergessen?"
+
+#: templates/users/login.html:29
+msgid "or_login_with"
+msgstr "Oder melden Sie sich mit an"
+
+#: templates/users/password_change.html:6
+#: templates/users/password_change.html:11
+msgid "password_change"
+msgstr "Kennwort ändern"
+
+#: templates/users/password_change_done.html:6
+#: templates/users/password_change_done.html:11
+msgid "password_change_done"
+msgstr "Passwort geändert"
+
+#: templates/users/password_change_done.html:12
+msgid "password_change_done_info"
+msgstr "Herzlichen Glückwunsch, Ihr Passwort wurde erfolgreich geändert!"
+
+#: templates/users/password_reset.html:6 templates/users/password_reset.html:11
+msgid "password_reset"
+msgstr "Passwort Wiederherstellung"
+
+#: templates/users/password_reset.html:12
+msgid "password_reset_info"
+msgstr ""
+"Passwort vergessen? Geben Sie unten Ihre E-Mail-Adresse ein und wirsenden "
+"Ihnen Anweisungen zum Festlegen eines neuen Passworts."
+
+#: templates/users/password_reset_complete.html:6
+#: templates/users/password_reset_complete.html:11
+msgid "password_reset_complete"
+msgstr "Passwortwiederherstellung abgeschlossen"
+
+#: templates/users/password_reset_complete.html:12
+msgid "password_reset_complete_info"
+msgstr "Ihr Passwort wurde gespeichert. Jetzt können Sie sich anmelden."
+
+#: templates/users/password_reset_confirm.html:6
+#: templates/users/password_reset_confirm.html:11
+msgid "password_reset_confirm"
+msgstr "Fehler bei der Kennwortwiederherstellung"
+
+#: templates/users/password_reset_confirm.html:12
+msgid "password_reset_confirm_info"
+msgstr ""
+"Ungültiger Link zum Zurücksetzen des Passworts. Vielleicht wurde es schon "
+"benutzt.Bitte versuchen Sie erneut, Ihr Passwort zurückzusetzen."
+
+#: templates/users/password_reset_done.html:6
+#: templates/users/password_reset_done.html:11
+msgid "password_reset_done"
+msgstr ""
+"Eine E-Mail mit Anweisungen zur Passwortwiederherstellung wurde gesendet"
+
+#: templates/users/password_reset_done.html:12
+msgid "password_reset_done_info"
+msgstr ""
+"Wir haben Ihnen Anweisungen zum Festlegen eines neuen Passworts an dievon "
+"Ihnen angegebene E-Mail-Adresse gesendet (falls wir eine solcheAdresse in "
+"unserer Datenbank haben). Sie sollten es bald erhalten.Wenn Sie keine E-Mail "
+"erhalten, stellen Sie bitte sicher, dass Sie dieE-Mail-Adresse eingeben, mit "
+"der Sie sich registriert haben, und überprüfen Sie Ihren Spam-Ordner."
+
+#: templates/users/signup.html:6 templates/users/signup.html:11
+msgid "signup"
+msgstr "Anmeldung"
+
+#: templates/users/signup.html:20
+#, fuzzy
+#| msgid "ratings_count"
+msgid "create_account"
+msgstr "Anzahl der Bewertungen"
+
+#: templates/users/user_detail.html:9 templates/users/user_detail.html:20
+msgid "my_profile"
+msgstr "Mein Profil"
+
+#: templates/users/user_detail.html:54
+msgid "not_set"
+msgstr "Nicht angezeigt"
+
+#: templates/users/user_detail.html:65 templates/users/user_detail.html:202
+msgid "settings"
+msgstr "Einstellungen"
+
+#: templates/users/user_detail.html:67
+msgid "logout"
+msgstr "Hinausgehen"
+
+#: templates/users/user_detail.html:148
+msgid "go_to"
+msgstr "Gehen"
+
+#: templates/users/user_detail.html:214
+msgid "change_password"
+msgstr "Kennwort ändern"
+
+#: users/apps.py:8 users/models.py:120
+#, fuzzy
+#| msgid "user_bio"
+msgid "users"
+msgstr "Über mich"
+
+#: users/forms.py:18
+#, fuzzy
+#| msgid "password_reset"
+msgid "password"
+msgstr "Passwort Wiederherstellung"
+
+#: users/forms.py:25
+#, fuzzy
+#| msgid "password_change"
+msgid "password_again"
+msgstr "Kennwort ändern"
+
+#: users/forms.py:30
+#, fuzzy
+#| msgid "password_reset_confirm_info"
+msgid "type_password_again_for_confirmation"
+msgstr ""
+"Ungültiger Link zum Zurücksetzen des Passworts. Vielleicht wurde es schon "
+"benutzt.Bitte versuchen Sie erneut, Ihr Passwort zurückzusetzen."
+
+#: users/forms.py:45
+msgid "incorrect_username"
+msgstr "Ungültiger Benutzername"
+
+#: users/models.py:51
+msgid "username"
+msgstr "Benutzername"
+
+#: users/models.py:53
+msgid "only_letters_defis_and_underline"
+msgstr "Es sind nur Buchstaben, Zahlen, Bindestriche und Unterstriche erlaubt"
+
+#: users/models.py:68
+msgid "last_name"
+msgstr "Nachname"
+
+#: users/models.py:79
+msgid "normalized_email"
+msgstr "Normalisierte Post"
+
+#: users/models.py:83
+msgid "date_joined"
+msgstr "Beitrittsdatum"
+
+#: users/models.py:87
+msgid "active"
+msgstr "Aktiv"
+
+#: users/models.py:91
+msgid "staff"
+msgstr "Mitarbeiter"
+
+#: users/models.py:95
+msgid "superuser"
+msgstr "Superuser"
+
+#: users/models.py:104
+msgid "avatar"
+msgstr "Benutzerbild"
+
+#~ msgid "my_projects"
+#~ msgstr "Meine Projekte"

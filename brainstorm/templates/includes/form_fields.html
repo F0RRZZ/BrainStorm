@@ -1,0 +1,28 @@
+{% load i18n %}
+
+{% load add_class %}
+
+{% csrf_token %}
+{% for field in form %}
+  <div class="d-flex flex-column align-items-start">
+    <label class="form-label mt-2">{{ field.label_tag }}</label>
+ 
+    {% if use_tags_include and field.name == "tags" %}
+
+      {% include "includes/tags_input.html" %}
+
+    {% else %}
+      {{ field|add_class:"form-control" }}
+    {% endif %}
+
+    {% if field.help_text %}
+      <div class="text-secondary">
+        <p>{{ field.help_text.capitalize|safe }}</p>
+      </div>
+    {% endif %}
+
+    {% for error in field.errors %}<div class="alert alert-danger mt-1" role="alert">{{ error }}</div>{% endfor %}
+  </div>
+{% endfor %}
+{{ form.media }}
+{% for error in form.non_field_errors %}<div class="alert alert-danger mt-1" role="alert">{{ error }}</div>{% endfor %}

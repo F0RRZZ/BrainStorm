@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% load static %}
+
+{% block title %}
+  {{ feed_name }}
+{% endblock title %}
+
+{% block header %}
+  {% with render_search=True %}{{ block.super }}{% endwith %}
+{% endblock header %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/feeds.css' %}" />
+  <div class="container">
+    <div class="bs-main-horizontal-container">
+
+      {% include "includes/tags_selector.html" %}
+
+      <div class="bs-child-vertical-container">
+        <h3 class="text-center">{{ feed_name }}</h3>
+        {% for project in projects %}
+          {% if user.is_authenticated and user.id == project.author.id %}
+            {% with show_author=True show_redact_button=True %}
+
+              {% include "includes/project_card.html" %}
+
+            {% endwith %}
+          {% else %}
+            {% with show_author=True %}
+
+              {% include "includes/project_card.html" %}
+
+            {% endwith %}
+          {% endif %}
+        {% empty %}
+          <div class="bs-empty-list-message">{% trans "nothing_to_show" %}</div>
+        {% endfor %}
+        <div id="paginators-list" class="bs-none">page</div>
+        {% with indicator="page" additional_class="pagination-lg" %}
+
+          {% include "includes/pagination_bar.html" %}
+
+        {% endwith %}
+        <script type="module" src="{% static 'js/pagination_bar.js' %}"></script>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

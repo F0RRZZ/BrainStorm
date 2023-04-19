@@ -1,0 +1,30 @@
+[tool.black]
+force-exclude = '''
+(
+  /(
+      \.git
+    | \.mypy_cache
+    | \.venv
+    | \.DS_Store
+    | \.idea
+    | migrations
+    | build
+    | dist
+  )/
+)
+'''
+line-length = 79
+skip-string-normalization = true
+
+[tool.djlint]
+indent=2
+exclude=".venv,venv,.tox,.eggs"
+ignore="H030,H031,H006,H019,H023"
+blank_line_after_tag="load,extends,include"
+blank_line_before_tag="load,extends,include"
+preserve_blank_lines=true
+profile="django"
+
+[tool.isort]
+profile="google"
+known_first_party = ["about", "core", "comments", "collaboration", "feedback", "feeds", "projects", "rating", "tags", "users"]

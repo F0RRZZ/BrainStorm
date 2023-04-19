@@ -1,0 +1,84 @@
+.bs-all-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.bs-top-nav-container {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.bs-user-nav-block img {
+  border: solid 3px rgb(45, 43, 43);
+  border-radius: 10px;
+  transition: all 0.1s ease-in;
+}
+
+.bs-user-nav-block {
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.1s ease-in;
+  color: black;
+}
+
+.bs-user-nav-block:hover img {
+  border-color: #4cbbab;
+}
+
+.bs-user-nav-block:hover {
+  color: #4cbbab;
+  text-decoration: underline;
+}
+
+.bs-card {
+  transition: all 0.3s ease-in;
+  width: 100%;
+  overflow: hidden;
+}
+
+.bs-card:hover {
+  box-shadow: 0 0 3px 0.2rem #1415158e;
+  border-color: #141515d0;
+  border-style: solid;
+}
+
+.bs-small-user-image {
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgb(119, 115, 115);
+  border-radius: 50%;
+  margin-right: 7px;
+  align-self: flex-start;
+}
+
+.bs-fit-content-element {
+  width: fit-content !important;
+}
+
+.bs-none {
+  display: none;
+  width: 0px;
+  height: 0px;
+}
+
+.bs-empty-list-message {
+  width: 100%;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: stretch;
+  font-size: 30px;
+  color: rgba(113, 107, 107, 0.723);
+}
+
+p:empty {
+  display: none;
+}
+
+.django-ckeditor-widget {
+  width: 100% !important;
+  align-self: stretch !important;
+}

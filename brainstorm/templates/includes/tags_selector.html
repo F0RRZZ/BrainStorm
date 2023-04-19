@@ -1,0 +1,27 @@
+{% load i18n %}
+
+{% load static %}
+
+<div class="mt-3 d-flex flex-column bs-tags-selector-container"
+     id="tags-selector">
+  <input class="form-control"
+         type="text"
+         placeholder="{% trans "tags_search" %}"
+         aria-label="default input example"/>
+  <select class="form-select mt-2"
+          multiple
+          aria-label="multiple select example">
+    {% for tag in tags %}
+      <option value="{{ tag.slug }}">
+        {{ tag.name }}
+      </option>
+    {% endfor %}
+  </select>
+  <button type="button" class="btn btn-outline-info mt-2">{% trans "apply" %}</button>
+  <div class="d-flex flex-column align-items-end mt-2">
+    <h6>{% trans "tags_list" %}</h6>
+    <div class="tags-list d-flex flex-column align-items-end"></div>
+    <button type="button" class="btn btn-outline-danger mt-2">{% trans "reset" %}</button>
+  </div>
+</div>
+<script type="module" src="{% static 'js/tags_selector.js' %}"></script>

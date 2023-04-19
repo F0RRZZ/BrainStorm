@@ -1,0 +1,10 @@
+{% load i18n %}
+
+<form method="post" enctype="multipart/form-data">
+
+  {% include "includes/form_fields.html" %}
+
+  <input type="submit"
+         class="btn btn-outline-info mt-2"
+         value="{% trans "send" %}"/>
+</form>

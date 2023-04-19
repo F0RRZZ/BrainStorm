@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% load static %}
+
+{% block title %}
+  {% trans "project_create" %}
+{% endblock title %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/project_change.css' %}" />
+  <div class="container">
+    <div class="bs-project-panel-container">
+      <h3>{% trans "project_create" %}</h3>
+      <div>
+        <a href="javascript:history.back()" class="btn btn-outline-warning">{% trans "cancel" %}</a>
+      </div>
+    </div>
+    <form method="post" enctype="multipart/form-data">
+      {% with use_tags_include=True %}
+
+        {% include "includes/form_fields.html" %}
+
+      {% endwith %}
+      <input type="submit"
+             class="btn btn-success mt-2"
+             value="{% trans "create" %}"/>
+    </form>
+  </div>
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block title %}
+  {% trans "signup" %}
+{% endblock title %}
+
+{% block content %}
+  <div class="container">
+    <h3 class="mb-3">{% trans "signup" %}</h3>
+
+    <form method="post" enctype="multipart/form-data">
+
+      {% include "includes/form_fields.html" %}
+
+ 
+      <input type="submit"
+             class="btn btn-success mt-1"
+             value="{% trans "create_account" %}"/>
+    </form>
+
+    <p class="mt-3">
+      <a href="{% url 'users:login' %}" class="link-secondary">{% trans "login" %}</a>
+    </p>
+  </div>
+{% endblock content %}

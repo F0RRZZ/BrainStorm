@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% load socialaccount %}
+
+{% block title %}
+  {% trans "login" %}
+{% endblock title %}
+
+{% block content %}
+  <div class="container">
+    <h3 class="mb-3">{% trans "login" %}</h3>
+
+    <form method="post" enctype="multipart/form-data">
+
+      {% include "includes/form_fields.html" %}
+
+ 
+      <input type="submit"
+             class="btn btn-primary mt-2"
+             value="{% trans "login" %}"/>
+    </form>
+
+    <div class="d-flex flex-column align-items-start mt-3">
+      <a href="{% url 'users:password_reset' %}" class="link-secondary">{% trans "forgot_password" %}</a>
+      <a href="{% url 'users:signup' %}" class="link-secondary mt-1">{% trans "register" %}</a>
+    </div>
+    <h6 class="mt-4">{% trans "or_login_with" %}:</h6>
+    <div class="d-flex justify-content-start mt-3">
+      <a class="btn btn-secondary"
+         href="{% provider_login_url 'github' method='oauth2' %}">GitHub <i class="fa-brands fa-github"></i></a>
+    </div>
+  </div>
+{% endblock content %}
