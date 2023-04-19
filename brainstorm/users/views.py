@@ -80,7 +80,6 @@ class ActivateUserView(django.views.generic.DetailView):
 
 class UserDetailView(
     django.views.generic.UpdateView,
-    django.views.generic.DetailView,
 ):
     template_name = 'users/user_detail.html'
     pk_url_kwarg = 'username'
@@ -92,7 +91,7 @@ class UserDetailView(
     context_object_name = 'rendering_user'
 
     def get_success_url(self):
-        return django.urls.reverse_lazy('users:overview', kwargs=self.kwargs)
+        return self.request.path
 
     def form_valid(self, form):
         super().form_valid(form)
@@ -122,7 +121,7 @@ class UserDetailView(
             current_user.is_authenticated and current_user.id == user.id
         )
 
-        projects_ = projects.models.Project.objects.get_user_projects(
+        projects_ = projects.models.Project.objects.get_for_user_detail(
             user.id,
         )
         projects_paginator = django.core.paginator.Paginator(
@@ -133,7 +132,7 @@ class UserDetailView(
             self.request.GET.get('projects_page', 1),
         )
 
-        comments_ = comments.models.Comment.objects.get_user_comments(
+        comments_ = comments.models.Comment.objects.get_for_user_detail(
             user.id,
         )
         comments_paginator = django.core.paginator.Paginator(
@@ -143,7 +142,8 @@ class UserDetailView(
         comments_page_obj = comments_paginator.get_page(
             self.request.GET.get('comments_page', 1),
         )
-        collab = projects.models.Project.objects.get_for_collaborator(user.id)
+        projects_objects = projects.models.Project.objects
+        collab = projects_objects.get_for_user_detail_by_collaborator(user.id)
         collaboration_paginator = django.core.paginator.Paginator(
             collab,
             UserDetailView.paginate_by,

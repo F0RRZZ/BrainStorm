@@ -113,7 +113,11 @@ class CreateProject(
 ):
     template_name = 'projects/project_create.html'
     form_class = projects.forms.ProjectForm
-    success_url = django.urls.reverse_lazy('core:main')
+
+    def get_success_url(self):
+        return django.urls.reverse_lazy(
+            'projects:view', kwargs={'project_id': self.project_id}
+        )
 
     def form_valid(self, form):
         project = projects.models.Project(
@@ -139,6 +143,7 @@ class CreateProject(
                 image=image,
             )
             gallery.save()
+        self.project_id = project.id
         return super().form_valid(form)
 
 
@@ -150,7 +155,10 @@ class RedactProject(
     queryset = projects.models.Project.objects.get_for_redact()
     context_object_name = 'project'
     form_class = projects.forms.ProjectForm
-    success_url = django.urls.reverse_lazy('core:main')
+    pk_url_kwarg = 'project_id'
+
+    def get_success_url(self):
+        return django.urls.reverse_lazy('projects:view', kwargs=self.kwargs)
 
     def get_object(self, queryset=None):
         return django.shortcuts.get_object_or_404(
@@ -188,13 +196,22 @@ class DeleteProject(django.views.generic.DeleteView):
         projects.models.Project.name.field.name,
         projects.models.Project.author_id.field.name,
     )
-    success_url = django.urls.reverse_lazy('core:main')
+
+    def get_success_url(self):
+        return django.urls.reverse_lazy(
+            'users:overview',
+            kwargs={
+                'username': self.request.user.username,
+            },
+        )
 
     def dispatch(self, request, *args, **kwargs):
         result = super().dispatch(request, *args, **kwargs)
+        if result is None:  # Returned if form confirmed
+            return django.shortcuts.redirect(self.get_success_url())
         if self.object.author_id != request.user.id:
             raise django.http.Http404()
         return result
 
     def delete(self, request, *args, **kwargs):
-        self.object.delete()
+        self.get_object().delete()

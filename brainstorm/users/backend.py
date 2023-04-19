@@ -1,6 +1,6 @@
 import django.contrib.auth.backends
 
-from users.models import User
+import users.models
 
 
 class NormalizedEmailAuthBackend(django.contrib.auth.backends.ModelBackend):
@@ -10,8 +10,8 @@ class NormalizedEmailAuthBackend(django.contrib.auth.backends.ModelBackend):
                 django.contrib.auth.backends.UserModel.USERNAME_FIELD,
             )
         try:
-            user = User.objects.get(normalized_email=username)
-        except User.DoesNotExist:
+            user = users.models.User.objects.get(normalized_email=username)
+        except users.models.User.DoesNotExist:
             django.contrib.auth.backends.UserModel().set_password(password)
         else:
             if user.check_password(password) and self.user_can_authenticate(

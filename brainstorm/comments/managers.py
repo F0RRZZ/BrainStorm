@@ -1,14 +1,15 @@
 import django.db.models
 
 import comments.models
+import projects.models
 import users.models
 
 
 class CommentsManager(django.db.models.Manager):
-    def get_user_comments(self, user_id):
+    def get_for_user_detail(self, user_id):
         return (
             self.filter(user_id=user_id)
-            .select_related(f'{comments.models.Comment.user.field.name}')
+            .select_related(comments.models.Comment.project.field.name)
             .only(
                 comments.models.Comment.text.field.name,
                 f'{comments.models.Comment.user.field.name}__'
@@ -16,6 +17,8 @@ class CommentsManager(django.db.models.Manager):
                 f'{comments.models.Comment.user.field.name}__'
                 f'{users.models.User.image.field.name}',
                 comments.models.Comment.creation_date.field.name,
+                f'{comments.models.Comment.project.field.name}__'
+                f'{projects.models.Project.name.field.name}',
             )
         )
 

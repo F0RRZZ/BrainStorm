@@ -79,7 +79,7 @@ class ProjectManager(django.db.models.Manager):
     def get_for_project_detail(self):
         return (
             self.get_with_preview_and_tags()
-            .defer(SCORE_PROJECT_FIELD_NAME)
+            .filter(published=True)
             .select_related(projects.models.Project.author.field.name)
             .prefetch_related(
                 django.db.models.Prefetch(
@@ -110,29 +110,27 @@ class ProjectManager(django.db.models.Manager):
             )
         )
 
-    def get_user_projects(self, user_id):
-        return self.get_with_preview_and_tags().filter(author_id=user_id)
+    def get_for_user_detail(self, user_id):
+        return (
+            self.get_for_feed()
+            .filter(author_id=user_id)
+            .order_by(f'-{projects.models.Project.creation_date.field.name}')
+        )
 
-    def get_gallery_images(self):
-        return self.prefetch_related(IMAGES_GALLERY_FIELD_NAME)
-
-    def get_preview(self):
-        return self.select_related(
-            projects.models.Project.preview.related.name
-        ).only(projects.models.Preview.image.field.name)
-
-    def get_comments(self):
-        return self.prefetch_related(COMMENTS_FIELD_NAME)
-
-    def get_for_collaborator(self, user_id):
-        return self.prefetch_related(
-            django.db.models.Prefetch(
-                projects.models.Project.collaborators.field.name,
-                queryset=users.models.User.objects.only(
-                    users.models.User.id.field.name,
-                ),
+    def get_for_user_detail_by_collaborator(self, user_id):
+        return (
+            self.get_for_feed()
+            .prefetch_related(
+                django.db.models.Prefetch(
+                    projects.models.Project.collaborators.field.name,
+                    queryset=users.models.User.objects.only(
+                        users.models.User.id.field.name,
+                    ),
+                )
             )
-        ).filter(collaborators__id__contains=user_id)
+            .filter(collaborators__id__contains=user_id)
+            .order_by(f'-{projects.models.Project.creation_date.field.name}')
+        )
 
     def get_for_redact(self):
         return (
@@ -158,3 +156,14 @@ class ProjectManager(django.db.models.Manager):
                 f'{projects.models.Preview.image.field.name}',
             )
         )
+
+    def get_gallery_images(self):
+        return self.prefetch_related(IMAGES_GALLERY_FIELD_NAME)
+
+    def get_preview(self):
+        return self.select_related(
+            projects.models.Project.preview.related.name
+        ).only(projects.models.Preview.image.field.name)
+
+    def get_comments(self):
+        return self.prefetch_related(COMMENTS_FIELD_NAME)
