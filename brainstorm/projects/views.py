@@ -18,7 +18,7 @@ import users.models
 class ViewProject(django.views.generic.DetailView):
     template_name = 'projects/project_view.html'
     pk_url_kwarg = 'project_id'
-    queryset = projects.models.Project.objects.get_queryset()
+    queryset = projects.models.Project.objects.get_for_project_detail()
     paginate_by = 60
 
     def get_and_check_initial_rating(self):
@@ -35,14 +35,8 @@ class ViewProject(django.views.generic.DetailView):
             rating.models.ProjectRating.score.field.name: score
         }, rating_exists
 
-    def get_object(self):
-        return django.shortcuts.get_object_or_404(
-            projects.models.Project.objects.prefetch_related('tags'),
-            id=self.kwargs[self.pk_url_kwarg],
-        )
-
     def get_base_context(self, rating_exists=False):
-        project = self.get_object()
+        project = self.object
         comments_ = comments.models.Comment.objects.get_project_comments(
             project.id,
         )
@@ -153,14 +147,14 @@ class RedactProject(
     django.views.generic.UpdateView,
 ):
     template_name = 'projects/project_redact.html'
-    model = projects.models.Project
+    queryset = projects.models.Project.objects.get_for_redact()
     context_object_name = 'project'
     form_class = projects.forms.ProjectForm
     success_url = django.urls.reverse_lazy('core:main')
 
     def get_object(self, queryset=None):
         return django.shortcuts.get_object_or_404(
-            self.model,
+            self.queryset,
             pk=self.kwargs['project_id'],
         )
 
@@ -190,12 +184,17 @@ class RedactProject(
 
 class DeleteProject(django.views.generic.DeleteView):
     pk_url_kwarg = 'project_id'
-    model = projects.models.Project
+    queryset = projects.models.Project.objects.only(
+        projects.models.Project.name.field.name,
+        projects.models.Project.author_id.field.name,
+    )
     success_url = django.urls.reverse_lazy('core:main')
 
+    def dispatch(self, request, *args, **kwargs):
+        result = super().dispatch(request, *args, **kwargs)
+        if self.object.author_id != request.user.id:
+            raise django.http.Http404()
+        return result
+
     def delete(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        success_url = self.get_success_url()
-        if self.object.author == request.user:
-            self.object.delete()
-        return django.http.HttpResponseRedirect(success_url)
+        self.object.delete()

@@ -3,11 +3,10 @@ import django.core.exceptions
 import django.forms
 from django.utils.translation import gettext_lazy as _
 
-import core.forms
 import projects.models
 
 
-class ProjectForm(core.forms.BootstrapFormMixin, django.forms.ModelForm):
+class ProjectForm(django.forms.ModelForm):
     preview = django.forms.ImageField(
         label=_('preview'),
         help_text=_('this_photo_will_be_displayed_as_preview__lowercase'),
