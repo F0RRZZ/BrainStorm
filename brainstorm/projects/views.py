@@ -216,7 +216,7 @@ class DeleteProject(django.views.generic.DeleteView):
     def dispatch(self, request, *args, **kwargs):
         # Important to call before use self.object
         result = super().dispatch(request, *args, **kwargs)
-        if result is None:  # Returned if form confirmed
+        if result is None:
             return django.shortcuts.redirect(self.get_success_url())
         if self.object.author_id != request.user.id:
             raise django.http.Http404()
