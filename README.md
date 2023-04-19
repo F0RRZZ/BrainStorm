@@ -55,8 +55,30 @@ cd brainstorm
 cp .env-example .env
 ```
 
+Описание:
+1. ALLOWED_HOSTS - список разрешенных хостов
+2. DEBUG - режим отладки
+3. EMAIL_ADDRESS - адрес электронной почты, с которой будут приходить письма польщователям
+4. EMAIL_PASSWORD - адрес от электронной почты
+5. GITHUB_CLIENT_ID - client id приложения в гитхабе
+6. GITHUB_SECRET_KEY - секретный ключ приложения в гитхабе
+7. SECRET_KEY - секретный ключ
+8. USERS_AUTOACTIVATE - режим автоактивации пользователей (отключение подтверждения аккаунта)
+
+
+Для получения client_id и secret key вам нужно зарегистрировать свое приложение на сайте GitHub.
+1. Войдите в свой аккаунт на сайте GitHub.
+2. Перейдите на страницу настроек приложений: https://github.com/settings/applications/new
+3. Введите название вашего приложения в поле "Application name".
+4. Введите домен вашего сайта в поле "Homepage URL".
+5. Введите URL-адрес, на который GitHub будет перенаправлять пользователей после успешной аутентификации, в поле "Authorization callback URL".
+6. Нажмите на кнопку "Register application".
+7. Вам будет предоставлен client_id и secret key.
+
+---
+
 5. Создайте базу данных
-* Первый способ. Создание с помощью миграций
+Создание с помощью миграций
     
 | Windows                               | Linux/MacOS                            |
 |---------------------------------------|----------------------------------------|
@@ -69,40 +91,33 @@ cp .env-example .env
 |----------------------------------------|-----------------------------------------|
 | ```python manage.py createsuperuser``` | ```python3 manage.py createsuperuser``` |
 
-* Второй способ. Использование готовой базы данных
+6. Сгенерируйте файлы для перевода
 
-```shell
-cp db_example.sqlite3 db.sqlite3
-```
+| Windows                                | Linux/MacOS                                |
+|----------------------------------------|--------------------------------------------|
+| ```python manage.py compilemessages``` | ```python3 manage.py compilemessages```|
 
-Так же можно подгрузить тестовые данные из фикстуры
-
-| Windows                                   | Linux/MacOS                                |
-|-------------------------------------------|--------------------------------------------|
-| ```python manage.py loaddata data.json``` | ```python3 manage.py loaddata data.json``` |
-
-
-6. Установить сервер redis
+7. Установить сервер redis
 
 | Windows                      | Linux/MacOS                                |
 |------------------------------|--------------------------------------------|
 | ```https://clck.ru/34A34T``` | ```sudo docker run -d -p 6379:6379 redis```|
 
 
-7. Запустите сервер
+8. Запустите сервер
 
 | Windows                          | Linux/MacOS                       |
 |----------------------------------|-----------------------------------|
 | ```python manage.py runserver``` | ```python3 manage.py runserver``` |
 
 
-8. Запустите worker(в отдельном терминале)
+9. Запустите worker(в отдельном терминале)
 
 ```shell
 celery -A brainstorm worker -l info
 ```
 
-9. Запустите beat(в отдельном терминале)
+10. Запустите beat(в отдельном терминале)
 
 ```shell
 celery -A brainstorm beat -l info
