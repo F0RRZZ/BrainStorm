@@ -1,12 +1,15 @@
-from django.views.generic import ListView
+import django.views.generic
 
-from tags.models import Tag
+import tags.models
 
 
-class TagsListView(ListView):
-    model = Tag
+class TagsListView(django.views.generic.ListView):
+    model = tags.models.Tag
     template_name = 'tags/list.html'
     context_object_name = 'tags'
 
     def get_queryset(self):
-        return Tag.objects.all()
+        return tags.models.Tag.objects.only(
+            tags.models.Tag.name.field.name,
+            tags.models.Tag.description.field.name,
+        )

@@ -49,10 +49,11 @@
         <div class="badge text-bg-light bs-status-badge fs-5 ms-2 mt-3">{{ project.get_status_display }}</div>
       </div>
       <div>
-        {% if user.is_authenticated and user.id == project.get_author.id %}
+        {% if user.is_authenticated and user.id == project.author_id %}
           <a href="{% url 'projects:redact' project.id %}"
              class="btn btn-outline-success">{% trans "redact" %}</a>
-          <a href="{% url 'projects:delete' project.id %}" class="btn btn-outline-danger ms-2 mt-2">{% trans "delete" %}</a>
+          <a href="{% url 'projects:delete' project.id %}"
+             class="btn btn-outline-danger ms-2 mt-2">{% trans "delete" %}</a>
         {% endif %}
       </div>
     </div>

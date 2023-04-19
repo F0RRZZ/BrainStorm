@@ -37,6 +37,7 @@ class RequestCreateView(
     pk_url_kwarg = 'project_id'
 
     def dispatch(self, request, *args, **kwargs):
+        # Important to call before use self.project
         result = super().dispatch(request, *args, **kwargs)
         user = self.request.user
         if user.id == self.project.author_id:
@@ -74,6 +75,7 @@ class RequestsListView(
     pk_url_kwarg = 'project_id'
 
     def dispatch(self, request, *args, **kwargs):
+        # Important to call before use self.project
         result = super().dispatch(request, *args, **kwargs)
         user = self.request.user
         if user.id != self.project.author_id:

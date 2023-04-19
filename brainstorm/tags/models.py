@@ -3,7 +3,8 @@ import django.core.validators
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from core.tools import name_formatter
+import core.tools
+import tags.managers
 
 
 class Tag(models.Model):
@@ -35,6 +36,8 @@ class Tag(models.Model):
         editable=False,
     )
 
+    objects = tags.managers.TagManager()
+
     class Meta:
         default_related_name = 'tags'
         verbose_name = _('tag')
@@ -44,11 +47,11 @@ class Tag(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        self.formatted_name = name_formatter(self.name)
+        self.formatted_name = core.tools.name_formatter(self.name)
         super().save(*args, **kwargs)
 
     def clean(self):
-        formatted_name = name_formatter(self.name)
+        formatted_name = core.tools.name_formatter(self.name)
         if self.__class__.objects.filter(
             formatted_name=formatted_name
         ).exists():

@@ -1,6 +1,8 @@
-from django.urls import path
+import django.urls
 
-from tags import views
+import tags.views
 
 app_name = 'tags'
-urlpatterns = [path('list/', views.TagsListView.as_view(), name='list')]
+urlpatterns = [
+    django.urls.path('list/', tags.views.TagsListView.as_view(), name='list')
+]
