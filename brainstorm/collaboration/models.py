@@ -24,27 +24,31 @@ class CollaborationRequest(django.db.models.Model):
         related_name='collaboration_requests',
     )
     contact = ckeditor.fields.RichTextField(
-        'информация о контактах',
-        max_length=150,
+        _('contacts'),
         blank=True,
     )
     about = ckeditor.fields.RichTextField(
-        'информация о пользователе',
+        _('about_user'),
         blank=True,
     )
     answer = django.db.models.TextField(
-        'ответ автора проекта',
+        _('answer__noun'),
         blank=True,
+        help_text=_('answer_of_project_author'),
     )
     creation_date = django.db.models.DateTimeField(
-        'дата создания',
+        _('creation_date'),
         auto_now_add=True,
     )
     status = django.db.models.CharField(
-        'статус заявки',
+        _('status'),
         max_length=20,
         choices=Status.choices,
         default=Status.IN_QUEUE,
     )
 
     objects = collaboration.managers.CollaborationRequestManager()
+
+    class Meta:
+        verbose_name = _('collaboration').lower()
+        verbose_name_plural = _('collaborations').lower()

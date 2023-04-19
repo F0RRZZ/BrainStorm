@@ -6,7 +6,7 @@ import users.models
 
 
 class CommentsManager(django.db.models.Manager):
-    def get_user_comments(self, user_id):
+    def get_for_user_detail(self, user_id):
         return (
             self.filter(user_id=user_id)
             .select_related(comments.models.Comment.user.field.name)

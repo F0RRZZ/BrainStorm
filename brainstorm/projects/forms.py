@@ -3,19 +3,18 @@ import django.core.exceptions
 import django.forms
 from django.utils.translation import gettext_lazy as _
 
-import core.forms
 import projects.models
 
 
-class ProjectForm(core.forms.BootstrapFormMixin, django.forms.ModelForm):
+class ProjectForm(django.forms.ModelForm):
     preview = django.forms.ImageField(
-        label=_('Превью'),
-        help_text=_('прикрепите превью проекта'),
+        label=_('preview'),
+        help_text=_('this_photo_will_be_displayed_as_preview__lowercase'),
         required=False,
     )
     photos = django.forms.ImageField(
-        label=_('Фотографии'),
-        help_text=_('прикрепите фотки проекта'),
+        label=_('photos'),
+        help_text=_('add_additional_photo_to_project__lowercase'),
         widget=django.forms.ClearableFileInput(attrs={'multiple': True}),
         required=False,
     )
@@ -24,24 +23,11 @@ class ProjectForm(core.forms.BootstrapFormMixin, django.forms.ModelForm):
         model = projects.models.Project
         fields = (
             projects.models.Project.name.field.name,
-            'short_description',
+            projects.models.Project.short_description.field.name,
             projects.models.Project.description.field.name,
-            projects.models.Project.collaborators.field.name,
             projects.models.Project.status.field.name,
             projects.models.Project.tags.field.name,
         )
-        labels = {
-            projects.models.Project.name.field.name: _('Название'),
-            projects.models.Project.short_description.field.name: _(
-                'Краткое описание'
-            ),
-            projects.models.Project.collaborators.field.name: _(
-                'Коллабораторы'
-            ),
-            projects.models.Project.description.field.name: _('Описание'),
-            projects.models.Project.status.field.name: _('Статус'),
-            projects.models.Project.tags.field.name: _('Теги'),
-        }
         widgets = {
             projects.models.Project.short_description.field.name: (
                 ckeditor.widgets.CKEditorWidget()
@@ -53,6 +39,8 @@ class ProjectForm(core.forms.BootstrapFormMixin, django.forms.ModelForm):
 
     def clean(self):
         super().clean()
-        tags = self.cleaned_data.get('tags')
+        tags = self.cleaned_data.get(projects.models.Project.tags.field.name)
         if len(tags) > 5:
-            raise django.core.exceptions.ValidationError(_('Максимум 5 тегов'))
+            raise django.core.exceptions.ValidationError(
+                _('5_tags_maximum__lowercase').capitalize(),
+            )

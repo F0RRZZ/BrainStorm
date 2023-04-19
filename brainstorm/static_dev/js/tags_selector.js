@@ -1,4 +1,4 @@
-import {getUrlWithNewArgument, getArgumentFromUrl, getSelectedValues, clearFromPaginators} from './functions.js';
+import {getUrlWithNewArgument, getArgumentFromUrl, getSelectedValues, clearFromPaginators, filterSelectByValue} from './functions.js';
 
 function redirect() {
     let selected = getSelectedValues(document.querySelector("#tags-selector > select"));
@@ -14,13 +14,7 @@ function reset() {
 function filterOptions() {
     let select = document.querySelector("#tags-selector > select");
     let value = document.querySelector("#tags-selector > input").value.toLowerCase();
-    for (let i = 0; i < select.options.length; i++) {
-        if (select.options[i].text.toLowerCase().includes(value) || select.options[i].selected) {
-            select.options[i].style.display = "block";
-            continue;
-        }
-        select.options[i].style.display = "none";
-    }
+    filterSelectByValue(select, value);
 }
 
 let select = document.querySelector("#tags-selector > select");

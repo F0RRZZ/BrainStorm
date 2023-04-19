@@ -75,3 +75,13 @@ export function getColorFromNumber(number) {
 export function clearFromNonVisible(string) {
     return string.replace(/( )/gm, '').replace(/(\r\n|\n|\r)/gm, '');
 }
+
+export function filterSelectByValue(select, value) {
+    for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].text.toLowerCase().includes(value) || select.options[i].selected) {
+            select.options[i].style.display = "block";
+            continue;
+        }
+        select.options[i].style.display = "none";
+    }
+}

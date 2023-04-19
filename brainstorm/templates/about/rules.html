@@ -9,5 +9,14 @@
 {% block content %}
   <div class="container">
     <h3 class="mb-3">{% trans "community_rules" %}</h3>
+    <h6>{% trans "our_rules_are_simple" %}</h6>
+    <ul>
+      <li>{% trans "no_flood" %}</li>
+      <li>{% trans "no_spam" %}</li>
+      <li>{% trans "no_rude" %}</li>
+    </ul>
+    <p>
+      {% trans "on_either_problems_got_to_our_form" %} <a class="success-link" href="{% url "feedback:feedback" %}">{% trans "of_feedbacks" %}</a>
+    </p>
   </div>
 {% endblock content %}

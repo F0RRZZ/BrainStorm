@@ -26,51 +26,52 @@ class Project(django.db.models.Model):
     )
 
     name = django.db.models.CharField(
-        'название',
+        _('name'),
         max_length=150,
     )
     short_description = ckeditor.fields.RichTextField(
-        'краткое описание',
+        _('short_description'),
     )
     description = ckeditor.fields.RichTextField(
-        'описание',
+        _('full_description'),
     )
     collaborators = django.db.models.ManyToManyField(
         users.models.User,
-        verbose_name='коллабораторы',
+        verbose_name=_('collaborators'),
         related_name='colleagues',
     )
     tags = django.db.models.ManyToManyField(
         tags.models.Tag,
-        verbose_name='теги',
+        verbose_name=_('tags'),
         related_name='projects',
+        help_text=_('5_tags_maximum__lowercase'),
     )
     published = django.db.models.BooleanField(
-        'опубликовано',
+        _('published'),
         default=True,
     )
     in_archive = django.db.models.BooleanField(
-        'в архиве',
+        _('in_archive'),
         default=False,
     )
     status = django.db.models.CharField(
-        'статус проекта',
+        _('status'),
         max_length=20,
         choices=Status.choices,
         default=Status.IDEA,
     )
     creation_date = django.db.models.DateTimeField(
-        'дата создания',
+        _('creation_date'),
         auto_now_add=True,
     )
     update_date = django.db.models.DateTimeField(
-        'дата изменения',
+        _('update_date'),
         auto_now=True,
     )
 
     class Meta:
-        verbose_name = 'проект'
-        verbose_name_plural = 'проекты'
+        verbose_name = _('project')
+        verbose_name_plural = _('projects')
 
     def __str__(self):
         return self.name[:15]
@@ -81,17 +82,15 @@ class Project(django.db.models.Model):
             return django.utils.safestring.mark_safe(
                 f'<img src="{image_url}" width="50" height="50">'
             )
-        return 'Нет изображения'
+        return _('no_photo')
 
-    image_tmb.short_description = 'превью'
+    image_tmb.short_description = _('preview')
     image_tmb.allow_tags = True
 
 
 class Preview(core.models.ProjectImage):
     project = django.db.models.OneToOneField(
         Project,
-        verbose_name=Project._meta.verbose_name,
-        help_text='Какому проекту принадлежит превью',
         on_delete=django.db.models.CASCADE,
         related_name='preview',
     )
@@ -107,15 +106,13 @@ class Preview(core.models.ProjectImage):
 class ImagesGallery(core.models.ProjectImage):
     project = django.db.models.ForeignKey(
         Project,
-        verbose_name='продукт',
         on_delete=django.db.models.CASCADE,
-        help_text='Какому проекту принадлежит картинка',
         related_name='images_gallery',
     )
 
     class Meta:
-        verbose_name = 'галлерея'
-        verbose_name_plural = 'галлереи'
+        verbose_name = 'галерея'
+        verbose_name_plural = 'галереи'
 
     def __str__(self):
         return self.image.url

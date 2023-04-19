@@ -3,6 +3,7 @@ import re
 
 import django.contrib.auth.models
 import django.db.models
+from django.utils.translation import gettext_lazy as _
 
 import core.utils
 import users.managers
@@ -47,63 +48,52 @@ class User(
     DEFAULT_IMAGE = 'images/user_default.jpg'
 
     username = django.db.models.CharField(
-        'имя пользователя',
+        _('username'),
         max_length=100,
-        help_text=(
-            'Допускаются только буквы, цифры, дефис и нижнее подчеркивание'
-        ),
+        help_text=(_('only_letters_defis_and_underline')),
         unique=True,
     )
     bio = django.db.models.TextField(
-        'о себе',
+        _('user_bio'),
         max_length=1000,
         default='',
-        help_text='О себе',
     )
     first_name = django.db.models.CharField(
-        'имя',
+        _('name'),
         max_length=100,
         null=True,
         blank=True,
-        help_text='Имя',
     )
     last_name = django.db.models.CharField(
-        'фамилия',
+        _('last_name'),
         max_length=100,
         null=True,
         blank=True,
-        help_text='Фамилия',
     )
     email = django.db.models.EmailField(
-        'почта',
+        _('user_email'),
         max_length=254,
         unique=True,
-        help_text='Электронная почта',
     )
     normalized_email = NormalizedEmailField(
-        'нормализованная почта',
+        _('normalized_email'),
         unique=True,
-        help_text='Нормализованная электронная почта',
     )
     date_joined = django.db.models.DateTimeField(
-        'date joined',
+        _('date_joined'),
         auto_now=True,
-        help_text='Дата регистрации',
     )
     is_active = django.db.models.BooleanField(
-        'active',
+        _('active'),
         default=False,
-        help_text='Активен',
     )
     is_staff = django.db.models.BooleanField(
-        'staff',
+        _('staff'),
         default=False,
-        help_text='Персонал',
     )
     is_superuser = django.db.models.BooleanField(
-        'superuser',
+        _('superuser'),
         default=False,
-        help_text='Суперпользователь',
     )
 
     def get_image_filename(self, filename):
@@ -111,22 +101,23 @@ class User(
         return 'avatars/user_{}{}'.format(self.id, ext)
 
     image = django.db.models.ImageField(
-        'аватар',
+        _('avatar'),
         upload_to=get_image_filename,
         null=True,
         blank=True,
-        help_text='Аватарка',
     )
 
     EMAIL_FIELD = 'email'
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email']
+    REQUIRED_FIELDS = [
+        EMAIL_FIELD,
+    ]
 
     objects = users.managers.UserManager()
 
     class Meta:
-        verbose_name = 'пользователь'
-        verbose_name_plural = 'пользователи'
+        verbose_name = _('user')
+        verbose_name_plural = _('users')
 
     def natural_key(self):
         return self.username

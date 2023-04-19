@@ -77,3 +77,8 @@
 p:empty {
   display: none;
 }
+
+.django-ckeditor-widget {
+  width: 100% !important;
+  align-self: stretch !important;
+}

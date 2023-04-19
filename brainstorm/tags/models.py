@@ -1,51 +1,61 @@
-from django.core.validators import MaxLengthValidator, ValidationError
+import django.core.exceptions
+import django.core.validators
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
-from core.tools import name_formatter
+import core.tools
+import tags.managers
 
 
 class Tag(models.Model):
-    is_published = models.BooleanField('Опубликовано', default=True)
+    is_published = models.BooleanField(
+        _('published'),
+        default=True,
+    )
     name = models.CharField(
-        'название',
-        max_length=150,
-        help_text='Максимум 150 символов',
+        _('name'),
+        max_length=30,
+        help_text=_('maximum_30_symbols'),
     )
     description = models.TextField(
-        'описание',
-        max_length=300,
-        help_text='Описание. Максимум 300 символов',
+        _('description'),
+        max_length=400,
+        help_text=_('maximum_400_symbols'),
     )
     slug = models.SlugField(
         'slug',
         validators=[
-            MaxLengthValidator(200),
+            django.core.validators.MaxLengthValidator(50),
         ],
         unique=True,
-        help_text='Максимум 200 символов',
+        help_text=_('maximum_50_symbols'),
     )
     formatted_name = models.CharField(
-        'formatted name',
-        max_length=150,
+        _('normalized_name'),
+        max_length=35,
         editable=False,
     )
 
+    objects = tags.managers.TagManager()
+
     class Meta:
         default_related_name = 'tags'
-        verbose_name = 'тег'
-        verbose_name_plural = 'теги'
+        verbose_name = _('tag')
+        verbose_name_plural = _('tags')
 
     def __str__(self):
         return self.name
 
     def save(self, *args, **kwargs):
-        self.formatted_name = name_formatter(self.name)
+        self.formatted_name = core.tools.name_formatter(self.name)
         super().save(*args, **kwargs)
 
     def clean(self):
-        formatted_name = name_formatter(self.name)
+        formatted_name = core.tools.name_formatter(self.name)
         if self.__class__.objects.filter(
             formatted_name=formatted_name
         ).exists():
-            raise ValidationError('Название должно быть уникальным')
+            raise django.core.exceptions.ValidationError(
+                _('name_must_be_unique')
+            )
         return self.name

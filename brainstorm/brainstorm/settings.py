@@ -131,11 +131,32 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 CKEDITOR_CONFIGS = {
-    'awesome_ckeditor': {
-        'toolbar': 'Basic',
-    },
     'default': {
-        'update': ['blockquote'],
+        'toolbar': [
+            [
+                'Bold',
+                'Italic',
+                'Underline',
+                '-',
+                'Link',
+                'Unlink',
+                '-',
+                'NumberedList',
+                'BulletedList',
+            ],
+            [
+                'JustifyLeft',
+                'JustifyCenter',
+                'JustifyRight',
+                'JustifyBlock',
+                '-',
+                'TextColor',
+            ],
+        ],
+        'height': 'full',
+        'width': 'full',
+        'toolbarCanCollapse': False,
+        'forcePasteAsPlainText': True,
     },
 }
 

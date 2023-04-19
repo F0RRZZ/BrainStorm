@@ -1,0 +1,15 @@
+{% load i18n %}
+
+{% load static %}
+
+{% load add_class %}
+
+<div class="mt-1 d-flex flex-column align-items-start" id="tags-input">
+  <input class="form-control"
+         type="text"
+         placeholder="{% trans "tags_search" %}"
+         aria-label="default input example"/>
+  {{ field|add_class:"form-select mt-1" }}
+  <button type="button" class="btn btn-outline-danger mt-1 mb-2">{% trans "reset" %}</button>
+</div>
+<script type="module" src="{% static 'js/tags_input.js' %}"></script>

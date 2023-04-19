@@ -1,3 +1,8 @@
+# Skip Folder
+brainstorm/uploads
+brainstorm/media
+!brainstorm/media/images
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -127,6 +132,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
-# Skip Folder
-brainstorm/media

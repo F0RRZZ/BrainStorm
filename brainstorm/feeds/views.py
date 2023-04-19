@@ -11,22 +11,24 @@ class GetContextMixin:
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['tags'] = tags.models.Tag.objects.all()
+        context['tags'] = tags.models.Tag.objects.get_for_select()
         context['feed_name'] = self.__class__.feed_name
         return context
 
     def get_queryset(self):
         search = self.request.GET.get('search', '')
         tags_slugs = self.request.GET.get('tags', '').split(',')
-        obj = self.queryset.filter(
-            django.db.models.Q(name__icontains=search)
-            | django.db.models.Q(short_description__icontains=search)
-            | django.db.models.Q(description__icontains=search),
-        )
+        queryset = self.queryset
+        if search:
+            queryset = queryset.filter(
+                django.db.models.Q(name__icontains=search)
+                | django.db.models.Q(short_description__icontains=search)
+                | django.db.models.Q(description__icontains=search),
+            )
         if tags_slugs[0]:
             for tag in tags_slugs:
-                obj = obj.filter(tags__slug=tag)
-        return obj.distinct()
+                queryset = queryset.filter(tags__slug=tag)
+        return list(queryset.distinct())
 
 
 class NewProjectsView(GetContextMixin, django.views.generic.ListView):
