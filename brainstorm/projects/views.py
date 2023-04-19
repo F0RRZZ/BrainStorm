@@ -166,6 +166,14 @@ class RedactProject(
             pk=self.kwargs['project_id'],
         )
 
+    def dispatch(self, request, *args, **kwargs):
+        # Important to call before use self.object
+        result = super().dispatch(request, *args, **kwargs)
+        user = self.request.user
+        if user.id != self.object.author_id:
+            raise django.http.Http404()
+        return result
+
     def form_valid(self, form):
         project = form.save(commit=False)
         if 'preview' in self.request.FILES:
@@ -206,6 +214,7 @@ class DeleteProject(django.views.generic.DeleteView):
         )
 
     def dispatch(self, request, *args, **kwargs):
+        # Important to call before use self.object
         result = super().dispatch(request, *args, **kwargs)
         if result is None:  # Returned if form confirmed
             return django.shortcuts.redirect(self.get_success_url())
