@@ -20,352 +20,361 @@ msgstr ""
 
 #: brainstorm/settings.py:189
 msgid "English"
-msgstr ""
+msgstr "Englisch"
 
 #: brainstorm/settings.py:190
 msgid "Russian"
-msgstr ""
+msgstr "Russisch"
 
 #: brainstorm/settings.py:191
 msgid "Deutsche"
-msgstr ""
+msgstr "Deutsche"
 
 #: comments/forms.py:24
 msgid "type_text"
-msgstr ""
+msgstr "Text eingeben"
 
 #: feeds/views.py:20 templates/includes/header.html:57
 msgid "new"
-msgstr ""
+msgstr "neu"
 
 #: feeds/views.py:34
 msgid "most_popular"
-msgstr ""
+msgstr "am beliebtesten"
 
 #: feeds/views.py:49
 msgid "most_speaked"
-msgstr ""
+msgstr "am meisten gesprochen"
 
 #: feeds/views.py:64
 msgid "projects_archive"
-msgstr ""
+msgstr "Projektarchiv"
 
 #: templates/about/main.html:6 templates/about/main.html:11
 msgid "about_project"
-msgstr ""
+msgstr "über Projekt"
 
 #: templates/about/rules.html:6 templates/about/rules.html:11
 msgid "community_rules"
-msgstr ""
+msgstr "Gemeinschaftsregeln"
 
 #: templates/base.html:65
 msgid "no_content"
-msgstr ""
+msgstr "kein Inhalt"
 
 #: templates/feedback/feedback.html:6 templates/feedback/success.html:8
 msgid "feedback_page"
-msgstr ""
+msgstr "Feedback-Seite"
 
 #: templates/feedback/feedback.html:11 templates/includes/header.html:98
 msgid "give_feedback"
-msgstr ""
+msgstr "Feedback geben"
 
 #: templates/feedback/success.html:13
 msgid "thanks_for_your_feedback"
-msgstr ""
+msgstr "Vielen Dank für Ihr Feedback"
 
 #: templates/feedback/success.html:16
 msgid "to_main"
-msgstr ""
+msgstr "zu Haupt"
 
 #: templates/feedback/success.html:19
 msgid "to_feedback"
-msgstr ""
+msgstr "zu Rückmeldungen"
 
 #: templates/includes/form.html:9 templates/projects/project_view.html:242
 msgid "send"
-msgstr ""
+msgstr "schicken"
 
 #: templates/includes/header.html:26 templates/users/confirm_email.html:14
 #: templates/users/login.html:8 templates/users/login.html:13
 #: templates/users/password_reset_complete.html:13
 #: templates/users/password_reset_done.html:14 templates/users/signup.html:16
 msgid "login"
-msgstr ""
+msgstr "Anmeldung"
 
 #: templates/includes/header.html:27 templates/users/login.html:24
 msgid "register"
-msgstr ""
+msgstr "registrieren"
 
 #: templates/includes/header.html:35
 msgid "navigation"
-msgstr ""
+msgstr "Navigation"
 
 #: templates/includes/header.html:53
 msgid "feeds"
-msgstr ""
+msgstr "Einspeisungen"
 
 #: templates/includes/header.html:61
 msgid "popular"
-msgstr ""
+msgstr "beliebt"
 
 #: templates/includes/header.html:65
 msgid "speaked"
-msgstr ""
+msgstr "gesprochen"
 
 #: templates/includes/header.html:72
 msgid "archive"
-msgstr ""
+msgstr "Archiv"
 
 #: templates/includes/header.html:79
 msgid "tags"
-msgstr ""
+msgstr "Stichworte"
 
 #: templates/includes/header.html:86
 msgid "site"
-msgstr ""
+msgstr "Grundstück"
 
 #: templates/includes/header.html:90
 msgid "about_us"
-msgstr ""
+msgstr "über uns"
 
 #: templates/includes/header.html:94
 msgid "rules"
-msgstr ""
+msgstr "Regeln"
 
 #: templates/includes/header.html:108
 msgid "ruling"
-msgstr ""
+msgstr "Urteil"
 
 #: templates/includes/header.html:113
 msgid "admin"
-msgstr ""
+msgstr "Admin"
 
 #: templates/includes/project_card.html:19
 #: templates/projects/project_view.html:182
 msgid "author"
-msgstr ""
+msgstr "Autor"
 
 #: templates/includes/project_card.html:47
 msgid "go_to_project"
-msgstr ""
+msgstr "Gehe zum Projekt"
 
 #: templates/includes/project_card.html:50
 #: templates/projects/project_view.html:48
 msgid "redact"
-msgstr ""
+msgstr "redigieren"
 
 #: templates/includes/search_string.html:8
 msgid "type_what_you_search"
-msgstr ""
+msgstr "Geben Sie ein, was Sie suchen"
 
 #: templates/includes/search_string.html:10
 msgid "search"
-msgstr ""
+msgstr "suchen"
 
 #: templates/includes/tags_selector.html:9
 msgid "tags_search"
-msgstr ""
+msgstr "Suche nach Tags"
 
 #: templates/includes/tags_selector.html:20
 msgid "apply"
-msgstr ""
+msgstr "Anwenden"
 
 #: templates/includes/tags_selector.html:22 templates/tags/list.html:6
 #: templates/tags/list.html:15
 msgid "tags_list"
-msgstr ""
+msgstr "Tag-Liste"
 
 #: templates/includes/tags_selector.html:24
 msgid "reset"
-msgstr ""
+msgstr "Zurücksetzen"
 
 #: templates/projects/project_create.html:6
 #: templates/projects/project_create.html:11
 msgid "project_create"
-msgstr ""
+msgstr "Projekt erstellen"
 
 #: templates/projects/project_redact.html:6
 #: templates/projects/project_redact.html:11
 msgid "project_redact"
-msgstr ""
+msgstr "Projekt bearbeiten"
 
 #: templates/projects/project_view.html:43
 msgid "rating"
-msgstr ""
+msgstr "Bewertung"
 
 #: templates/projects/project_view.html:49
 msgid "delete"
-msgstr ""
+msgstr "Löschen"
 
 #: templates/projects/project_view.html:64
 msgid "information"
-msgstr ""
+msgstr "Information"
 
 #: templates/projects/project_view.html:74
 msgid "ratings_count"
-msgstr ""
+msgstr "Anzahl der Bewertungen"
 
 #: templates/projects/project_view.html:78
 msgid "comments_count"
-msgstr ""
+msgstr "Anzahl der Kommentare"
 
 #: templates/projects/project_view.html:82
 msgid "creation_date"
-msgstr ""
+msgstr "Erstelldatum"
 
 #: templates/projects/project_view.html:86
 msgid "update_date"
-msgstr ""
+msgstr "Änderungsdatum"
 
 #: templates/projects/project_view.html:102
 msgid "description"
-msgstr ""
+msgstr "Beschreibung"
 
 #: templates/projects/project_view.html:119
 msgid "gallery"
-msgstr ""
+msgstr "Galerie"
 
 #: templates/projects/project_view.html:156
 msgid "no_photo"
-msgstr ""
+msgstr "Kein Foto"
 
 #: templates/projects/project_view.html:169
 msgid "collaborators"
-msgstr ""
+msgstr "Mitglieder"
 
 #: templates/projects/project_view.html:202
 msgid "my_rating"
-msgstr ""
+msgstr "Mein Zeichen"
 
 #: templates/projects/project_view.html:215
 msgid "set_rating"
-msgstr ""
+msgstr "Rate"
 
 #: templates/projects/project_view.html:222 templates/users/user_detail.html:93
 msgid "comments"
-msgstr ""
+msgstr "Kommentare"
 
 #: templates/projects/project_view.html:226
 msgid "leave_comment"
-msgstr ""
+msgstr "Hinterlasse einen Kommentar"
 
 #: templates/users/activate_link_sends.html:6
 #: templates/users/activate_link_sends.html:11
 msgid "activate_link_sent"
-msgstr ""
+msgstr "Link gesendet"
 
 #: templates/users/activate_link_sends.html:12
 msgid "activate_link_sent_info"
-msgstr ""
+msgstr "Link gesendet"
 
 #: templates/users/confirm_email.html:6 templates/users/confirm_email.html:11
 msgid "user_activation_done"
-msgstr ""
+msgstr "Aktivierung abgeschlossen"
 
 #: templates/users/confirm_email.html:12
 msgid "user_activation_done_info"
-msgstr ""
+msgstr "Herzlichen Glückwunsch, Ihr Konto wurde aktiviert!"
 
 #: templates/users/login.html:22 templates/users/password_change.html:16
 msgid "forgot_password"
-msgstr ""
+msgstr "Passwort vergessen?"
 
 #: templates/users/password_change.html:6
 #: templates/users/password_change.html:11
 msgid "password_change"
-msgstr ""
+msgstr "Kennwort ändern"
 
 #: templates/users/password_change_done.html:6
 #: templates/users/password_change_done.html:11
 msgid "password_change_done"
-msgstr ""
+msgstr "Passwort geändert"
 
 #: templates/users/password_change_done.html:12
 msgid "password_change_done_info"
-msgstr ""
+msgstr "Herzlichen Glückwunsch, Ihr Passwort wurde erfolgreich geändert!"
 
 #: templates/users/password_reset.html:6 templates/users/password_reset.html:11
 msgid "password_reset"
-msgstr ""
+msgstr "Passwort Wiederherstellung"
 
 #: templates/users/password_reset.html:12
 msgid "password_reset_info"
 msgstr ""
+"Passwort vergessen? Geben Sie unten Ihre E-Mail-Adresse ein und wir"
+"senden Ihnen Anweisungen zum Festlegen eines neuen Passworts."
 
 #: templates/users/password_reset_complete.html:6
 #: templates/users/password_reset_complete.html:11
 msgid "password_reset_complete"
-msgstr ""
+msgstr "Passwortwiederherstellung abgeschlossen"
 
 #: templates/users/password_reset_complete.html:12
 msgid "password_reset_complete_info"
-msgstr ""
+msgstr "Ihr Passwort wurde gespeichert. Jetzt können Sie sich anmelden."
 
 #: templates/users/password_reset_confirm.html:6
 #: templates/users/password_reset_confirm.html:11
 msgid "password_reset_confirm"
-msgstr ""
+msgstr "Fehler bei der Kennwortwiederherstellung"
 
 #: templates/users/password_reset_confirm.html:12
 msgid "password_reset_confirm_info"
 msgstr ""
+"Ungültiger Link zum Zurücksetzen des Passworts. Vielleicht wurde es schon benutzt."
+"Bitte versuchen Sie erneut, Ihr Passwort zurückzusetzen."
 
 #: templates/users/password_reset_done.html:6
 #: templates/users/password_reset_done.html:11
 msgid "password_reset_done"
-msgstr ""
+msgstr "Eine E-Mail mit Anweisungen zur Passwortwiederherstellung wurde gesendet"
 
 #: templates/users/password_reset_done.html:12
 msgid "password_reset_done_info"
 msgstr ""
+"Wir haben Ihnen Anweisungen zum Festlegen eines neuen Passworts an die"
+"von Ihnen angegebene E-Mail-Adresse gesendet (falls wir eine solche"
+"Adresse in unserer Datenbank haben). Sie sollten es bald erhalten."
+"Wenn Sie keine E-Mail erhalten, stellen Sie bitte sicher, dass Sie die"
+"E-Mail-Adresse eingeben, mit der Sie sich registriert haben, und überprüfen Sie Ihren Spam-Ordner."
 
 #: templates/users/profile.html:8 templates/users/profile.html:14
 #: templates/users/user_detail.html:9 templates/users/user_detail.html:20
 msgid "my_profile"
-msgstr ""
+msgstr "Mein Profil"
 
 #: templates/users/profile.html:33 templates/users/user_detail.html:45
 msgid "user_email"
-msgstr ""
+msgstr "E-Mail"
 
 #: templates/users/profile.html:37 templates/users/user_detail.html:50
 msgid "user_bio"
-msgstr ""
+msgstr "Über mich"
 
 #: templates/users/profile.html:42 templates/users/user_detail.html:55
 msgid "not_set"
-msgstr ""
+msgstr "Nicht angezeigt"
 
 #: templates/users/profile.html:52 templates/users/profile.html:83
 #: templates/users/user_detail.html:66 templates/users/user_detail.html:169
 msgid "settings"
-msgstr ""
+msgstr "Einstellungen"
 
 #: templates/users/profile.html:54 templates/users/user_detail.html:68
 msgid "logout"
-msgstr ""
+msgstr "Hinausgehen"
 
 #: templates/users/profile.html:58
 msgid "my_projects"
-msgstr ""
+msgstr "Meine Projekte"
 
 #: templates/users/profile.html:63 templates/users/user_detail.html:111
 msgid "create"
-msgstr ""
+msgstr "Erstellen"
 
 #: templates/users/signup.html:6 templates/users/signup.html:11
 msgid "signup"
-msgstr ""
+msgstr "Anmeldung"
 
 #: templates/users/user_detail.html:83
 msgid "projects"
-msgstr ""
+msgstr "Projekte"
 
 #: templates/users/user_detail.html:144
 msgid "go_to"
-msgstr ""
+msgstr "Gehen"
 
 #: templates/users/user_detail.html:181
 msgid "change_password"
-msgstr ""
+msgstr "Kennwort ändern"

@@ -1,29 +1,62 @@
 import django.db.models
 
+import comments.models
+import projects.models
+import users.models
+
 
 class CommentsManager(django.db.models.Manager):
     def get_user_comments(self, user_id):
         return (
             self.filter(user_id=user_id)
-            .select_related('user')
+            .select_related(comments.models.Comment.user.field.name)
             .only(
-                'text',
-                'user__username',
-                'user__image',
-                'creation_date',
+                comments.models.Comment.text.field.name,
+                '__'.join(
+                    [
+                        comments.models.Comment.user.field.name,
+                        users.models.User.username.field.name,
+                    ]
+                ),
+                '__'.join(
+                    [
+                        comments.models.Comment.user.field.name,
+                        users.models.User.image.field.name,
+                    ]
+                ),
+                comments.models.Comment.creation_date.field.name,
             )
         )
 
     def get_project_comments(self, project_id):
         return (
             self.filter(project_id=project_id)
-            .select_related('user')
-            .prefetch_related('project')
+            .select_related(comments.models.Comment.user.field.name)
+            .prefetch_related(
+                django.db.models.Prefetch(
+                    comments.models.Comment.project.field.name,
+                )
+            )
             .only(
-                'text',
-                'user__username',
-                'user__image',
-                'creation_date',
-                'project__id',
+                comments.models.Comment.text.field.name,
+                '__'.join(
+                    [
+                        comments.models.Comment.user.field.name,
+                        users.models.User.username.field.name,
+                    ]
+                ),
+                '__'.join(
+                    [
+                        comments.models.Comment.user.field.name,
+                        users.models.User.image.field.name,
+                    ]
+                ),
+                comments.models.Comment.creation_date.field.name,
+                '__'.join(
+                    [
+                        comments.models.Comment.project.field.name,
+                        projects.models.Project.id.field.name,
+                    ]
+                ),
             )
         )
