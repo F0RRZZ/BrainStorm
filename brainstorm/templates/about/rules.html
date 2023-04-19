@@ -9,5 +9,12 @@
 {% block content %}
   <div class="container">
     <h3 class="mb-3">{% trans "community_rules" %}</h3>
+    <h6>Наши правила очень просты:</h6>
+    <ul>
+      <li>Не флудить</li>
+      <li>Не спамить</li>
+      <li>Не грубить</li>
+    </ul>
+    <p>По любым проблемам обращайтесь к нам через нашу форму <a class="success-link" href="{% url "feedback:feedback" %}">отзывов</a></p>
   </div>
 {% endblock content %}

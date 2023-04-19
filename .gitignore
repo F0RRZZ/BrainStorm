@@ -1,4 +1,5 @@
 # Skip Folder
+brainstorm/uploads
 brainstorm/media
 !brainstorm/media/images
 

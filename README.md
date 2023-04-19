@@ -8,6 +8,7 @@
     </td>
   </tr>
 </table>
+
 ### Установка и запуск
 
 Для того, чтобы проделать следующие шаги на Windows, установите [Git Bash](https://gitforwindows.org/)
