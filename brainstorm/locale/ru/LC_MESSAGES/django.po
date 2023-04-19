@@ -222,7 +222,7 @@ msgstr "Завершён"
 
 #: projects/models.py:29 tags/models.py:16 users/models.py:62
 msgid "name"
-msgstr "Название"
+msgstr "Имя"
 
 #: projects/models.py:33
 msgid "short_description"

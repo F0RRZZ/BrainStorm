@@ -36,7 +36,7 @@ class ViewProject(django.views.generic.DetailView):
         }, rating_exists
 
     def get_base_context(self, rating_exists=False):
-        project = self.object
+        project = self.get_object()
         comments_ = comments.models.Comment.objects.get_project_comments(
             project.id,
         )
@@ -160,8 +160,10 @@ class RedactProject(
     def get_initial(self):
         project = self.object
         initial = project.__dict__
-        if project.preview:
+        try:
             initial['preview'] = project.preview.image
+        except projects.models.Project.preview.RelatedObjectDoesNotExist:
+            pass
         return initial
 
     def get_success_url(self):
