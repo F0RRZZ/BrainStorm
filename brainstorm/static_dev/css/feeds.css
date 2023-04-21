@@ -9,10 +9,11 @@
 .bs-child-vertical-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: flex-start;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
   padding-right: 20px;
 }
 

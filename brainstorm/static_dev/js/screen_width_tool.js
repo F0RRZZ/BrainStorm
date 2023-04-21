@@ -2,6 +2,8 @@
 HTML:
 
 <div id="screen-width-display"></div>
+
+Tool for view screen width
 */
 display = document.getElementById("screen-width-display");
 display.style.position = "fixed";
