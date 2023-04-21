@@ -50,7 +50,7 @@ urlpatterns = [
         django.contrib.auth.views.PasswordResetConfirmView.as_view(
             template_name='users/password_reset_confirm.html',
         ),
-        name='password_reset_confirm',
+        name='auth_password_reset_confirm',
     ),
     django.urls.path(
         'reset/done/',
