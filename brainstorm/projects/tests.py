@@ -283,15 +283,15 @@ class FormsTests(django.test.TestCase):
 
     def test_name_label_correct(self):
         name_label = self.form.fields['name'].label
-        self.assertEqual(name_label, 'Название')
+        self.assertEqual(name_label, 'Имя')
 
     def test_short_description_label_correct(self):
         short_description_label = self.form.fields['short_description'].label
-        self.assertEqual(short_description_label, 'Краткое описание')
+        self.assertEqual(short_description_label, 'Short_description')
 
     def test_description_label_correct(self):
         description_label = self.form.fields['description'].label
-        self.assertEqual(description_label, 'Описание')
+        self.assertEqual(description_label, 'Full_description')
 
     def test_collaborators_label_correct(self):
         collaborators_label = self.form.fields['collaborators'].label
@@ -299,11 +299,11 @@ class FormsTests(django.test.TestCase):
 
     def test_status_label_correct(self):
         status_label = self.form.fields['status'].label
-        self.assertEqual(status_label, 'Статус')
+        self.assertEqual(status_label, 'Status')
 
     def test_tags_label_correct(self):
         tags_label = self.form.fields['tags'].label
-        self.assertEqual(tags_label, 'Теги')
+        self.assertEqual(tags_label, 'Tags')
 
     @classmethod
     def tearDownClass(cls):
