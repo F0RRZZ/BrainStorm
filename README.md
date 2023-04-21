@@ -99,6 +99,14 @@ python manage.py migrate
 python manage.py createsuperuser
 ```
 
+Также можно взять тестовые данные из фикстуры:
+
+| Windows                                | Linux/MacOS                             |
+|----------------------------------------|-----------------------------------------|
+| ```python manage.py loaddata core/fixtures/data.json``` | ```python3 manage.py loaddata core/fixtures/data.json``` |
+
+В случае, если вы не используете тестовые данные, необходимо удалить из папки media всё, кроме папки images
+
 6. Сгенерируйте файлы для перевода
 
 ```shell

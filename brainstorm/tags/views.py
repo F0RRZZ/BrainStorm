@@ -9,7 +9,7 @@ class TagsListView(django.views.generic.ListView):
     context_object_name = 'tags'
 
     def get_queryset(self):
-        return tags.models.Tag.objects.only(
+        return tags.models.Tag.objects.get_ordered().only(
             tags.models.Tag.name.field.name,
             tags.models.Tag.description.field.name,
         )

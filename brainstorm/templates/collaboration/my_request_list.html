@@ -2,6 +2,8 @@
 
 {% load i18n %}
 
+{% load static %}
+
 {% block title %}
   {% trans "my_requests" %}
 {% endblock title %}
@@ -34,6 +36,12 @@
     {% empty %}
       <div class="bs-empty-list-message">{% trans "nothing_to_show" %}</div>
     {% endfor %}
+    <div id="paginators-list" class="bs-none">page</div>
+    {% with indicator="page" %}
 
+      {% include "includes/pagination_bar.html" %}
+
+    {% endwith %}
+    <script type="module" src="{% static 'js/pagination_bar.js' %}"></script>
   </div>
 {% endblock content %}
