@@ -73,6 +73,7 @@ class RequestsListView(
     template_name = 'collaboration/request_list.html'
     context_object_name = 'requests'
     pk_url_kwarg = 'project_id'
+    paginate_by = 30
 
     def dispatch(self, request, *args, **kwargs):
         # Important to call before use self.project
@@ -94,6 +95,7 @@ class MyRequestsListView(
 ):
     template_name = 'collaboration/my_request_list.html'
     context_object_name = 'requests'
+    paginate_by = 10
 
     def get_queryset(self):
         return (

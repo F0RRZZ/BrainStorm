@@ -9,13 +9,22 @@ class CommentsManager(django.db.models.Manager):
     def get_for_user_detail(self, user_id):
         return (
             self.filter(user_id=user_id)
-            .select_related(comments.models.Comment.user.field.name)
+            .select_related(
+                comments.models.Comment.user.field.name,
+                comments.models.Comment.project.field.name,
+            )
             .only(
                 comments.models.Comment.text.field.name,
                 '__'.join(
                     [
                         comments.models.Comment.user.field.name,
                         users.models.User.username.field.name,
+                    ]
+                ),
+                '__'.join(
+                    [
+                        comments.models.Comment.project.field.name,
+                        projects.models.Project.name.field.name,
                     ]
                 ),
                 '__'.join(

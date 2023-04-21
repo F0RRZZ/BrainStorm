@@ -83,7 +83,7 @@ class UserDetailView(
 ):
     template_name = 'users/user_detail.html'
     pk_url_kwarg = 'username'
-    paginate_by = 30
+    paginate_by = 6
 
     queryset = users.models.User.objects.user_profile()
     form_class = users.forms.UserProfileForm

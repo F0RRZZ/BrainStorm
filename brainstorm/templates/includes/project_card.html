@@ -24,7 +24,7 @@
           </p>
         {% endif %}
         <hr />
-        <p class="card-text">{{ project.short_description|safe }}</p>
+        <p class="card-text">{{ project.short_description|safe|truncatewords_html:80 }}</p>
       </div>
     </div>
     <div class="col-md-4 bs-project-image-container">

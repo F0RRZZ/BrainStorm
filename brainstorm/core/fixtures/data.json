@@ -1,0 +1,2503 @@
+[
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2023-04-19T20:35:44.667Z",
+        "user": 4,
+        "content_type": 21,
+        "object_id": "1",
+        "object_repr": "WEB",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2023-04-21T14:17:07.243Z",
+        "user": 4,
+        "content_type": 21,
+        "object_id": "2",
+        "object_repr": "Мобильная разработка",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2023-04-21T14:17:37.868Z",
+        "user": 4,
+        "content_type": 21,
+        "object_id": "3",
+        "object_repr": "Игры",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2023-04-21T14:18:11.797Z",
+        "user": 4,
+        "content_type": 21,
+        "object_id": "4",
+        "object_repr": "Desktop разработка",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2023-04-21T14:18:56.312Z",
+        "user": 4,
+        "content_type": 21,
+        "object_id": "5",
+        "object_repr": "Пет-проект",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2023-04-21T14:19:28.739Z",
+        "user": 4,
+        "content_type": 21,
+        "object_id": "6",
+        "object_repr": "Масштабная идея",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2023-04-21T14:23:51.695Z",
+        "user": 4,
+        "content_type": 21,
+        "object_id": "7",
+        "object_repr": "UX-гениально",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2023-04-21T14:24:47.595Z",
+        "user": 4,
+        "content_type": 21,
+        "object_id": "8",
+        "object_repr": "IOS",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2023-04-21T14:25:05.380Z",
+        "user": 4,
+        "content_type": 21,
+        "object_id": "9",
+        "object_repr": "Android",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2023-04-21T14:25:25.865Z",
+        "user": 4,
+        "content_type": 21,
+        "object_id": "10",
+        "object_repr": "Linux",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2023-04-21T14:25:42.340Z",
+        "user": 4,
+        "content_type": 21,
+        "object_id": "11",
+        "object_repr": "Ubuntu",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2023-04-21T14:25:58.707Z",
+        "user": 4,
+        "content_type": 21,
+        "object_id": "12",
+        "object_repr": "MacOS",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2023-04-21T14:26:26.641Z",
+        "user": 4,
+        "content_type": 21,
+        "object_id": "13",
+        "object_repr": "HiveOS",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2023-04-21T14:26:47.253Z",
+        "user": 4,
+        "content_type": 21,
+        "object_id": "14",
+        "object_repr": "Fedora",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2023-04-21T14:27:07.358Z",
+        "user": 4,
+        "content_type": 21,
+        "object_id": "15",
+        "object_repr": "Manjaro",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2023-04-21T14:28:01.216Z",
+        "user": 4,
+        "content_type": 21,
+        "object_id": "1",
+        "object_repr": "WEB2",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Name\", \"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2023-04-21T14:28:06.643Z",
+        "user": 4,
+        "content_type": 21,
+        "object_id": "1",
+        "object_repr": "WEB",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": 1,
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": 1,
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": 1,
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": 1,
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+        "name": "Can add permission",
+        "content_type": 2,
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+        "name": "Can change permission",
+        "content_type": 2,
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": 2,
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+        "name": "Can view permission",
+        "content_type": 2,
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+        "name": "Can add group",
+        "content_type": 3,
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+        "name": "Can change group",
+        "content_type": 3,
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+        "name": "Can delete group",
+        "content_type": 3,
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+        "name": "Can view group",
+        "content_type": 3,
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+        "name": "Can add content type",
+        "content_type": 4,
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+        "name": "Can change content type",
+        "content_type": 4,
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": 4,
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+        "name": "Can view content type",
+        "content_type": 4,
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+        "name": "Can add session",
+        "content_type": 5,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+        "name": "Can change session",
+        "content_type": 5,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": 5,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+        "name": "Can view session",
+        "content_type": 5,
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+        "name": "Can add email address",
+        "content_type": 6,
+        "codename": "add_emailaddress"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+        "name": "Can change email address",
+        "content_type": 6,
+        "codename": "change_emailaddress"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+        "name": "Can delete email address",
+        "content_type": 6,
+        "codename": "delete_emailaddress"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+        "name": "Can view email address",
+        "content_type": 6,
+        "codename": "view_emailaddress"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+        "name": "Can add email confirmation",
+        "content_type": 7,
+        "codename": "add_emailconfirmation"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+        "name": "Can change email confirmation",
+        "content_type": 7,
+        "codename": "change_emailconfirmation"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+        "name": "Can delete email confirmation",
+        "content_type": 7,
+        "codename": "delete_emailconfirmation"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+        "name": "Can view email confirmation",
+        "content_type": 7,
+        "codename": "view_emailconfirmation"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+        "name": "Can add social account",
+        "content_type": 8,
+        "codename": "add_socialaccount"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+        "name": "Can change social account",
+        "content_type": 8,
+        "codename": "change_socialaccount"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+        "name": "Can delete social account",
+        "content_type": 8,
+        "codename": "delete_socialaccount"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+        "name": "Can view social account",
+        "content_type": 8,
+        "codename": "view_socialaccount"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+        "name": "Can add social application",
+        "content_type": 9,
+        "codename": "add_socialapp"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+        "name": "Can change social application",
+        "content_type": 9,
+        "codename": "change_socialapp"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+        "name": "Can delete social application",
+        "content_type": 9,
+        "codename": "delete_socialapp"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+        "name": "Can view social application",
+        "content_type": 9,
+        "codename": "view_socialapp"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+        "name": "Can add social application token",
+        "content_type": 10,
+        "codename": "add_socialtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+        "name": "Can change social application token",
+        "content_type": 10,
+        "codename": "change_socialtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+        "name": "Can delete social application token",
+        "content_type": 10,
+        "codename": "delete_socialtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+        "name": "Can view social application token",
+        "content_type": 10,
+        "codename": "view_socialtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+        "name": "Can add kv store",
+        "content_type": 11,
+        "codename": "add_kvstore"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+        "name": "Can change kv store",
+        "content_type": 11,
+        "codename": "change_kvstore"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+        "name": "Can delete kv store",
+        "content_type": 11,
+        "codename": "delete_kvstore"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+        "name": "Can view kv store",
+        "content_type": 11,
+        "codename": "view_kvstore"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+        "name": "Can add collaboration",
+        "content_type": 12,
+        "codename": "add_collaborationrequest"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+        "name": "Can change collaboration",
+        "content_type": 12,
+        "codename": "change_collaborationrequest"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+        "name": "Can delete collaboration",
+        "content_type": 12,
+        "codename": "delete_collaborationrequest"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+        "name": "Can view collaboration",
+        "content_type": 12,
+        "codename": "view_collaborationrequest"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+        "name": "Can add comment",
+        "content_type": 13,
+        "codename": "add_comment"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+        "name": "Can change comment",
+        "content_type": 13,
+        "codename": "change_comment"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+        "name": "Can delete comment",
+        "content_type": 13,
+        "codename": "delete_comment"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+        "name": "Can view comment",
+        "content_type": 13,
+        "codename": "view_comment"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+        "name": "Can add feedback",
+        "content_type": 14,
+        "codename": "add_feedback"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+        "name": "Can change feedback",
+        "content_type": 14,
+        "codename": "change_feedback"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+        "name": "Can delete feedback",
+        "content_type": 14,
+        "codename": "delete_feedback"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+        "name": "Can view feedback",
+        "content_type": 14,
+        "codename": "view_feedback"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+        "name": "Can add personal data",
+        "content_type": 15,
+        "codename": "add_personaldata"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+        "name": "Can change personal data",
+        "content_type": 15,
+        "codename": "change_personaldata"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+        "name": "Can delete personal data",
+        "content_type": 15,
+        "codename": "delete_personaldata"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+        "name": "Can view personal data",
+        "content_type": 15,
+        "codename": "view_personaldata"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+        "name": "Can add feedback file",
+        "content_type": 16,
+        "codename": "add_feedbackfile"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+        "name": "Can change feedback file",
+        "content_type": 16,
+        "codename": "change_feedbackfile"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+        "name": "Can delete feedback file",
+        "content_type": 16,
+        "codename": "delete_feedbackfile"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+        "name": "Can view feedback file",
+        "content_type": 16,
+        "codename": "view_feedbackfile"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 65,
+    "fields": {
+        "name": "Can add project",
+        "content_type": 17,
+        "codename": "add_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 66,
+    "fields": {
+        "name": "Can change project",
+        "content_type": 17,
+        "codename": "change_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 67,
+    "fields": {
+        "name": "Can delete project",
+        "content_type": 17,
+        "codename": "delete_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 68,
+    "fields": {
+        "name": "Can view project",
+        "content_type": 17,
+        "codename": "view_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 69,
+    "fields": {
+        "name": "Can add превью",
+        "content_type": 18,
+        "codename": "add_preview"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 70,
+    "fields": {
+        "name": "Can change превью",
+        "content_type": 18,
+        "codename": "change_preview"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 71,
+    "fields": {
+        "name": "Can delete превью",
+        "content_type": 18,
+        "codename": "delete_preview"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 72,
+    "fields": {
+        "name": "Can view превью",
+        "content_type": 18,
+        "codename": "view_preview"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 73,
+    "fields": {
+        "name": "Can add галерея",
+        "content_type": 19,
+        "codename": "add_imagesgallery"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 74,
+    "fields": {
+        "name": "Can change галерея",
+        "content_type": 19,
+        "codename": "change_imagesgallery"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 75,
+    "fields": {
+        "name": "Can delete галерея",
+        "content_type": 19,
+        "codename": "delete_imagesgallery"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 76,
+    "fields": {
+        "name": "Can view галерея",
+        "content_type": 19,
+        "codename": "view_imagesgallery"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 77,
+    "fields": {
+        "name": "Can add rating",
+        "content_type": 20,
+        "codename": "add_projectrating"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 78,
+    "fields": {
+        "name": "Can change rating",
+        "content_type": 20,
+        "codename": "change_projectrating"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 79,
+    "fields": {
+        "name": "Can delete rating",
+        "content_type": 20,
+        "codename": "delete_projectrating"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 80,
+    "fields": {
+        "name": "Can view rating",
+        "content_type": 20,
+        "codename": "view_projectrating"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 81,
+    "fields": {
+        "name": "Can add tag",
+        "content_type": 21,
+        "codename": "add_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 82,
+    "fields": {
+        "name": "Can change tag",
+        "content_type": 21,
+        "codename": "change_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 83,
+    "fields": {
+        "name": "Can delete tag",
+        "content_type": 21,
+        "codename": "delete_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 84,
+    "fields": {
+        "name": "Can view tag",
+        "content_type": 21,
+        "codename": "view_tag"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 85,
+    "fields": {
+        "name": "Can add user",
+        "content_type": 22,
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 86,
+    "fields": {
+        "name": "Can change user",
+        "content_type": 22,
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 87,
+    "fields": {
+        "name": "Can delete user",
+        "content_type": 22,
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 88,
+    "fields": {
+        "name": "Can view user",
+        "content_type": 22,
+        "codename": "view_user"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+        "app_label": "account",
+        "model": "emailaddress"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+        "app_label": "account",
+        "model": "emailconfirmation"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+        "app_label": "socialaccount",
+        "model": "socialaccount"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+        "app_label": "socialaccount",
+        "model": "socialapp"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+        "app_label": "socialaccount",
+        "model": "socialtoken"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+        "app_label": "thumbnail",
+        "model": "kvstore"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+        "app_label": "collaboration",
+        "model": "collaborationrequest"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+        "app_label": "comments",
+        "model": "comment"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+        "app_label": "feedback",
+        "model": "feedback"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": {
+        "app_label": "feedback",
+        "model": "personaldata"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": {
+        "app_label": "feedback",
+        "model": "feedbackfile"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 17,
+    "fields": {
+        "app_label": "projects",
+        "model": "project"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 18,
+    "fields": {
+        "app_label": "projects",
+        "model": "preview"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 19,
+    "fields": {
+        "app_label": "projects",
+        "model": "imagesgallery"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 20,
+    "fields": {
+        "app_label": "rating",
+        "model": "projectrating"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 21,
+    "fields": {
+        "app_label": "tags",
+        "model": "tag"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 22,
+    "fields": {
+        "app_label": "users",
+        "model": "user"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "qn3ht7meah7v216bq8h64ppsbqxf4bww",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAQRf-FtSHAQAdcuvcbyPCSqoGktCvjv2uTLnR7zzn3xTxta_XbyIufEzszzU6_W6D4yG0H6U7t1nnsbV3mwHeFH3Twa0_5eTncv4NKo35raZzWZGVQBjAnkGCBIoiIRkjtpBUFFeBkISApU5xVlEFMqoQolEb2_gClTjZJ:1pptWI:quHTSjQx9SD26yns_DOVrRitKf_5WRsEqBu65s28hl0",
+        "expire_date": "2023-05-05T16:21:58.511Z"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||02ca6d9705f01df66362e63c6b0052e9",
+    "fields": {
+        "value": "{\"name\": \"cache/82/34/8234c82c5e07b1af95fc76a375b52052.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||089f3501a37ac1e486ace57e5a335e91",
+    "fields": {
+        "value": "{\"name\": \"cache/99/a9/99a9ad0e44975604f1b7dc9602ff0c5a.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||0b28956905fa81a80dea7be81ec7adea",
+    "fields": {
+        "value": "{\"name\": \"project_previews/project_8/\\u043c\\u0438\\u0440.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [986, 728]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||2cb4c2625d61487f43b4447c06c5f7bb",
+    "fields": {
+        "value": "{\"name\": \"project_previews/project_11/81._Queen.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [508, 508]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||2dd35644faff766ca7574f3fdae4fe02",
+    "fields": {
+        "value": "{\"name\": \"project_previews/project_3/\\u0427\\u0435\\u0448\\u0438\\u0440\\u0441\\u043a\\u0438\\u0439_\\u043a\\u043e\\u0442.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [640, 640]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||3775d83ccb6d935f87a13531777c573c",
+    "fields": {
+        "value": "{\"name\": \"avatars/user_8.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [1000, 1000]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||450fe1e2b2fc639572cf1195ac8ceb60",
+    "fields": {
+        "value": "{\"name\": \"cache/70/18/701825d1166665f5071dd3e08ef088d7.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||4fe5e5dc831302d72460a29e2ccb7938",
+    "fields": {
+        "value": "{\"name\": \"cache/d6/2c/d62cac5228e51192c743ff5dd06e3718.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [50, 50]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||58fce93205256736acdd204530d555c5",
+    "fields": {
+        "value": "{\"name\": \"cache/d5/7f/d57fb3ffd000a1ae10ae6c636a0febdf.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||6197d386da205cc2877b682acd4d2f90",
+    "fields": {
+        "value": "{\"name\": \"cache/c8/7e/c87e3a29c293065e5ef4a7afe8c0f0c2.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||62f4790aa06cd85e861cff9bea940d31",
+    "fields": {
+        "value": "{\"name\": \"project_previews/project_5/\\u0421\\u0442\\u0440\\u0430\\u043d\\u043d\\u0438\\u043a_\\u043f\\u0440\\u0438\\u0432\\u0435\\u0442\\u0441\\u0442\\u0432\\u0438\\u0435.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [1078, 1080]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||6a0ef532331aa390ba52df8a2731157c",
+    "fields": {
+        "value": "{\"name\": \"project_previews/project_7/\\u0414\\u043e\\u043d.jpeg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [1800, 1200]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||72e3ff84b21e3bff1eb44bb84de9e756",
+    "fields": {
+        "value": "{\"name\": \"project_previews/project_4/\\u0412\\u0430\\u0441\\u0438\\u043b\\u0438\\u0441\\u043a.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [820, 627]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||7515fe9db90885ec6446d8511190702b",
+    "fields": {
+        "value": "{\"name\": \"avatars/user_3_DYH26Pf.png\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [1089, 668]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||7b267d8f77fd136c4a1ba52a30602542",
+    "fields": {
+        "value": "{\"name\": \"images/user_default.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [900, 900]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||7d064b94fa7917d0ca33457af2a95932",
+    "fields": {
+        "value": "{\"name\": \"cache/6f/d8/6fd862eadc624df3d53c7033887d5ca5.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||894ffbf7769faceef6fb76c7dad30de2",
+    "fields": {
+        "value": "{\"name\": \"cache/8c/d6/8cd60b1c5d6961051f9c9c4faa167eaa.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||c53d79d66f782ad03ad8caf45171307e",
+    "fields": {
+        "value": "{\"name\": \"cache/2a/5e/2a5e93627317e0fb17fb6df27c5c1956.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||d41bc9f6ddc75460f344997c98e2c98e",
+    "fields": {
+        "value": "{\"name\": \"cache/5c/59/5c59f5ad87f9cb46b309d01f53096e14.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||dffe8b1bafa02440cc46233613743f1d",
+    "fields": {
+        "value": "{\"name\": \"project_previews/project_10/BrainStorm_logo_with_all_bg.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [700, 700]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||fb464cbb7565d9abd56227b4bd5c9efe",
+    "fields": {
+        "value": "{\"name\": \"avatars/user_4.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [1080, 1080]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||fe47cbc259294ef2f1043e26d06b010d",
+    "fields": {
+        "value": "{\"name\": \"project_previews/project_9/img_3.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||0b28956905fa81a80dea7be81ec7adea",
+    "fields": {
+        "value": "[\"6197d386da205cc2877b682acd4d2f90\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||2cb4c2625d61487f43b4447c06c5f7bb",
+    "fields": {
+        "value": "[\"d41bc9f6ddc75460f344997c98e2c98e\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||2dd35644faff766ca7574f3fdae4fe02",
+    "fields": {
+        "value": "[\"450fe1e2b2fc639572cf1195ac8ceb60\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||62f4790aa06cd85e861cff9bea940d31",
+    "fields": {
+        "value": "[\"58fce93205256736acdd204530d555c5\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||6a0ef532331aa390ba52df8a2731157c",
+    "fields": {
+        "value": "[\"02ca6d9705f01df66362e63c6b0052e9\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||72e3ff84b21e3bff1eb44bb84de9e756",
+    "fields": {
+        "value": "[\"894ffbf7769faceef6fb76c7dad30de2\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||dffe8b1bafa02440cc46233613743f1d",
+    "fields": {
+        "value": "[\"c53d79d66f782ad03ad8caf45171307e\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||fb464cbb7565d9abd56227b4bd5c9efe",
+    "fields": {
+        "value": "[\"089f3501a37ac1e486ace57e5a335e91\", \"4fe5e5dc831302d72460a29e2ccb7938\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||fe47cbc259294ef2f1043e26d06b010d",
+    "fields": {
+        "value": "[\"7d064b94fa7917d0ca33457af2a95932\"]"
+    }
+},
+{
+    "model": "collaboration.collaborationrequest",
+    "pk": 1,
+    "fields": {
+        "project": 3,
+        "user": 7,
+        "contact": "Vivamus at consequat risus. Fusce tempor ante at porttitor condimentum. Maecenas blandit tempor purus. Sed ut enim vitae eros pellentesque ultrices in a mi. Donec tincidunt, sapien suscipit hendrerit porta, orci arcu volutpat urna, sed laoreet erat mauris quis est. Duis laoreet, nibh et eleifend sollicitudin, purus turpis blandit metus, vitae luctus enim nisi nec nisi.",
+        "about": "Nulla euismod nulla iaculis rutrum interdum. Nunc ornare tellus dui, ac varius justo auctor nec. Suspendisse maximus mauris elementum, dapibus metus sed, lacinia quam. Donec maximus tortor eu leo malesuada maximus. Vestibulum bibendum suscipit dui ac malesuada. Aliquam vel tincidunt lorem. Aenean tempus erat non ligula tincidunt gravida. Sed nec bibendum enim. Curabitur in neque mi. Vivamus at consequat risus. Fusce tempor ante at porttitor condimentum. Maecenas blandit tempor purus. Sed ut enim vitae eros pellentesque ultrices in a mi. Donec tincidunt, sapien suscipit hendrerit porta, orci arcu volutpat urna, sed laoreet erat mauris quis est. Duis laoreet, nibh et eleifend sollicitudin, purus turpis blandit metus, vitae luctus enim nisi nec nisi.",
+        "answer": "О, я рад принять вас в нашу команду. Добро пожаловать",
+        "creation_date": "2023-04-21T14:37:54.010Z",
+        "status": "adopted"
+    }
+},
+{
+    "model": "collaboration.collaborationrequest",
+    "pk": 2,
+    "fields": {
+        "project": 3,
+        "user": 3,
+        "contact": "Cras finibus mollis pretium. Sed pellentesque viverra venenatis. Ut congue elementum risus, ac gravida nisi feugiat nec. Proin et tincidunt nisi, eu dapibus orci.",
+        "about": "Mauris lacinia fringilla nisl, id rutrum diam bibendum vel. Integer quis risus vel tortor dignissim imperdiet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vestibulum in ex ut rutrum. Sed quis urna justo. Integer fringilla felis lorem, non pharetra nibh gravida at. Sed nec diam nulla. Fusce elementum ornare felis sed facilisis. Donec mollis sem vel metus laoreet blandit.\r\n\r\nMorbi nec accumsan tellus, nec vehicula massa. Duis risus diam, facilisis nec eros eu, auctor suscipit elit. Duis in eleifend odio. In imperdiet semper sem. Cras finibus mollis pretium. Sed pellentesque viverra venenatis. Ut congue elementum risus, ac gravida nisi feugiat nec. Proin et tincidunt nisi, eu dapibus orci.",
+        "answer": "",
+        "creation_date": "2023-04-21T14:50:25.511Z",
+        "status": "in_queue"
+    }
+},
+{
+    "model": "collaboration.collaborationrequest",
+    "pk": 3,
+    "fields": {
+        "project": 7,
+        "user": 7,
+        "contact": "Morbi non mauris posuere, efficitur mauris vel, varius elit. Phasellus neque nisl, gravida ut iaculis sit amet, imperdiet rhoncus lectus. Pellentesque suscipit vel nisi ac malesuada. Fusce vel urna non urna efficitur accumsan non eget metus. Sed viverra in nunc quis volutpat. Curabitur id enim ut sem tincidunt sagittis. Integer aliquet mauris ut sapien placerat, a accumsan felis condimentum. Nulla ultricies ipsum vitae orci dapibus, sed tempor mauris condimentum. Sed laoreet gravida ullamcorper.",
+        "about": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean id laoreet metus, sit amet dignissim metus. Quisque eu ligula quis quam venenatis pellentesque quis mattis mauris. Nunc fermentum sodales leo in vulputate. Sed neque metus, porta sit amet quam id, semper mollis odio. Proin commodo est eu porttitor rutrum. Proin eleifend rutrum tellus sit amet porta. Nulla facilisi. Integer imperdiet in nulla vitae eleifend. Vivamus eleifend elementum augue in consequat. In at enim finibus lorem rhoncus faucibus. Praesent pharetra maximus dolor vitae placerat. Aliquam ullamcorper, nibh nec sollicitudin imperdiet, urna justo porta massa, rutrum cursus nunc arcu quis neque.\r\n\r\nNunc ultrices risus vitae congue sagittis. Aenean egestas urna ut elit lacinia, quis ultrices justo feugiat. Nullam non metus sapien. Donec ac mi vel tortor congue facilisis. Donec molestie tincidunt felis ut tincidunt. Duis eleifend erat dictum turpis convallis, in dictum dolor tristique. Sed nec nibh pellentesque, egestas justo sodales, condimentum massa. Cras nec hendrerit diam, ultricies hendrerit mi. Etiam vel diam viverra, molestie magna eu, convallis nisi. Etiam porttitor porttitor tincidunt.",
+        "answer": "",
+        "creation_date": "2023-04-21T15:12:34.872Z",
+        "status": "in_queue"
+    }
+},
+{
+    "model": "collaboration.collaborationrequest",
+    "pk": 4,
+    "fields": {
+        "project": 9,
+        "user": 4,
+        "contact": "Proin commodo est eu porttitor rutrum. Proin eleifend rutrum tellus sit amet porta. Nulla facilisi. Integer imperdiet in nulla vitae eleifend. Vivamus eleifend elementum augue in consequat. In at enim finibus lorem rhoncus faucibus. Praesent pharetra maximus dolor vitae placerat. Aliquam ullamcorper, nibh nec sollicitudin imperdiet, urna justo porta massa, rutrum cursus nunc arcu quis neque.",
+        "about": "Morbi non mauris posuere, efficitur mauris vel, varius elit. Phasellus neque nisl, gravida ut iaculis sit amet, imperdiet rhoncus lectus. Pellentesque suscipit vel nisi ac malesuada. Fusce vel urna non urna efficitur accumsan non eget metus. Sed viverra in nunc quis volutpat. Curabitur id enim ut sem tincidunt sagittis. Integer aliquet mauris ut sapien placerat, a accumsan felis condimentum. Nulla ultricies ipsum vitae orci dapibus, sed tempor mauris condimentum. Sed laoreet gravida ullamcorper.\r\n\r\nInterdum et malesuada fames ac ante ipsum primis in faucibus. Aenean id laoreet metus, sit amet dignissim metus. Quisque eu ligula quis quam venenatis pellentesque quis mattis mauris. Nunc fermentum sodales leo in vulputate. Sed neque metus, porta sit amet quam id, semper mollis odio. Proin commodo est eu porttitor rutrum. Proin eleifend rutrum tellus sit amet porta. Nulla facilisi. Integer imperdiet in nulla vitae eleifend. Vivamus eleifend elementum augue in consequat. In at enim finibus lorem rhoncus faucibus. Praesent pharetra maximus dolor vitae placerat. Aliquam ullamcorper, nibh nec sollicitudin imperdiet, urna justo porta massa, rutrum cursus nunc arcu quis neque.\r\n\r\nNunc ultrices risus vitae congue sagittis. Aenean egestas urna ut elit lacinia, quis ultrices justo feugiat. Nullam non metus sapien. Donec ac mi vel tortor congue facilisis. Donec molestie tincidunt felis ut tincidunt. Duis eleifend erat dictum turpis convallis, in dictum dolor tristique. Sed nec nibh pellentesque, egestas justo sodales, condimentum massa. Cras nec hendrerit diam, ultricies hendrerit mi. Etiam vel diam viverra, molestie magna eu, convallis nisi. Etiam porttitor porttitor tincidunt.\r\n\r\nNunc ac risus feugiat, semper nisl vel, vehicula nibh. In nec est eros. Cras nisi elit, tempus aliquam massa vitae, euismod feugiat turpis. Integer vel mollis nibh. Etiam posuere nisi sed ante rutrum dapibus sed nec leo. Maecenas velit tortor, varius non malesuada a, tincidunt id quam. Integer molestie mi non arcu luctus imperdiet.",
+        "answer": "Morbi non mauris posuere, efficitur mauris vel, varius elit.",
+        "creation_date": "2023-04-21T15:17:08.212Z",
+        "status": "adopted"
+    }
+},
+{
+    "model": "collaboration.collaborationrequest",
+    "pk": 5,
+    "fields": {
+        "project": 8,
+        "user": 4,
+        "contact": "Nunc ac risus feugiat, semper nisl vel, vehicula nibh. In nec est eros. Cras nisi elit, tempus aliquam massa vitae, euismod feugiat turpis. Integer vel mollis nibh. Etiam posuere nisi sed ante rutrum dapibus sed nec leo. Maecenas velit tortor, varius non malesuada a, tincidunt id quam. Integer molestie mi non arcu luctus imperdiet.",
+        "about": "Morbi non mauris posuere, efficitur mauris vel, varius elit. Phasellus neque nisl, gravida ut iaculis sit amet, imperdiet rhoncus lectus. Pellentesque suscipit vel nisi ac malesuada. Fusce vel urna non urna efficitur accumsan non eget metus. Sed viverra in nunc quis volutpat. Curabitur id enim ut sem tincidunt sagittis. Integer aliquet mauris ut sapien placerat, a accumsan felis condimentum. Nulla ultricies ipsum vitae orci dapibus, sed tempor mauris condimentum. Sed laoreet gravida ullamcorper.\r\n\r\nInterdum et malesuada fames ac ante ipsum primis in faucibus. Aenean id laoreet metus, sit amet dignissim metus. Quisque eu ligula quis quam venenatis pellentesque quis mattis mauris. Nunc fermentum sodales leo in vulputate. Sed neque metus, porta sit amet quam id, semper mollis odio. Proin commodo est eu porttitor rutrum. Proin eleifend rutrum tellus sit amet porta. Nulla facilisi. Integer imperdiet in nulla vitae eleifend. Vivamus eleifend elementum augue in consequat. In at enim finibus lorem rhoncus faucibus. Praesent pharetra maximus dolor vitae placerat. Aliquam ullamcorper, nibh nec sollicitudin imperdiet, urna justo porta massa, rutrum cursus nunc arcu quis neque.\r\n\r\nNunc ultrices risus vitae congue sagittis. Aenean egestas urna ut elit lacinia, quis ultrices justo feugiat. Nullam non metus sapien. Donec ac mi vel tortor congue facilisis. Donec molestie tincidunt felis ut tincidunt. Duis eleifend erat dictum turpis convallis, in dictum dolor tristique. Sed nec nibh pellentesque, egestas justo sodales, condimentum massa. Cras nec hendrerit diam, ultricies hendrerit mi. Etiam vel diam viverra, molestie magna eu, convallis nisi. Etiam porttitor porttitor tincidunt.\r\n\r\nNunc ac risus feugiat, semper nisl vel, vehicula nibh. In nec est eros. Cras nisi elit, tempus aliquam massa vitae, euismod feugiat turpis. Integer vel mollis nibh. Etiam posuere nisi sed ante rutrum dapibus sed nec leo. Maecenas velit tortor, varius non malesuada a, tincidunt id quam. Integer molestie mi non arcu luctus imperdiet.",
+        "answer": "Proin commodo est eu porttitor rutrum",
+        "creation_date": "2023-04-21T15:17:45.213Z",
+        "status": "rejected"
+    }
+},
+{
+    "model": "collaboration.collaborationrequest",
+    "pk": 6,
+    "fields": {
+        "project": 7,
+        "user": 4,
+        "contact": "Sed nec nibh pellentesque, egestas justo sodales, condimentum massa. Cras nec hendrerit diam, ultricies hendrerit mi. Etiam vel diam viverra, molestie magna eu, convallis nisi. Etiam porttitor porttitor tincidunt.",
+        "about": "Morbi non mauris posuere, efficitur mauris vel, varius elit. Phasellus neque nisl, gravida ut iaculis sit amet, imperdiet rhoncus lectus. Pellentesque suscipit vel nisi ac malesuada. Fusce vel urna non urna efficitur accumsan non eget metus. Sed viverra in nunc quis volutpat. Curabitur id enim ut sem tincidunt sagittis. Integer aliquet mauris ut sapien placerat, a accumsan felis condimentum. Nulla ultricies ipsum vitae orci dapibus, sed tempor mauris condimentum. Sed laoreet gravida ullamcorper.\r\n\r\nInterdum et malesuada fames ac ante ipsum primis in faucibus. Aenean id laoreet metus, sit amet dignissim metus. Quisque eu ligula quis quam venenatis pellentesque quis mattis mauris. Nunc fermentum sodales leo in vulputate. Sed neque metus, porta sit amet quam id, semper mollis odio. Proin commodo est eu porttitor rutrum. Proin eleifend rutrum tellus sit amet porta. Nulla facilisi. Integer imperdiet in nulla vitae eleifend. Vivamus eleifend elementum augue in consequat. In at enim finibus lorem rhoncus faucibus. Praesent pharetra maximus dolor vitae placerat. Aliquam ullamcorper, nibh nec sollicitudin imperdiet, urna justo porta massa, rutrum cursus nunc arcu quis neque.\r\n\r\nNunc ultrices risus vitae congue sagittis. Aenean egestas urna ut elit lacinia, quis ultrices justo feugiat. Nullam non metus sapien. Donec ac mi vel tortor congue facilisis. Donec molestie tincidunt felis ut tincidunt. Duis eleifend erat dictum turpis convallis, in dictum dolor tristique. Sed nec nibh pellentesque, egestas justo sodales, condimentum massa. Cras nec hendrerit diam, ultricies hendrerit mi. Etiam vel diam viverra, molestie magna eu, convallis nisi. Etiam porttitor porttitor tincidunt.\r\n\r\nNunc ac risus feugiat, semper nisl vel, vehicula nibh. In nec est eros. Cras nisi elit, tempus aliquam massa vitae, euismod feugiat turpis. Integer vel mollis nibh. Etiam posuere nisi sed ante rutrum dapibus sed nec leo. Maecenas velit tortor, varius non malesuada a, tincidunt id quam. Integer molestie mi non arcu luctus imperdiet.",
+        "answer": "",
+        "creation_date": "2023-04-21T15:18:07.576Z",
+        "status": "adopted"
+    }
+},
+{
+    "model": "collaboration.collaborationrequest",
+    "pk": 7,
+    "fields": {
+        "project": 5,
+        "user": 4,
+        "contact": "Sed nec nibh pellentesque, egestas justo sodales, condimentum massa. Cras nec hendrerit diam, ultricies hendrerit mi. Etiam vel diam viverra, molestie magna eu, convallis nisi. Etiam porttitor porttitor tincidunt.",
+        "about": "Sed nec nibh pellentesque, egestas justo sodales, condimentum massa. Cras nec hendrerit diam, ultricies hendrerit mi. Etiam vel diam viverra, molestie magna eu, convallis nisi. Etiam porttitor porttitor tincidunt.",
+        "answer": "",
+        "creation_date": "2023-04-21T15:18:34.718Z",
+        "status": "in_queue"
+    }
+},
+{
+    "model": "collaboration.collaborationrequest",
+    "pk": 8,
+    "fields": {
+        "project": 3,
+        "user": 8,
+        "contact": "<p>Nulla ultricies ipsum vitae orci dapibus, sed tempor mauris condimentum. Sed laoreet gravida ullamcorper.</p>",
+        "about": "<p>Morbi non mauris posuere, efficitur mauris vel, varius elit. Phasellus neque nisl, gravida ut iaculis sit amet, imperdiet rhoncus lectus. Pellentesque suscipit vel nisi ac malesuada. Fusce vel urna non urna efficitur accumsan non eget metus. Sed viverra in nunc quis volutpat. Curabitur id enim ut sem tincidunt sagittis. Integer aliquet mauris ut sapien placerat, a accumsan felis condimentum. Nulla ultricies ipsum vitae orci dapibus, sed tempor mauris condimentum. Sed laoreet gravida ullamcorper.</p>",
+        "answer": "",
+        "creation_date": "2023-04-21T16:10:25.370Z",
+        "status": "in_queue"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 2,
+    "fields": {
+        "project": 3,
+        "user": 7,
+        "text": "Aenean egestas urna ut elit lacinia",
+        "creation_date": "2023-04-21T14:37:07.745Z",
+        "update_date": "2023-04-21T14:37:07.745Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 3,
+    "fields": {
+        "project": 3,
+        "user": 3,
+        "text": "Sed nec nibh pellentesque, egestas justo sodales",
+        "creation_date": "2023-04-21T14:44:19.446Z",
+        "update_date": "2023-04-21T14:44:19.446Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 4,
+    "fields": {
+        "project": 4,
+        "user": 3,
+        "text": "Pellentesque bibendum",
+        "creation_date": "2023-04-21T14:44:40.667Z",
+        "update_date": "2023-04-21T14:44:40.667Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 5,
+    "fields": {
+        "project": 7,
+        "user": 8,
+        "text": "Praesent euismod justo in purus convallis, ac dictum nulla cursus. Cras vestibulum elit ut tortor sollicitudin, id sodales orci cursus. Sed sit amet fringilla erat.",
+        "creation_date": "2023-04-21T14:56:22.284Z",
+        "update_date": "2023-04-21T14:56:22.284Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 6,
+    "fields": {
+        "project": 4,
+        "user": 8,
+        "text": "Integer vel mollis nibh. Etiam posuere nisi sed ante rutrum dapibus sed nec leo",
+        "creation_date": "2023-04-21T14:59:58.151Z",
+        "update_date": "2023-04-21T14:59:58.151Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 7,
+    "fields": {
+        "project": 4,
+        "user": 3,
+        "text": "Aliquam ullamcorper, nibh nec sollicitudin imperdiet, urna justo porta massa, rutrum cursus nunc arcu quis neque.",
+        "creation_date": "2023-04-21T15:03:10.521Z",
+        "update_date": "2023-04-21T15:03:10.521Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 8,
+    "fields": {
+        "project": 5,
+        "user": 3,
+        "text": "Nunc ac risus feugiat, semper nisl vel, vehicula nibh. In nec est eros.\r\nCras nisi elit, tempus aliquam massa vitae, euismod feugiat turpis.",
+        "creation_date": "2023-04-21T15:05:13.502Z",
+        "update_date": "2023-04-21T15:05:13.502Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 9,
+    "fields": {
+        "project": 4,
+        "user": 7,
+        "text": "Nunc ultrices risus vitae congue sagittis. Aenean egestas urna ut elit lacinia, quis ultrices justo feugiat.",
+        "creation_date": "2023-04-21T15:08:32.500Z",
+        "update_date": "2023-04-21T15:08:32.500Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 10,
+    "fields": {
+        "project": 4,
+        "user": 7,
+        "text": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean id laoreet metus, sit amet dignissim metus. Quisque eu ligula quis quam venenatis pellentesque quis mattis mauris. Nunc fermentum sodales leo in vulputate. Sed neque metus, porta sit amet quam id, semper mollis odio. Proin commodo est eu porttitor rutrum. Proin eleifend rutrum tellus sit amet porta. Nulla facilisi. Integer imperdiet in nulla vitae eleifend.",
+        "creation_date": "2023-04-21T15:11:18.846Z",
+        "update_date": "2023-04-21T15:11:18.846Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 11,
+    "fields": {
+        "project": 7,
+        "user": 7,
+        "text": "In magna quam, posuere sed suscipit quis, viverra a eros. Vestibulum ornare orci ac leo elementum, id sagittis eros finibus.",
+        "creation_date": "2023-04-21T15:12:04.075Z",
+        "update_date": "2023-04-21T15:12:04.075Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 12,
+    "fields": {
+        "project": 5,
+        "user": 4,
+        "text": "Cras nec hendrerit diam, ultricies hendrerit mi. Etiam vel diam viverra, molestie magna eu, convallis nisi. Etiam porttitor porttitor tincidunt.",
+        "creation_date": "2023-04-21T15:19:26.806Z",
+        "update_date": "2023-04-21T15:19:26.806Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 13,
+    "fields": {
+        "project": 8,
+        "user": 4,
+        "text": "Sed laoreet gravida ullamcorper.",
+        "creation_date": "2023-04-21T15:19:48.000Z",
+        "update_date": "2023-04-21T15:19:48.000Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 14,
+    "fields": {
+        "project": 8,
+        "user": 4,
+        "text": "Curabitur id enim ut sem tincidunt sagittis.\r\nInteger aliquet mauris ut sapien placerat, a accumsan felis condimentum.",
+        "creation_date": "2023-04-21T15:20:06.672Z",
+        "update_date": "2023-04-21T15:20:06.672Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 15,
+    "fields": {
+        "project": 9,
+        "user": 4,
+        "text": "Pellentesque bibendum eget magna vel iaculis. Nunc eget tempus purus. Donec ultrices libero quam, quis faucibus dolor commodo sit amet. Proin eu nisl diam. In at massa vitae tortor lacinia bibendum. In magna quam, posuere sed suscipit quis, viverra a eros. Vestibulum ornare orci ac leo elementum, id sagittis eros finibus.",
+        "creation_date": "2023-04-21T15:20:35.539Z",
+        "update_date": "2023-04-21T15:20:35.539Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 16,
+    "fields": {
+        "project": 3,
+        "user": 4,
+        "text": "Proin eleifend rutrum tellus sit amet porta. Nulla facilisi. Integer imperdiet in nulla vitae eleifend. Vivamus eleifend elementum augue in consequat.",
+        "creation_date": "2023-04-21T15:21:00.700Z",
+        "update_date": "2023-04-21T15:21:00.700Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 17,
+    "fields": {
+        "project": 6,
+        "user": 4,
+        "text": "Morbi non mauris posuere, efficitur mauris vel, varius elit. Phasellus neque nisl",
+        "creation_date": "2023-04-21T15:22:08.969Z",
+        "update_date": "2023-04-21T15:22:08.970Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 18,
+    "fields": {
+        "project": 7,
+        "user": 4,
+        "text": "Proin commodo est eu porttitor rutrum",
+        "creation_date": "2023-04-21T15:23:02.283Z",
+        "update_date": "2023-04-21T15:23:02.283Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 19,
+    "fields": {
+        "project": 7,
+        "user": 4,
+        "text": "Nunc ultrices risus vitae congue sagittis. Aenean egestas urna ut elit lacinia, quis ultrices justo feugiat. Nullam non metus sapien. Donec ac mi vel tortor congue facilisis",
+        "creation_date": "2023-04-21T15:24:07.537Z",
+        "update_date": "2023-04-21T15:24:07.537Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 20,
+    "fields": {
+        "project": 7,
+        "user": 4,
+        "text": "Vivamus eleifend elementum augue in consequat. In at enim finibus lorem rhoncus faucibus. Praesent pharetra maximus dolor vitae placerat.",
+        "creation_date": "2023-04-21T15:24:16.877Z",
+        "update_date": "2023-04-21T15:24:16.877Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 21,
+    "fields": {
+        "project": 7,
+        "user": 4,
+        "text": "Interdum et malesuada fames ac ante ipsum primis in faucibus",
+        "creation_date": "2023-04-21T15:24:26.078Z",
+        "update_date": "2023-04-21T15:24:26.078Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 22,
+    "fields": {
+        "project": 7,
+        "user": 4,
+        "text": "Fusce vel urna non urna efficitur accumsan non eget metus. Sed viverra in nunc quis volutpat. Curabitur id enim ut sem tincidunt sagittis",
+        "creation_date": "2023-04-21T15:24:41.302Z",
+        "update_date": "2023-04-21T15:24:41.302Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 23,
+    "fields": {
+        "project": 5,
+        "user": 4,
+        "text": "Vivamus eleifend elementum",
+        "creation_date": "2023-04-21T15:25:17.869Z",
+        "update_date": "2023-04-21T15:25:17.869Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 24,
+    "fields": {
+        "project": 6,
+        "user": 4,
+        "text": "Nunc fermentum sodales leo in vulputate",
+        "creation_date": "2023-04-21T15:25:53.358Z",
+        "update_date": "2023-04-21T15:25:53.359Z"
+    }
+},
+{
+    "model": "comments.comment",
+    "pk": 25,
+    "fields": {
+        "project": 11,
+        "user": 3,
+        "text": "Phasellus a ligula facilisis, lacinia metus nec, porttitor erat. Integer in aliquet ante. Vivamus eget ipsum cursus, commodo risus ut, auctor arcu",
+        "creation_date": "2023-04-21T16:21:34.099Z",
+        "update_date": "2023-04-21T16:21:34.099Z"
+    }
+},
+{
+    "model": "projects.project",
+    "pk": 3,
+    "fields": {
+        "author": 4,
+        "name": "Хороший сайт",
+        "short_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur laoreet fermentum purus, ut venenatis libero. Mauris semper commodo mauris, a ultrices risus elementum in. Nulla suscipit imperdiet nisl ac euismod. Curabitur posuere lacus ac sapien pharetra faucibus. Nullam nec magna odio. Donec sed vestibulum odio. Donec quis nibh vitae lorem suscipit iaculis sit amet sed massa. Ut dui lacus, pharetra eget nibh vel, sodales ornare lacus.",
+        "description": "Nulla euismod nulla iaculis rutrum interdum. Nunc ornare tellus dui, ac varius justo auctor nec. Suspendisse maximus mauris elementum, dapibus metus sed, lacinia quam. Donec maximus tortor eu leo malesuada maximus. Vestibulum bibendum suscipit dui ac malesuada. Aliquam vel tincidunt lorem. Aenean tempus erat non ligula tincidunt gravida. Sed nec bibendum enim. Curabitur in neque mi. Vivamus at consequat risus. Fusce tempor ante at porttitor condimentum. Maecenas blandit tempor purus. Sed ut enim vitae eros pellentesque ultrices in a mi. Donec tincidunt, sapien suscipit hendrerit porta, orci arcu volutpat urna, sed laoreet erat mauris quis est. Duis laoreet, nibh et eleifend sollicitudin, purus turpis blandit metus, vitae luctus enim nisi nec nisi.\r\n\r\nNam pulvinar dolor quis massa pellentesque pulvinar. Maecenas tempor est eu diam elementum malesuada. Aliquam sagittis eu velit tincidunt pretium. Nam lacinia ultrices massa, ut aliquam felis sodales a. Cras at quam eget turpis molestie consequat. Integer dignissim, justo eu tristique ultrices, est velit sollicitudin velit, vitae placerat lectus velit pulvinar velit. Integer maximus massa nec lacus pharetra ornare sed sed neque. Mauris efficitur erat a diam mattis, non convallis ipsum faucibus. Pellentesque et purus ut ante cursus ultricies.\r\n\r\nUt sit amet urna odio. Aliquam pharetra lorem mi, eu tempus metus imperdiet non. Sed iaculis urna ut erat pretium, eget condimentum diam porttitor. Phasellus ac facilisis mi, ac viverra sapien. Cras ornare laoreet felis, ac fermentum velit vulputate sed. Proin quis augue felis. Nulla pellentesque massa nisl, sed tincidunt odio suscipit eget. Vivamus commodo, justo aliquet consectetur semper, sapien lectus accumsan tellus, vitae varius erat neque in ligula. Vestibulum augue ante, tempus sed bibendum porta, maximus et leo. Sed dictum nunc libero, id finibus nibh consequat iaculis. Morbi feugiat lectus nibh, at pharetra lorem auctor ac. Phasellus condimentum ante vel erat interdum, sit amet rhoncus metus rutrum. Phasellus tincidunt sem a sem cursus fringilla ut sed erat. Donec semper volutpat tortor non lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;\r\n\r\nQuisque velit ipsum, pharetra vitae egestas in, laoreet ac lectus. Proin elit mi, volutpat sed consequat eu, tincidunt et nulla. Nunc interdum leo vitae ultrices dignissim. Praesent cursus lorem in arcu molestie congue. Cras ligula arcu, ornare ac finibus eget, convallis a enim. Etiam nulla tortor, vulputate ac ultrices eget, hendrerit condimentum dolor. Suspendisse imperdiet neque orci. Cras vitae dolor iaculis, suscipit eros eget, fermentum eros. Integer porta nisi quis enim rhoncus consequat. Vestibulum faucibus sem quis ante rutrum viverra. Sed congue ex dolor, a dapibus arcu dictum vitae. Phasellus malesuada ipsum id ullamcorper rutrum. Quisque eget massa vestibulum, finibus nulla in, aliquam justo.",
+        "published": true,
+        "in_archive": false,
+        "status": "development",
+        "creation_date": "2023-04-21T14:07:14.429Z",
+        "update_date": "2023-04-21T14:07:14.429Z",
+        "collaborators": [
+            7
+        ],
+        "tags": [
+            1,
+            6
+        ]
+    }
+},
+{
+    "model": "projects.project",
+    "pk": 4,
+    "fields": {
+        "author": 4,
+        "name": "Сайт со странностями",
+        "short_description": "Donec in tincidunt nisi. Maecenas pellentesque aliquet lacus, quis hendrerit est. In vitae nulla in tellus tincidunt varius. Nulla efficitur, leo ut faucibus interdum, orci ex convallis ligula, vel efficitur mi leo non nulla. Donec quam nunc, suscipit quis est ac, laoreet porta elit. Integer sed justo bibendum, varius odio a, tempor est. Duis eget mauris sed ante consequat pellentesque a sed augue.",
+        "description": "Nulla efficitur, leo ut faucibus interdum, orci ex convallis ligula, vel efficitur mi leo non nulla. Donec quam nunc, suscipit quis est ac, laoreet porta elit. Integer sed justo bibendum, varius odio a, tempor est. Duis eget mauris sed ante consequat pellentesque a sed augue.\r\n\r\nSed at neque ac odio porta eleifend at id magna. Mauris id blandit lorem, sit amet dictum lacus. Vestibulum imperdiet, sapien sed consequat congue, ante nunc auctor purus, tempor molestie felis tortor at tellus. Suspendisse a eros a odio rutrum efficitur vitae sit amet dolor. Sed at consequat arcu, tempor accumsan nisi. Maecenas auctor interdum magna nec egestas. Pellentesque ultrices sapien consequat bibendum tristique. Vivamus vitae libero tincidunt, porttitor augue sed, elementum turpis.",
+        "published": true,
+        "in_archive": false,
+        "status": "idea",
+        "creation_date": "2023-04-21T14:40:18.250Z",
+        "update_date": "2023-04-21T14:40:18.250Z",
+        "collaborators": [],
+        "tags": [
+            4,
+            7,
+            10,
+            11,
+            14
+        ]
+    }
+},
+{
+    "model": "projects.project",
+    "pk": 5,
+    "fields": {
+        "author": 3,
+        "name": "Бета",
+        "short_description": "Mauris lacinia fringilla nisl, id rutrum diam bibendum vel. Integer quis risus vel tortor dignissim imperdiet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vestibulum in ex ut rutrum. Sed quis urna justo. Integer fringilla felis lorem, non pharetra nibh gravida at. Sed nec diam nulla. Fusce elementum ornare felis sed facilisis. Donec mollis sem vel metus laoreet blandit.",
+        "description": "Sed at neque ac odio porta eleifend at id magna. Mauris id blandit lorem, sit amet dictum lacus. Vestibulum imperdiet, sapien sed consequat congue, ante nunc auctor purus, tempor molestie felis tortor at tellus. Suspendisse a eros a odio rutrum efficitur vitae sit amet dolor. Sed at consequat arcu, tempor accumsan nisi. Maecenas auctor interdum magna nec egestas. Pellentesque ultrices sapien consequat bibendum tristique. Vivamus vitae libero tincidunt, porttitor augue sed, elementum turpis.\r\n\r\nMauris lacinia fringilla nisl, id rutrum diam bibendum vel. Integer quis risus vel tortor dignissim imperdiet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vestibulum in ex ut rutrum. Sed quis urna justo. Integer fringilla felis lorem, non pharetra nibh gravida at. Sed nec diam nulla. Fusce elementum ornare felis sed facilisis. Donec mollis sem vel metus laoreet blandit.\r\n\r\nMorbi nec accumsan tellus, nec vehicula massa. Duis risus diam, facilisis nec eros eu, auctor suscipit elit. Duis in eleifend odio. In imperdiet semper sem. Cras finibus mollis pretium. Sed pellentesque viverra venenatis. Ut congue elementum risus, ac gravida nisi feugiat nec. Proin et tincidunt nisi, eu dapibus orci.\r\n\r\nProin eget tempor massa. Aenean lacinia quam id elit porta lacinia. Nunc et massa pharetra, vulputate sem sed, pretium ligula. Fusce tempus vestibulum feugiat. Cras eget lacinia tortor. In at orci nec ante blandit efficitur. Ut quis congue dui, posuere gravida urna. Suspendisse potenti.",
+        "published": true,
+        "in_archive": false,
+        "status": "ended",
+        "creation_date": "2023-04-21T14:43:33.636Z",
+        "update_date": "2023-04-21T14:43:33.636Z",
+        "collaborators": [],
+        "tags": [
+            3,
+            4,
+            12,
+            13,
+            15
+        ]
+    }
+},
+{
+    "model": "projects.project",
+    "pk": 6,
+    "fields": {
+        "author": 3,
+        "name": "Гамма",
+        "short_description": "Donec in tincidunt nisi. Maecenas pellentesque aliquet lacus, quis hendrerit est. In vitae nulla in tellus tincidunt varius. Mauris id blandit lorem, sit amet dictum lacus. Vestibulum imperdiet, sapien sed consequat congue, ante nunc auctor purus, tempor molestie felis tortor at tellus. Suspendisse a eros a odio rutrum efficitur vitae sit amet dolor. Sed at consequat arcu, tempor accumsan nisi. Maecenas auctor interdum magna nec egestas. Pellentesque ultrices sapien consequat bibendum tristique. Vivamus vitae libero tincidunt, porttitor augue sed, elementum turpis.",
+        "description": "Donec in tincidunt nisi. Maecenas pellentesque aliquet lacus, quis hendrerit est. In vitae nulla in tellus tincidunt varius. Nulla efficitur, leo ut faucibus interdum, orci ex convallis ligula, vel efficitur mi leo non nulla. Donec quam nunc, suscipit quis est ac, laoreet porta elit. Integer sed justo bibendum, varius odio a, tempor est. Duis eget mauris sed ante consequat pellentesque a sed augue.\r\n\r\nSed at neque ac odio porta eleifend at id magna. Mauris id blandit lorem, sit amet dictum lacus. Vestibulum imperdiet, sapien sed consequat congue, ante nunc auctor purus, tempor molestie felis tortor at tellus. Suspendisse a eros a odio rutrum efficitur vitae sit amet dolor. Sed at consequat arcu, tempor accumsan nisi. Maecenas auctor interdum magna nec egestas. Pellentesque ultrices sapien consequat bibendum tristique. Vivamus vitae libero tincidunt, porttitor augue sed, elementum turpis.",
+        "published": true,
+        "in_archive": false,
+        "status": "idea",
+        "creation_date": "2023-04-21T14:46:46.053Z",
+        "update_date": "2023-04-21T14:46:46.053Z",
+        "collaborators": [],
+        "tags": [
+            2,
+            4,
+            7,
+            10,
+            11
+        ]
+    }
+},
+{
+    "model": "projects.project",
+    "pk": 7,
+    "fields": {
+        "author": 3,
+        "name": "Дельта",
+        "short_description": "Sed at neque ac odio porta eleifend at id magna. Mauris id blandit lorem, sit amet dictum lacus. Vestibulum imperdiet, sapien sed consequat congue, ante nunc auctor purus, tempor molestie felis tortor at tellus. Suspendisse a eros a odio rutrum efficitur vitae sit amet dolor. Sed at consequat arcu, tempor accumsan nisi. Maecenas auctor interdum magna nec egestas. Pellentesque ultrices sapien consequat bibendum tristique. Vivamus vitae libero tincidunt, porttitor augue sed, elementum turpis.",
+        "description": "Mauris lacinia fringilla nisl, id rutrum diam bibendum vel. Integer quis risus vel tortor dignissim imperdiet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vestibulum in ex ut rutrum. Sed quis urna justo. Integer fringilla felis lorem, non pharetra nibh gravida at. Sed nec diam nulla. Fusce elementum ornare felis sed facilisis. Donec mollis sem vel metus laoreet blandit.\r\n\r\nMorbi nec accumsan tellus, nec vehicula massa. Duis risus diam, facilisis nec eros eu, auctor suscipit elit. Duis in eleifend odio. In imperdiet semper sem. Cras finibus mollis pretium. Sed pellentesque viverra venenatis. Ut congue elementum risus, ac gravida nisi feugiat nec. Proin et tincidunt nisi, eu dapibus orci.\r\n\r\nProin eget tempor massa. Aenean lacinia quam id elit porta lacinia. Nunc et massa pharetra, vulputate sem sed, pretium ligula. Fusce tempus vestibulum feugiat. Cras eget lacinia tortor. In at orci nec ante blandit efficitur. Ut quis congue dui, posuere gravida urna. Suspendisse potenti.",
+        "published": true,
+        "in_archive": false,
+        "status": "development",
+        "creation_date": "2023-04-21T14:48:46.387Z",
+        "update_date": "2023-04-21T14:48:46.387Z",
+        "collaborators": [
+            4
+        ],
+        "tags": [
+            1,
+            8,
+            12
+        ]
+    }
+},
+{
+    "model": "projects.project",
+    "pk": 8,
+    "fields": {
+        "author": 8,
+        "name": "О дивный новый мир",
+        "short_description": "Proin eget tempor massa. Aenean lacinia quam id elit porta lacinia. Nunc et massa pharetra, vulputate sem sed, pretium ligula. Fusce tempus vestibulum feugiat. Cras eget lacinia tortor. In at orci nec ante blandit efficitur. Ut quis congue dui, posuere gravida urna. Suspendisse potenti.",
+        "description": "Morbi nec accumsan tellus, nec vehicula massa. Duis risus diam, facilisis nec eros eu, auctor suscipit elit. Duis in eleifend odio. In imperdiet semper sem. Cras finibus mollis pretium. Sed pellentesque viverra venenatis. Ut congue elementum risus, ac gravida nisi feugiat nec. Proin et tincidunt nisi, eu dapibus orci.\r\n\r\nProin eget tempor massa. Aenean lacinia quam id elit porta lacinia. Nunc et massa pharetra, vulputate sem sed, pretium ligula. Fusce tempus vestibulum feugiat. Cras eget lacinia tortor. In at orci nec ante blandit efficitur. Ut quis congue dui, posuere gravida urna. Suspendisse potenti.",
+        "published": true,
+        "in_archive": false,
+        "status": "ended",
+        "creation_date": "2023-04-21T14:53:04.636Z",
+        "update_date": "2023-04-21T14:53:04.636Z",
+        "collaborators": [],
+        "tags": [
+            5,
+            11,
+            12
+        ]
+    }
+},
+{
+    "model": "projects.project",
+    "pk": 9,
+    "fields": {
+        "author": 8,
+        "name": "1984",
+        "short_description": "Aenean egestas urna ut elit lacinia, quis ultrices justo feugiat. Nullam non metus sapien. Donec ac mi vel tortor congue facilisis. Donec molestie tincidunt felis ut tincidunt. Duis eleifend erat dictum turpis convallis, in dictum dolor tristique.",
+        "description": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean id laoreet metus, sit amet dignissim metus. Quisque eu ligula quis quam venenatis pellentesque quis mattis mauris. Nunc fermentum sodales leo in vulputate. Sed neque metus, porta sit amet quam id, semper mollis odio. Proin commodo est eu porttitor rutrum. Proin eleifend rutrum tellus sit amet porta. Nulla facilisi. Integer imperdiet in nulla vitae eleifend. Vivamus eleifend elementum augue in consequat. In at enim finibus lorem rhoncus faucibus. Praesent pharetra maximus dolor vitae placerat. Aliquam ullamcorper, nibh nec sollicitudin imperdiet, urna justo porta massa, rutrum cursus nunc arcu quis neque.\r\n\r\nNunc ultrices risus vitae congue sagittis. Aenean egestas urna ut elit lacinia, quis ultrices justo feugiat. Nullam non metus sapien. Donec ac mi vel tortor congue facilisis. Donec molestie tincidunt felis ut tincidunt. Duis eleifend erat dictum turpis convallis, in dictum dolor tristique. Sed nec nibh pellentesque, egestas justo sodales, condimentum massa. Cras nec hendrerit diam, ultricies hendrerit mi. Etiam vel diam viverra, molestie magna eu, convallis nisi. Etiam porttitor porttitor tincidunt.",
+        "published": true,
+        "in_archive": false,
+        "status": "ended",
+        "creation_date": "2023-04-21T14:55:10.697Z",
+        "update_date": "2023-04-21T14:55:10.697Z",
+        "collaborators": [
+            4
+        ],
+        "tags": [
+            1,
+            4,
+            6,
+            7
+        ]
+    }
+},
+{
+    "model": "projects.project",
+    "pk": 10,
+    "fields": {
+        "author": 4,
+        "name": "BrainStorm",
+        "short_description": "<p>Duis vel congue ligula, nec accumsan justo. Nulla id porttitor ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed ut blandit turpis, ut dignissim lorem. Maecenas nunc sapien, suscipit sed ex vitae, luctus tempus neque. Aliquam nec neque quis tortor finibus interdum quis id lacus. Curabitur mi orci, auctor eget felis ut, consequat ornare sapien. Aliquam erat volutpat. Suspendisse nec libero at nisi rhoncus malesuada.</p>",
+        "description": "<p>Fusce lacinia neque quis turpis egestas suscipit. Integer tempor ligula non sollicitudin dignissim. Nullam luctus aliquam massa, quis accumsan lectus. Praesent mattis, augue a lacinia laoreet, neque lacus pulvinar dolor, ac tristique quam arcu sit amet mi. Curabitur a facilisis urna, quis vestibulum ante. Donec maximus porttitor dapibus. Aliquam at mauris urna. Nunc risus lacus, scelerisque a pulvinar quis, consequat ut mauris. Vestibulum blandit facilisis pulvinar. Vivamus non odio pretium, pretium eros sed, dignissim erat. Curabitur eleifend, sapien non accumsan rhoncus, mi justo consectetur quam, sit amet eleifend neque tortor at metus. Quisque congue, urna vehicula laoreet faucibus, quam turpis eleifend turpis, et commodo justo justo eu metus. Integer vitae est justo. Suspendisse rhoncus, quam eget lobortis tempor, elit neque consequat sapien, nec luctus tellus leo ac erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat volutpat.</p>\r\n\r\n<p>Cras semper eu massa a ornare. Vestibulum scelerisque feugiat faucibus. Proin eget vestibulum enim. Quisque eleifend, lacus cursus viverra aliquet, ligula lectus egestas neque, nec mattis odio orci et ex. Morbi turpis urna, pellentesque eget placerat viverra, lobortis eget nunc. Aenean sed vehicula nisi. Nulla sed pellentesque neque.</p>",
+        "published": true,
+        "in_archive": false,
+        "status": "development",
+        "creation_date": "2023-04-21T16:16:03.814Z",
+        "update_date": "2023-04-21T16:16:03.814Z",
+        "collaborators": [],
+        "tags": [
+            1,
+            7,
+            10,
+            11
+        ]
+    }
+},
+{
+    "model": "projects.project",
+    "pk": 11,
+    "fields": {
+        "author": 3,
+        "name": "Тетта",
+        "short_description": "<p>Etiam lectus massa, ullamcorper et laoreet sed, facilisis ac felis. Duis nec justo elementum, lobortis magna pretium, pharetra mi. Praesent sagittis fringilla posuere. Phasellus a ligula facilisis, lacinia metus nec, porttitor erat. Integer in aliquet ante. Vivamus eget ipsum cursus, commodo risus ut, auctor arcu. Ut id ultrices purus.</p>",
+        "description": "<p>Cras semper eu massa a ornare. Vestibulum scelerisque feugiat faucibus. Proin eget vestibulum enim. Quisque eleifend, lacus cursus viverra aliquet, ligula lectus egestas neque, nec mattis odio orci et ex. Morbi turpis urna, pellentesque eget placerat viverra, lobortis eget nunc. Aenean sed vehicula nisi. Nulla sed pellentesque neque.</p>\r\n\r\n<p>Etiam lectus massa, ullamcorper et laoreet sed, facilisis ac felis. Duis nec justo elementum, lobortis magna pretium, pharetra mi. Praesent sagittis fringilla posuere. Phasellus a ligula facilisis, lacinia metus nec, porttitor erat. Integer in aliquet ante. Vivamus eget ipsum cursus, commodo risus ut, auctor arcu. Ut id ultrices purus.</p>\r\n\r\n<p>Nullam posuere nisi id dui pretium gravida vitae sit amet erat. Quisque sed elit vel purus molestie scelerisque. Aliquam imperdiet libero ac euismod condimentum. Praesent egestas sit amet ex sed condimentum. Maecenas dapibus ex vitae euismod fermentum. Nulla vitae luctus lectus. Phasellus lobortis vehicula tincidunt. Nullam sem risus, mattis ac dapibus at, dignissim eget lacus. Nulla eu auctor mi. Maecenas volutpat quis diam a condimentum. Sed pretium diam dui, eget condimentum nulla dictum et. Donec at leo non leo vestibulum rutrum. Maecenas dignissim, augue non tempor cursus, turpis enim imperdiet tortor, non commodo tortor mauris id nibh. Suspendisse nec risus non risus egestas porta. Nam tincidunt ut lectus eget lacinia.</p>",
+        "published": true,
+        "in_archive": false,
+        "status": "idea",
+        "creation_date": "2023-04-21T16:18:55.401Z",
+        "update_date": "2023-04-21T16:18:55.401Z",
+        "collaborators": [],
+        "tags": [
+            3,
+            6,
+            8,
+            9
+        ]
+    }
+},
+{
+    "model": "projects.preview",
+    "pk": 1,
+    "fields": {
+        "image": "project_previews/project_3/Чеширский_кот.jpg",
+        "project": 3
+    }
+},
+{
+    "model": "projects.preview",
+    "pk": 2,
+    "fields": {
+        "image": "project_previews/project_4/Василиск.jpg",
+        "project": 4
+    }
+},
+{
+    "model": "projects.preview",
+    "pk": 3,
+    "fields": {
+        "image": "project_previews/project_5/Странник_приветствие.jpg",
+        "project": 5
+    }
+},
+{
+    "model": "projects.preview",
+    "pk": 4,
+    "fields": {
+        "image": "project_previews/project_7/Дон.jpeg",
+        "project": 7
+    }
+},
+{
+    "model": "projects.preview",
+    "pk": 5,
+    "fields": {
+        "image": "project_previews/project_8/мир.jpg",
+        "project": 8
+    }
+},
+{
+    "model": "projects.preview",
+    "pk": 6,
+    "fields": {
+        "image": "project_previews/project_9/img_3.jpg",
+        "project": 9
+    }
+},
+{
+    "model": "projects.preview",
+    "pk": 7,
+    "fields": {
+        "image": "project_previews/project_10/BrainStorm_logo_with_all_bg.jpg",
+        "project": 10
+    }
+},
+{
+    "model": "projects.preview",
+    "pk": 8,
+    "fields": {
+        "image": "project_previews/project_11/81._Queen.jpg",
+        "project": 11
+    }
+},
+{
+    "model": "projects.imagesgallery",
+    "pk": 1,
+    "fields": {
+        "image": "project_previews/project_8/bs_logo_1.jpg",
+        "project": 8
+    }
+},
+{
+    "model": "projects.imagesgallery",
+    "pk": 2,
+    "fields": {
+        "image": "project_previews/project_8/bs_logo_2.jpg",
+        "project": 8
+    }
+},
+{
+    "model": "projects.imagesgallery",
+    "pk": 3,
+    "fields": {
+        "image": "project_previews/project_8/bs_logo_2.png",
+        "project": 8
+    }
+},
+{
+    "model": "projects.imagesgallery",
+    "pk": 4,
+    "fields": {
+        "image": "project_previews/project_8/bs_logo_2_2color_0.png",
+        "project": 8
+    }
+},
+{
+    "model": "rating.projectrating",
+    "pk": 2,
+    "fields": {
+        "project": 3,
+        "user": 7,
+        "score": 9
+    }
+},
+{
+    "model": "rating.projectrating",
+    "pk": 3,
+    "fields": {
+        "project": 3,
+        "user": 3,
+        "score": 10
+    }
+},
+{
+    "model": "rating.projectrating",
+    "pk": 4,
+    "fields": {
+        "project": 4,
+        "user": 3,
+        "score": 6
+    }
+},
+{
+    "model": "rating.projectrating",
+    "pk": 5,
+    "fields": {
+        "project": 7,
+        "user": 8,
+        "score": 8
+    }
+},
+{
+    "model": "rating.projectrating",
+    "pk": 6,
+    "fields": {
+        "project": 5,
+        "user": 8,
+        "score": 7
+    }
+},
+{
+    "model": "rating.projectrating",
+    "pk": 7,
+    "fields": {
+        "project": 6,
+        "user": 8,
+        "score": 3
+    }
+},
+{
+    "model": "rating.projectrating",
+    "pk": 8,
+    "fields": {
+        "project": 3,
+        "user": 8,
+        "score": 9
+    }
+},
+{
+    "model": "rating.projectrating",
+    "pk": 9,
+    "fields": {
+        "project": 4,
+        "user": 8,
+        "score": 5
+    }
+},
+{
+    "model": "rating.projectrating",
+    "pk": 10,
+    "fields": {
+        "project": 9,
+        "user": 3,
+        "score": 7
+    }
+},
+{
+    "model": "rating.projectrating",
+    "pk": 11,
+    "fields": {
+        "project": 8,
+        "user": 3,
+        "score": 8
+    }
+},
+{
+    "model": "rating.projectrating",
+    "pk": 12,
+    "fields": {
+        "project": 9,
+        "user": 7,
+        "score": 8
+    }
+},
+{
+    "model": "rating.projectrating",
+    "pk": 13,
+    "fields": {
+        "project": 8,
+        "user": 7,
+        "score": 9
+    }
+},
+{
+    "model": "rating.projectrating",
+    "pk": 14,
+    "fields": {
+        "project": 7,
+        "user": 7,
+        "score": 7
+    }
+},
+{
+    "model": "rating.projectrating",
+    "pk": 15,
+    "fields": {
+        "project": 6,
+        "user": 7,
+        "score": 2
+    }
+},
+{
+    "model": "rating.projectrating",
+    "pk": 16,
+    "fields": {
+        "project": 5,
+        "user": 7,
+        "score": 8
+    }
+},
+{
+    "model": "rating.projectrating",
+    "pk": 17,
+    "fields": {
+        "project": 4,
+        "user": 7,
+        "score": 6
+    }
+},
+{
+    "model": "rating.projectrating",
+    "pk": 18,
+    "fields": {
+        "project": 5,
+        "user": 4,
+        "score": 7
+    }
+},
+{
+    "model": "rating.projectrating",
+    "pk": 19,
+    "fields": {
+        "project": 9,
+        "user": 4,
+        "score": 8
+    }
+},
+{
+    "model": "rating.projectrating",
+    "pk": 20,
+    "fields": {
+        "project": 6,
+        "user": 4,
+        "score": 4
+    }
+},
+{
+    "model": "tags.tag",
+    "pk": 1,
+    "fields": {
+        "is_published": true,
+        "name": "WEB",
+        "description": "Cras at quam eget turpis molestie consequat. Integer dignissim, justo eu tristique ultrices, est velit sollicitudin velit, vitae placerat lectus velit pulvinar velit. Integer maximus massa nec lacus pharetra ornare sed sed neque. Mauris efficitur erat a diam mattis, non convallis ipsum faucibus. Pellentesque et purus ut ante cursus ultricies.",
+        "slug": "web",
+        "formatted_name": "web"
+    }
+},
+{
+    "model": "tags.tag",
+    "pk": 2,
+    "fields": {
+        "is_published": true,
+        "name": "Мобильная разработка",
+        "description": "Nam pulvinar dolor quis massa pellentesque pulvinar. Maecenas tempor est eu diam elementum malesuada. Aliquam sagittis eu velit tincidunt pretium. Nam lacinia ultrices massa, ut aliquam felis sodales a. Cras at quam eget turpis molestie consequat. Integer dignissim, justo eu tristique ultrices, est velit sollicitudin velit, vitae placerat lectus velit pulvinar velit. Integer maximus massa nec lacu",
+        "slug": "mobile",
+        "formatted_name": "мобильнаяразработка"
+    }
+},
+{
+    "model": "tags.tag",
+    "pk": 3,
+    "fields": {
+        "is_published": true,
+        "name": "Игры",
+        "description": "Quisque velit ipsum, pharetra vitae egestas in, laoreet ac lectus. Proin elit mi, volutpat sed consequat eu, tincidunt et nulla. Nunc interdum leo vitae ultrices dignissim. Praesent cursus lorem in arcu molestie congue. Cras ligula arcu, ornare ac finibus eget, convallis a enim. Etiam nulla tortor, vulputate ac ultrices eget, hendrerit condimentum dolor. Suspendisse imperdiet neque orci. Cras vita",
+        "slug": "games",
+        "formatted_name": "игры"
+    }
+},
+{
+    "model": "tags.tag",
+    "pk": 4,
+    "fields": {
+        "is_published": true,
+        "name": "Desktop разработка",
+        "description": "Ut sit amet urna odio. Aliquam pharetra lorem mi, eu tempus metus imperdiet non. Sed iaculis urna ut erat pretium, eget condimentum diam porttitor. Phasellus ac facilisis mi, ac viverra sapien. Cras ornare laoreet felis, ac fermentum velit vulputate sed. Proin quis augue felis. Nulla pellentesque massa nisl, sed tincidunt odio suscipit eget. Vivamus commodo, justo aliquet consectetur semper, sapie",
+        "slug": "desktop-development",
+        "formatted_name": "desktopразработка"
+    }
+},
+{
+    "model": "tags.tag",
+    "pk": 5,
+    "fields": {
+        "is_published": true,
+        "name": "Пет-проект",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur laoreet fermentum purus, ut venenatis libero. Mauris semper commodo mauris, a ultrices risus elementum in. Nulla suscipit imperdiet nisl ac euismod. Curabitur posuere lacus ac sapien pharetra faucibus. Nullam nec magna odio. Donec sed vestibulum odio. Donec quis nibh vitae lorem suscipit iaculis sit amet sed massa. Ut dui lacus",
+        "slug": "pet-project",
+        "formatted_name": "петпроект"
+    }
+},
+{
+    "model": "tags.tag",
+    "pk": 6,
+    "fields": {
+        "is_published": true,
+        "name": "Масштабная идея",
+        "description": "Nulla euismod nulla iaculis rutrum interdum. Nunc ornare tellus dui, ac varius justo auctor nec. Suspendisse maximus mauris elementum, dapibus metus sed, lacinia quam. Donec maximus tortor eu leo malesuada maximus. Vestibulum bibendum suscipit dui ac malesuada. Aliquam vel tincidunt lorem. Aenean tempus erat non ligula tincidunt gravida. Sed nec bibendum enim. Curabitur in neque mi. Vivamus at con",
+        "slug": "wow-idea",
+        "formatted_name": "масштабнаяидея"
+    }
+},
+{
+    "model": "tags.tag",
+    "pk": 7,
+    "fields": {
+        "is_published": true,
+        "name": "UX-гениально",
+        "description": "Nam pulvinar dolor quis massa pellentesque pulvinar. Maecenas tempor est eu diam elementum malesuada. Aliquam sagittis eu velit tincidunt pretium. Nam lacinia ultrices massa, ut aliquam felis sodales a. Cras at quam eget turpis molestie consequat. Integer dignissim, justo eu tristique ultrices, est velit sollicitudin velit, vitae placerat lectus velit pulvinar velit. Integer maximus massa nec lacu",
+        "slug": "ux-genius",
+        "formatted_name": "uxгениально"
+    }
+},
+{
+    "model": "tags.tag",
+    "pk": 8,
+    "fields": {
+        "is_published": true,
+        "name": "IOS",
+        "description": "Ut sit amet urna odio. Aliquam pharetra lorem mi, eu tempus metus imperdiet non. Sed iaculis urna ut erat pretium, eget condimentum diam porttitor. Phasellus ac facilisis mi, ac viverra sapien. Cras ornare laoreet felis, ac fermentum velit vulputate sed. Proin quis augue felis. Nulla pellentesque massa nisl, sed tincidunt odio suscipit eget. Vivamus commodo, justo aliquet consectetur semper, sapie",
+        "slug": "ios",
+        "formatted_name": "ios"
+    }
+},
+{
+    "model": "tags.tag",
+    "pk": 9,
+    "fields": {
+        "is_published": true,
+        "name": "Android",
+        "description": "Cras ornare laoreet felis, ac fermentum velit vulputate sed. Proin quis augue felis. Nulla pellentesque massa nisl, sed tincidunt odio suscipit eget. Vivamus commodo, justo aliquet consectetur semper, sapie",
+        "slug": "android",
+        "formatted_name": "android"
+    }
+},
+{
+    "model": "tags.tag",
+    "pk": 10,
+    "fields": {
+        "is_published": true,
+        "name": "Linux",
+        "description": "Phasellus ac facilisis mi, ac viverra sapien. Cras ornare laoreet felis, ac fermentum velit vulputate sed. Proin quis augue felis. Nulla pellentesque massa nisl, sed tincidunt odio suscipit eget. Vivamus commodo, justo aliquet consectetur semper, sapie",
+        "slug": "linux",
+        "formatted_name": "linux"
+    }
+},
+{
+    "model": "tags.tag",
+    "pk": 11,
+    "fields": {
+        "is_published": true,
+        "name": "Ubuntu",
+        "description": "Aliquam pharetra lorem mi, eu tempus metus imperdiet non. Sed iaculis urna ut erat pretium, eget condimentum diam porttitor. Phasellus ac facilisis mi, ac viverra sapien. Cras ornare laoreet felis, ac fermentum velit vulputate sed. Proin quis augue felis. Nulla pellentesque massa nisl, sed tincidunt odio suscipit eget. Vivamus commodo, justo aliquet consectetur semper, sapie",
+        "slug": "ubuntu",
+        "formatted_name": "ubuntu"
+    }
+},
+{
+    "model": "tags.tag",
+    "pk": 12,
+    "fields": {
+        "is_published": true,
+        "name": "MacOS",
+        "description": "Vivamus commodo, justo aliquet consectetur semper, sapie",
+        "slug": "macos",
+        "formatted_name": "macos"
+    }
+},
+{
+    "model": "tags.tag",
+    "pk": 13,
+    "fields": {
+        "is_published": true,
+        "name": "HiveOS",
+        "description": "Ut sit amet urna odio. Aliquam pharetra lorem mi, eu tempus metus imperdiet non. Sed iaculis urna ut erat pretium, eget condimentum diam porttitor. Phasellus ac facilisis mi, ac viverra sapien.",
+        "slug": "hive-os",
+        "formatted_name": "hiveos"
+    }
+},
+{
+    "model": "tags.tag",
+    "pk": 14,
+    "fields": {
+        "is_published": true,
+        "name": "Fedora",
+        "description": "Nam lacinia ultrices massa, ut aliquam felis sodales a. Cras at quam eget turpis molestie consequat. Integer dignissim, justo eu tristique ultrices, est velit sollicitudin velit, vitae placerat lectus velit pulvinar velit. Integer maximus massa nec lacus pharetra ornare sed sed neque. Mauris efficitur erat a diam mattis, non convallis ipsum faucibus. Pellentesque et purus ut ante cursus ultricies.",
+        "slug": "fedora",
+        "formatted_name": "fedora"
+    }
+},
+{
+    "model": "tags.tag",
+    "pk": 15,
+    "fields": {
+        "is_published": true,
+        "name": "Manjaro",
+        "description": "Integer dignissim, justo eu tristique ultrices, est velit sollicitudin velit, vitae placerat lectus velit pulvinar velit. Integer maximus massa nec lacus pharetra ornare sed sed neque. Mauris efficitur erat a diam mattis, non convallis ipsum faucibus. Pellentesque et purus ut ante cursus ultricies.",
+        "slug": "manjaro",
+        "formatted_name": "manjaro"
+    }
+},
+{
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$dVK4vETASsQMl8K0YBZ7MB$2n9+vIiePdU5ykp1xJvg2htrCRu5x29kQZqNiisyEbI=",
+        "last_login": "2023-04-21T16:18:14.027Z",
+        "username": "Alpha125",
+        "bio": "Привет всем из Тихого города!",
+        "first_name": "Альфа",
+        "last_name": null,
+        "email": "alpha@mail.ru",
+        "normalized_email": "alpha@mail.ru",
+        "date_joined": "2023-04-19T20:31:54.112Z",
+        "is_active": true,
+        "is_staff": false,
+        "is_superuser": false,
+        "image": "avatars/user_3_DYH26Pf.png",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$Pp1eWhczvZtt2nrN9Scj3S$+r3uSzqpTC7i3g3KVlGD+m0iRo0tzko0Qb1GnLLJ79w=",
+        "last_login": "2023-04-21T16:21:58.476Z",
+        "username": "Rostislav",
+        "bio": "Фронтендер, один из создателей BrainStorm",
+        "first_name": "Ростислав",
+        "last_name": "Шишмарев",
+        "email": "rostislav@yandex.ru",
+        "normalized_email": "rostislav@yandex.ru",
+        "date_joined": "2023-04-19T20:34:47.644Z",
+        "is_active": true,
+        "is_staff": true,
+        "is_superuser": true,
+        "image": "avatars/user_4.jpg",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$g7ThaDTCsBo7EILallVuvi$pdBbm7y9FpqMZ5wZcS2tJVcgHnZShB0YYxFdFqOrPno=",
+        "last_login": "2023-04-21T15:06:36.823Z",
+        "username": "Monach",
+        "bio": "",
+        "first_name": null,
+        "last_name": null,
+        "email": "monach@ya.ru",
+        "normalized_email": "monach@yandex.ru",
+        "date_joined": "2023-04-21T14:02:04.373Z",
+        "is_active": true,
+        "is_staff": false,
+        "is_superuser": false,
+        "image": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$BPRvmtxGY9PoyEb8e1qkax$LM5QfX1BUJwFs0o+na9TPJpcZ7B72GwdcqcAI01ea6M=",
+        "last_login": "2023-04-21T16:09:18.298Z",
+        "username": "Jay",
+        "bio": "",
+        "first_name": "Джей",
+        "last_name": "Биденский",
+        "email": "jay@mail.ru",
+        "normalized_email": "jay@mail.ru",
+        "date_joined": "2023-04-21T14:03:34.002Z",
+        "is_active": true,
+        "is_staff": false,
+        "is_superuser": false,
+        "image": "avatars/user_8.jpg",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

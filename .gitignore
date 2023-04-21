@@ -1,7 +1,6 @@
 # Skip Folder
 brainstorm/uploads
-brainstorm/media
-!brainstorm/media/images
+brainstorm/media/cache
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
