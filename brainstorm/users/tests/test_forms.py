@@ -1,4 +1,5 @@
 import django.test
+from django.utils.translation import gettext_lazy as _
 
 import users.forms
 
@@ -11,7 +12,7 @@ class UserCreationFormTests(django.test.TestCase):
 
     def test_email_label(self):
         email_label = UserCreationFormTests.form.fields['email'].label
-        self.assertEqual(email_label, 'User_email')
+        self.assertEqual(email_label, _('User_email'))
 
     def test_username_label(self):
         username_label = UserCreationFormTests.form.fields['username'].label
@@ -23,7 +24,7 @@ class UserCreationFormTests(django.test.TestCase):
         ].help_text
         self.assertEqual(
             username_help_text,
-            'only_letters_defis_and_underline',
+            _('only_letters_defis_and_underline'),
         )
 
     def test_password_label(self):
@@ -34,7 +35,7 @@ class UserCreationFormTests(django.test.TestCase):
         password_confirm_label = UserCreationFormTests.form.fields[
             'password2'
         ].label
-        self.assertEqual(password_confirm_label, 'password_again')
+        self.assertEqual(password_confirm_label, _('password_again'))
 
     def test_password_confirm_help_text(self):
         password_confirm_help_text = UserCreationFormTests.form.fields[
@@ -42,5 +43,5 @@ class UserCreationFormTests(django.test.TestCase):
         ].help_text
         self.assertEqual(
             password_confirm_help_text,
-            'type_password_again_for_confirmation',
+            _('type_password_again_for_confirmation'),
         )

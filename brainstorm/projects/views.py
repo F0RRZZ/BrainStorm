@@ -170,16 +170,18 @@ class RedactProject(
         return django.urls.reverse_lazy('projects:view', kwargs=self.kwargs)
 
     def get_object(self, queryset=None):
-        return django.shortcuts.get_object_or_404(
-            self.queryset,
-            pk=self.kwargs['project_id'],
-        )
+        if not hasattr(self, 'object'):
+            self.object = django.shortcuts.get_object_or_404(
+                self.queryset,
+                pk=self.kwargs['project_id'],
+            )
+        return self.object
 
     def dispatch(self, request, *args, **kwargs):
         # Important to call before use self.object
         result = super().dispatch(request, *args, **kwargs)
         user = self.request.user
-        if user.id != self.object.author_id:
+        if user.id != self.get_object().author_id:
             raise django.http.Http404()
         return result
 

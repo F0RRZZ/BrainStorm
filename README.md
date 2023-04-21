@@ -123,7 +123,8 @@ python manage.py createsuperuser
 python manage.py compilemessages
 ``` 
 
-7. Установить сервер redis
+### Для реализации скрытия неоригинальных идей:
+7. Установить в качестве брокера сервер redis
 
 | Windows                      | Linux/MacOS                                |
 |------------------------------|--------------------------------------------|
@@ -137,13 +138,13 @@ python manage.py runserver
 ```
 
 
-9. Запустите worker(в отдельном терминале)
+9. Запустите рабочие процессы - worker(в отдельном терминале)
 
 ```shell
 celery -A brainstorm worker -l info
 ```
 
-10. Запустите beat(в отдельном терминале)
+10. Запустите планировщик задач - beat(в отдельном терминале)
 
 ```shell
 celery -A brainstorm beat -l info
