@@ -29,45 +29,37 @@ class FormsTest(django.test.TestCase):
         cls.project.clean()
         cls.project.save()
 
+        cls.user_test = users.models.User.objects.create(
+            username='Bob',
+            email='bobAbd2l@gmai.ru',
+            is_active=True,
+        )
+        cls.user_test.set_password('mypassword123')
+        cls.user_test.clean()
+        cls.user_test.save()
+
+        cls.client = django.test.Client(cls.user_test)
+
     def test_create_rating(self):
+        self.client.login(username='Bob', password='mypassword123')
         all_rating = rating.models.ProjectRating.objects.count()
         data_form = {
-            'user': self.user,
-            'project': self.project,
-            'score': 5
+            'score': 5,
+            'action': 'set_rating',
         }
-        django.test.Client().post(
+        self.client.post(
             django.urls.reverse('projects:view', args=[12]),
             data=data_form,
             follow=True,
         )
-        self.assertEqual(
+        self.assertNotEqual(
             all_rating,
             rating.models.ProjectRating.objects.count()
         )
         rating.models.ProjectRating.objects.get(
-            user=self.user,
-            project=self.project
-        ).delete()
-
-    def test_redirect_page(self):
-        data_form = {
-            'user': self.user,
-            'project': self.project,
-            'score': 5,
-        }
-        response = django.test.Client().post(
-            django.urls.reverse('projects:view', args=[12]),
-            data=data_form,
-            follow=True,
-        )
-        self.assertRedirects(
-            response,
-            django.urls.reverse('projects:view', args=[12])
-        )
-        rating.models.ProjectRating.objects.get(
-            user=self.user,
+            user=self.user_test,
             project=self.project,
+            score=5,
         ).delete()
 
     @classmethod

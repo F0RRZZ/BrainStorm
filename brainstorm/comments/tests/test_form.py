@@ -1,12 +1,12 @@
-import django.core.exceptions
 import django.test
+import django.urls
 
+import comments.models
 import projects.models
-import rating.models
 import users.models
 
 
-class ModelsTest(django.test.TestCase):
+class FormTests(django.test.TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -20,6 +20,7 @@ class ModelsTest(django.test.TestCase):
         cls.user.clean()
         cls.user.save()
         cls.project = projects.models.Project.objects.create(
+            id=12,
             name='Test_project',
             author=cls.user,
             description='Для описания',
@@ -37,35 +38,31 @@ class ModelsTest(django.test.TestCase):
         cls.user_test.clean()
         cls.user_test.save()
 
-    def test_validation_score(self):
-        with self.assertRaises(django.core.exceptions.ValidationError):
-            self.rating_project = rating.models.ProjectRating.objects.create(
-                id=12,
-                project=self.project,
-                user=self.user_test,
-                score=20,
-            )
-            self.rating_project.full_clean()
-        self.rating_project.delete()
+        cls.client = django.test.Client(cls.user_test)
 
-    def test_create_rating(self):
-        all_score = rating.models.ProjectRating.objects.count()
-        self.rating_project = rating.models.ProjectRating.objects.create(
-            id=13,
-            project=self.project,
-            user=self.user_test,
-            score=3,
+    def test_create_comment(self):
+        self.client.login(username='Bob', password='mypassword123')
+        all_comment = comments.models.Comment.objects.count()
+        data_form = {
+            'action': 'leave_comment',
+            'text': 'This is a test comment',
+        }
+        self.client.post(
+            django.urls.reverse('projects:view', args=[12]),
+            data=data_form,
+            follow=True,
         )
-        self.rating_project.clean()
-        self.rating_project.save()
         self.assertNotEqual(
-            rating.models.ProjectRating.objects.count(),
-            all_score
+            all_comment,
+            comments.models.Comment.objects.count()
         )
+        comments.models.Comment.objects.get(
+            text='This is a test comment',
+        ).delete()
 
     @classmethod
     def tearDownClass(cls):
         projects.models.Project.objects.all().delete()
         users.models.User.objects.all().delete()
-        rating.models.ProjectRating.objects.all().delete()
+        comments.models.Comment.objects.all().delete()
         return super().tearDownClass()

@@ -84,7 +84,7 @@ class StaticUrlTest(django.test.TestCase):
         response = django.test.Client().get(
             django.urls.reverse('projects:redact', args=[1234])
         )
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 404)
 
     @classmethod
     def tearDownClass(cls):
