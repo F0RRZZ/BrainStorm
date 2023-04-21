@@ -21,7 +21,7 @@ class FormTests(django.test.TestCase):
         email_help_text = FormTests.form.fields['email'].help_text
         self.assertEqual(
             email_help_text,
-            'type_email_on_what_answer_will_be_sent__lowercase'
+            'type_email_on_what_answer_will_be_sent__lowercase',
         )
 
     def test_file_upload_label(self):
@@ -31,6 +31,5 @@ class FormTests(django.test.TestCase):
     def test_file_upload_text(self):
         file_upload_text = FormTests.form.fields['files'].help_text
         self.assertEqual(
-            file_upload_text,
-            'add_some_files_if_necessary__lowercase'
+            file_upload_text, 'add_some_files_if_necessary__lowercase'
         )
