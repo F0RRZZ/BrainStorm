@@ -12,7 +12,7 @@ class UserCreationFormTests(django.test.TestCase):
 
     def test_email_label(self):
         email_label = UserCreationFormTests.form.fields['email'].label
-        self.assertEqual(email_label, _('user_email'))
+        self.assertEqual(email_label, _('User_email'))
 
     def test_username_label(self):
         username_label = UserCreationFormTests.form.fields['username'].label
@@ -29,7 +29,7 @@ class UserCreationFormTests(django.test.TestCase):
 
     def test_password_label(self):
         password_label = UserCreationFormTests.form.fields['password1'].label
-        self.assertEqual(password_label, 'Пароль')
+        self.assertEqual(password_label, 'пароль')
 
     def test_password_confirm_label(self):
         password_confirm_label = UserCreationFormTests.form.fields[
