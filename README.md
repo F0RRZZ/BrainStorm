@@ -20,31 +20,35 @@ git clone https://github.com/F0RRZZ/BrainStorm.git
 ```
 2. Создайте и активируйте venv
 
-| Windows                            | Linux/MacOS                    |
-|------------------------------------|--------------------------------|
-| ```cd BrainStorm```                | ```cd Brainstorm```            |
-| ```python -m venv venv```          | ```python3 -m venv venv```     |
-| ```source venv/Scripts/activate``` | ```source venv/bin/activate``` |
+```shell
+cd BrainStorm
+```
+```shell
+python -m venv venv
+```
+```shell
+source venv/Scripts/activate
+``` 
 
 3. Установите зависимости
 
 * Основные зависимости
 
-| Windows                                    | Linux/MacOS                                  |
-|--------------------------------------------|----------------------------------------------|
-| ```pip install -r requirements/prod.txt``` | ```pip3 install -r requirements/prod.txt```  |
+```shell
+pip install -r requirements/prod.txt
+``` 
 
 *Зависимости для разработки
 
-| Windows                                   | Linux/MacOS                                |
-|-------------------------------------------|--------------------------------------------|
-| ```pip install -r requirements/dev.txt``` | ```pip3 install -r requirements/dev.txt``` |
+```shell
+pip install -r requirements/dev.txt
+```
 
 *Зависимости для тестирования
 
-| Windows                                    | Linux/MacOS                                 |
-|--------------------------------------------|---------------------------------------------|
-| ```pip install -r requirements/test.txt``` | ```pip3 install -r requirements/test.txt``` |
+```shell
+pip install -r requirements/test.txt
+```
 
 4. Устанавите переменные окружения
 
@@ -81,23 +85,25 @@ cp .env-example .env
 
 5. Создайте базу данных
 Создание с помощью миграций
-    
-| Windows                               | Linux/MacOS                            |
-|---------------------------------------|----------------------------------------|
-| ```python manage.py makemigrations``` | ```python3 manage.py makemigrations``` |
-| ```python manage.py migrate```        | ```python3 manage.py migrate```        |
+
+```shell
+python manage.py makemigrations
+```
+```shell
+python manage.py migrate
+```
 
 Далее нужно создать аккаунт суперпользователя
 
-| Windows                                | Linux/MacOS                             |
-|----------------------------------------|-----------------------------------------|
-| ```python manage.py createsuperuser``` | ```python3 manage.py createsuperuser``` |
+```shell
+python manage.py createsuperuser
+```
 
 6. Сгенерируйте файлы для перевода
 
-| Windows                                | Linux/MacOS                                |
-|----------------------------------------|--------------------------------------------|
-| ```python manage.py compilemessages``` | ```python3 manage.py compilemessages```|
+```shell
+python manage.py compilemessages
+``` 
 
 7. Установить сервер redis
 
@@ -108,9 +114,9 @@ cp .env-example .env
 
 8. Запустите сервер
 
-| Windows                          | Linux/MacOS                       |
-|----------------------------------|-----------------------------------|
-| ```python manage.py runserver``` | ```python3 manage.py runserver``` |
+```shell
+python manage.py runserver
+```
 
 
 9. Запустите worker(в отдельном терминале)
