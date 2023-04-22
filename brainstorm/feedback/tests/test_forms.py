@@ -12,7 +12,7 @@ class FormTests(django.test.TestCase):
 
     def test_text_label(self):
         text_label = FormTests.form.fields['text'].label
-        self.assertEqual(text_label, _('Message'))
+        self.assertEqual(text_label, 'Message')
 
     def test_email_label(self):
         email_label = FormTests.form.fields['email'].label

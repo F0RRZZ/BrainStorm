@@ -53,8 +53,7 @@ class FormTests(django.test.TestCase):
             follow=True,
         )
         self.assertNotEqual(
-            all_comment,
-            comments.models.Comment.objects.count()
+            all_comment, comments.models.Comment.objects.count()
         )
         comments.models.Comment.objects.get(
             text='This is a test comment',
