@@ -53,8 +53,7 @@ class FormsTest(django.test.TestCase):
             follow=True,
         )
         self.assertNotEqual(
-            all_rating,
-            rating.models.ProjectRating.objects.count()
+            all_rating, rating.models.ProjectRating.objects.count()
         )
         rating.models.ProjectRating.objects.get(
             user=self.user_test,

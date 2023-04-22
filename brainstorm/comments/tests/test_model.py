@@ -48,8 +48,7 @@ class ModelTest(django.test.TestCase):
         self.test_comment.clean()
         self.test_comment.save()
         self.assertNotEqual(
-            comments.models.Comment.objects.count(),
-            all_comment
+            comments.models.Comment.objects.count(), all_comment
         )
         self.test_comment.delete()
 
