@@ -59,8 +59,7 @@ class ModelsTest(django.test.TestCase):
         self.rating_project.clean()
         self.rating_project.save()
         self.assertNotEqual(
-            rating.models.ProjectRating.objects.count(),
-            all_score
+            rating.models.ProjectRating.objects.count(), all_score
         )
 
     @classmethod
