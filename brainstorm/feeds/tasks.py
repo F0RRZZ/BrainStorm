@@ -7,7 +7,7 @@ import rating.models
 def put_in_archive():
     for project in projects.models.Project.objects.all():
         score = rating.models.ProjectRating.objects.get_avg_rating(project.id)
-        if score != '?' and score < 8.5:
+        if score != '?' and score < 5:
             project.in_archive = True
         else:
             project.in_archive = False

@@ -15,6 +15,8 @@ env = environ.Env(
     EMAIL_PASSWORD=(str, 'password'),
     GITHUB_CLIENT_ID=(str, 'client_id'),
     GITHUB_SECRET_KEY=(str, 'secret_key'),
+    REDIS_HOST=(str, '0.0.0.0'),
+    REDIS_PORT=(str, '6379'),
     SECRET_KEY=(str, 'dummy-key'),
     USERS_AUTOACTIVATE=(bool, True),
 )
@@ -38,7 +40,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.google',
     'ckeditor',
     'django_cleanup.apps.CleanupConfig',
     'sorl.thumbnail',
@@ -226,8 +227,8 @@ LOCALE_PATHS = [
     BASE_DIR / 'locale',
 ]
 
-REDIS_HOST = '0.0.0.0'
-REDIS_PORT = '6379'
+REDIS_HOST = env('REDIS_HOST')
+REDIS_PORT = env('REDIS_PORT')
 CELERY_BROKER_URL = ''.join(['redis://', REDIS_HOST, ':', REDIS_PORT, '/0'])
 CELERY_BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
 CELERY_RESULT_BACKEND = ''.join(

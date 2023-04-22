@@ -39,6 +39,7 @@ class Project(django.db.models.Model):
         users.models.User,
         verbose_name=_('collaborators'),
         related_name='colleagues',
+        blank=True,
     )
     tags = django.db.models.ManyToManyField(
         tags.models.Tag,

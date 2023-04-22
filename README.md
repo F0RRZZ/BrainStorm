@@ -20,31 +20,35 @@ git clone https://github.com/F0RRZZ/BrainStorm.git
 ```
 2. Создайте и активируйте venv
 
-| Windows                            | Linux/MacOS                    |
-|------------------------------------|--------------------------------|
-| ```cd BrainStorm```                | ```cd Brainstorm```            |
-| ```python -m venv venv```          | ```python3 -m venv venv```     |
-| ```source venv/Scripts/activate``` | ```source venv/bin/activate``` |
+```shell
+cd BrainStorm
+```
+```shell
+python -m venv venv
+```
+```shell
+source venv/Scripts/activate
+``` 
 
 3. Установите зависимости
 
 * Основные зависимости
 
-| Windows                                    | Linux/MacOS                                  |
-|--------------------------------------------|----------------------------------------------|
-| ```pip install -r requirements/prod.txt``` | ```pip3 install -r requirements/prod.txt```  |
+```shell
+pip install -r requirements/prod.txt
+``` 
 
 *Зависимости для разработки
 
-| Windows                                   | Linux/MacOS                                |
-|-------------------------------------------|--------------------------------------------|
-| ```pip install -r requirements/dev.txt``` | ```pip3 install -r requirements/dev.txt``` |
+```shell
+pip install -r requirements/dev.txt
+```
 
 *Зависимости для тестирования
 
-| Windows                                    | Linux/MacOS                                 |
-|--------------------------------------------|---------------------------------------------|
-| ```pip install -r requirements/test.txt``` | ```pip3 install -r requirements/test.txt``` |
+```shell
+pip install -r requirements/test.txt
+```
 
 4. Устанавите переменные окружения
 
@@ -59,11 +63,13 @@ cp .env-example .env
 1. ALLOWED_HOSTS - список разрешенных хостов
 2. DEBUG - режим отладки
 3. EMAIL_ADDRESS - адрес электронной почты, с которой будут приходить письма пользователям
-4. EMAIL_PASSWORD - адрес от электронной почты
+4. EMAIL_PASSWORD - пароль от приложения
 5. GITHUB_CLIENT_ID - client id приложения в гитхабе
 6. GITHUB_SECRET_KEY - секретный ключ приложения в гитхабе
-7. SECRET_KEY - секретный ключ
-8. USERS_AUTOACTIVATE - режим автоактивации пользователей (отключение подтверждения аккаунта)
+7. REDIS_HOST - путь до компьютера
+8. REDIS_PORT - порт для взаимодействия с Redis
+9. SECRET_KEY - секретный ключ
+10. USERS_AUTOACTIVATE - режим автоактивации пользователей (отключение подтверждения аккаунта)
 
 
 Для получения client_id и secret key вам нужно зарегистрировать свое приложение на сайте GitHub.
@@ -75,55 +81,75 @@ cp .env-example .env
 6. Нажмите на кнопку "Register application".
 7. Вам будет предоставлен client_id и secret key.
 
+Настройка аккаунта Google для отправки сообщений:
+1. Создайте новый аккаунт
+2. Впишите адрес электронной почты в переменную EMAIL_ADDRESS в .env
+3. Перейдите во вкладку "Безопасность" в управлении аккаунтом
+4. Включите двухэтапную аутентификацию
+5. Перейдите в раздел "Пароли приложений"
+6. В поле "Приложение" выберите YouTube, а в "Устройство" - компьютер Windows
+7. Нажмите на кнопку "Создать"
+8. Полученный ключ впишите в переменную EMAIL_PASSWORD в .env
+
 ---
 
 5. Создайте базу данных
 Создание с помощью миграций
-    
-| Windows                               | Linux/MacOS                            |
-|---------------------------------------|----------------------------------------|
-| ```python manage.py makemigrations``` | ```python3 manage.py makemigrations``` |
-| ```python manage.py migrate```        | ```python3 manage.py migrate```        |
+
+```shell
+python manage.py makemigrations
+```
+```shell
+python manage.py migrate
+```
 
 Далее нужно создать аккаунт суперпользователя
 
+```shell
+python manage.py createsuperuser
+```
+
+Также можно взять тестовые данные из фикстуры:
+
 | Windows                                | Linux/MacOS                             |
 |----------------------------------------|-----------------------------------------|
-| ```python manage.py createsuperuser``` | ```python3 manage.py createsuperuser``` |
+| ```python manage.py loaddata core/fixtures/data.json``` | ```python3 manage.py loaddata core/fixtures/data.json``` |
+
+В случае, если вы не используете тестовые данные, необходимо удалить из папки media всё, кроме папки images
 
 6. Сгенерируйте файлы для перевода
 
-| Windows                                | Linux/MacOS                                |
-|----------------------------------------|--------------------------------------------|
-| ```python manage.py compilemessages``` | ```python3 manage.py compilemessages```|
+```shell
+python manage.py compilemessages
+``` 
 
-7. Установить сервер redis
+7. Запустите сервер
+
+```shell
+python manage.py runserver
+```
+
+Далее перейдите по ссылке 
+```
+http://127.0.0.1:8000
+```
+
+### Для реализации скрытия неоригинальных идей:
+1. Установить в качестве брокера сервер redis
 
 | Windows                      | Linux/MacOS                                |
 |------------------------------|--------------------------------------------|
 | ```https://clck.ru/34A34T``` | ```sudo docker run -d -p 6379:6379 redis```|
 
 
-8. Запустите сервер
-
-| Windows                          | Linux/MacOS                       |
-|----------------------------------|-----------------------------------|
-| ```python manage.py runserver``` | ```python3 manage.py runserver``` |
-
-
-9. Запустите worker(в отдельном терминале)
+2. Запустите рабочие процессы - worker(в отдельном терминале)
 
 ```shell
 celery -A brainstorm worker -l info
 ```
 
-10. Запустите beat(в отдельном терминале)
+3. Запустите планировщик задач - beat(в отдельном терминале)
 
 ```shell
 celery -A brainstorm beat -l info
-```
-
-Далее перейдите по ссылке 
-```
-http://127.0.0.1:8000
 ```

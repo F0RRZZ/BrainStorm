@@ -1,3 +1,5 @@
+from smtplib import SMTPAuthenticationError
+
 import django.conf
 import django.contrib.auth.mixins
 import django.contrib.auth.views
@@ -27,23 +29,27 @@ class SignUpView(django.views.generic.CreateView):
     def form_valid(self, form):
         user = form.save(commit=False)
         if not django.conf.settings.USERS_AUTOACTIVATE:
-            user.is_activate = False
-            user.save()
-
             absolute_url = self.request.build_absolute_uri(
                 django.urls.reverse_lazy(
                     'users:activate',
                     args=[user.username],
                 )
             )
-
-            django.core.mail.send_mail(
-                'Подтверждение регистрации',
-                f'Для активации аккаунта перейдите по ссылке: {absolute_url}',
-                django.conf.settings.EMAIL,
-                [user.email],
-                fail_silently=False,
-            )
+            try:
+                django.core.mail.send_mail(
+                    'Подтверждение регистрации',
+                    f'Для активации аккаунта'
+                    f' перейдите по ссылке: {absolute_url}',
+                    django.conf.settings.EMAIL,
+                    [user.email],
+                    fail_silently=False,
+                )
+                user.is_active = False
+                user.save()
+            except SMTPAuthenticationError:
+                user.is_active = True
+                user.save()
+                return django.shortcuts.redirect('core:main')
         else:
             user.is_active = True
             user.save()
@@ -83,7 +89,7 @@ class UserDetailView(
 ):
     template_name = 'users/user_detail.html'
     pk_url_kwarg = 'username'
-    paginate_by = 30
+    paginate_by = 6
 
     queryset = users.models.User.objects.user_profile()
     form_class = users.forms.UserProfileForm
