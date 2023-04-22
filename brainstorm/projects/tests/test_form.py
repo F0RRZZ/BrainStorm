@@ -1,5 +1,4 @@
 import django.test
-from django.utils.translation import gettext_lazy as _
 
 import projects.forms
 import projects.models
