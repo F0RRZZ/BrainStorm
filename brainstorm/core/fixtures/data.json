@@ -221,6 +221,32 @@
     }
 },
 {
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2023-04-22T11:42:24.930Z",
+        "user": 4,
+        "content_type": 17,
+        "object_id": "6",
+        "object_repr": "Гамма",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Short_description\", \"Full_description\", \"In_archive\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2023-04-22T11:47:33.983Z",
+        "user": 4,
+        "content_type": 17,
+        "object_id": "8",
+        "object_repr": "О дивный новый ",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Short_description\", \"Full_description\"]}}, {\"deleted\": {\"name\": \"\\u0433\\u0430\\u043b\\u0435\\u0440\\u0435\\u044f\", \"object\": \"/media/project_previews/project_8/bs_logo_1.jpg\"}}, {\"deleted\": {\"name\": \"\\u0433\\u0430\\u043b\\u0435\\u0440\\u0435\\u044f\", \"object\": \"/media/project_previews/project_8/bs_logo_2.jpg\"}}, {\"deleted\": {\"name\": \"\\u0433\\u0430\\u043b\\u0435\\u0440\\u0435\\u044f\", \"object\": \"/media/project_previews/project_8/bs_logo_2.png\"}}, {\"deleted\": {\"name\": \"\\u0433\\u0430\\u043b\\u0435\\u0440\\u0435\\u044f\", \"object\": \"/media/project_previews/project_8/bs_logo_2_2color_0.png\"}}]"
+    }
+},
+{
     "model": "auth.permission",
     "pk": 1,
     "fields": {
@@ -1190,10 +1216,10 @@
 },
 {
     "model": "sessions.session",
-    "pk": "qn3ht7meah7v216bq8h64ppsbqxf4bww",
+    "pk": "mmzvrh75in46e1ocmdbfqoz1sfm7v8xq",
     "fields": {
-        "session_data": ".eJxVjMsOwiAQRf-FtSHAQAdcuvcbyPCSqoGktCvjv2uTLnR7zzn3xTxta_XbyIufEzszzU6_W6D4yG0H6U7t1nnsbV3mwHeFH3Twa0_5eTncv4NKo35raZzWZGVQBjAnkGCBIoiIRkjtpBUFFeBkISApU5xVlEFMqoQolEb2_gClTjZJ:1pptWI:quHTSjQx9SD26yns_DOVrRitKf_5WRsEqBu65s28hl0",
-        "expire_date": "2023-05-05T16:21:58.511Z"
+        "session_data": ".eJxVjMEOwiAQRP-FsyEUFhc8evcbCLtspGpoUtqT8d9tkx40mdO8N_NWKa9LTWuXOY1FXRSo029HmZ_SdlAeud0nzVNb5pH0ruiDdn2biryuh_t3UHOv2xqpuGCMICFsAfCGzlksoLeRQFgwDD4TC4D4wRJidGDZ-egdS1CfL9J-N0w:1pqBzd:leP6CcEGRDPJtr17xOSene8_ozoP90wObcqn9skv8kM",
+        "expire_date": "2023-05-06T12:05:29.461Z"
     }
 },
 {
@@ -1212,9 +1238,30 @@
 },
 {
     "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||08d23b61b7c1eaacca358e9cc5d81629",
+    "fields": {
+        "value": "{\"name\": \"cache/2a/28/2a28df3a61488ce6a7d6fdcd2135edea.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [50, 50]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||image||0b28956905fa81a80dea7be81ec7adea",
     "fields": {
         "value": "{\"name\": \"project_previews/project_8/\\u043c\\u0438\\u0440.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [986, 728]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||1ffafe61895165510a2f0fd23457317b",
+    "fields": {
+        "value": "{\"name\": \"cache/63/9f/639f5d4b75ee63928ae927066f704637.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [50, 50]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||218ebd13d73323e71102ad1188110689",
+    "fields": {
+        "value": "{\"name\": \"cache/08/d1/08d1f5460aca0b70bd5a812147ed1da1.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [150, 150]}"
     }
 },
 {
@@ -1240,6 +1287,13 @@
 },
 {
     "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||3d05384b1c00dc958d0a709e1cd24ecc",
+    "fields": {
+        "value": "{\"name\": \"cache/3a/53/3a53a90971caecb3b80d4e9a3e62896f.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||image||450fe1e2b2fc639572cf1195ac8ceb60",
     "fields": {
         "value": "{\"name\": \"cache/70/18/701825d1166665f5071dd3e08ef088d7.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
@@ -1261,6 +1315,13 @@
 },
 {
     "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||5bfcf1f9a10273634986577e2cd3efd3",
+    "fields": {
+        "value": "{\"name\": \"cache/94/51/9451ad87af4c6aa19c7db2ca8aca0ada.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||image||6197d386da205cc2877b682acd4d2f90",
     "fields": {
         "value": "{\"name\": \"cache/c8/7e/c87e3a29c293065e5ef4a7afe8c0f0c2.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
@@ -1271,6 +1332,27 @@
     "pk": "sorl-thumbnail||image||62f4790aa06cd85e861cff9bea940d31",
     "fields": {
         "value": "{\"name\": \"project_previews/project_5/\\u0421\\u0442\\u0440\\u0430\\u043d\\u043d\\u0438\\u043a_\\u043f\\u0440\\u0438\\u0432\\u0435\\u0442\\u0441\\u0442\\u0432\\u0438\\u0435.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [1078, 1080]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||636ea3987631ca8f74d82bc5ce73bffc",
+    "fields": {
+        "value": "{\"name\": \"cache/55/16/5516e0cdad7f9543efa10e07e3c6cbcf.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||645d1e076b2fdf58fd8104d1ac053020",
+    "fields": {
+        "value": "{\"name\": \"cache/e1/d2/e1d2d0dc15227b2c1c2e831fe63e4e13.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||6679b972c9cee7f908ecd6dab8153c31",
+    "fields": {
+        "value": "{\"name\": \"cache/0f/63/0f63ac3d9ca6eac787d1a94036a7d805.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [50, 50]}"
     }
 },
 {
@@ -1310,6 +1392,13 @@
 },
 {
     "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||85fe9c428f61ea46abff8fcbed09627b",
+    "fields": {
+        "value": "{\"name\": \"cache/42/78/427812da15adbca8f9d1323dfaf55796.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||image||894ffbf7769faceef6fb76c7dad30de2",
     "fields": {
         "value": "{\"name\": \"cache/8c/d6/8cd60b1c5d6961051f9c9c4faa167eaa.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
@@ -1317,9 +1406,51 @@
 },
 {
     "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||8a0bb5484814fd347309e9fb8fbb115d",
+    "fields": {
+        "value": "{\"name\": \"cache/d1/26/d126b24a8da267ba1f5af3de381f19ca.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||8a3aefb592c6f82c0f9805d64077aafe",
+    "fields": {
+        "value": "{\"name\": \"cache/97/7e/977e57c59bc7bebc68fe904f77b3f961.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||973d094d6ef7b3a07c93022fa3d89495",
+    "fields": {
+        "value": "{\"name\": \"cache/22/23/2223273eeb007ef2f6b65c837d920cb2.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||a402d60b79e2cdc5e20c2ca5bb605074",
+    "fields": {
+        "value": "{\"name\": \"cache/e1/a9/e1a9c19050653003af2559993dbbd802.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||aa7d30a9a8450ec5f3932ea69e2e05ec",
+    "fields": {
+        "value": "{\"name\": \"cache/a0/22/a022bc03bc81eec69af2ead79456c1b3.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||image||c53d79d66f782ad03ad8caf45171307e",
     "fields": {
         "value": "{\"name\": \"cache/2a/5e/2a5e93627317e0fb17fb6df27c5c1956.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||c87adb9631409411ca285ba258e9d464",
+    "fields": {
+        "value": "{\"name\": \"cache/3a/b3/3ab34079db024f1310a7025a0fc23603.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [150, 150]}"
     }
 },
 {
@@ -1334,6 +1465,13 @@
     "pk": "sorl-thumbnail||image||dffe8b1bafa02440cc46233613743f1d",
     "fields": {
         "value": "{\"name\": \"project_previews/project_10/BrainStorm_logo_with_all_bg.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [700, 700]}"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||image||f094b8204a51bd6d72c381be46035cdb",
+    "fields": {
+        "value": "{\"name\": \"cache/bf/44/bf44d303667169dda3c946c9f3faa8c4.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [300, 300]}"
     }
 },
 {
@@ -1354,49 +1492,70 @@
     "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||thumbnails||0b28956905fa81a80dea7be81ec7adea",
     "fields": {
-        "value": "[\"6197d386da205cc2877b682acd4d2f90\"]"
+        "value": "[\"6197d386da205cc2877b682acd4d2f90\", \"973d094d6ef7b3a07c93022fa3d89495\"]"
     }
 },
 {
     "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||thumbnails||2cb4c2625d61487f43b4447c06c5f7bb",
     "fields": {
-        "value": "[\"d41bc9f6ddc75460f344997c98e2c98e\"]"
+        "value": "[\"8a0bb5484814fd347309e9fb8fbb115d\", \"d41bc9f6ddc75460f344997c98e2c98e\"]"
     }
 },
 {
     "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||thumbnails||2dd35644faff766ca7574f3fdae4fe02",
     "fields": {
-        "value": "[\"450fe1e2b2fc639572cf1195ac8ceb60\"]"
+        "value": "[\"645d1e076b2fdf58fd8104d1ac053020\", \"450fe1e2b2fc639572cf1195ac8ceb60\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||3775d83ccb6d935f87a13531777c573c",
+    "fields": {
+        "value": "[\"1ffafe61895165510a2f0fd23457317b\", \"3d05384b1c00dc958d0a709e1cd24ecc\", \"c87adb9631409411ca285ba258e9d464\"]"
     }
 },
 {
     "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||thumbnails||62f4790aa06cd85e861cff9bea940d31",
     "fields": {
-        "value": "[\"58fce93205256736acdd204530d555c5\"]"
+        "value": "[\"58fce93205256736acdd204530d555c5\", \"aa7d30a9a8450ec5f3932ea69e2e05ec\"]"
     }
 },
 {
     "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||thumbnails||6a0ef532331aa390ba52df8a2731157c",
     "fields": {
-        "value": "[\"02ca6d9705f01df66362e63c6b0052e9\"]"
+        "value": "[\"02ca6d9705f01df66362e63c6b0052e9\", \"f094b8204a51bd6d72c381be46035cdb\"]"
     }
 },
 {
     "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||thumbnails||72e3ff84b21e3bff1eb44bb84de9e756",
     "fields": {
-        "value": "[\"894ffbf7769faceef6fb76c7dad30de2\"]"
+        "value": "[\"a402d60b79e2cdc5e20c2ca5bb605074\", \"894ffbf7769faceef6fb76c7dad30de2\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||7515fe9db90885ec6446d8511190702b",
+    "fields": {
+        "value": "[\"08d23b61b7c1eaacca358e9cc5d81629\", \"8a3aefb592c6f82c0f9805d64077aafe\", \"218ebd13d73323e71102ad1188110689\"]"
+    }
+},
+{
+    "model": "thumbnail.kvstore",
+    "pk": "sorl-thumbnail||thumbnails||7b267d8f77fd136c4a1ba52a30602542",
+    "fields": {
+        "value": "[\"6679b972c9cee7f908ecd6dab8153c31\", \"636ea3987631ca8f74d82bc5ce73bffc\"]"
     }
 },
 {
     "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||thumbnails||dffe8b1bafa02440cc46233613743f1d",
     "fields": {
-        "value": "[\"c53d79d66f782ad03ad8caf45171307e\"]"
+        "value": "[\"85fe9c428f61ea46abff8fcbed09627b\", \"c53d79d66f782ad03ad8caf45171307e\"]"
     }
 },
 {
@@ -1410,7 +1569,20 @@
     "model": "thumbnail.kvstore",
     "pk": "sorl-thumbnail||thumbnails||fe47cbc259294ef2f1043e26d06b010d",
     "fields": {
-        "value": "[\"7d064b94fa7917d0ca33457af2a95932\"]"
+        "value": "[\"7d064b94fa7917d0ca33457af2a95932\", \"5bfcf1f9a10273634986577e2cd3efd3\"]"
+    }
+},
+{
+    "model": "collaboration.collaborationrequest",
+    "pk": 0,
+    "fields": {
+        "project": 3,
+        "user": 8,
+        "contact": "<p>Nunc cursus quam sit amet augue rutrum scelerisque. Etiam eget dapibus dolor. Vestibulum consectetur, justo in tincidunt dapibus, tortor turpis pharetra nulla, quis condimentum tortor dui ut nibh. Nam lacus lorem, convallis vitae pellentesque vel, accumsan nec nisi.</p>",
+        "about": "<p>Fusce at nisl et orci placerat rutrum ut eget sapien. Phasellus porta posuere justo at euismod. Mauris euismod finibus tincidunt. Proin sagittis aliquam consequat. Mauris convallis a nunc a dapibus. Maecenas pulvinar finibus ipsum, sit amet interdum erat fermentum quis. Donec volutpat sit amet nulla id consectetur. Nulla id pretium diam, eu aliquam massa. Suspendisse eget sollicitudin felis, vitae fringilla ex. Nunc cursus quam sit amet augue rutrum scelerisque. Etiam eget dapibus dolor. Vestibulum consectetur, justo in tincidunt dapibus, tortor turpis pharetra nulla, quis condimentum tortor dui ut nibh. Nam lacus lorem, convallis vitae pellentesque vel, accumsan nec nisi.</p>",
+        "answer": "",
+        "creation_date": "2023-04-22T12:02:00.295Z",
+        "status": "in_queue"
     }
 },
 {
@@ -1434,9 +1606,9 @@
         "user": 3,
         "contact": "Cras finibus mollis pretium. Sed pellentesque viverra venenatis. Ut congue elementum risus, ac gravida nisi feugiat nec. Proin et tincidunt nisi, eu dapibus orci.",
         "about": "Mauris lacinia fringilla nisl, id rutrum diam bibendum vel. Integer quis risus vel tortor dignissim imperdiet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vestibulum in ex ut rutrum. Sed quis urna justo. Integer fringilla felis lorem, non pharetra nibh gravida at. Sed nec diam nulla. Fusce elementum ornare felis sed facilisis. Donec mollis sem vel metus laoreet blandit.\r\n\r\nMorbi nec accumsan tellus, nec vehicula massa. Duis risus diam, facilisis nec eros eu, auctor suscipit elit. Duis in eleifend odio. In imperdiet semper sem. Cras finibus mollis pretium. Sed pellentesque viverra venenatis. Ut congue elementum risus, ac gravida nisi feugiat nec. Proin et tincidunt nisi, eu dapibus orci.",
-        "answer": "",
+        "answer": "No",
         "creation_date": "2023-04-21T14:50:25.511Z",
-        "status": "in_queue"
+        "status": "rejected"
     }
 },
 {
@@ -1506,15 +1678,15 @@
 },
 {
     "model": "collaboration.collaborationrequest",
-    "pk": 8,
+    "pk": 10,
     "fields": {
-        "project": 3,
+        "project": 4,
         "user": 8,
-        "contact": "<p>Nulla ultricies ipsum vitae orci dapibus, sed tempor mauris condimentum. Sed laoreet gravida ullamcorper.</p>",
-        "about": "<p>Morbi non mauris posuere, efficitur mauris vel, varius elit. Phasellus neque nisl, gravida ut iaculis sit amet, imperdiet rhoncus lectus. Pellentesque suscipit vel nisi ac malesuada. Fusce vel urna non urna efficitur accumsan non eget metus. Sed viverra in nunc quis volutpat. Curabitur id enim ut sem tincidunt sagittis. Integer aliquet mauris ut sapien placerat, a accumsan felis condimentum. Nulla ultricies ipsum vitae orci dapibus, sed tempor mauris condimentum. Sed laoreet gravida ullamcorper.</p>",
+        "contact": "<p>Nunc cursus quam sit amet augue rutrum scelerisque. Etiam eget dapibus dolor. Vestibulum consectetur, justo in tincidunt dapibus, tortor turpis pharetra nulla, quis condimentum tortor dui ut nibh. Nam lacus lorem, convallis vitae pellentesque vel, accumsan nec nisi.</p>",
+        "about": "<p>Fusce at nisl et orci placerat rutrum ut eget sapien. Phasellus porta posuere justo at euismod. Mauris euismod finibus tincidunt. Proin sagittis aliquam consequat. Mauris convallis a nunc a dapibus. Maecenas pulvinar finibus ipsum, sit amet interdum erat fermentum quis. Donec volutpat sit amet nulla id consectetur. Nulla id pretium diam, eu aliquam massa. Suspendisse eget sollicitudin felis, vitae fringilla ex. Nunc cursus quam sit amet augue rutrum scelerisque. Etiam eget dapibus dolor. Vestibulum consectetur, justo in tincidunt dapibus, tortor turpis pharetra nulla, quis condimentum tortor dui ut nibh. Nam lacus lorem, convallis vitae pellentesque vel, accumsan nec nisi.</p>",
         "answer": "",
-        "creation_date": "2023-04-21T16:10:25.370Z",
-        "status": "in_queue"
+        "creation_date": "2023-04-22T12:05:17.046Z",
+        "status": "adopted"
     }
 },
 {
@@ -1645,8 +1817,8 @@
         "project": 8,
         "user": 4,
         "text": "Sed laoreet gravida ullamcorper.",
-        "creation_date": "2023-04-21T15:19:48.000Z",
-        "update_date": "2023-04-21T15:19:48.000Z"
+        "creation_date": "2023-04-21T15:19:48Z",
+        "update_date": "2023-04-21T15:19:48Z"
     }
 },
 {
@@ -1787,8 +1959,8 @@
     "fields": {
         "author": 4,
         "name": "Хороший сайт",
-        "short_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur laoreet fermentum purus, ut venenatis libero. Mauris semper commodo mauris, a ultrices risus elementum in. Nulla suscipit imperdiet nisl ac euismod. Curabitur posuere lacus ac sapien pharetra faucibus. Nullam nec magna odio. Donec sed vestibulum odio. Donec quis nibh vitae lorem suscipit iaculis sit amet sed massa. Ut dui lacus, pharetra eget nibh vel, sodales ornare lacus.",
-        "description": "Nulla euismod nulla iaculis rutrum interdum. Nunc ornare tellus dui, ac varius justo auctor nec. Suspendisse maximus mauris elementum, dapibus metus sed, lacinia quam. Donec maximus tortor eu leo malesuada maximus. Vestibulum bibendum suscipit dui ac malesuada. Aliquam vel tincidunt lorem. Aenean tempus erat non ligula tincidunt gravida. Sed nec bibendum enim. Curabitur in neque mi. Vivamus at consequat risus. Fusce tempor ante at porttitor condimentum. Maecenas blandit tempor purus. Sed ut enim vitae eros pellentesque ultrices in a mi. Donec tincidunt, sapien suscipit hendrerit porta, orci arcu volutpat urna, sed laoreet erat mauris quis est. Duis laoreet, nibh et eleifend sollicitudin, purus turpis blandit metus, vitae luctus enim nisi nec nisi.\r\n\r\nNam pulvinar dolor quis massa pellentesque pulvinar. Maecenas tempor est eu diam elementum malesuada. Aliquam sagittis eu velit tincidunt pretium. Nam lacinia ultrices massa, ut aliquam felis sodales a. Cras at quam eget turpis molestie consequat. Integer dignissim, justo eu tristique ultrices, est velit sollicitudin velit, vitae placerat lectus velit pulvinar velit. Integer maximus massa nec lacus pharetra ornare sed sed neque. Mauris efficitur erat a diam mattis, non convallis ipsum faucibus. Pellentesque et purus ut ante cursus ultricies.\r\n\r\nUt sit amet urna odio. Aliquam pharetra lorem mi, eu tempus metus imperdiet non. Sed iaculis urna ut erat pretium, eget condimentum diam porttitor. Phasellus ac facilisis mi, ac viverra sapien. Cras ornare laoreet felis, ac fermentum velit vulputate sed. Proin quis augue felis. Nulla pellentesque massa nisl, sed tincidunt odio suscipit eget. Vivamus commodo, justo aliquet consectetur semper, sapien lectus accumsan tellus, vitae varius erat neque in ligula. Vestibulum augue ante, tempus sed bibendum porta, maximus et leo. Sed dictum nunc libero, id finibus nibh consequat iaculis. Morbi feugiat lectus nibh, at pharetra lorem auctor ac. Phasellus condimentum ante vel erat interdum, sit amet rhoncus metus rutrum. Phasellus tincidunt sem a sem cursus fringilla ut sed erat. Donec semper volutpat tortor non lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;\r\n\r\nQuisque velit ipsum, pharetra vitae egestas in, laoreet ac lectus. Proin elit mi, volutpat sed consequat eu, tincidunt et nulla. Nunc interdum leo vitae ultrices dignissim. Praesent cursus lorem in arcu molestie congue. Cras ligula arcu, ornare ac finibus eget, convallis a enim. Etiam nulla tortor, vulputate ac ultrices eget, hendrerit condimentum dolor. Suspendisse imperdiet neque orci. Cras vitae dolor iaculis, suscipit eros eget, fermentum eros. Integer porta nisi quis enim rhoncus consequat. Vestibulum faucibus sem quis ante rutrum viverra. Sed congue ex dolor, a dapibus arcu dictum vitae. Phasellus malesuada ipsum id ullamcorper rutrum. Quisque eget massa vestibulum, finibus nulla in, aliquam justo.",
+        "short_description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur laoreet fermentum purus, ut venenatis libero. Mauris semper commodo mauris, a ultrices risus elementum in. Nulla suscipit imperdiet nisl ac euismod. Curabitur posuere lacus ac sapien pharetra faucibus. Nullam nec magna odio. Donec sed vestibulum odio. Donec quis nibh vitae lorem suscipit iaculis sit amet sed massa. Ut dui lacus, pharetra eget nibh vel, sodales ornare lacus.</p>",
+        "description": "<p>Nulla euismod nulla iaculis rutrum interdum. Nunc ornare tellus dui, ac varius justo auctor nec. Suspendisse maximus mauris elementum, dapibus metus sed, lacinia quam. Donec maximus tortor eu leo malesuada maximus. Vestibulum bibendum suscipit dui ac malesuada. Aliquam vel tincidunt lorem. Aenean tempus erat non ligula tincidunt gravida. Sed nec bibendum enim. Curabitur in neque mi. Vivamus at consequat risus. Fusce tempor ante at porttitor condimentum. Maecenas blandit tempor purus. Sed ut enim vitae eros pellentesque ultrices in a mi. Donec tincidunt, sapien suscipit hendrerit porta, orci arcu volutpat urna, sed laoreet erat mauris quis est. Duis laoreet, nibh et eleifend sollicitudin, purus turpis blandit metus, vitae luctus enim nisi nec nisi. Nam pulvinar dolor quis massa pellentesque pulvinar. Maecenas tempor est eu diam elementum malesuada. Aliquam sagittis eu velit tincidunt pretium. Nam lacinia ultrices massa, ut aliquam felis sodales a. Cras at quam eget turpis molestie consequat. Integer dignissim, justo eu tristique ultrices, est velit sollicitudin velit, vitae placerat lectus velit pulvinar velit. Integer maximus massa nec lacus pharetra ornare sed sed neque. Mauris efficitur erat a diam mattis, non convallis ipsum faucibus. Pellentesque et purus ut ante cursus ultricies. Ut sit amet urna odio. Aliquam pharetra lorem mi, eu tempus metus imperdiet non. Sed iaculis urna ut erat pretium, eget condimentum diam porttitor. Phasellus ac facilisis mi, ac viverra sapien. Cras ornare laoreet felis, ac fermentum velit vulputate sed. Proin quis augue felis. Nulla pellentesque massa nisl, sed tincidunt odio suscipit eget. Vivamus commodo, justo aliquet consectetur semper, sapien lectus accumsan tellus, vitae varius erat neque in ligula. Vestibulum augue ante, tempus sed bibendum porta, maximus et leo. Sed dictum nunc libero, id finibus nibh consequat iaculis. Morbi feugiat lectus nibh, at pharetra lorem auctor ac. Phasellus condimentum ante vel erat interdum, sit amet rhoncus metus rutrum. Phasellus tincidunt sem a sem cursus fringilla ut sed erat. Donec semper volutpat tortor non lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque velit ipsum, pharetra vitae egestas in, laoreet ac lectus. Proin elit mi, volutpat sed consequat eu, tincidunt et nulla. Nunc interdum leo vitae ultrices dignissim. Praesent cursus lorem in arcu molestie congue. Cras ligula arcu, ornare ac finibus eget, convallis a enim. Etiam nulla tortor, vulputate ac ultrices eget, hendrerit condimentum dolor. Suspendisse imperdiet neque orci. Cras vitae dolor iaculis, suscipit eros eget, fermentum eros. Integer porta nisi quis enim rhoncus consequat. Vestibulum faucibus sem quis ante rutrum viverra. Sed congue ex dolor, a dapibus arcu dictum vitae. Phasellus malesuada ipsum id ullamcorper rutrum. Quisque eget massa vestibulum, finibus nulla in, aliquam justo.</p>",
         "published": true,
         "in_archive": false,
         "status": "development",
@@ -1816,7 +1988,9 @@
         "status": "idea",
         "creation_date": "2023-04-21T14:40:18.250Z",
         "update_date": "2023-04-21T14:40:18.250Z",
-        "collaborators": [],
+        "collaborators": [
+            8
+        ],
         "tags": [
             4,
             7,
@@ -1855,13 +2029,13 @@
     "fields": {
         "author": 3,
         "name": "Гамма",
-        "short_description": "Donec in tincidunt nisi. Maecenas pellentesque aliquet lacus, quis hendrerit est. In vitae nulla in tellus tincidunt varius. Mauris id blandit lorem, sit amet dictum lacus. Vestibulum imperdiet, sapien sed consequat congue, ante nunc auctor purus, tempor molestie felis tortor at tellus. Suspendisse a eros a odio rutrum efficitur vitae sit amet dolor. Sed at consequat arcu, tempor accumsan nisi. Maecenas auctor interdum magna nec egestas. Pellentesque ultrices sapien consequat bibendum tristique. Vivamus vitae libero tincidunt, porttitor augue sed, elementum turpis.",
-        "description": "Donec in tincidunt nisi. Maecenas pellentesque aliquet lacus, quis hendrerit est. In vitae nulla in tellus tincidunt varius. Nulla efficitur, leo ut faucibus interdum, orci ex convallis ligula, vel efficitur mi leo non nulla. Donec quam nunc, suscipit quis est ac, laoreet porta elit. Integer sed justo bibendum, varius odio a, tempor est. Duis eget mauris sed ante consequat pellentesque a sed augue.\r\n\r\nSed at neque ac odio porta eleifend at id magna. Mauris id blandit lorem, sit amet dictum lacus. Vestibulum imperdiet, sapien sed consequat congue, ante nunc auctor purus, tempor molestie felis tortor at tellus. Suspendisse a eros a odio rutrum efficitur vitae sit amet dolor. Sed at consequat arcu, tempor accumsan nisi. Maecenas auctor interdum magna nec egestas. Pellentesque ultrices sapien consequat bibendum tristique. Vivamus vitae libero tincidunt, porttitor augue sed, elementum turpis.",
+        "short_description": "<p>Donec in tincidunt nisi. Maecenas pellentesque aliquet lacus, quis hendrerit est. In vitae nulla in tellus tincidunt varius. Mauris id blandit lorem, sit amet dictum lacus. Vestibulum imperdiet, sapien sed consequat congue, ante nunc auctor purus, tempor molestie felis tortor at tellus. Suspendisse a eros a odio rutrum efficitur vitae sit amet dolor. Sed at consequat arcu, tempor accumsan nisi. Maecenas auctor interdum magna nec egestas. Pellentesque ultrices sapien consequat bibendum tristique. Vivamus vitae libero tincidunt, porttitor augue sed, elementum turpis.</p>",
+        "description": "<p>Donec in tincidunt nisi. Maecenas pellentesque aliquet lacus, quis hendrerit est. In vitae nulla in tellus tincidunt varius. Nulla efficitur, leo ut faucibus interdum, orci ex convallis ligula, vel efficitur mi leo non nulla. Donec quam nunc, suscipit quis est ac, laoreet porta elit. Integer sed justo bibendum, varius odio a, tempor est. Duis eget mauris sed ante consequat pellentesque a sed augue. Sed at neque ac odio porta eleifend at id magna. Mauris id blandit lorem, sit amet dictum lacus. Vestibulum imperdiet, sapien sed consequat congue, ante nunc auctor purus, tempor molestie felis tortor at tellus. Suspendisse a eros a odio rutrum efficitur vitae sit amet dolor. Sed at consequat arcu, tempor accumsan nisi. Maecenas auctor interdum magna nec egestas. Pellentesque ultrices sapien consequat bibendum tristique. Vivamus vitae libero tincidunt, porttitor augue sed, elementum turpis.</p>",
         "published": true,
-        "in_archive": false,
+        "in_archive": true,
         "status": "idea",
         "creation_date": "2023-04-21T14:46:46.053Z",
-        "update_date": "2023-04-21T14:46:46.053Z",
+        "update_date": "2023-04-22T11:42:24.926Z",
         "collaborators": [],
         "tags": [
             2,
@@ -1901,13 +2075,13 @@
     "fields": {
         "author": 8,
         "name": "О дивный новый мир",
-        "short_description": "Proin eget tempor massa. Aenean lacinia quam id elit porta lacinia. Nunc et massa pharetra, vulputate sem sed, pretium ligula. Fusce tempus vestibulum feugiat. Cras eget lacinia tortor. In at orci nec ante blandit efficitur. Ut quis congue dui, posuere gravida urna. Suspendisse potenti.",
-        "description": "Morbi nec accumsan tellus, nec vehicula massa. Duis risus diam, facilisis nec eros eu, auctor suscipit elit. Duis in eleifend odio. In imperdiet semper sem. Cras finibus mollis pretium. Sed pellentesque viverra venenatis. Ut congue elementum risus, ac gravida nisi feugiat nec. Proin et tincidunt nisi, eu dapibus orci.\r\n\r\nProin eget tempor massa. Aenean lacinia quam id elit porta lacinia. Nunc et massa pharetra, vulputate sem sed, pretium ligula. Fusce tempus vestibulum feugiat. Cras eget lacinia tortor. In at orci nec ante blandit efficitur. Ut quis congue dui, posuere gravida urna. Suspendisse potenti.",
+        "short_description": "<p>Proin eget tempor massa. Aenean lacinia quam id elit porta lacinia. Nunc et massa pharetra, vulputate sem sed, pretium ligula. Fusce tempus vestibulum feugiat. Cras eget lacinia tortor. In at orci nec ante blandit efficitur. Ut quis congue dui, posuere gravida urna. Suspendisse potenti.</p>",
+        "description": "<p>Morbi nec accumsan tellus, nec vehicula massa. Duis risus diam, facilisis nec eros eu, auctor suscipit elit. Duis in eleifend odio. In imperdiet semper sem. Cras finibus mollis pretium. Sed pellentesque viverra venenatis. Ut congue elementum risus, ac gravida nisi feugiat nec. Proin et tincidunt nisi, eu dapibus orci. Proin eget tempor massa. Aenean lacinia quam id elit porta lacinia. Nunc et massa pharetra, vulputate sem sed, pretium ligula. Fusce tempus vestibulum feugiat. Cras eget lacinia tortor. In at orci nec ante blandit efficitur. Ut quis congue dui, posuere gravida urna. Suspendisse potenti.</p>",
         "published": true,
         "in_archive": false,
         "status": "ended",
         "creation_date": "2023-04-21T14:53:04.636Z",
-        "update_date": "2023-04-21T14:53:04.636Z",
+        "update_date": "2023-04-22T11:47:33.978Z",
         "collaborators": [],
         "tags": [
             5,
@@ -2050,34 +2224,26 @@
 },
 {
     "model": "projects.imagesgallery",
-    "pk": 1,
+    "pk": 5,
     "fields": {
-        "image": "project_previews/project_8/bs_logo_1.jpg",
-        "project": 8
+        "image": "project_previews/project_3/Кот-демон_v1.0.jpg",
+        "project": 3
     }
 },
 {
     "model": "projects.imagesgallery",
-    "pk": 2,
+    "pk": 6,
     "fields": {
-        "image": "project_previews/project_8/bs_logo_2.jpg",
-        "project": 8
+        "image": "project_previews/project_3/Кот-демон_v1.1.jpg",
+        "project": 3
     }
 },
 {
     "model": "projects.imagesgallery",
-    "pk": 3,
+    "pk": 7,
     "fields": {
-        "image": "project_previews/project_8/bs_logo_2.png",
-        "project": 8
-    }
-},
-{
-    "model": "projects.imagesgallery",
-    "pk": 4,
-    "fields": {
-        "image": "project_previews/project_8/bs_logo_2_2color_0.png",
-        "project": 8
+        "image": "project_previews/project_3/Чеширский_кот_xXfuZ5C.jpg",
+        "project": 3
     }
 },
 {
@@ -2252,6 +2418,15 @@
     }
 },
 {
+    "model": "rating.projectrating",
+    "pk": 21,
+    "fields": {
+        "project": 10,
+        "user": 8,
+        "score": 9
+    }
+},
+{
     "model": "tags.tag",
     "pk": 1,
     "fields": {
@@ -2421,7 +2596,7 @@
     "pk": 3,
     "fields": {
         "password": "pbkdf2_sha256$260000$dVK4vETASsQMl8K0YBZ7MB$2n9+vIiePdU5ykp1xJvg2htrCRu5x29kQZqNiisyEbI=",
-        "last_login": "2023-04-21T16:18:14.027Z",
+        "last_login": "2023-04-21T17:06:08.648Z",
         "username": "Alpha125",
         "bio": "Привет всем из Тихого города!",
         "first_name": "Альфа",
@@ -2442,7 +2617,7 @@
     "pk": 4,
     "fields": {
         "password": "pbkdf2_sha256$260000$Pp1eWhczvZtt2nrN9Scj3S$+r3uSzqpTC7i3g3KVlGD+m0iRo0tzko0Qb1GnLLJ79w=",
-        "last_login": "2023-04-21T16:21:58.476Z",
+        "last_login": "2023-04-22T12:05:29.425Z",
         "username": "Rostislav",
         "bio": "Фронтендер, один из создателей BrainStorm",
         "first_name": "Ростислав",
@@ -2484,7 +2659,7 @@
     "pk": 8,
     "fields": {
         "password": "pbkdf2_sha256$260000$BPRvmtxGY9PoyEb8e1qkax$LM5QfX1BUJwFs0o+na9TPJpcZ7B72GwdcqcAI01ea6M=",
-        "last_login": "2023-04-21T16:09:18.298Z",
+        "last_login": "2023-04-22T12:00:31.356Z",
         "username": "Jay",
         "bio": "",
         "first_name": "Джей",
