@@ -19,7 +19,7 @@ class ProjectSerializer(rest_framework.serializers.ModelSerializer):
             projects.models.Project.status.field.name,
             projects.models.Project.creation_date.field.name,
             projects.models.Project.update_date.field.name,
-            'rating'
+            'rating',
         )
 
     def get_rating(self, obj):

@@ -24,5 +24,5 @@ urlpatterns = [
         'projectlist/<int:pk>/',
         api.v1.projects.views.ProjectDetail.as_view(),
         name='project_detail',
-    )
+    ),
 ]
