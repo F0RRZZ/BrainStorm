@@ -1,5 +1,4 @@
-import rest_framework.fields
-from django.db.models import Avg
+import django.db.models
 import rest_framework.serializers
 
 import api.v1.users.serializers
@@ -53,5 +52,8 @@ class ProjectSerializer(rest_framework.serializers.ModelSerializer):
 
     def get_rating(self, obj):
         return round(
-            obj.score_project.aggregate(Avg('score'))['score__avg'], 1
+            obj.score_project.aggregate(django.db.models.Avg('score'))[
+                'score__avg'
+            ],
+            1,
         )
