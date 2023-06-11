@@ -1,9 +1,11 @@
+import rest_framework.fields
 from django.db.models import Avg
 import rest_framework.serializers
 
 import api.v1.users.serializers
 import comments.models
 import projects.models
+import tags.models
 
 
 class CommentSerializer(rest_framework.serializers.ModelSerializer):
@@ -19,9 +21,19 @@ class CommentSerializer(rest_framework.serializers.ModelSerializer):
         )
 
 
+class TagSerializer(rest_framework.serializers.ModelSerializer):
+    class Meta:
+        model = tags.models.Tag
+        fields = (
+            tags.models.Tag.name.field.name,
+            tags.models.Tag.description.field.name,
+        )
+
+
 class ProjectSerializer(rest_framework.serializers.ModelSerializer):
     rating = rest_framework.serializers.SerializerMethodField()
     comments = CommentSerializer(many=True, read_only=True)
+    tags = TagSerializer(many=True, read_only=True)
 
     class Meta:
         model = projects.models.Project
