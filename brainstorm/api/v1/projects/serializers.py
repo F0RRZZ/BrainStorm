@@ -1,11 +1,27 @@
 from django.db.models import Avg
 import rest_framework.serializers
 
+import api.v1.users.serializers
+import comments.models
 import projects.models
+
+
+class CommentSerializer(rest_framework.serializers.ModelSerializer):
+    user = api.v1.users.serializers.UserSerializer()
+
+    class Meta:
+        model = comments.models.Comment
+        fields = (
+            comments.models.Comment.user.field.name,
+            comments.models.Comment.text.field.name,
+            comments.models.Comment.creation_date.field.name,
+            comments.models.Comment.update_date.field.name,
+        )
 
 
 class ProjectSerializer(rest_framework.serializers.ModelSerializer):
     rating = rest_framework.serializers.SerializerMethodField()
+    comments = CommentSerializer(many=True, read_only=True)
 
     class Meta:
         model = projects.models.Project
@@ -20,6 +36,7 @@ class ProjectSerializer(rest_framework.serializers.ModelSerializer):
             projects.models.Project.creation_date.field.name,
             projects.models.Project.update_date.field.name,
             'rating',
+            'comments',
         )
 
     def get_rating(self, obj):
