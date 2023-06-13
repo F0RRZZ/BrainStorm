@@ -106,7 +106,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'brainstorm.wsgi.application'
 
 DATABASES = {
-    'default': {
+    'mysql': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': env('DB_NAME'),
         'HOST': '127.0.0.1',
@@ -114,7 +114,7 @@ DATABASES = {
         'USER': env('DB_USER'),
         'PASSWORD': env('DB_PASSWORD'),
     },
-    'sqlite': {
+    'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
