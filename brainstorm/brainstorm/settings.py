@@ -19,6 +19,9 @@ env = environ.Env(
     REDIS_PORT=(str, '6379'),
     SECRET_KEY=(str, 'dummy-key'),
     USERS_AUTOACTIVATE=(bool, True),
+    DB_NAME=(str, 'db'),
+    DB_USER=(str, 'root'),
+    DB_PASSWORD=(str, 'password'),
 )
 
 ALLOWED_HOSTS = env('ALLOWED_HOSTS')
@@ -104,9 +107,17 @@ WSGI_APPLICATION = 'brainstorm.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env('DB_NAME'),
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+    },
+    'sqlite': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    },
 }
 
 AUTH_PASSWORD_VALIDATORS = [

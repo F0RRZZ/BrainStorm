@@ -1574,19 +1574,6 @@
 },
 {
     "model": "collaboration.collaborationrequest",
-    "pk": 0,
-    "fields": {
-        "project": 3,
-        "user": 8,
-        "contact": "<p>Nunc cursus quam sit amet augue rutrum scelerisque. Etiam eget dapibus dolor. Vestibulum consectetur, justo in tincidunt dapibus, tortor turpis pharetra nulla, quis condimentum tortor dui ut nibh. Nam lacus lorem, convallis vitae pellentesque vel, accumsan nec nisi.</p>",
-        "about": "<p>Fusce at nisl et orci placerat rutrum ut eget sapien. Phasellus porta posuere justo at euismod. Mauris euismod finibus tincidunt. Proin sagittis aliquam consequat. Mauris convallis a nunc a dapibus. Maecenas pulvinar finibus ipsum, sit amet interdum erat fermentum quis. Donec volutpat sit amet nulla id consectetur. Nulla id pretium diam, eu aliquam massa. Suspendisse eget sollicitudin felis, vitae fringilla ex. Nunc cursus quam sit amet augue rutrum scelerisque. Etiam eget dapibus dolor. Vestibulum consectetur, justo in tincidunt dapibus, tortor turpis pharetra nulla, quis condimentum tortor dui ut nibh. Nam lacus lorem, convallis vitae pellentesque vel, accumsan nec nisi.</p>",
-        "answer": "",
-        "creation_date": "2023-04-22T12:02:00.295Z",
-        "status": "in_queue"
-    }
-},
-{
-    "model": "collaboration.collaborationrequest",
     "pk": 1,
     "fields": {
         "project": 3,
