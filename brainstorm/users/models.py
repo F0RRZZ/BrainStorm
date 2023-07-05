@@ -1,7 +1,6 @@
 import os
 import re
 
-import django.contrib.auth.models
 import django.db.models
 from django.utils.translation import gettext_lazy as _
 

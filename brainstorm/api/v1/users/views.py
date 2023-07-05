@@ -1,5 +1,4 @@
 import rest_framework.generics
-import rest_framework.views
 
 import api.v1.users.serializers
 import users.models
