@@ -16,7 +16,7 @@ urlpatterns = [
     django.urls.path(
         '',
         django.urls.include(
-            api.v1.users.routers.router.urls
+            api.v1.projects.routers.router.urls
         )
     ),
 ]
