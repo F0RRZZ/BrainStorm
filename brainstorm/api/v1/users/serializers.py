@@ -12,6 +12,7 @@ class UserSerializer(rest_framework.serializers.ModelSerializer):
     class Meta:
         model = users.models.User
         fields = (
+            'id',
             users.models.User.first_name.field.name,
             users.models.User.last_name.field.name,
             users.models.User.username.field.name,

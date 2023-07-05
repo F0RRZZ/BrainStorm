@@ -16,6 +16,7 @@ class ProjectSerializer(rest_framework.serializers.ModelSerializer):
     class Meta:
         model = projects.models.Project
         fields = (
+            'id',
             projects.models.Project.name.field.name,
             projects.models.Project.author.field.name,
             projects.models.Project.short_description.field.name,
