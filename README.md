@@ -70,6 +70,9 @@ cp .env-example .env
 8. REDIS_PORT - порт для взаимодействия с Redis
 9. SECRET_KEY - секретный ключ
 10. USERS_AUTOACTIVATE - режим автоактивации пользователей (отключение подтверждения аккаунта)
+11. DB_NAME - имя базы данных MySQL
+12. DB_USER - имя админа MySQL
+13. DB_PASSWORD - пароль от базы данных MySQL
 
 
 Для получения client_id и secret key вам нужно зарегистрировать свое приложение на сайте GitHub.
@@ -94,7 +97,12 @@ cp .env-example .env
 ---
 
 5. Создайте базу данных
-Создание с помощью миграций
+
+Изначально сайт работает на базе данных SQLite
+
+Если же вы хотите использовать MySQL, , то в файле brainshtorm/settings.py в переменной DATABASES измените 'default' на 'sqlite', а 'mysql' на 'default'
+
+Здесь вы можете найти информацию о том, как создать базу данных MySQL: https://dev.mysql.com/doc/
 
 ```shell
 python manage.py makemigrations
